@@ -37,14 +37,19 @@
         />
       </div>
       <!-- Botão para sair da janela do ChatBot -->
-      <button
+      <a
+        href="../../index.html"
         class="btn-close"
-        id="btnClose"
-        type="button"
-        aria-label="Voltar ao início"
+        aria-label="Voltar para a página inicial"
       >
         <span class="btn-close-text">Voltar ao início</span>
-        <svg viewBox="0 0 24 24" width="15" height="15">
+        <svg
+          viewBox="0 0 24 24"
+          width="15"
+          height="15"
+          aria-hidden="true"
+          focusable="false"
+        >
           <path
             d="M6 6l12 12M18 6L6 18"
             stroke="#fff"
@@ -52,7 +57,7 @@
             stroke-linecap="round"
           />
         </svg>
-      </button>
+      </a>
     </header>
 
     <main class="chat-messages" id="chatMessages">
