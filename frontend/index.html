@@ -19,9 +19,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a class="skip-link" href="#conteudo-principal"
-      >Pular para o conteúdo principal</a
-    >
     <!-- Cabeçalho (Header) -->
     <header class="header">
       <div class="logo">
@@ -37,13 +34,18 @@
           class="icon-verified"
         />
       </div>
-      <a href="Pages/chatBot/chatBot.html" class="btn btn-primary"
-        >Iniciar gratuitamente</a
+      <a
+        href="Pages/chatBot/chatBot.html"
+        class="btn btn-primary btn-large"
+        role="button"
+        aria-label="Abrir o chat para verificar uma notícia"
       >
+        Verificar uma notícia agora
+      </a>
     </header>
 
     <!-- Conteúdo Principal -->
-    <main id="conteudo-principal">
+    <main>
       <!-- Seção Hero (Apresentação Inicial) -->
       <section class="hero-section">
         <div class="hero-content">
@@ -54,9 +56,7 @@
             Aprenda a identificar golpes, fake news e conteúdos gerados por IA
             através de uma plataforma simples, acessível e pensada para todos.
           </p>
-          <a href="Pages/chatBot/chatBot.html" class="btn btn-primary btn-large"
-            >Abrir o chat de verificação</a
-          >
+          <a href="#" class="btn btn-primary btn-large">Conheça a plataforma</a>
         </div>
 
         <div class="hero-card">
@@ -74,7 +74,7 @@
       </section>
 
       <!-- Seção de Dados / Estatísticas -->
-      <section class="stats-section">
+      <section class="stats-section" aria-label="Dados sobre golpes digitais">
         <div class="stat-box">
           <h2>308%</h2>
           <p>
@@ -114,7 +114,7 @@
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-lupa.png"
-                alt="Ícone"
+                alt=""
                 class="feature-icon"
               />
               <h3>Conteúdos informativos</h3>
@@ -129,7 +129,7 @@
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-cerebro.png"
-                alt="Ícone"
+                alt=""
                 class="feature-icon"
               />
               <h3>Detector de IA</h3>
@@ -144,7 +144,7 @@
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-joystick.png"
-                alt="Ícone"
+                alt=""
                 class="feature-icon"
               />
               <h3>Aprendizado Gamificado</h3>
@@ -159,7 +159,7 @@
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-comunidade.png"
-                alt="Ícone"
+                alt=""
                 class="feature-icon"
               />
               <h3>Comunidade</h3>
@@ -174,7 +174,7 @@
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-noticias.png"
-                alt="Ícone"
+                alt=""
                 class="feature-icon"
               />
               <h3>Noticiário</h3>
@@ -197,24 +197,24 @@
 
         <div class="sources-grid">
           <div class="source-card">
-            <img src="assets/fontes-jornalisticas/g1.png" alt="Logo do G1" />
+            <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
           </div>
           <div class="source-card">
-            <img src="assets/fontes-jornalisticas/uol.png" alt="Logo do UOL" />
+            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
           </div>
           <div class="source-card">
             <img
               src="assets/fontes-jornalisticas/agencia_brasil.png"
-              alt="Logo da Agência Brasil"
+              alt="Agência Brasil"
             />
           </div>
           <div class="source-card">
-            <img src="assets/fontes-jornalisticas/cnn.png" alt="Logo da CNN" />
+            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
           </div>
           <div class="source-card">
             <img
               src="assets/fontes-jornalisticas/folha_sao_paulo.png"
-              alt="Logo da Folha de São Paulo"
+              alt="Folha de São Paulo"
             />
           </div>
         </div>
@@ -226,9 +226,7 @@
       <section class="cta-banner">
         <h2>Proteja-se de notícias falsas e golpes virtuais.</h2>
         <p>Comece gratuitamente e desenvolva sua segurança digital.</p>
-        <a href="Pages/chatBot/chatBot.html" class="btn btn-secondary"
-          >Ir para o chat agora</a
-        >
+        <a href="#" class="btn btn-secondary">Crie sua conta!</a>
       </section>
     </main>
 
