@@ -57,10 +57,16 @@
 
     <main class="chat-messages" id="chatMessages">
       <!-- Campo das mensagens -->
-      <div class="chat-messages-inner" id="chatMessagesInner">
+      <div
+        class="chat-messages-inner"
+        id="chatMessagesInner"
+        aria-live="polite"
+        aria-label="Conversa com o assistente"
+      >
         <!-- Estado Inicial, enquanto o chat estiver vazio. -->
         <div class="empty-state" id="emptyState">
           <p class="empty-title">Antes de confiar, verifique.</p>
+          <p class="empty-sub">Digite sua dúvida abaixo ou envie um arquivo.</p>
           <p class="empty-sub">
             Esta IA serve apenas como auxílio, e pode cometer erros! Utilize
             mais de uma fonte para confirmar
@@ -86,9 +92,9 @@
         </button>
       </div>
       <form class="chat-area" id="chatForm">
-        <label class="attach-label" for="fileInput" title="Anexar arquivo">
-          <img src="../../assets/icons/attach-white.png" alt="Anexar arquivo" />
-          <span>Anexar arquivo</span>
+        <label class="attach-label" for="fileInput" title="Enviar arquivo">
+          <img src="../../assets/icons/attach-white.png" alt="Enviar arquivo" />
+          <span>Enviar arquivo</span>
         </label>
         <input
           type="file"
@@ -103,7 +109,7 @@
           type="text"
           id="textInput"
           class="chat-input"
-          placeholder="Insira um texto ou envie um arquivo..."
+          placeholder="Digite sua pergunta aqui"
           autocomplete="off"
         />
         <button type="submit" class="send-btn" aria-label="Enviar">
