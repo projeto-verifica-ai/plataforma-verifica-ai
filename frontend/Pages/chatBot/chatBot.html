@@ -1,78 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verifica AI - Proteja-se de Fake News</title>
     <!-- Melhores práticas de SEO: Inclusão de meta tags básicas -->
-    <meta name="description"
-        content="ChatBot do Verifica AI - Interaja com nosso assistente virtual para aprender a identificar golpes, fake news e conteúdos gerados por IA. Desenvolva seu pensamento crítico de forma simples e acessível." />
+    <meta
+      name="description"
+      content="ChatBot do Verifica AI - Interaja com nosso assistente virtual para aprender a identificar golpes, fake news e conteúdos gerados por IA. Desenvolva seu pensamento crítico de forma simples e acessível."
+    />
     <!-- Fontes do Google (Outfit e Plus Jakarta Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
-        rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="chatBot.css" />
     <link rel="stylesheet" href="../../style.css" />
-</head>
+  </head>
 
-<body>
+  <body class="chatbot-page">
     <header class="headerChatBot">
-        <!-- Logo padrão do Verifica AI -->
-        <div class="logo">
-            <img src="../../assets/verificaai-robot-icon.png" alt="Ícone do Verifica AI" class="logo-icon" />
-            <span class="logo-text">Verifica AI</span>
-            <img src="../../assets/icons/icone-verificado.png" alt="Verificado" class="icon-verified" />
-        </div>
-        <!-- Botão para sair da janela do ChatBot -->
-        <button class="btn-close" id="btnClose" type="button" aria-label="Fechar chat">
-            <!-- Ainda é necessário confirmar se será usado um SVG do X mesmo, ou se será usado um PNG -->
-            <svg viewBox="0 0 24 24" width="15" height="15">
-                <path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round" />
-            </svg>
-        </button>
+      <!-- Logo padrão do Verifica AI -->
+      <div class="logo">
+        <img
+          src="../../assets/verificaai-robot-icon.png"
+          alt="Ícone do Verifica AI"
+          class="logo-icon"
+        />
+        <span class="logo-text">Verifica AI</span>
+        <img
+          src="../../assets/icons/icone-verificado.png"
+          alt="Verificado"
+          class="icon-verified"
+        />
+      </div>
+      <!-- Botão para sair da janela do ChatBot -->
+      <a
+        href="../../index.html"
+        class="btn-close"
+        aria-label="Voltar para a página inicial"
+      >
+        <span class="btn-close-text">Voltar ao início</span>
+        <svg
+          viewBox="0 0 24 24"
+          width="15"
+          height="15"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="#fff"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+        </svg>
+      </a>
     </header>
 
     <main class="chat-messages" id="chatMessages">
-        <!-- Campo das mensagens -->
-        <div class="chat-messages-inner" id="chatMessagesInner">
-            <!-- Estado Inicial, enquanto o chat estiver vazio. -->
-            <div class="empty-state" id="emptyState">
-                <p class="empty-title">Antes de confiar, verifique.</p>
-                <p class="empty-sub">Esta IA serve apenas como auxílio, e pode cometer erros! Utilize mais de uma fonte
-                    para confirmar </p>
-            </div>
+      <!-- Campo das mensagens -->
+      <div
+        class="chat-messages-inner"
+        id="chatMessagesInner"
+        aria-live="polite"
+        aria-label="Conversa com o assistente"
+      >
+        <!-- Estado Inicial, enquanto o chat estiver vazio. -->
+        <div class="empty-state" id="emptyState">
+          <p class="empty-title">Antes de confiar, verifique.</p>
+          <p class="empty-sub">Digite sua dúvida abaixo ou envie um arquivo.</p>
+          <p class="empty-sub">
+            Esta IA serve apenas como auxílio, e pode cometer erros! Utilize
+            mais de uma fonte para confirmar
+          </p>
         </div>
+      </div>
     </main>
 
-
     <footer class="footerChatBot">
-        <div class="attachment-preview" id="attachmentPreview" hidden>
-            <img src="../../assets/icons/attach-white.png" alt="" />
-            <span id="attachmentName"></span>
-            <button type="button" id="removeAttachment" aria-label="Remover anexo">
-                <!-- Ainda é necessário confirmar se será usado um SVG do X mesmo, ou se será usado um PNG -->
-                <svg viewBox="0 0 24 24" width="13" height="13">
-                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
-                </svg>
-            </button>
-        </div>
-        <form class="chat-area" id="chatForm">
-            <label class="attach-label" for="fileInput" title="Anexar arquivo">
-                <img src="../../assets/icons/attach-white.png" alt="Anexar arquivo" />
-            </label>
-            <input type="file" id="fileInput" hidden accept="image/*,video/*,audio/*" />
-            <input type="text" id="textInput" class="chat-input" placeholder="Insira um texto ou envie um arquivo..."
-                autocomplete="off" />
-            <button type="submit" class="send-btn" aria-label="Enviar">
-                <img src="../../assets/icons/send-white.png" alt="" />
-            </button>
-        </form>
+      <div class="attachment-preview" id="attachmentPreview" hidden>
+        <img src="../../assets/icons/attach-white.png" alt="" />
+        <span id="attachmentName"></span>
+        <button type="button" id="removeAttachment" aria-label="Remover anexo">
+          <span class="sr-only">Remover anexo</span>
+          <svg viewBox="0 0 24 24" width="13" height="13">
+            <path
+              d="M6 6l12 12M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <form class="chat-area" id="chatForm">
+        <label class="attach-label" for="fileInput" title="Enviar arquivo">
+          <img src="../../assets/icons/attach-white.png" alt="Enviar arquivo" />
+          <span>Enviar arquivo</span>
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          hidden
+          accept="image/*,video/*,audio/*"
+        />
+        <label class="sr-only" for="textInput"
+          >Digite sua pergunta ou descreva o arquivo enviado</label
+        >
+        <input
+          type="text"
+          id="textInput"
+          class="chat-input"
+          placeholder="Digite sua pergunta aqui"
+          autocomplete="off"
+        />
+        <button type="submit" class="send-btn" aria-label="Enviar">
+          <img src="../../assets/icons/send-white.png" alt="" />
+          <span>Enviar</span>
+        </button>
+      </form>
     </footer>
 
     <script type="module" src="chatbot.js"></script>
-</body>
-
+  </body>
 </html>
