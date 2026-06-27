@@ -1,44 +1,88 @@
-/* Layout da pagina */
+/* ============================================================
+   CHATBOT — Verifica AI
+   Estilos exclusivos da página do chatbot.
+   Depende das variáveis definidas em ../../style.css
+   ============================================================ */
+
+
+/* --------------------------------
+   LAYOUT GERAL DA PÁGINA
+   Corpo em coluna: header | main (scroll) | footer
+   -------------------------------- */
 html,
 body {
     height: 100%;
 }
 
-/* Deixo o display flex, em colunas e o conteudo dos textos não ultrapassam o footer e o header, porem permite scrollar */
 body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-/* HEADER */
+
+/* --------------------------------
+   SCROLLBAR PERSONALIZADA
+   Trilha fina e discreta, combinando com o fundo bege
+   -------------------------------- */
+.chat-messages {
+    scrollbar-width: thin;                          /* Firefox */
+    scrollbar-color: #c4bfb0 transparent;           /* polegar | trilha (Firefox) */
+}
+
+/* Navegadores baseados em Chromium (Chrome, Edge, Opera) */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #c4bfb0;
+    border-radius: 99px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background-color: #a9a495;
+}
+
+
+/* --------------------------------
+   HEADER
+   Logo à esquerda, botão de fechar à direita
+   -------------------------------- */
 .headerChatBot {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 16px 32px;
     max-width: 100vw;
     margin: 0 auto;
     width: 100%;
     flex-shrink: 0;
+    border-bottom: 1px solid rgba(5, 11, 26, 0.08);
+    background-color: var(--color-bg-primary);
+    z-index: 10;
 }
 
-/* reutilizei a estilização do css principal para a logo, porem, foi necessário diminui-lá*/
+/* Logo menor que a da landing page */
 .headerChatBot .logo-icon {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
 }
 
 .headerChatBot .logo-text {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .headerChatBot .icon-verified {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 
-
+/* Botão circular de fechar (X) */
 .btn-close {
     width: 34px;
     height: 34px;
@@ -49,72 +93,93 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-close:hover {
     transform: scale(1.08);
+    background-color: #1e3d23;
 }
 
 
-/* Area das mensagens (MAIN) */
+/* --------------------------------
+   ÁREA DE MENSAGENS (MAIN)
+   Scroll vertical com máscara de fade na base
+   -------------------------------- */
 .chat-messages {
     flex: 1;
     overflow-y: auto;
-    mask-image: linear-gradient(to bottom, black calc(100% - 56px), transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 56px), transparent 100%);
+    mask-image: linear-gradient(to bottom, black calc(100% - 40px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 40px), transparent 100%);
 }
 
+/* Container interno que centraliza e limita a largura */
 .chat-messages-inner {
-    max-width: 760px;
+    max-width: 720px;
     min-height: 100%;
     margin: 0 auto;
-    padding: 24px 32px 70px;
+    padding: 32px 28px 80px;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
 }
 
+
+/* --------------------------------
+   ESTADO VAZIO
+   Exibido enquanto não há mensagens
+   -------------------------------- */
 .empty-state {
     margin: auto;
     text-align: center;
-    max-width: 360px;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .empty-title {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--color-text-dark);
-    margin-bottom: 10px;
 }
 
 .empty-sub {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--color-text-light);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* MENSAGEM DO USUÁRIO */
 
+/* --------------------------------
+   MENSAGEM DO USUÁRIO
+   Balão azul alinhado à direita
+   -------------------------------- */
 .msg-user {
     align-self: flex-end;
-    max-width: 65%;
+    max-width: 70%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
+    animation: fadeInUp 0.3s ease;
 }
 
+/* Balão de texto */
 .msg-user .bubble {
     background-color: var(--color-blue-primary);
     color: var(--color-white);
-    border-radius: 22px 22px 4px 22px;
-    padding: 18px 22px;
+    border-radius: 20px 20px 4px 20px;
+    padding: 14px 20px;
     font-size: 15px;
     line-height: 1.6;
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(40, 76, 173, 0.2);
 }
 
+/* Chip de arquivo anexado */
 .attachment-chip {
     display: inline-flex;
     align-items: center;
@@ -129,68 +194,180 @@ body {
 .attachment-chip img {
     width: 13px;
     height: 13px;
+    opacity: 0.7;
 }
 
-/* MENSAGEM DO ASSISTENTE (sem balão, texto corrido) */
 
+/* --------------------------------
+   MENSAGEM DO ASSISTENTE
+   Avatar + card branco com conteúdo da análise
+   -------------------------------- */
 .msg-assistant {
     align-self: flex-start;
-    max-width: 80%;
+    max-width: 85%;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
+    animation: fadeInUp 0.3s ease;
 }
 
+/* Avatar do mascote */
 .assistant-avatar img {
-    width: 110px;
-    height: auto;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
     display: block;
 }
 
+/* Card branco que contém a resposta */
+.assistant-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--color-white);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(5, 11, 26, 0.06);
+    border: 1px solid rgba(5, 11, 26, 0.06);
+}
+
+/* Título principal da resposta */
 .assistant-content h3 {
     font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 24px;
-    line-height: 1.3;
+    font-size: 20px;
+    line-height: 1.35;
     color: var(--color-text-dark);
+    margin-bottom: 2px;
 }
 
+/* Subtítulo complementar */
 .assistant-content h4 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 17px;
-    color: var(--color-text-medium);
+    font-size: 16px;
+    color: var(--color-text-dark);
+    margin-top: 6px;
 }
 
+/* Parágrafos de texto */
 .assistant-content p {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--color-text-medium);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
+/* Listas dentro da resposta */
 .assistant-content ul {
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 .assistant-content li {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color-text-medium);
     line-height: 1.7;
     margin-bottom: 4px;
 }
 
-/* "digitando..." enquanto espera resposta */
 
+/* --------------------------------
+   SELO DE VEREDITO
+   Badge colorido: falso (vermelho), verdadeiro (verde), inconclusivo (azul)
+   -------------------------------- */
+.msg-assistant .veredito-selo {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.msg-assistant .selo-falso {
+    background-color: #fde8e8;
+    color: #b91c1c;
+}
+
+.msg-assistant .selo-verdadeiro {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.msg-assistant .selo-inconclusivo {
+    background-color: #e0e7ff;
+    color: var(--color-blue-primary);
+}
+
+/* Título atenuado para mensagens recusadas */
+.msg-assistant .titulo-recusa {
+    color: var(--color-text-medium);
+}
+
+
+/* --------------------------------
+   BLOCO DE FONTES CONSULTADAS
+   Caixa com borda lateral azul e fundo cinza claro
+   -------------------------------- */
+.msg-assistant .assistant-fontes {
+    margin-top: 8px;
+    padding: 16px 18px;
+    background-color: #f8f9fb;
+    border-radius: 14px;
+    border-left: 3px solid var(--color-blue-primary);
+}
+
+.msg-assistant .assistant-fontes h4 {
+    font-family: var(--font-primary);
+    font-size: 13px;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+}
+
+.msg-assistant .assistant-fontes ul {
+    padding-left: 16px;
+    margin: 0;
+}
+
+.msg-assistant .assistant-fontes li {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.msg-assistant .assistant-fontes a {
+    color: var(--color-blue-primary);
+    font-weight: 500;
+    text-decoration: none;
+    word-break: break-word;
+    transition: opacity 0.15s ease;
+}
+
+.msg-assistant .assistant-fontes a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+
+/* --------------------------------
+   ANIMAÇÃO DE CARREGAMENTO
+   Três pontos pulsantes enquanto a IA analisa
+   -------------------------------- */
 .loading-dots {
     display: flex;
     gap: 5px;
-    padding: 6px 0;
+    padding: 16px 0;
 }
 
 .loading-dots span {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: var(--color-text-light);
     animation: blink 1.2s infinite ease-in-out;
@@ -205,20 +382,33 @@ body {
 }
 
 @keyframes blink {
-
     0%,
     80%,
     100% {
-        opacity: 0.25;
+        opacity: 0.2;
     }
-
     40% {
         opacity: 1;
     }
 }
 
-/* footer */
+/* Animação de entrada das mensagens (slide de baixo pra cima) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+
+/* --------------------------------
+   FOOTER
+   Barra de anexo + formulário de envio
+   -------------------------------- */
 .footerChatBot {
     flex-shrink: 0;
     display: flex;
@@ -226,19 +416,20 @@ body {
     align-items: center;
     gap: 10px;
     padding: 0 24px 24px;
+    background-color: var(--color-bg-primary);
 }
 
+/* Preview do arquivo anexado (aparece acima do input) */
 .attachment-preview {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 760px;
+    max-width: 720px;
     background-color: var(--color-footer-bg);
     border-radius: 14px;
     padding: 10px 18px;
 }
-
 
 .attachment-preview[hidden] {
     display: none;
@@ -251,6 +442,7 @@ body {
     flex-shrink: 0;
 }
 
+/* Nome do arquivo (truncado com reticências se longo) */
 #attachmentName {
     flex: 1;
     font-size: 13px;
@@ -260,6 +452,7 @@ body {
     white-space: nowrap;
 }
 
+/* Botão de remover anexo */
 .attachment-preview button {
     background: none;
     border: none;
@@ -268,26 +461,45 @@ body {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    transition: color 0.15s ease;
 }
 
+.attachment-preview button:hover {
+    color: var(--color-white);
+}
+
+/* Barra de input arredondada (formulário) */
 .chat-area {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 0 26px;
+    padding: 0 24px;
     width: 100%;
-    max-width: 760px;
+    max-width: 720px;
     border-radius: 50px;
-    height: 64px;
+    height: 58px;
     color: var(--color-footer-text);
     background-color: var(--color-footer-bg);
+    transition: box-shadow 0.2s ease;
 }
 
+/* Destaque azul ao focar no input */
+.chat-area:focus-within {
+    box-shadow: 0 0 0 2px var(--color-blue-primary);
+}
+
+/* Botão de anexar arquivo (ícone de clipe) */
 .attach-label {
     display: flex;
     align-items: center;
     cursor: pointer;
     flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+}
+
+.attach-label:hover {
+    opacity: 1;
 }
 
 .attach-label img {
@@ -295,6 +507,7 @@ body {
     height: 18px;
 }
 
+/* Campo de texto */
 .chat-input {
     flex: 1;
     background: none;
@@ -312,6 +525,7 @@ body {
     outline: none;
 }
 
+/* Botão de enviar (ícone de avião) */
 .send-btn {
     background: none;
     border: none;
@@ -319,9 +533,56 @@ body {
     align-items: center;
     cursor: pointer;
     flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+}
+
+.send-btn:hover {
+    opacity: 1;
 }
 
 .send-btn img {
     width: 20px;
     height: 20px;
+}
+
+
+/* --------------------------------
+   RESPONSIVO (telas até 600px)
+   Ajustes de padding, tamanho de fonte e largura das mensagens
+   -------------------------------- */
+@media (max-width: 600px) {
+    .headerChatBot {
+        padding: 14px 20px;
+    }
+
+    .chat-messages-inner {
+        padding: 24px 18px 70px;
+    }
+
+    .msg-user {
+        max-width: 85%;
+    }
+
+    .msg-assistant {
+        max-width: 95%;
+    }
+
+    .assistant-content {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .assistant-content h3 {
+        font-size: 18px;
+    }
+
+    .chat-area {
+        height: 52px;
+        padding: 0 20px;
+    }
+
+    .footerChatBot {
+        padding: 0 16px 16px;
+    }
 }

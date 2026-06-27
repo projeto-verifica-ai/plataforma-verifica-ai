@@ -2,13 +2,13 @@
 :root {
   --color-bg-primary: #f1eee6;
   --color-text-dark: #050b1a;
-  --color-text-medium: #312d4a;
+  --color-text-medium: #1b182e;
   --color-text-light: #403c5e;
   --color-green-dark: #2d5934;
   --color-green-primary: #2c7444;
   --color-blue-primary: #284cad;
-  --color-red-light: rgba(255, 0, 0, 0.36);
-  --color-red-dark: #9a0f0f;
+  --color-red-light: rgba(206, 53, 53, 0.36);
+  --color-red-dark: #680101;
   --color-footer-bg: #0a1633;
   --color-footer-text: #afabcd;
   --color-white: #ffffff;
