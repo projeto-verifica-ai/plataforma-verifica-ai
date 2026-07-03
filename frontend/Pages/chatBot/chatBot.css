@@ -50,9 +50,11 @@ body {
 }
 
 .headerChatBot .logo {
+  display: flex;
+  align-items: center;
   min-width: 0;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .headerChatBot .logo-icon {
@@ -61,6 +63,7 @@ body {
 }
 
 .headerChatBot .logo-text {
+  white-space: nowrap;
   font-size: 1.25rem;
   line-height: 1.1;
 }
@@ -81,7 +84,6 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   cursor: pointer;
   flex-shrink: 0;
   transition:
@@ -423,6 +425,7 @@ body {
   }
 
   .headerChatBot .logo-text {
+    white-space: nowrap;
     font-size: 1.45rem;
   }
 
@@ -438,7 +441,7 @@ body {
   .msg-user {
     max-width: 70%;
   }
-  
+
   @media (min-width: 768px) {
     .msg-user {
       max-width: 70%;
