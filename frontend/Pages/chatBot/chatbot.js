@@ -9,7 +9,9 @@
    CONFIGURAÇÃO
    URL do servidor backend que faz proxy para a API do Gemini
    -------------------------------- */
-const API_URL = "http://plataforma-verifica-ai-c64h.vercel.app/api/analisar";
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000/api/analisar"
+    : "https://plataforma-verifica-ai-c64h.vercel.app/api/analisar";
 
 
 /* --------------------------------
