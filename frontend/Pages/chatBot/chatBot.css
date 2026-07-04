@@ -1,3 +1,4 @@
+obile
 /* ============================================================
    CHATBOT.CSS — Verifica AI
    Mobile-first, acessível para usuários 40+ com baixa familiaridade digital.
@@ -9,20 +10,20 @@
    Usadas nos selos e bordas indicativas dos cards
    -------------------------------- */
 :root {
-  --verdict-false-bg:      #FEE2E2;
-  --verdict-false-border:  #F87171;
-  --verdict-false-text:    #7F1D1D;
-  --verdict-false-accent:  #EF4444;
+  --verdict-false-bg: #FEE2E2;
+  --verdict-false-border: #F87171;
+  --verdict-false-text: #7F1D1D;
+  --verdict-false-accent: #EF4444;
 
-  --verdict-true-bg:       #DCFCE7;
-  --verdict-true-border:   #4ADE80;
-  --verdict-true-text:     #14532D;
-  --verdict-true-accent:   #16A34A;
+  --verdict-true-bg: #DCFCE7;
+  --verdict-true-border: #4ADE80;
+  --verdict-true-text: #14532D;
+  --verdict-true-accent: #16A34A;
 
-  --verdict-unknown-bg:    #FEF9C3;
-  --verdict-unknown-border:#FDE047;
-  --verdict-unknown-text:  #713F12;
-  --verdict-unknown-accent:#CA8A04;
+  --verdict-unknown-bg: #FEF9C3;
+  --verdict-unknown-border: #FDE047;
+  --verdict-unknown-text: #713F12;
+  --verdict-unknown-accent: #CA8A04;
 }
 
 /* --------------------------------
@@ -121,10 +122,8 @@ body {
 }
 
 .btn-close-text {
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
+  display: none;
+
 }
 
 .btn-close:hover {
@@ -477,12 +476,27 @@ body {
   animation: blink 1.2s infinite ease-in-out;
 }
 
-.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
 @keyframes blink {
-  0%, 80%, 100% { opacity: 0.2; transform: scale(0.85); }
-  40%           { opacity: 1;   transform: scale(1); }
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* --------------------------------
@@ -555,8 +569,7 @@ body {
 
 /* Formulário de envio */
 .chat-area {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 0.5rem;
   width: 100%;
   max-width: 48rem;
@@ -566,6 +579,7 @@ body {
   background-color: var(--color-footer-bg);
   box-shadow: 0 4px 20px rgba(10, 22, 51, 0.2);
 }
+
 
 .attach-label {
   display: inline-flex;
@@ -593,6 +607,10 @@ body {
   width: 1.1rem;
   height: 1.1rem;
   flex-shrink: 0;
+}
+
+.attach-label span {
+  display: inline-block;
 }
 
 .chat-input {
@@ -655,6 +673,11 @@ body {
   height: 1.1rem;
 }
 
+.attach-label span,
+.send-btn span {
+  display: none;
+}
+
 /* --------------------------------
    RESPONSIVO — TABLET E DESKTOP
    -------------------------------- */
@@ -670,6 +693,14 @@ body {
 
   .headerChatBot .logo-text {
     font-size: 1.45rem;
+  }
+
+  .btn-close-text {
+    display: flex;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .chat-messages-inner {
@@ -696,6 +727,7 @@ body {
     padding: 0 1.5rem 1.5rem;
   }
 
+
   /* Grid de 3 colunas no desktop: anexar | input | enviar */
   .chat-area {
     grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr) minmax(8rem, 11rem);
@@ -704,9 +736,17 @@ body {
     padding: 0.75rem;
   }
 
+
+
+
   .attach-label,
   .send-btn {
-    width: 100%;
+    width: 50%;
+  }
+
+  .attach-label span,
+  .send-btn span {
+    display: inline;
   }
 
   .veredito-selo {
@@ -721,6 +761,7 @@ body {
 
 /* Dispositivos de toque: alvos mínimos garantidos */
 @media (hover: none) and (pointer: coarse) {
+
   .btn-close,
   .attach-label,
   .send-btn,
@@ -731,6 +772,7 @@ body {
 
 /* Redução de movimento para usuários sensíveis */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
