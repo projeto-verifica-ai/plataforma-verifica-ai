@@ -1,4 +1,33 @@
-/* Página do chat: base mobile-first com foco em legibilidade e toque */
+/* ============================================================
+   CHATBOT.CSS — Verifica AI
+   Mobile-first, acessível para usuários 40+ com baixa familiaridade digital.
+   Nomenclatura em inglês (convenção do projeto).
+   ============================================================ */
+
+/* --------------------------------
+   VARIÁVEIS SEMÂNTICAS DE VEREDITO
+   Usadas nos selos e bordas indicativas dos cards
+   -------------------------------- */
+:root {
+  --verdict-false-bg:      #FEE2E2;
+  --verdict-false-border:  #F87171;
+  --verdict-false-text:    #7F1D1D;
+  --verdict-false-accent:  #EF4444;
+
+  --verdict-true-bg:       #DCFCE7;
+  --verdict-true-border:   #4ADE80;
+  --verdict-true-text:     #14532D;
+  --verdict-true-accent:   #16A34A;
+
+  --verdict-unknown-bg:    #FEF9C3;
+  --verdict-unknown-border:#FDE047;
+  --verdict-unknown-text:  #713F12;
+  --verdict-unknown-accent:#CA8A04;
+}
+
+/* --------------------------------
+   RESET E BASE DA PÁGINA
+   -------------------------------- */
 html,
 body {
   height: 100%;
@@ -24,6 +53,7 @@ body {
   touch-action: manipulation;
 }
 
+/* Classe utilitária de acessibilidade */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -36,17 +66,19 @@ body {
   border: 0;
 }
 
-/* Cabeçalho com alvo de toque amplo e texto mais legível no celular */
+/* --------------------------------
+   CABEÇALHO
+   -------------------------------- */
 .headerChatBot {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
   padding: 1rem 1rem 0.75rem;
   flex-shrink: 0;
+  border-bottom: 1px solid rgba(5, 11, 26, 0.06);
+  background: var(--color-bg-primary);
 }
 
 .headerChatBot .logo {
@@ -73,7 +105,7 @@ body {
 .btn-close {
   min-height: 3.5rem;
   min-width: 3.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.25rem;
   border: 0;
   border-radius: 999px;
   background-color: var(--color-green-dark);
@@ -84,89 +116,105 @@ body {
   gap: 0.5rem;
   cursor: pointer;
   flex-shrink: 0;
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
+  text-decoration: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .btn-close-text {
   font-family: var(--font-primary);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .btn-close:hover {
   transform: translateY(-1px);
-  filter: brightness(1.05);
+  filter: brightness(1.08);
 }
 
-/* Área de mensagens: coluna única, sem corte horizontal, com texto ampliado */
+/* --------------------------------
+   ÁREA DE MENSAGENS
+   -------------------------------- */
 .chat-messages {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0 0 0.5rem;
+  /* Fade suave no final da área de scroll */
+  mask-image: linear-gradient(to bottom, black calc(100% - 3rem), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 3rem), transparent 100%);
 }
 
-/* Container interno que centraliza e limita a largura */
 .chat-messages-inner {
   width: min(100%, 48rem);
   min-height: 100%;
   margin: 0 auto;
-  padding: 0.5rem 1rem 1rem;
+  padding: 1.25rem 1rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
-
 
 /* --------------------------------
    ESTADO VAZIO
-   Exibido enquanto não há mensagens
    -------------------------------- */
 .empty-state {
   margin: auto;
   text-align: center;
   max-width: 24rem;
-  padding: 1rem 0.25rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .empty-title {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.25;
+  font-size: 1.625rem;
+  line-height: 1.2;
   color: var(--color-text-dark);
-  margin-bottom: 0.75rem;
 }
 
 .empty-sub {
   font-size: 1.125rem;
   color: var(--color-text-light);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* Mensagem do usuário: largura fluida e contraste alto */
+/* Aviso em destaque dentro do estado vazio */
+.empty-disclaimer {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--verdict-unknown-bg);
+  border: 1px solid var(--verdict-unknown-border);
+  border-radius: 0.875rem;
+  font-size: 1rem;
+  color: var(--verdict-unknown-text);
+  line-height: 1.55;
+}
+
+/* --------------------------------
+   MENSAGEM DO USUÁRIO
+   -------------------------------- */
 .msg-user {
   align-self: flex-end;
-  max-width: 90%;
+  max-width: 88%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 0.5rem;
 }
 
-/* Balão de texto */
 .msg-user .bubble {
   background-color: var(--color-blue-primary);
   color: var(--color-white);
-  border-radius: 1.25rem 1.25rem 0.35rem 1.25rem;
-  padding: 1rem 1.1rem;
+  border-radius: 1.375rem 1.375rem 0.25rem 1.375rem;
+  padding: 1rem 1.25rem;
   font-size: 1.125rem;
   line-height: 1.6;
-  box-shadow: 0 0.35rem 1rem rgba(10, 22, 51, 0.18);
+  box-shadow: 0 2px 8px rgba(40, 76, 173, 0.25);
 }
 
 /* Chip de arquivo anexado */
@@ -175,7 +223,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   min-height: 2.75rem;
-  padding: 0.65rem 0.95rem;
+  padding: 0.65rem 1rem;
   background-color: var(--color-footer-bg);
   color: var(--color-white);
   border-radius: 999px;
@@ -185,44 +233,130 @@ body {
 .attachment-chip img {
   width: 0.9rem;
   height: 0.9rem;
+  opacity: 0.8;
 }
 
-/* Mensagem do assistente com hierarquia clara e avatar reduzido no mobile */
+/* --------------------------------
+   MENSAGEM DO ASSISTENTE
+   -------------------------------- */
 .msg-assistant {
   align-self: flex-start;
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.75rem;
 }
 
-/* Avatar do mascote */
 .assistant-avatar img {
-  width: 5.25rem;
+  width: 5rem;
   height: auto;
   display: block;
 }
 
-/* Card branco que contém a resposta */
+/* Card principal da resposta */
 .assistant-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: var(--color-white);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 2px 12px rgba(5, 11, 26, 0.06);
-    border: 1px solid rgba(5, 11, 26, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  background-color: var(--color-white);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(5, 11, 26, 0.07);
+  border: 1.5px solid rgba(5, 11, 26, 0.07);
+  /* Borda esquerda colorida por padrão (inconclusivo) */
+  border-left: 4px solid var(--verdict-unknown-accent);
+  transition: border-left-color 0.2s ease;
+}
+
+/* Borda dinâmica baseada no veredito via :has() */
+.assistant-content:has(.selo-falso) {
+  border-left-color: var(--verdict-false-accent);
+}
+
+.assistant-content:has(.selo-verdadeiro) {
+  border-left-color: var(--verdict-true-accent);
+}
+
+.assistant-content:has(.selo-inconclusivo) {
+  border-left-color: var(--verdict-unknown-accent);
+}
+
+/* --------------------------------
+   SELOS DE VEREDITO
+   Badge grande e legível no topo do card
+   -------------------------------- */
+.veredito-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  border: 1.5px solid transparent;
+}
+
+/* Ícones SVG inline nos selos via ::before */
+.veredito-selo::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.selo-falso {
+  background-color: var(--verdict-false-bg);
+  color: var(--verdict-false-text);
+  border-color: var(--verdict-false-border);
+}
+
+.selo-falso::before {
+  /* Ícone X */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237F1D1D' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+}
+
+.selo-verdadeiro {
+  background-color: var(--verdict-true-bg);
+  color: var(--verdict-true-text);
+  border-color: var(--verdict-true-border);
+}
+
+.selo-verdadeiro::before {
+  /* Ícone check */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314532D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+}
+
+.selo-inconclusivo {
+  background-color: var(--verdict-unknown-bg);
+  color: var(--verdict-unknown-text);
+  border-color: var(--verdict-unknown-border);
+}
+
+.selo-inconclusivo::before {
+  /* Ícone interrogação */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23713F12' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01'/%3E%3C/svg%3E");
 }
 
 /* Título principal da resposta */
 .assistant-content h3 {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.25;
+  font-size: 1.375rem;
+  line-height: 1.3;
   color: var(--color-text-dark);
-  margin-bottom: 0.5rem;
+}
+
+/* Título quando o conteúdo foi recusado */
+.titulo-recusa {
+  color: var(--verdict-unknown-text);
 }
 
 /* Subtítulo complementar */
@@ -231,76 +365,139 @@ body {
   font-weight: 700;
   font-size: 1.125rem;
   color: var(--color-text-medium);
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(5, 11, 26, 0.07);
 }
 
-.assistant-content p,
-.assistant-content li {
+.assistant-content p {
   font-size: 1.125rem;
-  font-weight: 400;
   color: var(--color-text-medium);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* Listas dentro da resposta */
 .assistant-content ul {
   padding-left: 1.25rem;
 }
 
 .assistant-content li {
+  font-size: 1.125rem;
+  color: var(--color-text-medium);
+  line-height: 1.7;
   margin-bottom: 0.35rem;
 }
 
-:focus-visible {
-  outline: 4px solid #f59e0b;
-  outline-offset: 3px;
+/* --------------------------------
+   FONTES CONSULTADAS
+   -------------------------------- */
+.assistant-fontes {
+  margin-top: 0.25rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(5, 11, 26, 0.07);
 }
 
-/* Indicador de carregamento com leitura simples */
+.assistant-fontes h4 {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-light);
+  margin-bottom: 0.625rem;
+  border-top: none;
+  padding-top: 0;
+}
+
+.assistant-fontes ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.assistant-fontes li {
+  margin: 0;
+}
+
+.assistant-fontes a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.975rem;
+  color: var(--color-blue-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.assistant-fontes a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Ícone de link externo nas fontes */
+.assistant-fontes a::after {
+  content: "";
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23284CAD' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* --------------------------------
+   FOCO ACESSÍVEL
+   Anel de foco visível para navegação por teclado
+   -------------------------------- */
+:focus-visible {
+  outline: 3px solid #F59E0B;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --------------------------------
+   INDICADOR DE CARREGAMENTO
+   -------------------------------- */
 .loading-dots {
   display: flex;
-  gap: 0.35rem;
-  padding: 0.35rem 0;
+  gap: 0.4rem;
+  padding: 0.5rem 0;
+  align-items: center;
 }
 
 .loading-dots span {
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
   background-color: var(--color-text-light);
   animation: blink 1.2s infinite ease-in-out;
 }
 
-.loading-dots span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.loading-dots span:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes blink {
-  0%,
-  80%,
-  100% {
-    opacity: 0.25;
-  }
-
-  40% {
-    opacity: 1;
-  }
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.85); }
+  40%           { opacity: 1;   transform: scale(1); }
 }
 
-/* Rodapé: controles grandes, com espaço suficiente para toque seguro */
+/* --------------------------------
+   RODAPÉ — BARRA DE INPUT
+   -------------------------------- */
 .footerChatBot {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
   padding: 0 1rem 1rem;
+  background: var(--color-bg-primary);
 }
 
-/* Preview do arquivo anexado (aparece acima do input) */
+/* Preview do anexo */
 .attachment-preview {
   display: flex;
   align-items: center;
@@ -308,11 +505,11 @@ body {
   width: 100%;
   max-width: 48rem;
   margin: 0 auto;
-  min-height: 3.5rem;
+  min-height: 3.25rem;
   background-color: var(--color-footer-bg);
   color: var(--color-white);
-  border-radius: 1rem;
-  padding: 0.75rem 1rem;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
 }
 
 .attachment-preview[hidden] {
@@ -326,7 +523,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Nome do arquivo (truncado com reticências se longo) */
 #attachmentName {
   flex: 1;
   min-width: 0;
@@ -337,10 +533,9 @@ body {
   white-space: nowrap;
 }
 
-/* Botão de remover anexo */
 .attachment-preview button {
-  min-width: 3rem;
-  min-height: 3rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   padding: 0.25rem;
   background: none;
   border: none;
@@ -350,36 +545,48 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
 }
 
-/* Barra de input arredondada (formulário) */
+.attachment-preview button:hover {
+  opacity: 1;
+}
+
+/* Formulário de envio */
 .chat-area {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.65rem;
+  gap: 0.5rem;
   width: 100%;
   max-width: 48rem;
   margin: 0 auto;
-  padding: 0.85rem;
-  border-radius: 1.5rem;
-  color: var(--color-white);
+  padding: 0.75rem;
+  border-radius: 1.375rem;
   background-color: var(--color-footer-bg);
+  box-shadow: 0 4px 20px rgba(10, 22, 51, 0.2);
 }
 
 .attach-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  min-height: 3.5rem;
-  padding: 0.85rem 1rem;
-  border-radius: 1rem;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.875rem;
   cursor: pointer;
   font-family: var(--font-primary);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-white);
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background-color 0.15s ease;
+}
+
+.attach-label:hover {
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
 .attach-label img {
@@ -388,35 +595,36 @@ body {
   flex-shrink: 0;
 }
 
-/* Campo de texto */
 .chat-input {
   width: 100%;
-  min-height: 3.5rem;
-  padding: 0.9rem 1rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 0.1rem solid rgba(255, 255, 255, 0.18);
-  border-radius: 1rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.875rem;
   color: var(--color-white);
   font-family: var(--font-secondary);
   font-size: 1.125rem;
   line-height: 1.4;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .chat-input::placeholder {
-  color: #d6d6d6; /*Contrasta melhor com o fundo escuro, mantendo a legibilidade pro idoso*/
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .chat-input:focus {
-  outline: 0.2rem solid rgba(255, 255, 255, 0.35);
-  outline-offset: 0.1rem;
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* Botão de enviar (ícone de avião) */
+/* Botão Enviar — elemento mais importante, com destaque visual máximo */
 .send-btn {
-  min-height: 3.5rem;
-  padding: 0.85rem 1rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.25rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: 0.875rem;
   background-color: var(--color-green-primary);
   color: var(--color-white);
   display: inline-flex;
@@ -427,21 +635,29 @@ body {
   font-family: var(--font-primary);
   font-size: 1.125rem;
   font-weight: 700;
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
+  box-shadow: 0 2px 8px rgba(44, 116, 68, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 .send-btn:hover {
   transform: translateY(-1px);
-  filter: brightness(1.05);
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px rgba(44, 116, 68, 0.4);
+}
+
+.send-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.96);
 }
 
 .send-btn img {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
+/* --------------------------------
+   RESPONSIVO — TABLET E DESKTOP
+   -------------------------------- */
 @media (min-width: 768px) {
   .headerChatBot {
     padding: 1.25rem 1.5rem 1rem;
@@ -456,57 +672,54 @@ body {
     font-size: 1.45rem;
   }
 
-  .btn-close {
-    min-width: 13rem;
-  }
-
   .chat-messages-inner {
-    padding: 1rem 1.5rem 1.25rem;
-    gap: 1.25rem;
+    padding: 1.5rem 1.5rem 2rem;
+    gap: 1.5rem;
   }
 
   .msg-user {
-    max-width: 70%;
-  }
-  
-  @media (min-width: 768px) {
-    .msg-user {
-      max-width: 70%;
-    }
+    max-width: 68%;
   }
 
   .msg-assistant {
-    max-width: 82%;
+    max-width: 85%;
     flex-direction: row;
     align-items: flex-start;
     gap: 1rem;
   }
 
   .assistant-avatar img {
-    width: 6.5rem;
+    width: 6rem;
   }
 
   .footerChatBot {
-    padding: 0 1.5rem 1.25rem;
+    padding: 0 1.5rem 1.5rem;
   }
 
+  /* Grid de 3 colunas no desktop: anexar | input | enviar */
   .chat-area {
-    grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr) minmax(
-        8.5rem,
-        11rem
-      );
+    grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr) minmax(8rem, 11rem);
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.9rem;
+    gap: 0.65rem;
+    padding: 0.75rem;
   }
 
   .attach-label,
   .send-btn {
-    font-size: 1.125rem;
     width: 100%;
+  }
+
+  .veredito-selo {
+    font-size: 1.0625rem;
+    padding: 0.6rem 1.25rem;
   }
 }
 
+/* --------------------------------
+   ACESSIBILIDADE — PREFERÊNCIAS DO SISTEMA
+   -------------------------------- */
+
+/* Dispositivos de toque: alvos mínimos garantidos */
 @media (hover: none) and (pointer: coarse) {
   .btn-close,
   .attach-label,
@@ -516,6 +729,7 @@ body {
   }
 }
 
+/* Redução de movimento para usuários sensíveis */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
