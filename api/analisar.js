@@ -1,4 +1,4 @@
-import { analisarConteudo } from "../geminiService.js";
+import { analisarConteudo } from "../server/geminiService.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
