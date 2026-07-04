@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "installCommand": "cd server && npm install",
+  "buildCommand": "cd server && npm install",
+  "outputDirectory": "frontend",
+  "functions": {
+    "server/api/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
