@@ -1,4 +1,3 @@
-/* RESET E VARIÁVEIS BASE */
 :root {
   --color-bg-primary: #f1eee6;
   --color-text-dark: #050b1a;
@@ -23,19 +22,86 @@
   box-sizing: border-box;
 }
 
+/* Acessibilidade: Respeita a preferência de tamanho de fonte do navegador do usuário */
+html {
+  font-size: 100%;
+}
+
 body {
   background-color: var(--color-bg-primary);
   font-family: var(--font-secondary);
+  font-size: 1.125rem;
+  font-weight: 500;
   color: var(--color-text-medium);
   line-height: 1.5;
   overflow-x: hidden;
+
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+p {
+  max-width: 60ch; /* evita linhas longas */
 }
 
 a {
   text-decoration: none;
 }
 
-/* COMPONENTES GERAIS */
+a:focus,
+button:focus {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+:focus {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Para navegação moderna */
+a:focus-visible,
+button:focus-visible {
+  outline: 4px solid #f59e0b;
+}
+
+/* Acessibilidade: Link de salto para teclado e leitor de tela */
+.skip-link {
+  position: absolute;
+  left: 20px;
+  top: -100px;
+  z-index: 1000;
+  background: var(--color-blue-primary);
+  color: var(--color-white);
+  min-height: 56px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 3px solid var(--color-green-primary);
+  outline-offset: 4px;
+}
+
+/* Acessibilidade: Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--color-green-primary);
+  outline-offset: 4px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
 .text-green {
   color: var(--color-green-primary);
 }
@@ -49,34 +115,46 @@ a {
   border-radius: 15px;
   cursor: pointer;
   transition: transform 0.2s ease;
+
+  /* Acessibilidade e Mobile: Alvo mínimo de 56px e largura total */
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 24px;
+  font-size: 20px;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Mantido do antigo */
 }
 
 .btn-primary {
   background-color: var(--color-blue-primary);
   color: var(--color-white);
-  padding: 20px 40px;
-  font-size: 28px;
 }
 
 .btn-secondary {
   background-color: var(--color-bg-primary);
   color: var(--color-blue-primary);
-  padding: 20px 40px;
-  font-size: 28px;
+}
+
+/* Containers responsivos que substituem os antigos 'max-width: 1440px' fixos */
+.header,
+.hero-section,
+.stats-section,
+.features-section,
+.sources-section {
+  width: min(100% - 40px, 1440px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* HEADER */
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 40px 60px;
-  max-width: 1440px;
-  margin: 0 auto;
+  gap: 20px;
+  padding: 30px 0;
 }
 
 .logo {
@@ -88,62 +166,68 @@ a {
 .logo-text {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 36px;
+  font-size: 28px;
   color: var(--color-green-dark);
 }
 
 .logo-icon {
-    width: 72px;
-    height: 72px;
+  width: 50px;
+  height: 50px;
 }
 
 .icon-verified {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 /* SEÇÃO HERO */
 .hero-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  max-width: 1440px;
-  margin: 80px auto;
-  padding: 0 60px;
-  gap: 60px;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .hero-content {
-  max-width: 600px;
+  text-align: center;
 }
 
 .hero-content h1 {
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 64px;
+  font-size: 38px;
   color: var(--color-text-dark);
   line-height: 1.1;
   margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.hero-content p,
+.section-subtitle,
+.feature-card p {
+  font-weight: 500;
 }
 
 .hero-content p {
   font-family: var(--font-secondary);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--color-text-light);
   margin-bottom: 40px;
 }
 
 .hero-card {
-  flex: 1;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .card-fake-news {
   background-color: var(--color-bg-primary);
   border-radius: 31px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0px 0px 47px 4px rgba(5, 11, 26, 0.28);
   width: 100%;
   max-width: 630px;
@@ -152,16 +236,22 @@ a {
   gap: 16px;
 }
 
+.card-fake-news,
+.feature-card,
+.stat-box {
+  padding: 1.25rem; /* antes 1rem */
+}
+
 .news-title {
   font-family: var(--font-primary);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-text-dark);
 }
 
 .news-quote {
   font-weight: 500;
-  font-size: 19px;
+  font-size: 16px;
   color: var(--color-text-medium);
 }
 
@@ -170,7 +260,7 @@ a {
   color: var(--color-red-dark);
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   padding: 8px 16px;
   border-radius: 15px;
   align-self: flex-start;
@@ -178,7 +268,7 @@ a {
 
 .news-source {
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   color: #3d3a53;
   margin-top: 10px;
 }
@@ -186,20 +276,22 @@ a {
 /* DADOS / ESTATÍSTICAS */
 .stats-section {
   display: flex;
-  justify-content: space-around;
-  max-width: 1440px;
-  margin: 80px auto;
-  padding: 0 60px;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .stat-box {
+  width: 100%;
   max-width: 350px;
 }
 
 .stat-box h2 {
   font-family: var(--font-primary);
-  font-size: 35px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--color-green-primary);
   margin-bottom: 10px;
@@ -213,39 +305,39 @@ a {
 
 /* FERRAMENTAS / CARDS INFORMATIVOS */
 .features-section {
-  max-width: 1440px;
-  margin: 120px auto;
-  padding: 0 60px;
   text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .section-title {
   font-family: var(--font-primary);
-  font-size: 54px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--color-text-dark);
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .section-subtitle {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--color-text-light);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .features-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .feature-card {
   background-color: var(--color-bg-primary);
   border-radius: 31px;
   padding: 30px;
-  width: 410px;
+  width: 100%;
+  max-width: 410px;
   box-shadow: 4px 6px 7.7px 3px rgba(5, 11, 26, 0.28);
   text-align: left;
 }
@@ -265,12 +357,12 @@ a {
 
 .feature-card h3 {
   font-family: var(--font-primary);
-  font-size: 25px;
+  font-size: 22px;
   color: var(--color-green-primary);
 }
 
 .feature-card p {
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 500;
   text-align: center;
   color: var(--color-text-medium);
@@ -279,25 +371,25 @@ a {
 
 /* FONTES JORNALÍSTICAS */
 .sources-section {
-  max-width: 1440px;
-  margin: 120px auto;
-  padding: 0 60px;
   text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .sources-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  margin-top: 60px;
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .source-card {
   background-color: var(--color-bg-primary);
   border-radius: 31px;
-  width: 300px;
-  height: 160px;
+  width: 100%;
+  max-width: 300px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,10 +404,10 @@ a {
 }
 
 .sources-footer-title {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--color-text-light);
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 /* CTA BANNER */
@@ -323,23 +415,24 @@ a {
   background-color: var(--color-blue-primary);
   color: var(--color-white);
   text-align: center;
-  padding: 80px 20px;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 100px;
+  margin-top: 80px;
+  border-radius: 31px;
 }
 
 .cta-banner h2 {
   font-family: var(--font-primary);
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 700;
 }
 
 .cta-banner p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #f4f3f7;
   margin-bottom: 20px;
@@ -350,6 +443,163 @@ a {
   background-color: var(--color-footer-bg);
   color: var(--color-footer-text);
   text-align: center;
-  padding: 70px 20px;
-  font-size: 17px;
+  padding: 50px 20px;
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  /* Retorna ao padding fixo e layout de linha do CSS original */
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 60px;
+  }
+
+  .btn {
+    width: auto;
+    padding: 20px 40px;
+    font-size: 28px;
+    min-height: 3.5rem;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 36px;
+  }
+  .logo-icon {
+    width: 72px;
+    height: 72px;
+  }
+  .icon-verified {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* HERO */
+  .hero-section {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 80px auto;
+    padding: 0 60px;
+    gap: 60px;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: 64px;
+  }
+  .hero-content p {
+    font-size: 20px;
+  }
+
+  .hero-card {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .card-fake-news {
+    padding: 40px;
+  }
+  .news-title {
+    font-size: 25px;
+  }
+  .news-quote {
+    font-size: 19px;
+  }
+  .tag-fake {
+    font-size: 16px;
+  }
+  .news-source {
+    font-size: 16px;
+  }
+
+  /* DADOS / ESTATÍSTICAS */
+  .stats-section {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 80px auto;
+    padding: 0 60px;
+  }
+
+  .stat-box h2 {
+    font-size: 35px;
+  }
+
+  /* FERRAMENTAS */
+  .features-section {
+    margin: 120px auto;
+    padding: 0 60px;
+  }
+
+  .section-title {
+    font-size: 54px;
+  }
+  .section-subtitle {
+    font-size: 24px;
+    margin-bottom: 60px;
+  }
+
+  .features-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .feature-card h3 {
+    font-size: 25px;
+  }
+  .feature-card p {
+    font-size: 19px;
+  }
+
+  /* FONTES JORNALÍSTICAS */
+  .sources-section {
+    margin: 120px auto;
+    padding: 0 60px;
+  }
+
+  .sources-grid {
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .source-card {
+    height: 160px;
+  }
+  .sources-footer-title {
+    font-size: 32px;
+    margin-top: 60px;
+  }
+
+  /* CTA BANNER */
+  .cta-banner {
+    padding: 80px 20px;
+    margin-top: 100px;
+    border-radius: 0; /* Assumindo visual de banner em toda a extensão do Desktop */
+  }
+
+  .cta-banner h2 {
+    font-size: 48px;
+  }
+  .cta-banner p {
+    font-size: 20px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 70px 20px;
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
