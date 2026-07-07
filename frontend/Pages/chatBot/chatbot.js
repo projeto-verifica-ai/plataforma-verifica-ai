@@ -11,7 +11,7 @@
    -------------------------------- */
 const API_URL = window.location.hostname === "localhost"
     ? "http://localhost:3000/api/analisar"
-    : "https://plataforma-verifica-ai-c64h.vercel.app/api/analisar";
+    : "https://verifica-ai-plataforma.vercel.app/api/analisar";
 
 
 /* --------------------------------
