@@ -1,0 +1,257 @@
+/* ============================================================
+   SIDEBAR.CSS — Verifica AI
+   Estilos isolados do componente <verifica-sidebar>.
+   Depende das variáveis globais definidas no style.css principal.
+   ============================================================ */
+
+/* --------------------------------
+   ESTRUTURA BASE
+   -------------------------------- */
+/* Impede qualquer overflow horizontal dentro da sidebar */
+.sidebar {
+    overflow-x: hidden;
+}
+
+/* Garante que imagens quebradas não estourem a largura */
+.sidebar img {
+    max-width: 100%;
+}
+
+/* Remove margem padrão do body que pode vazar */
+body {
+    margin: 0;
+}
+
+
+.sidebar {
+    width: 210px;
+    height: 100dvh;
+    background: var(--blue-primary, #284CAD);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0.875rem;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+
+}
+
+/* --------------------------------
+   LOGO
+   -------------------------------- */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.225rem;
+    padding: 0 0.5rem 2.75rem;
+}
+
+.sidebar-logo-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sidebar-logo-text {
+    font-family: var(--font-primary, "Outfit", sans-serif);
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.sidebar-verify-icon {
+    position: relative;
+    top: -10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* --------------------------------
+   NAVEGAÇÃO
+   -------------------------------- */
+
+
+.sidebar-nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    border-radius: 0.75rem;
+    font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.nav-item--active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+/* Notebook — telas entre 1024px e 1366px */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .sidebar-nav {
+        gap: 0.375rem;
+    }
+}
+
+/* Desktop — telas acima de 1367px */
+@media (min-width: 1367px) {
+    .sidebar-nav {
+        gap: 3.625rem;
+    }
+
+}
+
+/* --------------------------------
+   DIVISOR
+   -------------------------------- */
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    margin: 1rem 0.5rem;
+}
+
+/* --------------------------------
+   PERFIL DO USUÁRIO
+   -------------------------------- */
+.sidebar-profile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.profile-avatar {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.profile-name {
+    font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-link {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+}
+
+.profile-link:hover {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* --------------------------------
+   BOTTOM NAV — só aparece no mobile
+   -------------------------------- */
+.bottom-nav {
+    display: none;
+    /* escondido por padrão */
+}
+
+@media (max-width: 768px) {
+
+    /* Esconde a sidebar lateral */
+    .sidebar {
+        display: none;
+    }
+
+    /* Mostra a barra inferior */
+    .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4.5rem;
+        background: var(--color-blue-primary, #284CAD);
+        z-index: 100;
+    }
+
+    .bottom-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        color: rgba(255, 255, 255, 0.75);
+        font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .bottom-nav-item:last-child {
+        border-right: none;
+    }
+
+    .bottom-nav-item:hover,
+    .bottom-nav-item--active {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .bottom-nav-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        object-fit: contain;
+    }
+
+    /* Evita que o conteúdo fique atrás da barra */
+    .main {
+        padding-bottom: 5.5rem;
+    }
+}
