@@ -4,21 +4,21 @@ class VerificaSidebar extends HTMLElement {
         const paginaAtual = window.location.pathname.split("/").pop();
 
         const navItems = [
-            { href: "home.html", icon: "../assets/icons/icone-inicio.svg", label: "Início" },
-            { href: "comunidade.html", icon: "../assets/icons/icone-comunidade.svg", label: "Comunidade" },
-            { href: "noticias.html", icon: "../assets/icons/icone-noticias.svg", label: "Notícias atuais" },
-            { href: "guia.html", icon: "../assets/icons/icone-guia.svg", label: "Guia rápido" },
+            { href: "home.html", icon: "icone-inicio.svg", label: "Início" },
+            { href: "comunidade.html", icon: "icone-comunidade.svg", label: "Comunidade" },
+            { href: "noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" },
+            { href: "guia.html", icon: "icone-guia-rapido.svg", label: "Guia rápido" },
         ];
 
         const navSecundario = [
-            { href: "configuracoes.html", icon: "icone-configuracoes.png", label: "Configurações" },
-            { href: "ajuda.html", icon: "icone-ajuda.png", label: "Ajuda" },
+            { href: "configuracoes.html", icon: "icone-configuracao.svg", label: "Configurações" },
+            { href: "ajuda.html", icon: "icone-ajuda.svg", label: "Ajuda" },
         ];
 
         const renderNav = (items) =>
             items.map(({ href, icon, label }) => `
         <a href="${href}" class="nav-item ${paginaAtual === href ? "nav-item--active" : ""}">
-          <img src="assets/icons/${icon}" alt="" class="nav-icon" />
+          <img src="../../assets/icons/${icon}" alt="" class="nav-icon" />
           <span>${label}</span>
         </a>
       `).join("");
@@ -43,6 +43,7 @@ class VerificaSidebar extends HTMLElement {
         </nav>
 
         <div class="sidebar-profile">
+        <!-- A foto de perfil aparecerá de acordo com o banco de dados do usuário, caso não tenha uma foto, será exibida a padrão. / -->
           <img src="assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" />
           <div class="profile-info">
             <span class="profile-name">Olá, Maria!</span>
