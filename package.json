@@ -1,5 +1,9 @@
 {
+  "name": "plataforma-verifica-ai",
+  "version": "1.0.0",
+  "type": "module",
   "dependencies": {
-    "@google/genai": "^2.9.0"
+    "node-fetch": "^3.3.2",
+    "dotenv": "^17.4.2"
   }
 }
