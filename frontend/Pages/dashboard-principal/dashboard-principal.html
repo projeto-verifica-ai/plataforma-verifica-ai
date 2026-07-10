@@ -5,13 +5,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça o site Verifica AÍ, descubra como navegar na internet
+     sem cair em golpes gerados por Inteligência Artificial.">
     <title>Verifica AÍ</title>
 
     <link rel="stylesheet" href="dashboard-principal.css">
 </head>
 
 <body>
-    
-</body>
+    <!-- SEÇÃO 1: CARD DE BOAS-VINDAS (HERO) -->
+    <header class="hero-boas-vindas">
+
+        <div class="boas-vindas-texto">
+            <h1>Olá, Maria bem-vinda!</h1>
+            <p>Que bom ter você aqui! O que deseja fazer hoje?</p>
+        </div>
+
+        <img src="../../assets/mascot-image/img-robo-acenando.png"
+            alt="Imagem de um robô branco com roupa e boina verde escuro acenando" class="boas-vindas-mascote">
+    </header>
+
+    <main>
+        <!-- SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS)  -->
+        <ul class="grid-navegacao">
+            <li>
+                <article class="card-nav">
+                    <img src="../../assets/icons/icone-comunidade-escuro.svg" alt="">
+                    <h3>Comunidade</h3>
+                    <p>Se informe e aprenda com outras pessoas</p>
+                    <!-- Adicionar a pág da comunidade na ancora -->
+                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg"
+                            alt=""></a>
+                </article>
+            </li>
+
+            <li>
+                <article class="card-nav">
+                    <img src="../../assets/mascot-image/img-robo-card.png" alt="">
+                    <h3>Robôtive</h3>
+                    <p>Verifique conteúdos da internet com a nossa IA</p>
+                    <!-- Adicionar a pág do robôtive na ancora -->
+                    <a href="../chatBot/chatBot.html" target="_self">Saiba mais <img
+                            src="../../assets/icons/icone-seta.svg" alt=""></a>
+                </article>
+            </li>
+
+            <li>
+                <article class="card-nav">
+                    <img src="../../assets/icons/icone-noticias-escuro.svg" alt="">
+                    <h3>Notícias atuais</h3>
+                    <p>Fique por dentro dos golpes e proteja-se</p>
+                    <!-- Adicionar a pág de notícias atuais na ancora -->
+                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg" alt=""></a>
+                </article>
+            </li>
+
+            <li>
+                <article class="card-nav">
+                    <img src="../../assets/icons/icone-guia-rapido-escuro.svg" alt="">
+                    <h3>Guia rápido</h3>
+                    <p>Aprenda a identificar fraudes na internet</p>
+                    <!-- Adicionar a pág do guia rapido atuais na ancora -->
+                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg" alt=""></a>
+                </article>
+            </li>
+        </ul>
+
+        <!-- SEÇÃO 3: DICA DO DETETIVE + CONTINUE APRENDENDO  -->
+        <ul class="secao-dicas">
+            <li>
+                <article class="card-dica">
+                    <img src="../../assets/icons/icone-lampada.svg" alt="">
+                    <h3>Dica do nosso detetive</h3>
+                    <img src="../../assets/mascot-image/img-detetive-dica.png" alt="">
+                    <p>Desconfie de títulos chamativos e promessas incríveis. Sempre verifique fontes</p>
+                </article>
+            </li>
+
+            <li>
+                <article class="card-aprendendo">
+                    <h3>Vamos continuar aprendendo?</h3>
+                    <img src="../../assets/icons/img-celular.jpg" alt="">
+                    <h4>O que é IA?</h4>
+                    <!-- Aparte da barra do histórico do curso -->
+                    <a href="" target="_self">Continuar lendo</a>
+                    <img src="../../assets/icons/icone-clique-mão.svg" alt="">
+                </article>
+            </li>
+        </ul>
+
+        <!-- SEÇÃO 4: BANNER DE COMPARTILHAR  -->
+        <div class="secao-compartilhe">
+
+            <a href="https://wa.me/?text=Aqui%2C%20informa%C3%A7%C3%A3o%20segura%20%C3%A9%20poder!%20Confira%20o%20Verifica%20A%C3%AD%3A%20https%3A%2F%2Fplataforma-verifica-ai.vercel.app"
+                target="_blank" rel="noopener noreferrer" class="banner-compartilhe">
+                <img src="../../assets/icons/icone-compartilhe.svg" alt="" class="banner-icone">
+                <p class="banner-texto"><strong>Aqui, informação segura é poder!</strong>
+                    Espalhe conhecimento e faça a diferença.</p>
+                <img src="../../assets/icons/img-pessoas.png" alt="Imagem de pessoas que representa a comunidade" class="banner-pessoas">
+            </a>
+            <!-- O rel="noopener noreferrer" é uma proteção de segurança que você adiciona sempre que usa target="_blank". 
+             "noopener"  impede que a página nova (WhatsApp, no seu caso) tenha acesso, via JavaScript, à aba original de onde o clique saiu. 
+             noreferrer impede que o site de destino (WhatsApp) saiba de qual página o clique veio.-->
+        </div>
+    </main>
+
+    <!-- SEÇÃO 5: RODAPÉ -->
+    <footer>
+
+    </footer>
+    </body>
 
 </html>
