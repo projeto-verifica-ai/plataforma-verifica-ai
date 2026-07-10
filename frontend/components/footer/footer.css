@@ -1,0 +1,28 @@
+/* ============================================================
+   FOOTER.CSS — Verifica AI
+   Estilos isolados do componente <verifica-footer>.
+   Depende das variáveis globais definidas no style.css principal.
+   ============================================================ */
+
+.footer {
+  background-color: var(--color-footer-bg, #0A1633);
+  color: var(--color-footer-text, #AFABCD);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-text {
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* No mobile o footer fica acima da bottom nav */
+@media (max-width: 768px) {
+  .footer {
+    padding-bottom: 6rem;
+  }
+}
