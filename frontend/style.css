@@ -403,11 +403,11 @@ button:focus-visible,
 
   min-height: 56px;
   padding: 14px 24px;
-  border-radius: 100px;       
+  border-radius: 100px;
 
   font-family: var(--font-primary);
   font-weight: 700;
-  font-size: 1.125rem;        
+  font-size: 1.125rem;
   text-decoration: none;
   color: var(--color-white);
   text-align: center;
@@ -439,6 +439,8 @@ button:focus-visible,
 
 .ods-pill__text {
   line-height: 1.2;
+}
+
 .card-list {
   margin: 0;
   padding-left: 1.1rem;
@@ -482,13 +484,13 @@ button:focus-visible,
 a.source-card {
   text-decoration: none;
   color: inherit;
-  display: flex;             
+  display: flex;
   cursor: pointer;
 
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease;
-  will-change: transform;  
+  will-change: transform;
 }
 
 a.source-card:hover {
@@ -646,7 +648,7 @@ a.source-card:active {
     font-size: 36px;
     white-space: nowrap;
   }
-  
+
   .logo-icon {
     width: 72px;
     height: 72px;
@@ -719,7 +721,7 @@ a.source-card:active {
   .section-title {
     font-size: 54px;
   }
-  
+
   .section-subtitle {
     font-size: 24px;
     margin-bottom: 60px;
@@ -791,7 +793,7 @@ a.source-card:active {
   }
 
   .ods-pill {
-    font-size: 1.25rem;           /* 20px */
+    font-size: 1.25rem; /* 20px */
   }
 
   .ods-pill__icon {
@@ -819,7 +821,7 @@ a.source-card:active {
   }
 
   .partner-card {
-    max-width: 100%;             /* ocupa a célula do grid inteira */
+    max-width: 100%; /* ocupa a célula do grid inteira */
     height: 180px;
   }
 }
