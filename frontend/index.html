@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verifica AI - Proteja-se de Fake News</title>
+    <title>Verifica AÍ - Proteja-se de Fake News</title>
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
     <!-- Melhores práticas de SEO: Inclusão de meta tags básicas -->
     <meta
       name="description"
@@ -21,19 +25,19 @@
   <body>
     <!-- Cabeçalho (Header) -->
     <header class="header">
-      <div class="logo">
+      <a href="#inicio" class="logo" aria-label="Voltar ao início da página">
         <img
           src="assets/verificaai-robot-icon.png"
-          alt="Ícone do Verifica AI"
+          alt="Ícone do Verifica AÍ"
           class="logo-icon"
         />
-        <span class="logo-text">Verifica AI</span>
+        <span class="logo-text">Verifica AÍ</span>
         <img
           src="assets/icons/icone-verificado.png"
           alt="Verificado"
           class="icon-verified"
         />
-      </div>
+      </a>
       <a
         href="Pages/chatBot/chatBot.html"
         class="btn btn-primary btn-large"
@@ -45,7 +49,7 @@
     </header>
 
     <!-- Conteúdo Principal -->
-    <main>
+    <main id="inicio">
       <!-- Seção Hero (Apresentação Inicial) -->
       <section class="hero-section">
         <div class="hero-content">
@@ -79,7 +83,13 @@
           <h2>308%</h2>
           <p>
             <strong>Aumento de conteúdos falsos gerados por IA</strong
-            ><br />(Fonte: Agência Brasil)
+            ><br />(Fonte:
+            <a
+              href="https://agenciabrasil.ebc.com.br/geral/noticia/2026-02/conteudos-falsos-criados-com-ia-mais-que-triplicam-entre-2024-e-2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agência Brasil</a
+            >)
           </p>
         </div>
         <div class="stat-box">
@@ -87,7 +97,13 @@
           <p>
             <strong
               >Prejuízo Global através de Fraudes digitais desde 2025</strong
-            ><br />(Fonte: CNN)
+            ><br />(Fonte:
+            <a
+              href="https://www.cnnbrasil.com.br/nacional/brasil/golpe-do-amor-cresce-com-ia-e-causa-bilhoes-em-prejuizo-no-mundo-entenda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CNN</a
+            >)
           </p>
         </div>
         <div class="stat-box">
@@ -96,21 +112,33 @@
             <strong
               >Dos idosos brasileiros já sofreram tentativas de golpes
               virtuais.</strong
-            ><br />(Fonte: Agência Brasil)
+            ><br />(Fonte:
+            <a
+              href="https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-03/idosos-sentem-maior-vulnerabilidade-golpes-online-em-sp"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agência Brasil</a
+            >)
           </p>
         </div>
       </section>
 
       <!-- Seção: Como ajuda / Ferramentas -->
       <section class="features-section">
-        <h2 class="section-title">Como o ‘Verifica AI’ ajuda?</h2>
+        <h2 class="section-title">
+          Como o
+          <span style="white-space: nowrap" class="text-green"
+            >‘Verifica AÍ’</span
+          >
+          ajuda?
+        </h2>
         <p class="section-subtitle">
           Plataforma Informativa para desenvolver pensamento crítico e segurança
           digital, com ferramentas simples.
         </p>
 
         <div class="features-grid">
-          <div class="feature-card">
+          <article class="feature-card">
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-lupa.png"
@@ -119,13 +147,15 @@
               />
               <h3>Conteúdos informativos</h3>
             </div>
-            <p>
-              Descubra maneiras de se prevenir e identificar Notícias falsas e
-              golpes digitais.
-            </p>
-          </div>
+            <ul class="card-list">
+              <li>
+                Descubra maneiras de se prevenir e identificar Notícias falsas e
+                golpes digitais.
+              </li>
+            </ul>
+          </article>
 
-          <div class="feature-card">
+          <article class="feature-card">
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-cerebro.png"
@@ -134,13 +164,15 @@
               />
               <h3>Detector de IA</h3>
             </div>
-            <p>
-              Identifique imagens, vídeos e áudios potencialmente gerados por
-              Inteligência Artificial.
-            </p>
-          </div>
+            <ul class="card-list">
+              <li>
+                Identifique imagens, vídeos e áudios potencialmente gerados por
+                Inteligência Artificial.
+              </li>
+            </ul>
+          </article>
 
-          <div class="feature-card">
+          <article class="feature-card">
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-joystick.png"
@@ -149,13 +181,15 @@
               />
               <h3>Aprendizado Gamificado</h3>
             </div>
-            <p>
-              Aprenda através de desafios rápidos e conteúdo acessível para
-              todos os públicos.
-            </p>
-          </div>
+            <ul class="card-list">
+              <li>
+                Aprenda através de desafios rápidos e conteúdo acessível para
+                todos os públicos.
+              </li>
+            </ul>
+          </article>
 
-          <div class="feature-card">
+          <article class="feature-card">
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-comunidade.png"
@@ -164,13 +198,15 @@
               />
               <h3>Comunidade</h3>
             </div>
-            <p>
-              Interaja com outros usuários e se mantenham informados dos novos
-              perigos digitais.
-            </p>
-          </div>
+            <ul class="card-list">
+              <li>
+                Interaja com outros usuários e se mantenham informados dos novos
+                perigos digitais.
+              </li>
+            </ul>
+          </article>
 
-          <div class="feature-card">
+          <article class="feature-card">
             <div class="feature-card-header">
               <img
                 src="assets/icons/icone-noticias.png"
@@ -179,11 +215,13 @@
               />
               <h3>Noticiário</h3>
             </div>
-            <p>
-              Receba notícias relacionadas a ações fraudulentas no âmbito
-              digital.
-            </p>
-          </div>
+            <ul class="card-list">
+              <li>
+                Receba notícias relacionadas a ações fraudulentas no âmbito
+                digital.
+              </li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -191,35 +229,41 @@
       <section class="sources-section">
         <h2 class="section-title">Responsabilidade Jornalística</h2>
         <p class="section-subtitle">
-          O Verifica AI possui responsabilidade jornalística, usando apenas
+          O Verifica AÍ possui responsabilidade jornalística, usando apenas
           fontes confiáveis, como:
         </p>
 
         <div class="sources-grid">
-          <div class="source-card">
+          <article class="source-card">
             <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
-          </div>
-          <div class="source-card">
+          </article>
+          <article class="source-card">
             <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
-          </div>
-          <div class="source-card">
+          </article>
+          <article class="source-card">
             <img
               src="assets/fontes-jornalisticas/agencia_brasil.png"
               alt="Agência Brasil"
             />
-          </div>
-          <div class="source-card">
+          </article>
+          <article class="source-card">
             <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
-          </div>
-          <div class="source-card">
+          </article>
+          <article class="source-card">
             <img
               src="assets/fontes-jornalisticas/folha_sao_paulo.png"
               alt="Folha de São Paulo"
             />
-          </div>
+          </article>
         </div>
 
-        <h2 class="sources-footer-title">E Várias outras...</h2>
+        <a
+          href="#"
+          class="sources-footer-link"
+          aria-label="Ver outras fontes confiáveis"
+        >
+          E várias outras...
+        </a>
       </section>
 
       <!-- Banner de Ação (CTA) -->
@@ -233,7 +277,7 @@
     <!-- Rodapé (Footer) -->
     <footer class="footer">
       <p>
-        Verifica AI © 2026 — Projeto de Educação Digital e Combate à
+        Verifica AÍ © 2026 — Projeto de Educação Digital e Combate à
         Desinformação
       </p>
     </footer>
