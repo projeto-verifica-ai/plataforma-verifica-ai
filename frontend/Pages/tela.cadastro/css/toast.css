@@ -1,0 +1,143 @@
+/* =========================================
+   VERIFICA AI
+   toast.css
+   Toast de notificações
+========================================= */
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast{
+
+    position:fixed;
+
+    top:25px;
+    right:25px;
+
+    min-width:320px;
+    max-width:420px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:18px 22px;
+
+    background:#FFF;
+
+    border-left:6px solid #36B37E;
+
+    border-radius:14px;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+
+    transform:translateX(500px);
+
+    opacity:0;
+
+    transition:.45s ease;
+
+    z-index:99999;
+
+}
+
+/* =========================================
+   MOSTRAR
+========================================= */
+
+.toast.show{
+
+    transform:translateX(0);
+
+    opacity:1;
+
+}
+
+/* =========================================
+   ÍCONE
+========================================= */
+
+.toast i{
+
+    font-size:24px;
+
+}
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.toast span{
+
+    color:#444;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+/* =========================================
+   SUCESSO
+========================================= */
+
+.toast.success{
+
+    border-left-color:#36B37E;
+
+}
+
+.toast.success i{
+
+    color:#36B37E;
+
+}
+
+/* =========================================
+   ERRO
+========================================= */
+
+.toast.error{
+
+    border-left-color:#E53935;
+
+}
+
+.toast.error i{
+
+    color:#E53935;
+
+}
+
+/* =========================================
+   INFORMAÇÃO (futuro)
+========================================= */
+
+.toast.info{
+
+    border-left-color:#2962FF;
+
+}
+
+.toast.info i{
+
+    color:#2962FF;
+
+}
+
+/* =========================================
+   AVISO (futuro)
+========================================= */
+
+.toast.warning{
+
+    border-left-color:#FFC107;
+
+}
+
+.toast.warning i{
+
+    color:#FFC107;
+
+}

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- ===================================== -->
+    <!-- META -->
+    <!-- ===================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifica AI - Cadastro</title>
+
+    <!-- ===================================== -->
+    <!-- GOOGLE FONTS -->
+    <!-- ===================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ===================================== -->
+    <!-- FONT AWESOME -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ===================================== -->
+    <!-- CSS -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- CONTAINER -->
+    <!-- ===================================== -->
+
+    <main class="container">
+
+        <!-- ===================================== -->
+        <!-- LADO ESQUERDO -->
+        <!-- ===================================== -->
+
+        <section class="left">
+
+            <div class="logo">
+
+                <h1 class="desktop-title">
+                    Crie sua conta gratuita
+                </h1>
+
+                <h1 class="mobile-title">
+                    Bem-vindo!
+                </h1>
+
+            </div>
+
+            <img src="img/LogoVerificaAIWhite 1.png" class="robot" alt="Robô Verifica AI">
+
+            <div class="login-link">
+
+                <p>Já tem uma conta?</p>
+
+                <a href="#">
+                    Iniciar sessão
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- LADO DIREITO -->
+        <!-- ===================================== -->
+
+        <section class="right">
+
+            <div class="form-box">
+
+                <!-- ============================== -->
+                <!-- TÍTULO -->
+                <!-- ============================== -->
+
+                <span class="subtitle">
+                    Comece a usar o
+                </span>
+
+                <h2>
+                    Verifica AI
+                </h2>
+
+                <!-- ============================== -->
+                <!-- LOGIN SOCIAL -->
+                <!-- ============================== -->
+
+                <div class="social-buttons">
+
+                    <button class="facebook" type="button">
+
+                        <img src="img/facebook-svgrepo-com.svg" alt="Facebook">
+
+                        <span>
+                            Entrar com Facebook
+                        </span>
+
+                    </button>
+
+                    <button class="google" type="button">
+
+                        <img src="img/google-svgrepo-com.svg" alt="Google">
+
+                        <span>
+                            Entrar com Google
+                        </span>
+
+                    </button>
+
+                </div>
+
+                <!-- ============================== -->
+                <!-- DIVISOR -->
+                <!-- ============================== -->
+
+                <div class="divider">
+
+                    <hr>
+
+                    <span>ou</span>
+
+                    <hr>
+
+                </div>
+
+                <!-- ============================== -->
+                <!-- FORMULÁRIO -->
+                <!-- ============================== -->
+
+                <form id="cadastro">
+
+                    <!-- ============================== -->
+                    <!-- NOME -->
+                    <!-- ============================== -->
+
+                    <div class="campo">
+
+                        <label for="nome">
+                            Nome
+                        </label>
+
+                        <input type="text" id="nome" placeholder="Digite seu nome">
+
+                        <small id="erroNome"></small>
+
+                    </div>
+
+                    <!-- ============================== -->
+                    <!-- EMAIL -->
+                    <!-- ============================== -->
+
+                    <div class="campo">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input type="email" id="email" placeholder="Digite seu email">
+
+                        <small id="erroEmail"></small>
+
+                    </div>
+
+                    <!-- ============================== -->
+                    <!-- SENHA -->
+                    <!-- ============================== -->
+
+                    <div class="campo">
+
+                        <label for="senha">
+                            Senha
+                        </label>
+
+                        <div class="password">
+
+                            <input type="password" id="senha" placeholder="Digite sua senha">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </div>
+
+                        <small id="erroSenha"></small>
+
+                        <!-- Barra de força -->
+
+                        <div class="strength">
+
+                            <div id="strengthBar"></div>
+
+                        </div>
+
+                        <p id="strengthText"></p>
+
+                    </div>
+
+                    <!-- ============================== -->
+                    <!-- CONFIRMAR SENHA -->
+                    <!-- ============================== -->
+
+                    <div class="campo">
+
+                        <label for="confirmarSenha">
+                            Confirmar senha
+                        </label>
+
+                        <div class="password">
+
+                            <input type="password" id="confirmarSenha" placeholder="Digite novamente sua senha">
+
+                            <i class="fa-regular fa-eye" id="olhoConfirmar">
+                            </i>
+
+                        </div>
+
+                        <small id="erroConfirmar"></small>
+
+                    </div>
+
+                    <!-- ============================== -->
+                    <!-- TERMOS -->
+                    <!-- ============================== -->
+
+                    <div class="termos">
+
+                        <input type="checkbox" id="aceito" disabled>
+
+                        <label for="aceito">
+                            Li e aceito os
+                        </label>
+
+                        <span id="abrirTermos">
+                            Termos de Uso
+                        </span>
+
+                    </div>
+
+                    <!-- ============================== -->
+                    <!-- BOTÃO -->
+                    <!-- ============================== -->
+
+                    <button class="create-account" type="submit">
+
+                        Criar conta
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===================================== -->
+    <!-- MODAL - TERMOS DE USO -->
+    <!-- ===================================== -->
+
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <!-- ============================= -->
+            <!-- HEADER -->
+            <!-- ============================= -->
+
+            <div class="modal-header">
+
+                <h2>
+                    Termos de Uso
+                </h2>
+
+                <button id="fechar" type="button">
+
+                    &times;
+
+                </button>
+
+            </div>
+
+            <!-- ============================= -->
+            <!-- CONTEÚDO -->
+            <!-- ============================= -->
+
+            <div class="modal-body" id="modalBody">
+
+                <h3>1. Aceitação</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
+                    usado por estas indústrias desde o ano de 1500...
+                </p>
+
+                <h3>2. Cadastro</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>3. Privacidade</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>4. Uso permitido</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>5. Conteúdo</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>6. Responsabilidades</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>7. Direitos Autorais</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>8. Suspensão da Conta</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>9. Atualizações</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>10. Encerramento</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>11. Política de Privacidade</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+                <h3>12. LGPD</h3>
+
+                <p>
+                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
+                    de impressão...
+                </p>
+
+            </div>
+
+            <!-- ============================= -->
+            <!-- INFORMAÇÃO -->
+            <!-- ============================= -->
+
+            <div class="scroll-info" id="scrollInfo">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <span>
+
+                    Role até o final dos Termos de Uso para habilitar o botão
+
+                    <strong>"Aceito"</strong>
+
+                </span>
+
+            </div>
+
+            <!-- ============================= -->
+            <!-- FOOTER -->
+            <!-- ============================= -->
+
+            <div class="modal-footer">
+
+                <button id="cancelar" type="button">
+
+                    Cancelar
+
+                </button>
+
+                <button id="aceitar" type="button" disabled>
+
+                    Aceito
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- TOAST -->
+    <!-- ===================================== -->
+
+    <div id="toast" class="toast">
+
+        <i id="toastIcon" class="fa-solid fa-circle-check">
+        </i>
+
+        <span id="toastMessage"></span>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================== -->
+
+    <!-- Configurações globais -->
+    <script src="js/config.js"></script>
+
+    <!-- Funções auxiliares -->
+    <script src="js/helpers.js"></script>
+
+    <!-- Toast -->
+    <script src="js/toast.js"></script>
+
+    <!-- Mostrar/Ocultar senha + força -->
+    <script src="js/password.js"></script>
+
+    <!-- Modal de termos -->
+    <script src="js/modal.js"></script>
+
+    <!-- Validações -->
+    <script src="js/validation.js"></script>
+
+    <!-- Envio do formulário -->
+    <script src="js/submit.js"></script>
+
+    <!-- Integração Appwrite -->
+    <script src="js/appwrite.js"></script>
+
+    <!-- Inicialização -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
