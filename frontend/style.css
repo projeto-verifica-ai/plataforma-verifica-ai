@@ -37,10 +37,13 @@ body {
   overflow-x: hidden;
 
   padding-bottom: env(safe-area-inset-bottom);
+  text-align: center;
 }
 
 p {
   max-width: 60ch; /* evita linhas longas */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -340,7 +343,6 @@ button:focus-visible,
   width: 100%;
   max-width: 410px;
   box-shadow: 0 10px 24px rgba(5, 11, 26, 0.12);
-  text-align: left;
 }
 
 .feature-card-header {
