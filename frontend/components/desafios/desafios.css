@@ -1,0 +1,159 @@
+/* ============================================================
+   DESAFIOS.CSS — Verifica AI
+   Estilos isolados do componente <verifica-desafio>.
+   Cobre os dois tipos: alternativa (radio) e imagem (grid clicável).
+   Depende das variáveis globais definidas no style.css principal.
+   ============================================================ */
+
+/* Card branco que envolve o desafio inteiro */
+.desafio {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 0 2rem 1.5rem;
+}
+
+/* Texto da pergunta, no topo do card */
+.desafio-pergunta {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-weight: 700;
+  color: var(--color-green-primary);
+  margin: 0 0 1.25rem;
+}
+
+/* Texto complementar, abaixo da pergunta */
+.desafio-texto-complementar {
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.9375rem;
+  color: #666666;
+  margin: 0 0 1.25rem;
+}
+
+/* -------------------- DESAFIO DE ALTERNATIVA -------------------- */
+
+/* Lista vertical das opções */
+.desafio-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+/* Cada opção (radio + texto) */
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: 0.875rem;
+  border: 1px solid #e5e3da;
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.9375rem;
+  color: #333333;
+  cursor: pointer;
+}
+
+/* Aplicada na opção correta, depois que o usuário responde */
+.opcao--correta {
+  border-color: var(--color-green-primary);
+  background-color: #eaf7ef;
+}
+
+/* Aplicada na opção errada que o usuário escolheu */
+.opcao--incorreta {
+  border-color: var(--color-red-dark);
+  background-color: #fbeceb;
+}
+
+/* Botão "Enviar resposta" */
+.desafio-botao-enviar {
+  display: flex;
+  margin: auto;
+  margin-top: 1.25rem;
+  background-color: var(--color-green-primary);
+  color: #ffffff;
+  border: none;
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.625rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Estado desabilitado, enquanto nenhuma opção foi marcada */
+.desafio-botao-enviar:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Mensagem final ("Resposta correta!" / "Não foi dessa vez.") */
+.desafio-resultado {
+  margin-top: 1.25rem;
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.desafio-resultado--correta {
+  border-color: var(--color-green-primary);
+}
+
+.desafio-resultado--incorreta {
+  border-color: var(--color-red-dark);
+}
+
+/* -------------------- DESAFIO DE IMAGEM -------------------- */
+
+/* Grid 2 colunas com as imagens clicáveis */
+.desafio-imagens {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Cada imagem clicável (é um <button>, não uma <img> solta) */
+.imagem-opcao {
+  position: relative;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.imagem-opcao img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Legenda ("Imagem real" / "Imagem de IA") sobreposta na imagem */
+.imagem-opcao-label {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+}
+
+.imagem-opcao--correta {
+  border-color: #2f9e5b;
+}
+
+.imagem-opcao--incorreta {
+  border-color: #d9534f;
+}
+
+/* Ajustes para telas menores (celular/tablet) */
+@media (max-width: 768px) {
+  .desafio {
+    margin: 0 0.75rem 1rem;
+    padding: 1.25rem;
+  }
+}

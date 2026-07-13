@@ -33,8 +33,10 @@
 }
 
 .pagina-com-sidebar .main {
-  flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100dvw;
 }
 
 /* Acessibilidade: Respeita a preferência de tamanho de fonte do navegador do usuário */
@@ -55,7 +57,8 @@ body {
 }
 
 p {
-  max-width: 60ch; /* evita linhas longas */
+  max-width: 60ch;
+  /* evita linhas longas */
 }
 
 a {
@@ -139,7 +142,8 @@ button:focus-visible,
 }
 
 .btn:hover {
-  transform: scale(1.05); /* Mantido do antigo */
+  transform: scale(1.05);
+  /* Mantido do antigo */
 }
 
 .btn-primary {
@@ -255,7 +259,8 @@ button:focus-visible,
 .feature-card,
 .stat-box,
 .source-card {
-  padding: 1.25rem; /* antes 1rem */
+  padding: 1.25rem;
+  /* antes 1rem */
 }
 
 .news-title {
@@ -484,6 +489,7 @@ button:focus-visible,
 }
 
 @media (min-width: 768px) {
+
   /* Retorna ao padding fixo e layout de linha do CSS original */
   .header {
     flex-direction: row;
@@ -503,11 +509,12 @@ button:focus-visible,
     font-size: 36px;
     white-space: nowrap;
   }
-  
+
   .logo-icon {
     width: 72px;
     height: 72px;
   }
+
   .icon-verified {
     width: 32px;
     height: 32px;
@@ -530,6 +537,7 @@ button:focus-visible,
   .hero-content h1 {
     font-size: 64px;
   }
+
   .hero-content p {
     font-size: 20px;
   }
@@ -542,15 +550,19 @@ button:focus-visible,
   .card-fake-news {
     padding: 40px;
   }
+
   .news-title {
     font-size: 25px;
   }
+
   .news-quote {
     font-size: 19px;
   }
+
   .tag-fake {
     font-size: 16px;
   }
+
   .news-source {
     font-size: 16px;
   }
@@ -576,6 +588,7 @@ button:focus-visible,
   .section-title {
     font-size: 54px;
   }
+
   .section-subtitle {
     font-size: 24px;
     margin-bottom: 60px;
@@ -591,6 +604,7 @@ button:focus-visible,
   .feature-card h3 {
     font-size: 25px;
   }
+
   .feature-card p {
     font-size: 19px;
   }
@@ -609,6 +623,7 @@ button:focus-visible,
   .source-card {
     height: 160px;
   }
+
   .sources-footer-title {
     font-size: 32px;
     margin-top: 60px;
@@ -618,12 +633,14 @@ button:focus-visible,
   .cta-banner {
     padding: 80px 20px;
     margin-top: 100px;
-    border-radius: 0; /* Assumindo visual de banner em toda a extensão do Desktop */
+    border-radius: 0;
+    /* Assumindo visual de banner em toda a extensão do Desktop */
   }
 
   .cta-banner h2 {
     font-size: 48px;
   }
+
   .cta-banner p {
     font-size: 20px;
   }

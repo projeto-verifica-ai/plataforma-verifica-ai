@@ -1,0 +1,73 @@
+/* ============================================================
+   ARTIGOS.CSS — Verifica AI
+   Estilos isolados do componente <verifica-artigo>.
+   Depende das variáveis globais definidas no style.css principal
+   (--font-primary, --font-secondary, --color-blue-primary).
+   ============================================================ */
+
+/* Card branco que envolve todo o artigo */
+.artigo {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  padding: 1.3rem;
+  margin: 0 2rem 1.5rem;
+}
+
+/* Título principal do artigo */
+.artigo-titulo {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-green-primary);
+}
+
+/* Texto pequeno indicando tempo de leitura, logo abaixo do título */
+.artigo-meta {
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.8125rem;
+  color: #6b6b6b;
+}
+
+/* Espaço entre a meta (tempo de leitura) e o texto do artigo */
+.artigo-conteudo {
+  margin-top: 1.5rem;
+}
+
+/* Cada parágrafo do artigo */
+.artigo-paragrafo {
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #333333;
+  margin: 0 0 1rem;
+}
+
+/* Data de atualização, no rodapé do card */
+.artigo-atualizado {
+  display: flex;
+  justify-content: flex-end;
+  font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+  font-weight: 200;
+  font-size: 0.75rem;
+  color: #4b4b4b;
+  margin-top: 2.5rem;
+}
+
+.imagem-tempo {
+  height: 1rem;
+}
+
+.tempo-leitura {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Ajustes para telas menores (celular/tablet) */
+@media (max-width: 768px) {
+  .artigo {
+    margin: 0 0.75rem 1rem;
+    padding: 1.25rem;
+  }
+}

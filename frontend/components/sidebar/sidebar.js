@@ -29,8 +29,10 @@ class VerificaSidebar extends HTMLElement {
         <div class="sidebar-logo">
           <img src="../../assets/verificaai-robot-icon.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
           <span class="sidebar-logo-text">Verifica AÍ</span>
+          <div class="verify-icon-div">
           <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />
-        </div>
+          </div>
+          </div>
 
         <nav class="sidebar-nav">
           ${renderNav(navItems)}
@@ -55,19 +57,19 @@ class VerificaSidebar extends HTMLElement {
       
    <nav class="bottom-nav" aria-label="Navegação principal">
     <a href="home.html" class="bottom-nav-item ${paginaAtual === 'home.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="assets/icons/icone-inicio.png" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-inicio.svg" alt="" class="bottom-nav-icon" />
       <span>Início</span>
     </a>
     <a href="perfil.html" class="bottom-nav-item ${paginaAtual === 'perfil.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="assets/icons/icone-perfil.png" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
       <span>Meu perfil</span>
     </a>
     <a href="ajuda.html" class="bottom-nav-item ${paginaAtual === 'ajuda.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="assets/icons/icone-ajuda.png" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
       <span>Ajuda</span>
     </a>
     <a href="configuracoes.html" class="bottom-nav-item ${paginaAtual === 'configuracoes.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="../../assets/icons/icone-configuracoes.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" />
       <span>Configurações</span>
     </a>
   </nav>

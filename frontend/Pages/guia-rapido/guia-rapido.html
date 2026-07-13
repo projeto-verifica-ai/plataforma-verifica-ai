@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos específicos desta página (card de saudação + progresso) -->
+    <link rel="stylesheet" href="guia-rapido.css">
+
+    <!-- Componente de sidebar, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+
+    <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/footer/footer.js"></script>
+    <link rel="stylesheet" href="../../components/footer/footer.css">
+
+    <!-- Componente de tabs das trilhas (mostra qual está ativa e quais estão bloqueadas) -->
+    <link rel="stylesheet" href="../../components/trilhas/trilhas.css">
+    <script type="module" src="../../components/trilhas/trilhas.js"></script>
+
+    <!-- Componente de artigo (bloco de leitura teórica das trilhas) -->
+    <link rel="stylesheet" href="../../components/artigos/artigos.css">
+    <script type="module" src="../../components/artigos/artigos.js"></script>
+
+    <!-- Componente de desafio (alternativa ou imagem) -->
+    <link rel="stylesheet" href="../../components/desafios/desafios.css">
+    <script type="module" src="../../components/desafios/desafios.js"></script>
+
+    <!-- Componente de seleção de trilha -->
+    <link rel="stylesheet" href="../../components/trilhas/verifica-trilha-tabs.css">
+    <script type="module" src="../../components/trilhas/verifica-trilha-tabs.js"></script>
+
+    <!-- Script da própria página: guarda os dados de todas as trilhas
+         e troca o conteúdo exibido quando o usuário clica numa trilha -->
+    <script type="module" src="guia-rapido.js"></script>
+
+    <!-- Estilos e variáveis globais do projeto (cores, fontes) -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>Guia Rápido</title>
+</head>
+
+<body class="pagina-com-sidebar">
+
+    <!-- Sidebar de navegação lateral (desktop) / bottom nav (mobile) -->
+    <verifica-sidebar></verifica-sidebar>
+
+    <main class="main">
+
+        <!-- Card de saudação com mascote + barra de progresso geral do usuário -->
+        <section class="inicio">
+            <div class="saudacao-card">
+                <img src="../../assets/mascot-image/BotAcenandoGuiaRapido.png"
+                    alt="Nosso mascote, robôtive saudando o usuário" id="mascote-saudacao">
+                <div class="saudacao-text">
+                    <h2>Olá, Maria!</h2>
+                    <span id="saudacao-mensagem">Continue aprendendo sobre a IA.</span>
+                </div>
+            </div>
+            <div class="progresso-wrapper">
+                <div class="progresso-header">
+                    <span class="progresso-label">Seu progresso geral</span>
+                    <!-- Porcentagem fixa por enquanto; futuramente vem do Appwrite -->
+                    <span class="progresso-porcentagem">25%<span class="progresso-sufixo"> concluído</span></span>
+                </div>
+
+                <!-- Barra de progresso acessível (role=progressbar + aria-valuenow) -->
+                <div class="progresso-track" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                    aria-label="Progresso geral">
+                    <div class="progresso-bar" style="width: 25%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra de trilhas: qual está ativa e quais estão bloqueadas.
+             O conteúdo (trilhas, ativa) é populado pelo guia-rapido.js -->
+        <verifica-trilha-tabs id="trilha-tabs"></verifica-trilha-tabs>
+
+        <!-- Container vazio: o <verifica-artigo> da trilha atual é criado
+             dinamicamente aqui dentro pelo guia-rapido.js -->
+        <section class="artigo" id="artigo-container"></section>
+
+        <!-- Container vazio: os <verifica-desafio> da trilha atual são
+             criados dinamicamente aqui dentro (a quantidade varia por trilha) -->
+        <section class="desafios" id="desafios-container"></section>
+
+        <verifica-footer></verifica-footer>
+    </main>
+
+</body>
+
+</html>
