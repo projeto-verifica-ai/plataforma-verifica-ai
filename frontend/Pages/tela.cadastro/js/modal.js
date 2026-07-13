@@ -20,6 +20,26 @@ function iniciarModal() {
 
     cancelar.addEventListener("click", fecharModal);
 
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key === "Escape") {
+
+            fecharModal();
+
+        }
+
+    });
+
+    modal.addEventListener("click", (e) => {
+
+        if (e.target === modal) {
+
+            fecharModal();
+
+        }
+
+    });
+
     // ===============================
     // Aceitar Termos
     // ===============================
@@ -75,6 +95,8 @@ function abrirModal() {
 function fecharModal() {
 
     modal.classList.remove("ativo");
+
+    modalBody.scrollTop = 0;
 
 }
 

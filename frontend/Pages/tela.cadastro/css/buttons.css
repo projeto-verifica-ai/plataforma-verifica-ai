@@ -8,87 +8,50 @@
    BOTÕES SOCIAIS
 ========================================= */
 
-.facebook,
-.google{
+.social-btn {
 
-    position:relative;
+    position: relative;
 
-    width:100%;
-    height:58px;
+    width: 100%;
+    height: 58px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    gap:12px;
+    gap: 12px;
 
-    border:none;
-    border-radius:14px;
+    border: none;
+    border-radius: 14px;
 
-    background:#284CAD;
+    background: #284CAD;
 
-    color:#DDD;
+    color: #DDD;
 
-    font-size:15px;
-    font-weight:600;
+    font-size: 15px;
+    font-weight: 600;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 
-    transition:.25s;
-
-}
-
-.facebook:hover,
-.google:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 24px rgba(0,0,0,.12);
+    transition: .25s;
 
 }
 
-.facebook img,
-.google img{
+.social-btn:active,
+.create-account:active {
 
-    position:absolute;
-
-    left:18px;
-
-    width:35px;
-    height:35px;
+    transform: scale(.98);
 
 }
 
-/* =========================================
-   BOTÃO CRIAR CONTA
-========================================= */
+.social-btn:focus-visible,
+.create-account:focus-visible {
 
-.create-account{
+    outline: none;
 
-    width:100%;
-    height:56px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    gap:10px;
-
-    border:none;
-    border-radius:14px;
-
-    background:#2962FF;
-
-    color:#FFF;
-
-    font-size:16px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
+    box-shadow: 0 0 0 4px rgba(41, 98, 255, .18);
 
 }
 
@@ -96,15 +59,99 @@
 
     background:#1F4DE0;
 
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 28px rgba(41,98,255,.28);
+
 }
 
-.create-account:disabled{
+.facebook {
 
-    background:#CFCFCF;
+    background: #1877F2;
 
-    color:#777;
+}
 
-    cursor:not-allowed;
+.google {
+
+    background: #FFF;
+    color: #444;
+    border: 1px solid #E2E2E2;
+}
+
+.facebook:hover,
+.google:hover {
+
+    transform: translateY(-3px) scale(1.01);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+
+}
+
+.facebook img,
+.google img {
+
+    position: absolute;
+
+    left: 18px;
+
+    width: 35px;
+    height: 35px;
+
+}
+
+/* =========================================
+   BOTÃO CRIAR CONTA
+========================================= */
+
+.create-account {
+
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #2962FF;
+
+    color: #FFF;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.create-account i{
+
+    transition:.30s ease;
+
+}
+
+.create-account:hover i{
+
+    transform:translateX(4px);
+
+}
+
+
+
+.create-account:disabled {
+
+    background: #CFCFCF;
+
+    color: #777;
+
+    cursor: not-allowed;
+    pointer-events: none;
 
 }
 
@@ -112,62 +159,63 @@
    BOTÕES DO MODAL
 ========================================= */
 
-.modal-footer button{
+.modal-footer button {
+    min-width: 120px;
 
-    padding:12px 24px;
+    padding: 12px 24px;
 
-    border:none;
+    border: none;
 
-    border-radius:10px;
+    border-radius: 10px;
 
-    font-size:15px;
-    font-weight:600;
+    font-size: 15px;
+    font-weight: 600;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.25s;
+    transition: .25s;
 
 }
 
 /* Cancelar */
 
-#cancelar{
+#cancelar {
 
-    background:#ECECEC;
+    background: #ECECEC;
 
 }
 
-#cancelar:hover{
+#cancelar:hover {
 
-    background:#DDDDDD;
+    background: #DDDDDD;
 
 }
 
 /* Aceitar */
 
-#aceitar{
+#aceitar {
 
-    background:#2962FF;
+    background: #2962FF;
 
-    color:#FFF;
-
-}
-
-#aceitar:hover{
-
-    background:#1F4DE0;
+    color: #FFF;
 
 }
 
-#aceitar:disabled{
+#aceitar:hover {
 
-    background:#CFCFCF;
+    background: #1F4DE0;
 
-    color:#777;
+}
 
-    cursor:not-allowed;
+#aceitar:disabled {
 
-    opacity:.8;
+    background: #CFCFCF;
+
+    color: #777;
+
+    cursor: not-allowed;
+
+    opacity: .8;
 
 }
 
@@ -175,27 +223,28 @@
    FECHAR MODAL
 ========================================= */
 
-#fechar{
+#fechar {
 
-    width:40px;
-    height:40px;
+    width: 40px;
+    height: 40px;
 
-    border:none;
+    border: none;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:#F4F4F4;
+    background: #F4F4F4;
 
-    font-size:28px;
+    font-size: 28px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:.25s;
+    transition: .25s;
 
 }
 
-#fechar:hover{
+#fechar:hover {
 
-    background:#E5E5E5;
+    background: #E5E5E5;
+    transform: rotate(90deg);
 
 }

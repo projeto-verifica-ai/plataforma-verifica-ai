@@ -24,7 +24,7 @@
 
     font-size:15px;
 
-    font-weight:500;
+    font-weight:600;
 
 }
 
@@ -91,6 +91,7 @@
     cursor:pointer;
 
     transition:.25s;
+    user-select:none;
 
 }
 
@@ -193,12 +194,14 @@
     font-weight:600;
 
     cursor:pointer;
+    transition: .25s;
 
 }
 
 .termos span:hover{
 
     text-decoration:underline;
+    opacity: 8;
 
 }
 
@@ -229,13 +232,15 @@ small{
 ========================================= */
 
 .erro{
-
+    
+    animation:shake .35s;
     border:3px solid #E53935 !important;
-
+    box-shadow:0 0 0 4px rgba(229,57,53,.12);
 }
 
 .sucesso{
 
     border:3px solid #36B37E !important;
+    box-shadow:0 0 0 4px rgba(54,179,126,.12);
 
 }

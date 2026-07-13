@@ -42,9 +42,7 @@
 
 .modal-content{
 
-    width:700px;
-
-    max-width:95%;
+    width:min(700px,95%);
 
     height:90vh;
 
@@ -109,6 +107,8 @@
     padding:28px;
 
     line-height:1.8;
+
+    letter-spacing:.2px;
 
 }
 
@@ -204,6 +204,12 @@
 
 }
 
+.scroll-info span{
+
+    line-height:1.5;
+
+}
+
 .scroll-info strong{
 
     color:#2962FF;
@@ -229,29 +235,5 @@
     background:#FFF;
 
     flex-shrink:0;
-
-}
-
-/* =========================================
-   ANIMAÇÃO
-========================================= */
-
-@keyframes abrirModal{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(25px) scale(.95);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0) scale(1);
-
-    }
 
 }

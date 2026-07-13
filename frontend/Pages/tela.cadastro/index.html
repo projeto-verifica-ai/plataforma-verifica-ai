@@ -33,12 +33,27 @@
     <!-- CSS -->
     <!-- ===================================== -->
 
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
 <body>
+
+    <header class="mobile-header">
+
+        <h1>Bem-vindo!</h1>
+
+        <img src="img/LogoVerificaAIWhite 1.png" class="mobile-robot" alt="Robô">
+
+    </header>
 
     <!-- ===================================== -->
     <!-- CONTAINER -->
@@ -104,7 +119,7 @@
 
                 <div class="social-buttons">
 
-                    <button class="facebook" type="button">
+                    <button class="social-btn facebook" type="button">
 
                         <img src="img/facebook-svgrepo-com.svg" alt="Facebook">
 
@@ -114,7 +129,7 @@
 
                     </button>
 
-                    <button class="google" type="button">
+                    <button class="social-btn google" type="button">
 
                         <img src="img/google-svgrepo-com.svg" alt="Google">
 
@@ -144,7 +159,7 @@
                 <!-- FORMULÁRIO -->
                 <!-- ============================== -->
 
-                <form id="cadastro">
+                <form id="cadastro" novalidate>
 
                     <!-- ============================== -->
                     <!-- NOME -->
@@ -156,7 +171,7 @@
                             Nome
                         </label>
 
-                        <input type="text" id="nome" placeholder="Digite seu nome">
+                        <input type="text" id="nome" placeholder="Digite seu nome" required>
 
                         <small id="erroNome"></small>
 
@@ -172,7 +187,7 @@
                             Email
                         </label>
 
-                        <input type="email" id="email" placeholder="Digite seu email">
+                        <input type="email" id="email" placeholder="Digite seu email" required>
 
                         <small id="erroEmail"></small>
 
@@ -190,9 +205,9 @@
 
                         <div class="password">
 
-                            <input type="password" id="senha" placeholder="Digite sua senha">
+                            <input type="password" id="senha" placeholder="Digite sua senha" required>
 
-                            <i class="fa-regular fa-eye"></i>
+                            <i class="fa-regular fa-eye" aria-hidden="true" ></i>
 
                         </div>
 
@@ -222,7 +237,7 @@
 
                         <div class="password">
 
-                            <input type="password" id="confirmarSenha" placeholder="Digite novamente sua senha">
+                            <input type="password" id="confirmarSenha" placeholder="Digite novamente sua senha" required>
 
                             <i class="fa-regular fa-eye" id="olhoConfirmar">
                             </i>
@@ -289,7 +304,7 @@
                     Termos de Uso
                 </h2>
 
-                <button id="fechar" type="button">
+                <button id="fechar" type="button" aria-label="Fechar modal">
 
                     &times;
 

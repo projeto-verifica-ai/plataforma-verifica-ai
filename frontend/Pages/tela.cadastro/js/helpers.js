@@ -22,11 +22,17 @@ function mostrarErro(input, small, mensagem) {
 // MOSTRAR SUCESSO
 // =========================================
 
-function mostrarSucesso(input) {
+function mostrarSucesso(input, small) {
 
     input.classList.remove("erro");
 
     input.classList.add("sucesso");
+
+    if (small) {
+
+        small.textContent = "";
+
+    }
 
 }
 
@@ -42,7 +48,7 @@ function limparErros() {
 
     });
 
-    document.querySelectorAll("input").forEach(input => {
+    document.querySelectorAll(".campo input").forEach(input => {
 
         input.classList.remove("erro");
 
@@ -93,5 +99,7 @@ function resetarFormulario() {
     strengthBar.style.background = "#E6E6E6";
 
     strengthText.textContent = "";
+
+    checkbox.disabled = true;
 
 }

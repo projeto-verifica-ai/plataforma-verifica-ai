@@ -18,7 +18,7 @@ function mostrarToast(tipo, mensagem) {
 
     }
 
-    if (tipo === "error") {
+    else if (tipo === "error") {
 
         toast.classList.add("error");
 
@@ -27,7 +27,7 @@ function mostrarToast(tipo, mensagem) {
 
     }
 
-    toastMessage.innerHTML = mensagem;
+    toastMessage.textContent = mensagem;
 
     toast.classList.add("show");
 

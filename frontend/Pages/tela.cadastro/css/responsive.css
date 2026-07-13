@@ -1,180 +1,207 @@
-/* responsive.css */
+/* =====================================
+   NOTEBOOK
+===================================== */
 
-/* Notebook */
-@media (max-width:1200px){
+@media (max-width:1440px) {
 
-    .left{
-        width:35%;
-        padding:40px 30px;
+    .left {
+        width: 35%;
+        padding: 40px 30px;
     }
 
-    .right{
-        width:65%;
-        padding:40px;
+    .right {
+        width: 65%;
+        padding: 30px;
     }
 
-    .desktop-title{
-        font-size:2.6rem;
+    .desktop-title {
+        font-size: 2.6rem;
     }
 
-    .robot{
-        width:260px;
+    .robot {
+        width: 260px;
     }
 
-    .form-box{
-        max-width:500px;
-        padding:40px;
+    .form-box {
+        max-width: 550px;
     }
 
-}
-
-/* Tablet */
-@media (max-width:900px){
-
-    .container{
-        flex-direction:column;
-    }
-
-    .left,
-    .right{
-        width:100%;
-    }
-
-    .left{
-        min-height:300px;
-        justify-content:center;
-        gap:20px;
-    }
-
-    .robot{
-        width:180px;
-    }
-
-    .right{
-        padding:40px 20px;
+    .subtitle,
+    .form-box h2 {
+        font-size: 2.5rem;
     }
 
 }
 
-/* Mobile */
-@media (max-width:768px){
+/* =====================================
+   MOBILE
+===================================== */
 
-    body{
-        background:#F8F5EF;
+@media (max-width:768px) {
+
+    body {
+        background: #F8F5EF;
+        overflow-x: hidden;
     }
 
-    .container{
-        display:flex;
-        flex-direction:column;
+    .mobile-header {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 230px;
+        padding-top: 20px;
+        background: radial-gradient(circle, #C8D98C, #58A74B);
+        border-radius: 0 0 40px 40px;
     }
 
-    .left{
-        position:relative;
-        min-height:220px;
-        padding:30px 20px 70px;
-        justify-content:flex-start;
-        align-items:center;
-        border-radius:0 0 40px 40px;
+    .mobile-header h1 {
+
+        color: #FFF;
+        font-size: 2.7rem;
+        margin-top: 35px;
+        font-weight: 700;
+
     }
 
-    .desktop-title{
-        display:none;
+    .mobile-robot {
+
+        position: absolute;
+        bottom: -45px;
+        width: 140px;
+        background: #F8F5EF;
+        border-radius: 50%;
+        padding: 10px;
+
     }
 
-    .mobile-title{
-        display:block;
-        font-size:2.7rem;
-        font-weight:700;
-        color:#fff;
+    .left {
+        display: none;
     }
 
-    .login-link{
-        display:none;
+    .login-link {
+        display: none;
     }
 
-    .robot{
-        position:absolute;
-        bottom:-60px;
-        left:50%;
-        transform:translateX(-50%);
-        width:130px;
-        background:#F8F5EF;
-        border-radius:50%;
-        padding:10px;
+    .right {
+        width: 100%;
+        padding: 50px 20px 60px;
     }
 
-    .right{
-        padding:90px 20px 30px;
+    .form-box {
+        box-shadow: 0 10px 35px rgba(0, 0, 0, .08);
+        background: white;
+        border-radius: 25px;
+        padding: 25px;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
-    .form-box{
-        box-shadow:none;
-        background:transparent;
-        padding:0;
-        max-width:100%;
+    .form-box h2 {
+        text-align: center;
+        font-size: 2rem;
     }
 
-    .form-box h2{
-        text-align:center;
-        font-size:2rem;
+    .subtitle {
+        display: block;
+        text-align: center;
+        font-size: 2rem;
     }
 
-    .subtitle{
-        display:block;
-        text-align:center;
-    }
-
-    .social-buttons{
-        flex-direction:row;
-        justify-content:center;
-        gap:20px;
-        margin:30px 0;
+    .social-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px 0;
     }
 
     .facebook,
-    .google{
-        width:70px;
-        height:70px;
-        border-radius:20px;
+    .google {
+        width: 68px;
+        height: 68px;
+        border-radius: 20px;
     }
 
     .facebook span,
-    .google span{
-        display:none;
+    .google span {
+        display: none;
     }
 
     .facebook img,
-    .google img{
-        width:34px;
-        height:34px;
+    .google img {
+        width: 34px;
+        height: 34px;
+        margin: 0;
     }
 
-    .options{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:12px;
+
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+        height: auto;
+
+    }
+
+    .modal-header {
+
+        padding: 18px;
+
+    }
+
+    .modal-body {
+
+        padding: 20px;
+
+    }
+
+    .modal-footer {
+
+        padding: 18px;
+
+    }
+
+    .toast {
+
+        left: 15px;
+
+        right: 15px;
+
+        top: 15px;
+
+        min-width: auto;
+
+        width: auto;
+
     }
 
 }
 
-/* Celulares pequenos */
-@media (max-width:480px){
+/* =====================================
+   CELULAR PEQUENO
+===================================== */
 
-    .mobile-title{
-        font-size:2.2rem;
+@media (max-width:480px) {
+
+    .mobile-header h1 {
+
+        font-size: 2.2rem;
+
     }
 
-    .form-box h2{
-        font-size:1.8rem;
+    .mobile-robot {
+
+        width: 120px;
+
     }
 
-    .campo input{
-        height:48px;
-        font-size:14px;
-    }
+    .form-box {
 
-    .create-account{
-        height:52px;
+        margin-top: 100px;
+        padding: 20px;
+
     }
 
 }
