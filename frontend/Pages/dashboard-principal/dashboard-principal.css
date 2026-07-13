@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Molengo&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Syne:wght@400..800&display=swap');
+
+ /* Propriedades customizadas */
+:root {
+--cor-Verde-floresta: #2C7444;
+--cor-Verde-oliva-claro: #C8D98C;
+--cor-azul-noturno: #0A1633;
+--cor-azul-royal: #284CAD;
+--cor-vermelho-bordo: #9A0F0F;
+--cor-branco-creme: #F1EEE6;
+
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:#f1eee6;
+    font-family: "outfit", sans-serif;
+    padding-bottom: 70px; /* espaço pra não ficar embaixo da nav fixa */
+}
+
+/* SEÇÃO 1: HERO / BOAS-VINDAS  Header */
+.hero-boas-vindas {
+    padding: 2rem;
+   background: linear-gradient(var(--cor-Verde-floresta), var(--cor-Verde-oliva-claro));
+    width: 100%;
+    color: var(--cor-branco-creme);
+    padding: 2.5rem 1.5rem 4rem;
+    border-radius: 0 0 20% 20% / 0 0 80px 80px;  /* Alinhando o formato do header mobile */
+    position: relative;
+   
+}
+
+.boas-vindas-texto  h1 {
+   font-size: 1.4rem; /* Tamanho da fonte h1 */
+   margin-bottom: 0.4rem; /* espacinho embaixo, separando do parágrafo */
+
+}
+
+.boas-vindas-texto p {
+    font-size: 0.90rem;
+    max-width: 49%; /* Fazendo a quebra do paragrafo */
+    font-weight: 300;  /* Afinar ou engrossar fonte */
+}
+
+.boas-vindas-mascote {
+    position: absolute; /* tira a imagem do fluxo normal, permite posicionar livremente */
+    right: 6px; /* Levando a imagem para a direita */
+    bottom: -25px; /* Levando a imagem para baixo */
+height: 10rem;
+    width: 12rem;
+    max-width: 70%; /* trava um limite proporcional, pra não ficar gigante em telas maiores */
+}
+
+/* SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS) */
+main {
+    padding: 0 1.5rem;
+}
+
+.grid-navegacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* Empilhando os cards em 2 colunas e 2 linhas */
+  gap: 1rem; 
+}
+
+
+/* .card-nav {
+    background-color: var(--cor-Verde-oliva-claro);
+border-radius: 28px;
+padding: 1rem;
+
+} */
+ 
+
