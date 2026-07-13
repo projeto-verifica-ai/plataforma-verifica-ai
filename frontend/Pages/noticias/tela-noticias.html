@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica AÍ</title>
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+    <script type="module" src="../../components/footer/footer.js"></script>
+    <link rel="stylesheet" href="../../components/footer/footer.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="dashboard-principal.css">
+</head>
+
+<body class="pagina-com-sidebar">
+    <verifica-sidebar></verifica-sidebar>
+    <main class="main">
+         <header>
+        <h1>Notícias e Verificação de Informação</h1>
+
+        <!-- Barra de busca -->
+        <div class="busca-container">
+            <input type="search" placeholder="Pesquisar notícias">
+        </div>
+
+        <!-- Menu de filtragem de categorias -->
+        <nav class="filtros">
+            <ul>
+                <li><a href="#" class="ativo">Todas</a></li>
+                <li><a href="#">Verdadeiras</a></li>
+                <li><a href="#">Falsas</a></li>
+                <li><a href="#">Em análise</a></li>
+            </ul>
+        </nav>
+        </header>
+
+        <!-- Área principal com a listagem de notícias -->
+        <main>
+
+            <!-- Card 1: Notícia Verdadeira -->
+            <article class="card verdadeira">
+                <div class="card-conteudo">
+                    <h2>Verdadeira</h2>
+                    <p>Golpistas utilizam IA para clonar vozes de familiares. A tecnologia está sendo usada em golpes
+                        por telefone para solicitar dinheiro.</p>
+                    <time datetime="2026-06-22">22/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+                <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-verdadeira.png.jpeg"
+                        alt="Pessoa utilizando o celular perto do rosto">
+                </div>
+            </article>
+
+            <!-- Card 2: Notícia Falsa -->
+            <article class="card falsa">
+                  <div class="card-conteudo">
+                    <h2>Falsa</h2>
+                    <p>"ChatGPT consegue invadir contas bancárias sozinho." Essa informação circulou nas redes sociais,
+                        mas não possui fundamento.</p>
+                    <time datetime="2026-06-20">20/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+              <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-falsa.png.jpeg" alt="Tela exibindo a interface do ChatGPT">
+                </div>
+            </article>
+
+            <!-- Card 3: Notícia Em análise (Invertida) -->
+            <article class="card falsa">
+                <div class="card-conteudo">
+                    <h2>Em análise</h2>
+                    <p>Vídeo viral de político cometendo atos criminosos é confirmado como IA.</p>
+                    <time datetime="2026-06-18">18/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+                <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-analise.png.jpeg"
+                        alt="Pessoa de costas olhando para a tela de um celular">
+                </div>
+            </article>
+
+        </main>
+
+        <!-- Rodapé com paginação -->
+        <footer>
+            <nav class="paginacao">
+                <span>Página 1 de 3</span>
+                <a href="#" aria-label="Próxima página">&gt;</a>
+            </nav>
+        </footer>
+
+        <footer>
+            <verifica-footer></verifica-footer>
+        </footer>
+    </main>
+</body>
+
+</html>
