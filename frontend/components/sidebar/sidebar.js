@@ -1,29 +1,29 @@
 class VerificaSidebar extends HTMLElement {
-    connectedCallback() {
-        // Pega a página atual para marcar o item ativo automaticamente
-        const paginaAtual = window.location.pathname.split("/").pop();
+  connectedCallback() {
+    // Pega a página atual para marcar o item ativo automaticamente
+    const paginaAtual = window.location.pathname.split("/").pop();
 
-        const navItems = [
-            { href: "home.html", icon: "icone-inicio.svg", label: "Início" },
-            { href: "comunidade.html", icon: "icone-comunidade.svg", label: "Comunidade" },
-            { href: "noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" },
-            { href: "guia.html", icon: "icone-guia-rapido.svg", label: "Guia rápido" },
-        ];
+    const navItems = [
+      { href: "../dashboard-principal/dashboard-principal.html", icon: "icone-inicio.svg", label: "Início" },
+      { href: "../comunidade/comunidade.html", icon: "icone-comunidade.svg", label: "Comunidade" },
+      { href: "../noticias/noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" },
+      { href: "../guia-rapido/guia-rapido.html", icon: "icone-guia-rapido.svg", label: "Guia rápido" },
+    ];
 
-        const navSecundario = [
-            { href: "configuracoes.html", icon: "icone-configuracao.svg", label: "Configurações" },
-            { href: "ajuda.html", icon: "icone-ajuda.svg", label: "Ajuda" },
-        ];
+    const navSecundario = [
+      { href: "configuracoes.html", icon: "icone-configuracao.svg", label: "Configurações" },
+      { href: "ajuda.html", icon: "icone-ajuda.svg", label: "Ajuda" },
+    ];
 
-        const renderNav = (items) =>
-            items.map(({ href, icon, label }) => `
+    const renderNav = (items) =>
+      items.map(({ href, icon, label }) => `
         <a href="${href}" class="nav-item ${paginaAtual === href ? "nav-item--active" : ""}">
           <img src="../../assets/icons/${icon}" alt="" class="nav-icon" />
           <span>${label}</span>
         </a>
       `).join("");
 
-        this.innerHTML = `
+    this.innerHTML = `
       <aside class="sidebar">
 
         <div class="sidebar-logo">
@@ -74,7 +74,7 @@ class VerificaSidebar extends HTMLElement {
     </a>
   </nav>
 `;
-    }
+  }
 
 }
 
