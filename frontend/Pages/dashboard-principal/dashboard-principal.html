@@ -10,13 +10,15 @@
     <title>Verifica AÍ</title>
 
     <link rel="stylesheet" href="dashboard-principal.css">
-    <!-- <link rel="stylesheet" href="../../components/sidebar/sidebar.css"> -->
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="../../components/footer/footer.css">
 </head>
-       
+
 <body>
-    <!-- <verifica-sidebar></verifica-sidebar> -->
-                           
+    <verifica-sidebar></verifica-sidebar>
+
     <!-- SEÇÃO 1: CARD DE BOAS-VINDAS (HERO) -->
+     <div class="conteudo-pagina">
     <header class="hero-boas-vindas">
 
         <div class="boas-vindas-texto">
@@ -24,75 +26,101 @@
             <p>Que bom ter você aqui! O que deseja fazer hoje?</p>
         </div>
 
-        <img src="../../assets/mascot-image/bot-acenando-mobile.png"
+        <img src="../../assets/mascot-image/bot-acenando-header.png"
             alt="Imagem de um robô branco com roupa e boina verde escuro acenando" class="boas-vindas-mascote">
     </header>
 
     <main>
         <!-- SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS)  -->
+
         <ul class="grid-navegacao">
             <li>
                 <article class="card-nav">
-                    <img src="../../assets/icons/icone-comunidade-escuro.svg" alt="">
+                    <img class="icone-card" src="../../assets/icons/icone-comunidade-escuro.svg" alt="">
                     <h3>Comunidade</h3>
                     <p>Se informe e aprenda com outras pessoas</p>
                     <!-- Adicionar a pág da comunidade na ancora -->
-                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg"
-                            alt=""></a>
+                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../../assets/icons/seta-mobile.svg" alt=""></a>
+
+                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../../assets/icons/icone-seta.svg" alt=""></a>
                 </article>
             </li>
 
             <li>
-                <article class="card-nav">
-                    <img src="../../assets/mascot-image/img-robo-card.png" alt="">
+                <article class="card-nav card-robotive">
+                    <img class="icone-card" src="../../assets/mascot-image/img-robo-card.png" alt="">
                     <h3>Robôtive</h3>
-                    <p>Verifique conteúdos da internet com a nossa IA</p>
+                    <p>Verifique conteúdos com a nossa IA</p>
                     <!-- Adicionar a pág do robôtive na ancora -->
-                    <a href="../chatBot/chatBot.html" target="_self">Saiba mais <img
-                            src="../../assets/icons/icone-seta.svg" alt=""></a>
+                    <a href="../chatBot/chatBot.html" class="link-mobile" target="_self"><img class="icone-seta-mobile"
+                            src="../../assets/icons/seta-mobile.svg" alt=""></a>
+
+                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../../assets/icons/icone-seta.svg" alt=""></a>
+
                 </article>
             </li>
 
             <li>
                 <article class="card-nav">
-                    <img src="../../assets/icons/icone-noticias-escuro.svg" alt="">
+                    <img class="icone-card" src="../../assets/icons/icone-noticia-escuro.svg" alt="">
                     <h3>Notícias atuais</h3>
                     <p>Fique por dentro dos golpes e proteja-se</p>
                     <!-- Adicionar a pág de notícias atuais na ancora -->
-                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg" alt=""></a>
+                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../../assets/icons/seta-mobile.svg" alt=""></a>
+
+                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../../assets/icons/icone-seta.svg" alt=""></a>
+                    
                 </article>
             </li>
 
             <li>
                 <article class="card-nav">
-                    <img src="../../assets/icons/icone-guia-rapido-escuro.svg" alt="">
+                    <img class="icone-card" src="../../assets/icons/icone-guia-rapido-escuro.svg" alt="">
                     <h3>Guia rápido</h3>
                     <p>Aprenda a identificar fraudes na internet</p>
                     <!-- Adicionar a pág do guia rapido atuais na ancora -->
-                    <a href="" target="_self">Saiba mais <img src="../../assets/icons/icone-seta.svg" alt=""></a>
+                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../../assets/icons/seta-mobile.svg" alt=""></a>
+
+                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../../assets/icons/icone-seta.svg" alt=""></a>
                 </article>
             </li>
         </ul>
 
         <!-- SEÇÃO 3: DICA DO DETETIVE + CONTINUE APRENDENDO  -->
-        <ul class="secao-dicas">
+        <ul class="cards-desktop">
             <li>
                 <article class="card-dica">
-                    <img src="../../assets/icons/icone-lampada.svg" alt="">
-                    <h3>Dica do nosso detetive</h3>
-                    <img src="../../assets/mascot-image/img-detetive-dica.png" alt="">
-                    <p>Desconfie de títulos chamativos e promessas incríveis. Sempre verifique fontes</p>
+                    <div class="card-dica-header">
+                        <img src="../../assets/icons/icone-lampada.svg" alt="">
+                        <h3>Dica do nosso detetive</h3>
+                    </div>
+
+                    <div class="mascote-paragrafo">
+                        <img src="../../assets/mascot-image/img-detetive-dica.png" alt="">
+                        <p>Desconfie de títulos chamativos e promessas incríveis. Sempre verifique fontes</p>
+                    </div>
                 </article>
             </li>
 
             <li>
                 <article class="card-aprendendo">
                     <h3>Vamos continuar aprendendo?</h3>
-                    <img src="../../assets/icons/img-celular.jpg" alt="">
-                    <h4>O que é IA?</h4>
-                    <!-- Aparte da barra do histórico do curso -->
-                    <a href="" target="_self">Continuar lendo</a>
-                    <img src="../../assets/icons/icone-clique-mão.svg" alt="">
+
+                    <div class="aprendendo-conteudo">
+
+    <img src="../../assets/icons/img-celular.jpg" alt="">
+
+        <div class="aprendendo-texto">
+        <h4>O que é IA?</h4>
+
+        <a href="" target="_self">
+            Continuar lendo
+            <img src="../../assets/icons/icone-clique-mão.svg" alt="">
+        </a>
+    </div>
+
+</div>
+
                 </article>
             </li>
         </ul>
@@ -105,8 +133,10 @@
                 <img src="../../assets/icons/icone-compartilhe.svg" alt="" class="banner-icone">
                 <p class="banner-texto"><strong>Aqui, informação segura é poder!</strong>
                     Espalhe conhecimento e faça a diferença.</p>
-                <img src="../../assets/icons/img-pessoas.png" alt="Imagem de pessoas que representa a comunidade" class="banner-pessoas">
             </a>
+            <img src="../../assets/icons/img-pessoas.png" alt="Imagem de pessoas que representa a comunidade"
+                class="banner-pessoas">
+
             <!-- O rel="noopener noreferrer" é uma proteção de segurança que você adiciona sempre que usa target="_blank". 
              "noopener"  impede que a página nova (WhatsApp, em nosso caso) tenha acesso, via JavaScript, à aba original de onde o clique saiu. 
              noreferrer impede que o site de destino (WhatsApp) saiba de qual página o clique veio.-->
@@ -114,11 +144,12 @@
     </main>
 
     <!-- SEÇÃO 5: RODAPÉ -->
-    <footer>
+<verifica-footer></verifica-footer>
+</div>
 
-    </footer>
+ <script src="../../components/sidebar/sidebar.js"></script>
+<script src="../../components/footer/footer.js"></script>
 
-    <!-- <script src="../../components/sidebar/sidebar.js"></script> -->
-    </body>
+</body>
 
 </html>

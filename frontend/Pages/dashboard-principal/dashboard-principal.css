@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Molengo&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Molengo&family=Outfit:wght@100..900&family=Plus Jakarta Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Syne:wght@400..800&display=swap');
 
  /* Propriedades customizadas */
 :root {
 --cor-Verde-floresta: #2C7444;
 --cor-Verde-oliva-claro: #C8D98C;
+--cor-Verde-oliva-claro-transparente: #c8d98c43;
+
 --cor-azul-noturno: #0A1633;
 --cor-azul-royal: #284CAD;
+--cor-azul-royal-transparente:#284CAD1A;
 --cor-vermelho-bordo: #9A0F0F;
 --cor-branco-creme: #F1EEE6;
 
@@ -20,60 +23,535 @@
 
 body {
     background-color:#f1eee6;
+    display: flex;
+    min-height: 100dvh;
+   
+}
+
+.conteudo-pagina {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0; /* evita que o conteúdo estoure a largura e empurre a sidebar */
+    min-height: 100dvh;
+   
+}
+
+h1, h2, h3 {
     font-family: "outfit", sans-serif;
-    padding-bottom: 70px; /* espaço pra não ficar embaixo da nav fixa */
+}
+
+
+p {
+   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 /* SEÇÃO 1: HERO / BOAS-VINDAS  Header */
 .hero-boas-vindas {
-    padding: 2rem;
    background: linear-gradient(var(--cor-Verde-floresta), var(--cor-Verde-oliva-claro));
-    width: 100%;
+    width: auto;
+    margin: none;
     color: var(--cor-branco-creme);
-    padding: 2.5rem 1.5rem 4rem;
-    border-radius: 0 0 20% 20% / 0 0 80px 80px;  /* Alinhando o formato do header mobile */
-    position: relative;
+    padding: 1.6rem 1rem 2rem;
+    border-radius: 0 0 32px 32px;  /* Alinhando o formato do header mobile */
+    position: relative; /* ajustando o robô para o lugar certo */
+
    
 }
-
 .boas-vindas-texto  h1 {
-   font-size: 1.4rem; /* Tamanho da fonte h1 */
-   margin-bottom: 0.4rem; /* espacinho embaixo, separando do parágrafo */
-
+   font-size: 1.5rem;
+   font-weight: 700;
+line-height: 1.2;
+ margin-bottom: .4rem;
+ 
 }
 
 .boas-vindas-texto p {
-    font-size: 0.90rem;
-    max-width: 49%; /* Fazendo a quebra do paragrafo */
+    font-size: 0.95rem;
     font-weight: 300;  /* Afinar ou engrossar fonte */
+    max-width: 55%; /* Fazendo a quebra do paragrafo */
+     line-height: 1.3;
+    
 }
 
 .boas-vindas-mascote {
     position: absolute; /* tira a imagem do fluxo normal, permite posicionar livremente */
-    right: 6px; /* Levando a imagem para a direita */
-    bottom: -25px; /* Levando a imagem para baixo */
-height: 10rem;
-    width: 12rem;
-    max-width: 70%; /* trava um limite proporcional, pra não ficar gigante em telas maiores */
+     width: 35%;
+      /* max-width: 120px; */
+    top: 1.8rem;
+    right: 0.2rem; /* Levando a imagem para a direita */
+
+    height: 103px;
 }
 
 /* SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS) */
-main {
-    padding: 0 1.5rem;
-}
 
-.grid-navegacao {
+.grid-navegacao{
   display: grid;
   grid-template-columns: 1fr 1fr;  /* Empilhando os cards em 2 colunas e 2 linhas */
-  gap: 1rem; 
+  gap: 0.6rem; 
+  padding-top: 1.5rem;
+}
+
+.grid-navegacao li{
+    display: flex; /* faz o <li> repassar a altura pro filho, fazendo com quê os cards se alinhem na altura */
+}
+
+.card-nav { 
+    background-color: var(--cor-Verde-oliva-claro-transparente);
+    min-height: 170px; /* Altura dos cards */
+    border-radius: 28px;
+    padding: 18px;
+    padding-top: 1.5rem;
+
+     display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.card-robotive {
+    background-color: var(--cor-azul-royal-transparente);
+}
+
+.icone-card {
+    width: 40%; /* tamanho das imagens dos cards */
+    max-width:68px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto; /* centraliza horizontalmente dentro do card */
+}
+
+.card-nav h3 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-azul-noturno);
+    text-align: center;
+}
+
+.card-nav p {
+    font-size: .72rem;
+    color: var(--cor-azul-noturno);
+    opacity: 0.8;
+     line-height: 1.35;
+     
+ display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+    flex: 1;
+}
+
+/* Âncora dos cards */
+   .link-mobile{
+    display: flex;
+    justify-content: center;
+}
+.icone-seta-mobile {
+    width: 30px;
+    height: auto;
+    padding-top: 1.8rem;
+    padding-bottom: 0.3rem;
+   
+}
+
+.link-desktop{
+    display:none;
+    
+
+    align-items:center;
+    justify-content:center;
+    gap:10px; /* espaço entre o texto e a seta */
+
+    margin-top:auto;
+    width:fit-content;
+
+    padding: 6px 12px;
+
+    background:var(--cor-azul-royal);
+    color:var(--cor-branco-creme);
+
+    border-radius:10px;
+    text-decoration:none;
+    font-size:.70rem;
+    font-weight:100;
+
+    transition:.2s;
+    white-space: nowrap;     /* impede quebrar "Saiba mais" */
+}
+.link-desktop:hover {
+    transform: translateY(-2px);
+    background-color: var(--cor-azul-noturno);
+}
+
+.icone-seta-desktop{
+    width:12px;
+    height:12px;
+    margin-left:6px;
+}
+ 
+
+
+   .cards-desktop {
+display: grid;
+  grid-template-columns: 1fr 1fr;  /* Empilhando os cards em 2 colunas e 2 linhas */
+  gap: 0.6rem; 
+  padding-top: 30px;
+   }
+
+
+   .card-dica  {
+  background-color: var(--cor-Verde-oliva-claro-transparente);
+    border-radius: 28px;
+    padding: 10px;
+    border: 0.5px solid var(--cor-Verde-oliva-claro);
+   }
+
+  .card-dica-header {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Distancia entre a imagem da lâmpada e o título */
+  }
+
+  .card-dica-header h3 {
+    margin: 0;
+  }
+
+  .mascote-paragrafo {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .mascote-paragrafo img {
+    margin-left: -22px;
+    margin-bottom: -10px;
+  }
+
+
+  .mascote-paragrafo p {
+   font-size: 14px;
+    line-height: 34px;
+    max-width: 340px;
+    margin: 0;
+  }
+
+  
+    /* padding: 20px;
+    box-sizing: border-box; */
+
+  .card-aprendendo {
+    background-color: var(--cor-azul-royal-transparente);
+    border-radius: 28px;
+    border: 0.5px solid var(--cor-azul-royal);
+  }
+  .card-aprendendo h3 {
+    font-size: 18px; /* Tamanho da fonte */
+   margin-bottom: 1rem;
+   margin-top: 0.5rem;
+   margin-left: 20px;
+  }
+
+  .aprendendo-conteudo  img{
+    width: 210px;
+    border-radius: 10px;
+    flex-shrink:0;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+  .aprendendo-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .aprendendo-texto{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.aprendendo-texto h4{
+    font-family:"Outfit", sans-serif;
+    font-size:1.1rem;
+    color:var(--cor-azul-noturno);
+    margin-bottom:12px;
+}
+
+.aprendendo-texto a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    text-decoration:none;
+
+    color:var(--cor-azul-royal);
+
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.aprendendo-texto a img{
+    width: 30px;px;
+}
+
+  /* .card-aprendendo a {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+} */
+
+.secao-compartilhe {
+    background-color: var(--cor-azul-royal-transparente);
+    margin-top: 2rem;
+    border-radius: 28px;
+padding: 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+}
+
+.banner-compartilhe {
+  display: flex;  
+  align-items: center;
+  gap: 10px;
+  text-decoration: none; /* Removendo o sublinhado da âncora */
+flex: 1; /* ocupa o espaço disponível, empurrando a imagem pra direita */
+}
+
+.banner-icone {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.banner-texto {
+ font-size: 0.60rem;
+    color: var(--cor-azul-royal);
+    line-height: 1.3;
+}
+
+.banner-pessoas {
+  width: 150px;
+  height: auto;
+   flex-shrink: 0; /* não deixa a imagem espremer */
+}
+
+verifica-footer {
+    display: block; /* custom elements não têm display block por padrão, então é bom garantir */
+    margin-top: 2.5rem; /* respiro entre os cards e o footer */
+}
+
+@media (max-width: 768px) {
+    /* Wrapper: só o espaço pra não ficar atrás da bottom-nav — sem padding lateral aqui,
+       pra não empurrar o header, que precisa ir de ponta a ponta */
+    .conteudo-pagina {
+        padding-bottom: 5.5rem;
+    }
+/* Só o conteúdo interno recua das bordas — o header fica de fora dessa regra */
+    main {
+        padding: 0 1rem;
+    }
+/* Esconde Dica, Vamos continuar aprendendo e Banner de compartilhar */
+    .cards-desktop,
+    .secao-compartilhe {
+        display: none;
+    } }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .grid-navegacao {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .boas-vindas-texto h1 {
+        font-size: 1.8rem;
+    }
+
+    .boas-vindas-texto p {
+        font-size: 1.1rem;
+    }
+
+    .card-nav {
+        padding: 28px;
+    }
 }
 
 
-/* .card-nav {
-    background-color: var(--cor-Verde-oliva-claro);
-border-radius: 28px;
-padding: 1rem;
 
+/* Notebook — a partir de 768px, os cards escondidos no mobile voltam a aparecer */
+
+
+/* ===========================
+   NOTEBOOK (1024px até 1279px)
+=========================== */
+@media (min-width:1024px) and (max-width:1279px){
+
+    /* Espaçamento entre a sidebar e o conteúdo */
+    .conteudo-pagina{
+        margin-left:24px;
+        padding-right:24px;
+        padding-bottom:1rem;
+    }
+
+    main{
+        padding:0 24px;
+    }
+
+    /* ================= HEADER ================= */
+
+    .hero-boas-vindas{
+        padding:3rem;
+        min-height:240px;
+        border-radius:40px;
+        margin-top: 1rem;
+    }
+
+    .boas-vindas-texto h1{
+        font-size:3rem;
+        margin-bottom:12px;
+    }
+
+    .boas-vindas-texto p{
+        font-size: 1.8rem;
+        max-width:420px;
+        line-height:1.5;
+         
+    }
+
+    .boas-vindas-mascote{
+        width:280px;
+        height:auto;
+        right:30px;
+        top: 25px;
+    }
+
+    /* ================= GRID ================= */
+
+    .grid-navegacao{
+        grid-template-columns:repeat(4,1fr);
+        gap:24px;
+        margin-top: 0.5rem;
+    }
+
+    .card-nav{
+        min-height:300px;
+        padding:30px 24px;
+    }
+
+    .icone-card{
+        max-width:95px;
+    }
+
+    .card-nav h3{
+        font-size:1.35rem;
+        margin:18px 0;
+    }
+
+    .card-nav p{
+        font-size:.95rem;
+        line-height:1.6;
+
+        /* deixa o texto ocupar mais espaço */
+        max-width:190px;
+
+        /* quebra em duas linhas naturalmente */
+        -webkit-line-clamp:3;
+    }
+
+    /* Botão */
+
+    .link-desktop{
+        padding:10px 18px;
+        font-size:.9rem;
+    }
+
+    .icone-seta-desktop{
+        width:14px;
+        height:14px;
+    }
+.link-mobile{
+    display: none !important;
+}
+
+.link-desktop{
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Banner Compartilhe */
+.secao-compartilhe{
+    margin-top: 2.5rem;
+    padding: 14px 30px;
+    border-radius: 32px;
+    gap: 24px;
+}
+
+.banner-compartilhe{
+    gap: 18px;
+}
+
+.banner-icone{
+    width: 38px;
+    height: 38px;
+}
+
+.banner-texto{
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.banner-pessoas{
+    width: 210px;
+    height: auto;
+    
+}
+}
+
+
+
+
+
+
+
+
+
+
+ /* @media (min-width: 1023px) {
+    main {
+        padding: 0 1rem;
+    }
+
+    .cards-desktop {
+        display: grid;
+    }
+
+    .secao-compartilhe {
+        display: flex;
+    }
 } */
- 
+ */
+
+
+/* Desktop — a partir de 1024px, os 4 cards ficam numa linha só, como no Figma */
+@media (min-width: 1024px) {
+    .grid-navegacao {
+        grid-template-columns: repeat(4, 1fr);
+    }
+.link-mobile {
+        display: none !important;
+    }
+  
+.link-desktop {
+        display: flex !important;
+    }
+}
+
 
