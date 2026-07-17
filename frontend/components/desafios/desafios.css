@@ -111,7 +111,9 @@
   gap: 1rem;
 }
 
-/* Cada imagem clicável (é um <button>, não uma <img> solta) */
+/* Cada imagem clicável (é um <button>, não uma <img> solta).
+   A transição cobre borda, sombra e elevação — é o que dá o
+   "retorno tátil" de hover/clique antes mesmo do resultado sair. */
 .imagem-opcao {
   position: relative;
   padding: 0;
@@ -120,13 +122,42 @@
   overflow: hidden;
   cursor: pointer;
   background: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
+/* Hover: eleva levemente o card, só enquanto o desafio ainda não foi respondido */
+.imagem-opcao:hover:not(:disabled) {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+/* Clique: efeito de "afundar", reforça que o clique foi registrado */
+.imagem-opcao:active:not(:disabled) {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Estado de foco via teclado (acessibilidade) */
+.imagem-opcao:focus-visible {
+  outline: 3px solid var(--color-blue-primary, #284CAD);
+  outline-offset: 3px;
+}
+
+.imagem-opcao:disabled {
+  cursor: default;
+}
+
+/* Zoom sutil na imagem ao passar o mouse (some quando desabilitado) */
 .imagem-opcao img {
   width: 100%;
-  height: 140px;
+  height: 60dvh;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.imagem-opcao:hover:not(:disabled) img {
+  transform: scale(1.04);
 }
 
 /* Legenda ("Imagem real" / "Imagem de IA") sobreposta na imagem */
@@ -142,12 +173,75 @@
   border-radius: 999px;
 }
 
+/* Opção correta, depois que o usuário responde: destaque verde,
+   selo de "certo" no canto e uma pequena animação de confirmação */
 .imagem-opcao--correta {
-  border-color: #2f9e5b;
+  border-color: var(--color-green-primary);
+  box-shadow: 0 0 0 4px rgba(47, 158, 91, 0.18);
+  animation: desafio-imagem-acerto 0.35s ease;
 }
 
+.imagem-opcao--correta::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--color-green-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 13l4 4L19 7' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1rem;
+}
+
+/* Opção errada que o usuário escolheu: destaque vermelho,
+   selo de "errado" no canto e um leve tremor pra reforçar o erro */
 .imagem-opcao--incorreta {
-  border-color: #d9534f;
+  border-color: var(--color-red-dark);
+  box-shadow: 0 0 0 4px rgba(217, 83, 79, 0.18);
+  animation: desafio-imagem-erro 0.4s ease;
+}
+
+.imagem-opcao--incorreta::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--color-red-dark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 6l12 12M18 6L6 18' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1rem;
+}
+
+/* Opção que não foi escolhida e não era a correta: fica esmaecida,
+   pra concentrar a atenção nas duas opções que importam (a certa e a escolhida) */
+.imagem-opcao:disabled:not(.imagem-opcao--correta):not(.imagem-opcao--incorreta) {
+  opacity: 0.55;
+}
+
+.imagem-opcao:disabled:not(.imagem-opcao--correta):not(.imagem-opcao--incorreta) img {
+  filter: grayscale(0.4);
+}
+
+/* Pequena "pulsada" de confirmação na opção correta */
+@keyframes desafio-imagem-acerto {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* Tremor curto na opção errada escolhida, reforçando o feedback tátil do erro */
+@keyframes desafio-imagem-erro {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(3px); }
+  30%, 50%, 70% { transform: translateX(-5px); }
+  40%, 60% { transform: translateX(5px); }
 }
 
 /* Ajustes para telas menores (celular/tablet) */

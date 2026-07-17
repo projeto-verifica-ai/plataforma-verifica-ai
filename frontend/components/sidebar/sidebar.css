@@ -54,7 +54,7 @@ body {
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    
+
 }
 
 .sidebar-logo-text {
@@ -92,6 +92,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    margin: auto;
+
     width: 100%;
 }
 
@@ -99,7 +101,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.875rem 0.875rem;
+    padding: 0.475rem 0.875rem;
     border-radius: 0.75rem;
     font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
     font-size: 1rem;

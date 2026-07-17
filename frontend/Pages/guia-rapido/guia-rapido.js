@@ -54,12 +54,33 @@ const trilhas = [
             },
             {
                 id: "oqi-d3",
+                tipo: "alternativa",
+                pergunta: "Qual das opções abaixo é um exemplo de IA no seu dia a dia?",
+                opcoes: [
+                    { id: "a", texto: "Uma calculadora comum" },
+                    { id: "b", texto: "Um filtro de spam no seu e-mail", correta: true },
+                    { id: "c", texto: "Uma lista de compras escrita à mão" },
+                ],
+            },
+            {
+                id: "oqi-d4",
                 tipo: "imagem",
                 pergunta: "Qual imagem foi criada por IA?",
                 textoComplementar: "Dica: observe os detalhes das mãos e do texto na imagem.",
                 opcoes: [
-                    { id: "a", src: "../../assets/imagens/imagem-a.jpg", label: "Imagem real" },
-                    { id: "b", src: "../../assets/imagens/imagem-b.jpg", label: "Imagem de IA", correta: true },
+                    { id: "b", src: "../../assets/imagens/oqi-maos-ia.png", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/oqi-maos-real.jpg", label: "Imagem A" },
+
+                ],
+            },
+            {
+                id: "oqi-d5",
+                tipo: "imagem",
+                pergunta: "E entre essas duas, qual foi criada por IA?",
+                textoComplementar: "Dica: repare na simetria dos olhos e dos dentes.",
+                opcoes: [
+                    { id: "a", src: "../../assets/imagens/oqi-rosto-real.jpg", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/oqi-rosto-ia.png", label: "Imagem B", correta: true },
                 ],
             },
         ],
@@ -87,16 +108,6 @@ const trilhas = [
             {
                 id: "cid-d1",
                 tipo: "alternativa",
-                pergunta: "Qual é um sinal comum de imagem gerada por IA?",
-                opcoes: [
-                    { id: "a", texto: "Cores muito vivas" },
-                    { id: "b", texto: "Detalhes inconsistentes, como mãos ou texto distorcido", correta: true },
-                    { id: "c", texto: "Resolução muito alta" },
-                ],
-            },
-            {
-                id: "cid-d2",
-                tipo: "alternativa",
                 pergunta: "Antes de acreditar em uma notícia que chegou pelo WhatsApp, o que você deve fazer?",
                 opcoes: [
                     { id: "a", texto: "Compartilhar rápido, antes que outras pessoas vejam" },
@@ -105,13 +116,45 @@ const trilhas = [
                 ],
             },
             {
+                id: "cid-d2",
+                tipo: "alternativa",
+                pergunta: "Um texto que repete a mesma palavra várias vezes sem necessidade pode ser sinal de quê?",
+                opcoes: [
+                    { id: "a", texto: "Que foi escrito com muito capricho" },
+                    { id: "b", texto: "Que foi gerado por IA sem revisão", correta: true },
+                    { id: "c", texto: "Que é, com certeza, uma informação verdadeira" },
+                ],
+            },
+            {
                 id: "cid-d3",
                 tipo: "alternativa",
-                pergunta: "Um texto que parece um manual de instruções, sem nenhuma emoção, pode ser sinal de quê?",
+                pergunta: "Que tipo de imagem deve deixar você desconfiado?",
                 opcoes: [
-                    { id: "a", texto: "Que foi escrito por um jornalista experiente" },
-                    { id: "b", texto: "Que foi gerado por IA sem nenhum ajuste humano", correta: true },
-                    { id: "c", texto: "Que é, com certeza, uma informação verdadeira" },
+                    { id: "a", texto: "Uma foto com iluminação natural" },
+                    { id: "b", texto: "Uma foto com pele lisa demais e dentes perfeitos até as bordas", correta: true },
+                    { id: "c", texto: "Uma foto tirada em um dia nublado" },
+                ],
+            },
+            {
+                id: "cid-d4",
+                tipo: "imagem",
+                pergunta: "Qual dessas duas imagens foi criada por IA?",
+                textoComplementar: "Dica: repare nas mãos e nos dedos das pessoas.",
+                opcoes: [
+                    { id: "b", src: "../../assets/imagens/cid-maos-ia.png", label: "Imagem B", correta: true },
+
+                    { id: "a", src: "../../assets/imagens/cid-maos-real.jpg", label: "Imagem A" },
+                ],
+            },
+            {
+                id: "cid-d5",
+                tipo: "imagem",
+                pergunta: "E entre essas duas, qual foi criada por IA?",
+                textoComplementar: "Dica: observe o fundo da imagem e qualquer texto ou placa que apareça.",
+                opcoes: [
+                    { id: "b", src: "../../assets/imagens/cid-rua-ia.png", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/cid-rua-real.jpg", label: "Imagem A" },
+
                 ],
             },
         ],
@@ -153,6 +196,37 @@ const trilhas = [
                     { id: "a", texto: "Nada, a resposta não pode ser mudada" },
                     { id: "b", texto: "Dizer o que faltou e pedir para ela refazer", correta: true },
                     { id: "c", texto: "Desinstalar o aplicativo imediatamente" },
+                ],
+            },
+            {
+                id: "cu-d3",
+                tipo: "alternativa",
+                pergunta: "Qual desses pedidos tem mais chance de dar uma boa resposta?",
+                opcoes: [
+                    { id: "a", texto: "\"Me dê uma receita\"" },
+                    { id: "b", texto: "\"Me dê uma receita de bolo de caneca de chocolate, pronta em 5 minutos\"", correta: true },
+                    { id: "c", texto: "\"Faça alguma coisa boa\"" },
+                ],
+            },
+            {
+                id: "cu-d4",
+                tipo: "imagem",
+                pergunta: "A IA também consegue criar imagens a partir de um pedido. Qual dessas foi gerada por IA?",
+                textoComplementar: "Dica: repare em elementos repetidos ou fora do lugar no fundo.",
+                opcoes: [
+                    { id: "a", src: "../../assets/imagens/cu-paisagem-real.avif", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cu-paisagem-ia.png", label: "Imagem B", correta: true },
+                ],
+            },
+            {
+                id: "cu-d5",
+                tipo: "imagem",
+                pergunta: "E entre essas duas, qual foi gerada por IA?",
+                textoComplementar: "Dica: observe as mãos e os dedos da pessoa na imagem.",
+                opcoes: [
+                    { id: "a", src: "../../assets/imagens/cu-retrato-real.jpg", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cu-retrato-ia.png", label: "Imagem B", correta: true },
+
                 ],
             },
         ],
@@ -204,6 +278,26 @@ const trilhas = [
                     { id: "a", texto: "Sim, ela sempre acerta sobre saúde" },
                     { id: "b", texto: "Não, decisões de saúde devem ser sempre confirmadas com um médico", correta: true },
                     { id: "c", texto: "Sim, mas só remédios naturais" },
+                ],
+            },
+            {
+                id: "cui-d4",
+                tipo: "imagem",
+                pergunta: "Golpistas podem criar imagens falsas de situações que nunca aconteceram. Qual dessas é real?",
+                textoComplementar: "Dica: observe se a cena faz sentido como um todo, incluindo o fundo.",
+                opcoes: [
+                    { id: "b", src: "../../assets/imagens/cui-situacao-ia.png", label: "Imagem B" },
+                    { id: "a", src: "../../assets/imagens/cui-situacao-real.avif", label: "Imagem A", correta: true },
+                ],
+            },
+            {
+                id: "cui-d5",
+                tipo: "imagem",
+                pergunta: "Qual desses dois documentos parece ter sido manipulado por IA?",
+                textoComplementar: "Dica: repare em letras borradas, símbolos estranhos ou textos sem sentido.",
+                opcoes: [
+                    { id: "a", src: "../../assets/imagens/cui-documento-real.jpg", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cui-documento-ia.png", label: "Imagem B", correta: true },
                 ],
             },
         ],
