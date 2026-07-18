@@ -518,12 +518,6 @@ verifica-footer {
 
 
 
-
-
-
-
-
-
  /* @media (min-width: 1023px) {
     main {
         padding: 0 1rem;
@@ -537,11 +531,11 @@ verifica-footer {
         display: flex;
     }
 } */
- */
+ 
 
 
 /* Desktop — a partir de 1024px, os 4 cards ficam numa linha só, como no Figma */
-@media (min-width:1440px) and (max-width:1500px){
+@media (min-width:1440px) {
 
     /* Espaçamento entre a sidebar e o conteúdo */
     .conteudo-pagina{
