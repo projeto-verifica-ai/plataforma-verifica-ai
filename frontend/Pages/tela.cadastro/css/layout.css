@@ -46,9 +46,11 @@
 /* Logo */
 
 .logo{
-
-    width:100%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .desktop-title{
@@ -71,7 +73,7 @@
 
 .robot{
 
-    width:min(320px,80%);
+    width:min(460px,80%);
     object-fit:contain;
     display:block;
     user-select:none;
