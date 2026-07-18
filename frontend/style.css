@@ -22,6 +22,21 @@
   box-sizing: border-box;
 }
 
+.pagina-com-sidebar {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.pagina-com-sidebar verifica-sidebar {
+  flex-shrink: 0;
+}
+
+.pagina-com-sidebar .main {
+  flex: 1;
+  min-width: 0;
+}
+
 /* Acessibilidade: Respeita a preferência de tamanho de fonte do navegador do usuário */
 html {
   font-size: 100%;
