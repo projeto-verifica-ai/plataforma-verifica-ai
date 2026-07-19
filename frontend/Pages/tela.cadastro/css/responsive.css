@@ -2,7 +2,8 @@
    NOTEBOOK
 ===================================== */
 
-@media (max-width:1280px) and (max-height:900px){
+@media (max-width:1440px) and (max-height:900px){
+
 
     .left{
         padding:25px;
@@ -14,7 +15,7 @@
     }
 
     .robot{
-        width:300px;
+        width:250px;
     }
 
     .login-link p{
@@ -30,14 +31,15 @@
     }
 
     .form-box{
-        max-width:530px;
-        padding:24px;
+        width:92%;
+        max-width:560px;
+        padding:20px;
         border-radius:24px;
     }
 
     .subtitle,
     .form-box h2{
-        font-size:2.2rem;
+        font-size:2rem;
     }
 
     .social-btn{
@@ -46,20 +48,20 @@
     }
 
     .divider{
-        margin:16px 0;
+        margin:10px 0;
     }
 
     .campo{
-        margin-bottom:12px;
+        margin-bottom:10px;
     }
 
     .campo label{
-        margin-bottom:6px;
+        margin-bottom:4px;
         font-size:14px;
     }
 
     .campo input{
-        height:48px;
+        height:46px;
         font-size:15px;
     }
 
@@ -74,12 +76,12 @@
     }
 
     .termos{
-        margin:12px 0 16px;
+        margin:8px 0 12px;
         font-size:14px;
     }
 
     .create-account{
-        height:48px;
+        height:50px;
         font-size:16px;
     }
 
