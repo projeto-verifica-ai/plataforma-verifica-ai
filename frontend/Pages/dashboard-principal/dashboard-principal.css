@@ -134,9 +134,9 @@ main {
 }
 
 .icone-card {
-    width: 38%;
+    width: 40%;
     /* tamanho das imagens dos cards */
-    max-width: 68px;
+    max-width: 58px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
