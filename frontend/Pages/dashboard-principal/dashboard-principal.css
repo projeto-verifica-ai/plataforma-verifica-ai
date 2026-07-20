@@ -158,6 +158,7 @@ main {
     line-height: 1.35;
 
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -432,6 +433,7 @@ verifica-footer {
         max-width: 180px;
 
         /* quebra em duas linhas naturalmente */
+        line-clamp: 3;
         -webkit-line-clamp: 3;
         flex: none;
     }

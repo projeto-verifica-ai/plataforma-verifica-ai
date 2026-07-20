@@ -724,11 +724,20 @@ button {
     color: var(--color-white);
   }
 
-  .layout,
-  .footer {
+  .layout {
     grid-column: 2;
   }
-  .footer {
+
+  /* grid-area precisa ir nos elementos do componente (filhos diretos do
+     grid do body), não nas classes internas .sidebar/.footer */
+  verifica-sidebar {
+    grid-area: sidebar;
+    /* a .sidebar interna é sticky com height:100dvh, então não cobre a
+       célula inteira quando a página é mais alta que a tela — pinta o
+       item do grid também para não sobrar bege atrás do footer */
+    background-color: var(--color-sidebar-bg);
+  }
+  verifica-footer {
     grid-area: footer;
   }
 

@@ -212,7 +212,7 @@ body {
     /* escondido por padrão */
 }
 
-@media (max-width: 854px) {
+@media (max-width: 1070px) {
 
     /* Esconde a sidebar lateral */
     .sidebar {
