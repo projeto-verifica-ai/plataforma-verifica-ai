@@ -33,8 +33,10 @@
 }
 
 .pagina-com-sidebar .main {
-  flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100dvw;
 }
 
 /* Acessibilidade: Respeita a preferência de tamanho de fonte do navegador do usuário */
@@ -57,8 +59,6 @@ body {
 
 p {
   max-width: 60ch; /* evita linhas longas */
-  margin-left: auto;
-  margin-right: auto;
 }
 
 a {
@@ -142,7 +142,8 @@ button:focus-visible,
 }
 
 .btn:hover {
-  transform: scale(1.05); /* Mantido do antigo */
+  transform: scale(1.05);
+  /* Mantido do antigo */
 }
 
 .btn-primary {
@@ -258,7 +259,8 @@ button:focus-visible,
 .feature-card,
 .stat-box,
 .source-card {
-  padding: 1.25rem; /* antes 1rem */
+  padding: 1.25rem;
+  /* antes 1rem */
 }
 
 .news-title {
@@ -646,6 +648,7 @@ a.source-card:active {
 }
 
 @media (min-width: 768px) {
+
   /* Retorna ao padding fixo e layout de linha do CSS original */
   .header {
     flex-direction: row;
@@ -670,6 +673,7 @@ a.source-card:active {
     width: 72px;
     height: 72px;
   }
+
   .icon-verified {
     width: 32px;
     height: 32px;
@@ -692,6 +696,7 @@ a.source-card:active {
   .hero-content h1 {
     font-size: 64px;
   }
+
   .hero-content p {
     font-size: 20px;
   }
@@ -704,15 +709,19 @@ a.source-card:active {
   .card-fake-news {
     padding: 40px;
   }
+
   .news-title {
     font-size: 25px;
   }
+
   .news-quote {
     font-size: 19px;
   }
+
   .tag-fake {
     font-size: 16px;
   }
+
   .news-source {
     font-size: 16px;
   }
@@ -754,6 +763,7 @@ a.source-card:active {
   .feature-card h3 {
     font-size: 25px;
   }
+
   .feature-card p {
     font-size: 19px;
   }
@@ -772,6 +782,7 @@ a.source-card:active {
   .source-card {
     height: 160px;
   }
+
   .sources-footer-title {
     font-size: 32px;
     margin-top: 60px;
@@ -781,12 +792,14 @@ a.source-card:active {
   .cta-banner {
     padding: 80px 20px;
     margin-top: 100px;
-    border-radius: 0; /* Assumindo visual de banner em toda a extensão do Desktop */
+    border-radius: 0;
+    /* Assumindo visual de banner em toda a extensão do Desktop */
   }
 
   .cta-banner h2 {
     font-size: 48px;
   }
+
   .cta-banner p {
     font-size: 20px;
   }
