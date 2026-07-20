@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifica AI - Login</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body class="pagina-login">
+
+    <main class="container">
+
+        <!-- Lado esquerdo -->
+        <section class="welcome">
+
+            <h1>Bem-vindo!</h1>
+
+            <div class="robot">
+                <img src="../../assets/verificaai-robot-nobackground.png" alt="Robô do Verifica AI">
+            </div>
+
+            <div class="register">
+                <p>Não tem uma conta?</p>
+                <a href="#">Cadastre-se →</a>
+            </div>
+
+        </section>
+
+        <!-- Lado direito -->
+        <section class="login">
+
+            <header>
+                <h2>
+                    Acesse sua <span>conta.</span>
+                </h2>
+            </header>
+
+            <!-- Login Social -->
+            <div class="social-login">
+
+                <button type="button">
+                    <img src="../../assets/icons/facebook-logo.png" alt="facebook-logo">
+                    Entrar com Facebook
+                </button>
+
+                <button type="button">
+                    <img src="../../assets/icons/google-logo.png" alt="google-logo">
+                    Entrar com Google
+                </button>
+
+            </div>
+
+            <!-- Separador -->
+            <div class="separator">
+                <hr>
+                <span>ou</span>
+                <hr>
+            </div>
+
+            <!-- Formulário -->
+            <form action="#" method="post">
+
+                <div class="input-group">
+
+                    <label for="email">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="E-mail ou nome"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Senha"
+                        required>
+
+                </div>
+
+                <!-- Opções -->
+                <div class="options">
+
+                    <div class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            name="remember">
+
+                        <label for="remember">
+                            Lembrar de senha
+                        </label>
+
+                    </div>
+
+                    <a href="#">
+                        Esqueceu sua senha?
+                    </a>
+
+                </div>
+
+                <button type="submit" class="login-button">
+                    Login
+                </button>
+
+                <div class="create-account">
+
+                 <a href="#">Criar uma conta</a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
