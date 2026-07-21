@@ -2,35 +2,94 @@
    NOTEBOOK
 ===================================== */
 
-@media (max-width:1440px) {
+@media (max-width:1440px) and (max-height:900px){
 
-    .left {
-        width: 35%;
-        padding: 40px 30px;
+
+    .left{
+        padding:25px;
+
     }
 
-    .right {
-        width: 65%;
-        padding: 30px;
+    .desktop-title{
+        font-size:2.2rem;
     }
 
-    .desktop-title {
-        font-size: 2.6rem;
+    .robot{
+        width:250px;
     }
 
-    .robot {
-        width: 260px;
+    .login-link p{
+        font-size:16px;
     }
 
-    .form-box {
-        max-width: 550px;
+    .login-link a{
+        font-size:1.7rem;
+    }
+
+    .right{
+        padding:20px;
+    }
+
+    .form-box{
+        width:92%;
+        max-width:560px;
+        padding:20px;
+        border-radius:24px;
     }
 
     .subtitle,
-    .form-box h2 {
-        font-size: 2.5rem;
+    .form-box h2{
+        font-size:2rem;
     }
 
+    .social-btn{
+        height:46px;
+        font-size:15px;
+    }
+
+    .divider{
+        margin:10px 0;
+    }
+
+    .campo{
+        margin-bottom:10px;
+    }
+
+    .campo label{
+        margin-bottom:4px;
+        font-size:14px;
+    }
+
+    .campo input{
+        height:46px;
+        font-size:15px;
+    }
+
+    .strength{
+        height:6px;
+        margin-top:8px;
+    }
+
+    #strengthText{
+        margin:6px 0 8px;
+        font-size:12px;
+    }
+
+    .termos{
+        margin:8px 0 12px;
+        font-size:14px;
+    }
+
+    .create-account{
+        height:50px;
+        font-size:16px;
+    }
+
+    small{
+        min-height:0;
+        margin:2px 0 4px;
+        font-size:12px;
+    }
 }
 
 /* =====================================
