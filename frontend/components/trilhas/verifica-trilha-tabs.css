@@ -1,0 +1,90 @@
+/* ============================================================
+   TRILHAS.CSS — Verifica AI
+   Estilos isolados do componente <verifica-trilha-tabs>.
+   Barra escura com as trilhas: uma ativa (pill azul), as demais
+   bloqueadas (cadeado) ou disponíveis (cadeado aberto).
+   ============================================================ */
+
+/* Barra escura que envolve todas as trilhas */
+.trilha-tabs {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-footer-bg, #0A1633);
+    border-radius: 1.5rem;
+    padding: 0.625rem 1.25rem;
+    margin: 2rem auto;
+    width: fit-content;
+    max-width: calc(100% - 4rem);
+    overflow-x: auto;
+    /* permite rolar horizontalmente se não couber todas as trilhas */
+}
+
+/* Botão de cada trilha (ativa, bloqueada ou normal) */
+.trilha-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    /* impede que o texto quebre em duas linhas */
+    padding: 0.625rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+/* Efeito de hover, só nas trilhas clicáveis (não bloqueadas, não ativas) */
+.trilha-tab:hover:not(.trilha-tab--bloqueada):not(.trilha-tab--ativa) {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Trilha ativa: pill azul de destaque */
+.trilha-tab--ativa {
+    background-color: var(--color-blue-primary, #284CAD);
+    color: #ffffff;
+}
+
+/* Trilha bloqueada: texto apagado, sem cursor de clique */
+.trilha-tab--bloqueada {
+    cursor: default;
+    opacity: 0.3;
+    color: rgba(255, 255, 255);
+}
+
+/* Ícone (documento ou cadeado) ao lado do texto de cada trilha */
+.trilha-tab-icone {
+    height: 1.1rem;
+    margin-right: 0.25rem;
+    flex-shrink: 0;
+}
+
+/* Linha vertical fina entre uma trilha e outra */
+.trilha-tab-divisor {
+    width: 1px;
+    height: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.18);
+    margin: 0 0.5rem;
+    flex-shrink: 0;
+}
+
+/* No mobile, esconde o texto das trilhas (só o ícone fica visível),
+   exceto na trilha ativa, que continua mostrando o nome */
+@media (max-width: 768px) {
+    .trilha-tabs {
+        margin: 2rem auto;
+        max-width: calc(100% - 1.5rem);
+        padding: 0.5rem 0.875rem;
+    }
+
+    .trilha-tab span {
+        display: none;
+    }
+
+    .trilha-tab--ativa span {
+        display: inline;
+    }
+}

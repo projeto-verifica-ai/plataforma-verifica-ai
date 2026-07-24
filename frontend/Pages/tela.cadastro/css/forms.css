@@ -1,0 +1,246 @@
+/* =========================================
+   VERIFICA AI
+   forms.css
+   Formulários
+========================================= */
+
+/* =========================================
+   CAMPOS
+========================================= */
+
+.campo{
+
+    margin-bottom:18px;
+
+}
+
+.campo label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#555;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.campo input{
+
+    width:100%;
+
+    height:52px;
+
+    padding:0 16px;
+
+    border:1px solid #E2E2E2;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.campo input:focus{
+
+    border-color:#2962FF;
+
+    box-shadow:0 0 0 3px rgba(41,98,255,.08);
+
+}
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password{
+
+    position:relative;
+
+}
+
+.password input{
+
+    padding-right:55px;
+
+}
+
+.password i{
+
+    position:absolute;
+
+    top:50%;
+
+    right:18px;
+
+    transform:translateY(-50%);
+
+    color:#888;
+
+    cursor:pointer;
+
+    transition:.25s;
+    user-select:none;
+
+}
+
+.password i:hover{
+
+    color:#2962FF;
+
+}
+
+/* =========================================
+   FORÇA DA SENHA
+========================================= */
+
+.strength{
+
+    width:100%;
+
+    height:7px;
+
+    margin-top:12px;
+
+    overflow:hidden;
+
+    background:#E9E9E9;
+
+    border-radius:999px;
+
+}
+
+#strengthBar{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:999px;
+
+    transition:.35s ease;
+
+}
+
+#strengthText{
+
+    margin-top:8px;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* =========================================
+   TERMOS DE USO
+========================================= */
+
+.termos{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin:16px 0 20px;
+
+    font-size:14px;
+
+}
+
+.termos input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:#2962FF;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+.termos label{
+
+    margin:0;
+
+    color:#555;
+
+    cursor:pointer;
+
+}
+
+.termos span{
+
+    color:#2962FF;
+
+    font-weight:600;
+
+    cursor:pointer;
+    transition: .25s;
+
+}
+
+.termos span:hover{
+
+    text-decoration:underline;
+    opacity: 8;
+
+}
+
+/* =========================================
+   MENSAGENS
+========================================= */
+
+small{
+
+    display:block;
+
+    min-height:18px;
+
+    margin-top:6px;
+
+    margin-bottom:10px;
+
+    color:#E53935;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+/* =========================================
+   ESTADOS
+========================================= */
+
+.erro{
+    
+    animation:shake .35s;
+    border:3px solid #E53935 !important;
+    box-shadow:0 0 0 4px rgba(229,57,53,.12);
+}
+
+.sucesso{
+
+    border:3px solid #36B37E !important;
+    box-shadow:0 0 0 4px rgba(54,179,126,.12);
+
+}
