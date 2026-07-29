@@ -1,18 +1,11 @@
-/* ============================================================
-   GUIA-RAPIDO.JS — Verifica AI
-   Script específico da página "Guia Rápido".
-   Guarda os dados de TODAS as trilhas (mock, por enquanto) e
-   controla a troca de conteúdo quando o usuário clica numa
-   trilha desbloqueada na barra de tabs.
 
-   Quando o Appwrite estiver pronto, o array `trilhas` abaixo vira
-   o retorno de uma chamada como `buscarTrilhas()` — o resto do
-   arquivo (renderizarTrilha, o listener de clique) continua igual.
-   ============================================================ */
+import {
+    pegarUsuarioAtual,
+    pegarRespostasUsuario,
+    salvarRespostaDesafio,
+} from "../../services/appwrite.js";
 
 // Lista de todas as trilhas do Guia Rápido.
-// `bloqueada: true` esconde o conteúdo até o usuário desbloquear
-// (por enquanto isso é fixo aqui; depois vai depender do progresso salvo no Appwrite).
 const trilhas = [
     {
         id: "o-que-e-ia",
@@ -68,7 +61,7 @@ const trilhas = [
                 pergunta: "Qual imagem foi criada por IA?",
                 textoComplementar: "Dica: observe os detalhes das mãos e do texto na imagem.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/oqi-maos-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/oqi-maos-ia.jpg", label: "Imagem B", correta: true },
                     { id: "a", src: "../../assets/imagens/oqi-maos-real.jpg", label: "Imagem A" },
 
                 ],
@@ -80,7 +73,7 @@ const trilhas = [
                 textoComplementar: "Dica: repare na simetria dos olhos e dos dentes.",
                 opcoes: [
                     { id: "a", src: "../../assets/imagens/oqi-rosto-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/oqi-rosto-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/oqi-rosto-ia.jpg", label: "Imagem B", correta: true },
                 ],
             },
         ],
@@ -141,7 +134,7 @@ const trilhas = [
                 pergunta: "Qual dessas duas imagens foi criada por IA?",
                 textoComplementar: "Dica: repare nas mãos e nos dedos das pessoas.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cid-maos-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cid-maos-ia.jpg", label: "Imagem B", correta: true },
 
                     { id: "a", src: "../../assets/imagens/cid-maos-real.jpg", label: "Imagem A" },
                 ],
@@ -152,7 +145,7 @@ const trilhas = [
                 pergunta: "E entre essas duas, qual foi criada por IA?",
                 textoComplementar: "Dica: observe o fundo da imagem e qualquer texto ou placa que apareça.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cid-rua-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cid-rua-ia.jpg", label: "Imagem B", correta: true },
                     { id: "a", src: "../../assets/imagens/cid-rua-real.jpg", label: "Imagem A" },
 
                 ],
@@ -215,7 +208,7 @@ const trilhas = [
                 textoComplementar: "Dica: repare em elementos repetidos ou fora do lugar no fundo.",
                 opcoes: [
                     { id: "a", src: "../../assets/imagens/cu-paisagem-real.avif", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cu-paisagem-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cu-paisagem-ia.jpg", label: "Imagem B", correta: true },
                 ],
             },
             {
@@ -225,7 +218,7 @@ const trilhas = [
                 textoComplementar: "Dica: observe as mãos e os dedos da pessoa na imagem.",
                 opcoes: [
                     { id: "a", src: "../../assets/imagens/cu-retrato-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cu-retrato-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cu-retrato-ia.jpg", label: "Imagem B", correta: true },
 
                 ],
             },
@@ -286,7 +279,7 @@ const trilhas = [
                 pergunta: "Golpistas podem criar imagens falsas de situações que nunca aconteceram. Qual dessas é real?",
                 textoComplementar: "Dica: observe se a cena faz sentido como um todo, incluindo o fundo.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cui-situacao-ia.png", label: "Imagem B" },
+                    { id: "b", src: "../../assets/imagens/cui-situacao-ia.jpg", label: "Imagem B" },
                     { id: "a", src: "../../assets/imagens/cui-situacao-real.avif", label: "Imagem A", correta: true },
                 ],
             },
@@ -297,7 +290,7 @@ const trilhas = [
                 textoComplementar: "Dica: repare em letras borradas, símbolos estranhos ou textos sem sentido.",
                 opcoes: [
                     { id: "a", src: "../../assets/imagens/cui-documento-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cui-documento-ia.png", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cui-documento-ia.jpg", label: "Imagem B", correta: true },
                 ],
             },
         ],
@@ -308,6 +301,45 @@ const trilhas = [
 const elTabs = document.getElementById("trilha-tabs");
 const elArtigoContainer = document.getElementById("artigo-container");
 const elDesafiosContainer = document.getElementById("desafios-container");
+const elProgressoNumero = document.getElementById("progresso-numero");
+const elProgressoTrack = document.getElementById("progresso-track");
+const elProgressoBar = document.getElementById("progresso-bar");
+
+// Usuário logado (null se ninguém estiver logado) e respostas já salvas
+// dele no Appwrite, indexadas por id do desafio pra consulta rápida.
+let usuarioAtual = null;
+let respostasSalvas = new Map(); // desafioId -> { opcaoId, correct }
+
+const totalDeDesafios = trilhas.reduce((soma, t) => soma + t.desafios.length, 0);
+
+// Recalcula e mostra o progresso geral (desafios já respondidos / total)
+function atualizarProgresso() {
+    const percentual = totalDeDesafios === 0
+        ? 0
+        : Math.round((respostasSalvas.size / totalDeDesafios) * 100);
+
+    elProgressoNumero.textContent = percentual;
+    elProgressoBar.style.width = `${percentual}%`;
+    elProgressoTrack.setAttribute("aria-valuenow", percentual);
+}
+
+// Busca o usuário logado e as respostas que ele já salvou no Appwrite.
+// Se ninguém estiver logado, o guia continua funcionando normalmente,
+// só sem salvar/restaurar nada (fica só na sessão local).
+async function carregarProgressoSalvo() {
+    usuarioAtual = await pegarUsuarioAtual();
+    if (!usuarioAtual) return;
+
+    const respostas = await pegarRespostasUsuario(usuarioAtual.$id);
+    respostasSalvas = new Map(
+        respostas.map((r) => [r.challangeId, { opcaoId: r.optionId, correct: r.correct }])
+    );
+}
+
+// id da trilha exibida no momento — usado pra saber a qual trilha pertence
+// um desafio quando o evento "desafio-respondido" chega (o evento não
+// carrega o id da trilha, só o do desafio).
+let trilhaAtualId = null;
 
 // Troca todo o conteúdo da tela pra exibir a trilha recebida por parâmetro.
 // Em vez de reaproveitar os elementos antigos, apaga tudo e cria elementos
@@ -338,10 +370,18 @@ function renderizarTrilha(trilhaId) {
 
         elDesafiosContainer.appendChild(elemento);
         elemento.opcoes = desafio.opcoes; // dispara o render do componente
+
+        // Se o usuário já respondeu esse desafio antes, reidrata a resposta salva
+        const salva = respostasSalvas.get(desafio.id);
+        if (salva) {
+            elemento.respostaSalva = { opcaoId: salva.opcaoId };
+        }
     });
 
     // Atualiza a barra de tabs pra destacar a trilha que acabou de ser exibida
     elTabs.ativa = trilha.id;
+
+    trilhaAtualId = trilha.id;
 }
 
 // Envia pro componente de tabs só o que ele precisa saber (id, titulo, bloqueada) —
@@ -354,5 +394,33 @@ document.addEventListener("trilha-selecionada", (evento) => {
     renderizarTrilha(evento.detail.trilhaId);
 });
 
-// Ao carregar a página, mostra a primeira trilha desbloqueada encontrada.
-renderizarTrilha(trilhas.find((t) => !t.bloqueada).id);
+// Ouve o evento emitido pelo <verifica-desafio> quando o usuário responde,
+// salva no Appwrite (só se estiver logado) e atualiza o progresso na tela.
+document.addEventListener("desafio-respondido", async (evento) => {
+    const { desafioId, opcaoId, correta } = evento.detail;
+
+    respostasSalvas.set(desafioId, { opcaoId, correct: correta });
+    atualizarProgresso();
+
+    if (!usuarioAtual) return; // visitante sem login: fica só na sessão local
+
+    try {
+        await salvarRespostaDesafio({
+            userId: usuarioAtual.$id,
+            trailId: trilhaAtualId,
+            challangeId: desafioId,
+            optionId: opcaoId,
+            correct: correta,
+        });
+    } catch (erro) {
+        console.error("Não foi possível salvar a resposta no Appwrite:", erro);
+    }
+});
+
+// Ao carregar a página: busca o usuário logado + progresso salvo, e só
+// depois mostra a primeira trilha desbloqueada (já com respostas antigas).
+(async function iniciar() {
+    await carregarProgressoSalvo();
+    atualizarProgresso();
+    renderizarTrilha(trilhas.find((t) => !t.bloqueada).id);
+})();

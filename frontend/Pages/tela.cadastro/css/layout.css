@@ -32,9 +32,10 @@
 
     align-items:center;
 
-    padding:60px 40px;
+    padding:60px 25px;
 
     color:#FFF;
+
 
 }
 
@@ -46,9 +47,11 @@
 /* Logo */
 
 .logo{
-
-    width:100%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .desktop-title{
@@ -58,6 +61,8 @@
     line-height:1.15;
 
     font-weight:700;
+
+    margin-bottom: 90px;
 
 }
 
@@ -121,12 +126,11 @@
 ============================== */
 
 .right{
-
     width:62%;
     display:flex;
     justify-content:center;
-    align-items:flex-start;
-    padding:40px;
+    align-items:center;
+    padding:20px;
     background:#F8F5EF;
 }
 
@@ -135,13 +139,16 @@
 .form-box{
 
     width:100%;
-    max-width:650px;
+    max-width:600px;
     background:#FFF;
     border-radius:28px;
-    padding:32px;
+    padding:22px;
     margin:auto;
     box-shadow:0 20px 50px rgba(0,0,0,.08);
     transition: .30s ease;
+    transform: scale(0.95);
+    transform-origin: center;
+
 
 }
 
@@ -177,7 +184,7 @@
 
     flex-direction:column;
 
-    gap:14px;
+    gap:10px;
 
 }
 
@@ -193,7 +200,7 @@
 
     gap:14px;
 
-    margin:18px 0;
+    margin:14px 0;
 
     color:#999;
 

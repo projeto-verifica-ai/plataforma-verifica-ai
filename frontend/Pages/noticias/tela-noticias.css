@@ -1,0 +1,223 @@
+/* ===== Página ===== */
+
+.main {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 25px 30px 50px;
+}
+
+
+.cabecalho h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #171717;
+    margin-bottom: 30px;
+}
+
+/* ===== Barra de pesquisa ===== */
+
+.busca-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.busca-container input {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 0 25px 0 60px;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.busca-container input:focus {
+    outline: none;
+}
+
+.icone-busca {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #222;
+}
+
+/* ===== Menu ===== */
+
+.filtros {
+    margin-bottom: 35px;
+}
+
+.filtros ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #08196F;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.filtros li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.filtros li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 30%;
+    width: 1px;
+    height: 40%;
+    background: #fff;
+}
+
+.filtros a {
+    display: block;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filtros a.ativo {
+    font-weight: 700;
+}
+
+/* ===== Cards ===== */
+
+.noticias {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 30px;
+    min-height: 180px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+.card-conteudo {
+    width: 62%;
+}
+
+.card h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+    color: #2C7A3C;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.card time {
+    display: block;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 15px;
+}
+
+.btn-ler-mais {
+    color: #111;
+    font-weight: 600;
+}
+
+.card-imagem {
+    width: 240px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-imagem img {
+    width: 200px;
+    height: 125px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Segunda notícia */
+
+.falsa {
+    flex-direction: row-reverse;
+}
+
+/* ===== Paginação ===== */
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 45px 0;
+}
+
+.paginacao span {
+    font-weight: 600;
+}
+
+.paginacao a {
+    text-decoration: none;
+    color: #000;
+    font-size: 28px;
+}
+
+/* ===== Rodapé ===== */
+
+.rodape {
+    margin-top: 30px;
+}
+
+/* ===== Responsivo ===== */
+
+@media(max-width:900px) {
+
+    .main {
+        padding: 20px;
+    }
+
+    .cabecalho h1 {
+        font-size: 30px;
+    }
+
+    .card,
+    .falsa {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .card-conteudo {
+        width: 100%;
+    }
+
+    .card-imagem {
+        width: 100%;
+    }
+
+    .filtros ul {
+        flex-wrap: wrap;
+    }
+
+    .filtros li {
+        flex: 50%;
+    }
+
+}

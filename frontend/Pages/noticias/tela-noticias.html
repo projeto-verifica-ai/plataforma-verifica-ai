@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica AÍ</title>
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+    <script type="module" src="../../components/footer/footer.js"></script>
+    <link rel="stylesheet" href="../../components/footer/footer.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="tela-noticias.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="pagina-com-sidebar">
+    <verifica-sidebar></verifica-sidebar>
+    <main class="main">
+        <header class="cabecalho">
+            <h1>Notícias e Verificação de Informação</h1>
+
+            <!-- Barra de busca -->
+            <div class="busca-container">
+                <i class="fa-solid fa-magnifying-glass icone-busca"></i>
+                <input type="search" placeholder="Pesquisar notícias">
+            </div>
+            <!-- Menu de filtragem de categorias -->
+            <nav class="filtros">
+                <ul>
+                    <li><a href="#" class="ativo">Todas</a></li>
+                    <li><a href="#">Verdadeiras</a></li>
+                    <li><a href="#">Falsas</a></li>
+                    <li><a href="#">Em análise</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Área principal com a listagem de notícias -->
+        <section class="noticias">
+
+            <!-- Card 1: Notícia Verdadeira -->
+            <article class="card verdadeira">
+                <div class="card-conteudo">
+                    <h2>Verdadeira</h2>
+                    <p>Golpistas utilizam IA para clonar vozes de familiares. A tecnologia está sendo usada em golpes
+                        por telefone para solicitar dinheiro.</p>
+                    <time datetime="2026-06-22">22/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+                <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-verdadeira.png.jpeg"
+                        alt="Pessoa utilizando o celular perto do rosto">
+                </div>
+            </article>
+
+            <!-- Card 2: Notícia Falsa -->
+            <article class="card falsa">
+                <div class="card-conteudo">
+                    <h2>Falsa</h2>
+                    <p>"ChatGPT consegue invadir contas bancárias sozinho." Essa informação circulou nas redes sociais,
+                        mas não possui fundamento.</p>
+                    <time datetime="2026-06-20">20/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+                <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-falsa.png.jpeg"
+                        alt="Tela exibindo a interface do ChatGPT">
+                </div>
+            </article>
+
+            <!-- Card 3: Notícia Em análise (Invertida) -->
+            <article class="card analise">
+                <div class="card-conteudo">
+                    <h2>Em análise</h2>
+                    <p>Vídeo viral de político cometendo atos criminosos é confirmado como IA.</p>
+                    <time datetime="2026-06-18">18/06</time>
+                    <a href="#" class="btn-ler-mais">Ler mais</a>
+                </div>
+                <div class="card-imagem">
+                    <img src="../../assets/noticias-image/imagem-analise.png.jpeg"
+                        alt="Pessoa de costas olhando para a tela de um celular">
+                </div>
+            </article>
+        </section>
+
+
+
+        <!-- Rodapé com paginação -->
+        <nav class="paginacao">
+            <span>Página 1 de 3</span>
+            <a href="#" aria-label="Próxima página">&gt;</a>
+        </nav>
+
+        <footer class="rodape">
+            <verifica-footer></verifica-footer>
+        </footer>
+
+    </main>
+</body>
+
+</html>

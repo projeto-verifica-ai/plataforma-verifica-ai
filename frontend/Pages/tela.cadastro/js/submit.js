@@ -14,7 +14,7 @@ function iniciarSubmit() {
 // ENVIAR FORMULÁRIO
 // =========================================
 
-function enviarFormulario(e) {
+async function enviarFormulario(e) {
 
     e.preventDefault();
 
@@ -136,11 +136,36 @@ function enviarFormulario(e) {
 
     if (!valido) return;
 
-    mostrarToast(
-        "success",
-        "Cadastro realizado com sucesso!"
-    );
+    btnCriarConta.disabled = true;
 
-    resetarFormulario();
+    try {
+
+        await window.VerificaAI.criarConta({
+            nome: nome.value.trim(),
+            email: email.value.trim(),
+            senha: senha.value,
+        });
+
+        mostrarToast(
+            "success",
+            "Cadastro realizado com sucesso!"
+        );
+
+        resetarFormulario();
+
+        window.location.href = "../dashboard-principal/dashboard-principal.html";
+
+    } catch (erro) {
+
+        mostrarToast(
+            "error",
+            erro?.message || "Não foi possível criar a conta. Tente novamente."
+        );
+
+    } finally {
+
+        btnCriarConta.disabled = false;
+
+    }
 
 }

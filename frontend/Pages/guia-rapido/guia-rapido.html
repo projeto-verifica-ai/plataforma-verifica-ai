@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -15,10 +15,6 @@
     <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
     <script type="module" src="../../components/footer/footer.js"></script>
     <link rel="stylesheet" href="../../components/footer/footer.css">
-
-    <!-- Componente de tabs das trilhas (mostra qual está ativa e quais estão bloqueadas) -->
-    <link rel="stylesheet" href="../../components/trilhas/trilhas.css">
-    <script type="module" src="../../components/trilhas/trilhas.js"></script>
 
     <!-- Componente de artigo (bloco de leitura teórica das trilhas) -->
     <link rel="stylesheet" href="../../components/artigos/artigos.css">
@@ -62,14 +58,13 @@
             <div class="progresso-wrapper">
                 <div class="progresso-header">
                     <span class="progresso-label">Seu progresso geral</span>
-                    <!-- Porcentagem fixa por enquanto; futuramente vem do Appwrite -->
-                    <span class="progresso-porcentagem">25%<span class="progresso-sufixo"> concluído</span></span>
+                    <span class="progresso-porcentagem"><span id="progresso-numero">0</span>%<span class="progresso-sufixo"> concluído</span></span>
                 </div>
 
                 <!-- Barra de progresso acessível (role=progressbar + aria-valuenow) -->
-                <div class="progresso-track" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                <div class="progresso-track" id="progresso-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
                     aria-label="Progresso geral">
-                    <div class="progresso-bar" style="width: 25%;"></div>
+                    <div class="progresso-bar" id="progresso-bar" style="width: 0%;"></div>
                 </div>
             </div>
         </section>
