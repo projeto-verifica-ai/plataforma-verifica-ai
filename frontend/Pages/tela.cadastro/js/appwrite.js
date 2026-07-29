@@ -1,24 +1,10 @@
 // =========================================
 // VERIFICA AI
 // appwrite.js
-// Configuração do Appwrite
+// Ponte entre os scripts clássicos desta página (submit.js) e o
+// serviço compartilhado em ../../../services/appwrite.js (ES module).
 // =========================================
 
-// URL do Appwrite
-const APPWRITE_ENDPOINT =
-"https://SEU-ENDPOINT/v1";
+import { criarConta } from "../../../services/appwrite.js";
 
-// ID do Projeto
-const APPWRITE_PROJECT =
-"SEU_PROJECT_ID";
-
-// IDs
-
-const DATABASE_ID =
-"";
-
-const USERS_COLLECTION =
-"";
-
-const STORAGE_ID =
-"";
+window.VerificaAI = { criarConta };

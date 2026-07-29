@@ -18,7 +18,7 @@ class VerificaSidebar extends HTMLElement {
     const renderNav = (items) =>
       items.map(({ href, icon, label }) => `
         <a href="${href}" class="nav-item ${paginaAtual === href ? "nav-item--active" : ""}">
-          <img src="../../Pages/assets/icons/${icon}" alt="" class="nav-icon" />
+          <img src="../../assets/icons/${icon}" alt="" class="nav-icon" />
           <span>${label}</span>
         </a>
       `).join("");
@@ -27,10 +27,10 @@ class VerificaSidebar extends HTMLElement {
       <aside class="sidebar">
 
         <div class="sidebar-logo">
-          <img src="../../Pages/assets/icons/mascot-image/verificaai-robot-icon.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
+          <img src="../../assets/mascot-image/verificaai-robot-icon.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
           <span class="sidebar-logo-text">Verifica AÍ</span>
           <div class="verify-icon-div">
-          <img src="../../Pages/assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />
+          <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />
           </div>
           </div>
 
@@ -46,7 +46,7 @@ class VerificaSidebar extends HTMLElement {
 
         <div class="sidebar-profile">
         <!-- A foto de perfil aparecerá de acordo com o banco de dados do usuário, caso não tenha uma foto, será exibida a padrão. / -->
-          <img src="assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" />
+          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" />
           <div class="profile-info">
             <span class="profile-name">Olá, Maria!</span>
             <a href="#" class="profile-link">Ver meu perfil</a> <!-- TODO: página ainda não criada -->
@@ -57,19 +57,19 @@ class VerificaSidebar extends HTMLElement {
       
    <nav class="bottom-nav" aria-label="Navegação principal">
     <a href="../dashboard-principal/dashboard-principal.html" class="bottom-nav-item ${paginaAtual === 'dashboard-principal.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="../../Pages/assets/icons//icone-inicio.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-inicio.svg" alt="" class="bottom-nav-icon" />
       <span>Início</span>
     </a>
     <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
-      <img src="../../Pages/assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
       <span>Meu perfil</span>
     </a>
     <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
-      <img src="../../Pages/assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
       <span>Ajuda</span>
     </a>
     <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
-      <img src="../../Pages/assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" />
       <span>Configurações</span>
     </a>
   </nav>

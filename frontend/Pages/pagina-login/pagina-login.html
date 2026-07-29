@@ -73,7 +73,7 @@
             </div>
 
             <!-- Formulário -->
-            <form action="#" method="post">
+            <form id="loginForm">
 
                 <div class="input-group">
 
@@ -110,15 +110,15 @@
 
                 </div>
 
-                <button type="submit" class="login-button">
-                    <a href="../dashboard-principal/dashboard-principal.html" >
-                        Login
-                    </a>
+                <p class="login-erro" id="loginErro" role="alert"></p>
+
+                <button type="submit" class="login-button" id="btnLogin">
+                    Login
                 </button>
 
                 <div class="create-account">
 
-                    <a href="#">Criar uma conta</a>
+                    <a href="../tela.cadastro/tela-cadastro.html">Criar uma conta</a>
 
                 </div>
 
@@ -127,6 +127,12 @@
         </section>
 
     </main>
+
+    <!-- Integração Appwrite -->
+    <script type="module" src="js/appwrite.js"></script>
+
+    <!-- Envio do formulário de login -->
+    <script src="js/login.js"></script>
 
 </body>
 
