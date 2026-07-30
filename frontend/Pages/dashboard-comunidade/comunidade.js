@@ -7,6 +7,7 @@
 import {
     pegarUsuarioAtual,
     pegarPerfil,
+    pegarUrlAvatar,
     criarPublicacao,
     listarPublicacoes,
 } from "../../services/appwrite.js";
@@ -54,7 +55,16 @@ async function criarItemFeed(publicacao) {
     const avatar = document.createElement("div");
     avatar.className = "feed-item__avatar";
     avatar.setAttribute("aria-hidden", "true");
-    avatar.textContent = nomeAutor.charAt(0).toUpperCase();
+
+    const urlAvatar = perfil?.avatarField ? pegarUrlAvatar(perfil.avatarField) : null;
+    if (urlAvatar) {
+        const imgAvatar = document.createElement("img");
+        imgAvatar.src = urlAvatar;
+        imgAvatar.alt = "";
+        avatar.appendChild(imgAvatar);
+    } else {
+        avatar.textContent = nomeAutor.charAt(0).toUpperCase();
+    }
 
     const corpo = document.createElement("div");
     corpo.className = "feed-item__body";
@@ -106,9 +116,10 @@ async function carregarFeed() {
 
     elFeedEmpty.style.display = "none";
 
-    for (const publicacao of publicacoes) {
-        elFeedList.appendChild(await criarItemFeed(publicacao));
-    }
+    // Busca o perfil de cada autor em paralelo (antes era um de cada vez,
+    // esperando o anterior terminar — bem mais lento com vários posts).
+    const itens = await Promise.all(publicacoes.map(criarItemFeed));
+    itens.forEach((item) => elFeedList.appendChild(item));
 }
 
 //função para a seçao de realizar a publicação
@@ -154,7 +165,31 @@ elBtnNovaPub.addEventListener("click", () => {
     elPubTexto.focus();
 });
 
+async function carregarAvatarDaCaixaDePublicacao() {
+    if (!usuarioAtual) return;
+
+    try {
+        const perfil = await pegarPerfil(usuarioAtual.$id);
+        cachePerfis.set(usuarioAtual.$id, perfil); // já deixa em cache pros posts dele no feed
+
+        if (perfil?.avatarField) {
+            const elPubAvatarImg = document.querySelector(".pub-avatar img");
+            if (elPubAvatarImg) elPubAvatarImg.src = pegarUrlAvatar(perfil.avatarField);
+        }
+    } catch (erro) {
+        console.error("Não foi possível carregar o avatar do usuário:", erro);
+    }
+}
+
 (async function iniciar() {
+    const elCarregando = document.getElementById("carregando-pagina");
+    const elMain = document.getElementById("feed-comunidade");
+    const elTips = document.querySelector(".tips-panel");
+
     usuarioAtual = await pegarUsuarioAtual();
-    await carregarFeed();
+    await Promise.all([carregarFeed(), carregarAvatarDaCaixaDePublicacao()]);
+
+    elCarregando.hidden = true;
+    elMain.hidden = false;
+    elTips.hidden = false;
 })();

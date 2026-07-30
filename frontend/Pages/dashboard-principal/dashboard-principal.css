@@ -37,8 +37,8 @@ body {
     min-height: 100dvh;
 }
 
-main{
-    flex:1;
+main {
+    flex: 1;
 }
 
 h1,
@@ -58,29 +58,48 @@ p {
     width: auto;
     color: var(--cor-branco-creme);
     padding: 1.6rem 1rem 2rem;
-    border-radius: 0 0 32px 32px;  /* Alinhando o formato do header mobile */
-    position: relative; /* ajustando o robô para o lugar certo */
+    border-radius: 0 0 32px 32px;
+    /* Alinhando o formato do header mobile */
+    position: relative;
+    /* ajustando o robô para o lugar certo */
+    overflow: hidden;
+    /* garante que o mascote nunca vaze do quadro verde, em qualquer tamanho de tela */
 }
 
 .boas-vindas-texto h1 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: .6rem;
-    }
+}
 
 .boas-vindas-texto p {
+    display: flex;
+    align-items: center;
+    justify-content: left;
     font-size: 0.96rem;
-    font-weight: 300;  /* Afinar ou engrossar fonte */
-    max-width: 55%;  /* Fazendo a quebra do paragrafo */
+    font-weight: 300;
+    /* Afinar ou engrossar fonte */
+    max-width: 55%;
+    /* Fazendo a quebra do paragrafo */
     line-height: 1.3;
+    text-align: center;
 }
 
 .boas-vindas-mascote {
-    position: absolute;  /* tira a imagem do fluxo normal, permite posicionar livremente */
-    width: 35%;
-    top: 1.6rem;
-    right: .5rem;  /* Levando a imagem para a direita */
+    position: absolute;
+    /* tira a imagem do fluxo normal, permite posicionar livremente */
+    width: min(40%, 340px);
+    /* escala com a largura do quadro, mas nunca passa de 340px */
+    max-height: calc(100%);
+    /* nunca mais alto que o quadro, em nenhuma tela */
+    object-fit: contain;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 /* SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS) */
@@ -88,9 +107,19 @@ main {
     padding: 0 1rem;
 }
 
+/* Essa página não usa a classe .main compartilhada (components/sidebar/sidebar.css),
+   então precisa da própria reserva de espaço pra barra fixa do mobile (4.5rem)
+   não cobrir o fim do conteúdo — 1.5rem a mais de folga/margem visual. */
+@media (max-width: 1070px) {
+    main {
+        padding-bottom: calc(4.5rem + 1.5rem);
+    }
+}
+
 .grid-navegacao {
     display: grid;
-    grid-template-columns: 1fr 1fr;   /* Empilhando os cards em 2 colunas e 2 linhas */
+    grid-template-columns: 1fr 1fr;
+    /* Empilhando os cards em 2 colunas e 2 linhas */
     gap: 0.6rem;
     padding-top: 1.5rem;
 }
@@ -102,7 +131,8 @@ main {
 
 .card-nav {
     background-color: var(--cor-Verde-oliva-claro-transparente);
-    min-height: 170px;    /* Altura dos cards */
+    min-height: 170px;
+    /* Altura dos cards */
     border-radius: 28px;
     padding: 18px;
     padding-top: 1.5rem;
@@ -111,7 +141,8 @@ main {
     flex-direction: column;
     align-items: center;
 
-      box-shadow: inset 0 4px 12px rgba(20, 12, 74, 0.15); /* Sombra nos cards */
+    box-shadow: inset 0 4px 12px rgba(20, 12, 74, 0.15);
+    /* Sombra nos cards */
 }
 
 .card-robotive {
@@ -119,11 +150,13 @@ main {
 }
 
 .icone-card {
-    width: 38%; /* tamanho das imagens dos cards */
+    width: 38%;
+    /* tamanho das imagens dos cards */
     max-width: 68px;
     object-fit: contain;
     display: block;
-    margin: 0 auto; /* centraliza horizontalmente dentro do card */
+    margin: 0 auto;
+    /* centraliza horizontalmente dentro do card */
 }
 
 .card-nav h3 {
@@ -162,9 +195,10 @@ main {
 
     align-items: center;
     justify-content: center;
-    gap: 10px;  /* espaço entre o texto e a seta */
+    gap: 10px;
+    /* espaço entre o texto e a seta */
 
-     margin-top: 40px;
+    margin-top: 40px;
     width: fit-content;
 
     padding: 6px 8px;
@@ -178,7 +212,8 @@ main {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 400;
     transition: .2s;
-    white-space: nowrap; /* impede quebrar "Saiba mais" */
+    white-space: nowrap;
+    /* impede quebrar "Saiba mais" */
 }
 
 .link-desktop:hover {
@@ -192,24 +227,27 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* Empilhando os cards em 2 colunas e 2 linhas */
-    gap: 1rem;/* distância entre elementos */
+    gap: 1rem;
+    /* distância entre elementos */
     padding-top: 2.5rem;
-     align-items:stretch;
+    align-items: stretch;
 }
 
-.cards-desktop li{
-    display:flex;
+.cards-desktop li {
+    display: flex;
     height: 100%;
 }
+
 .card-dica {
     background-color: var(--cor-Verde-oliva-claro-transparente);
     border-radius: 12px;
     border: 0.5px solid var(--cor-Verde-oliva-claro);
-     padding: 28px 30px 25px;
-     display: flex;
+    padding: 28px 30px 25px;
+    display: flex;
     flex-direction: column;
-height: 100%;
-  box-shadow: inset 0 4px 12px rgba(20, 12, 74, 0.15); /* Sombra nos cards */
+    height: 100%;
+    box-shadow: inset 0 4px 12px rgba(20, 12, 74, 0.15);
+    /* Sombra nos cards */
 }
 
 .card-dica-header {
@@ -244,16 +282,17 @@ height: 100%;
     margin: 0;
 }
 
-.continue-aprendendo-botão{
+.continue-aprendendo-botão {
     display: flex;
     align-items: center;
     justify-content: center;
 
     margin: 10px auto 0;
-   
+
     width: 55%;
 
-    padding: 10px; /* Ajustando temanho e largura do botão pelas margens */
+    padding: 10px;
+    /* Ajustando temanho e largura do botão pelas margens */
 
     background-color: var(--cor-Verde-floresta);
     color: var(--cor-branco-creme);
@@ -269,8 +308,8 @@ height: 100%;
     transition: .2s;
 }
 
-.continue-aprendendo-botão:hover{
-     transform: translateY(-2px);
+.continue-aprendendo-botão:hover {
+    transform: translateY(-2px);
     background-color: var(--cor-azul-noturno);
 }
 
@@ -282,34 +321,39 @@ iframe {
 .secao-compartilhe {
     background-color: var(--cor-azul-royal-transparente);
     margin-top: 2.5rem;
-     margin-bottom: 1rem;
+    margin-bottom: 1rem;
     border-radius: 12px;
     padding: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
-    }
+}
+
 .banner-compartilhe {
     background-color: #284bad47;
     display: flex;
-     align-items: center;      /* centraliza ícone e texto verticalmente */
+    align-items: center;
+    /* centraliza ícone e texto verticalmente */
     gap: 2px;
-    text-decoration: none; /* Removendo o sublinhado da âncora */
+    text-decoration: none;
+    /* Removendo o sublinhado da âncora */
     margin-left: auto;
     flex: 0 1 auto;
     /* ocupa o espaço disponível, empurrando a imagem pra direita */
 
-    padding: 8px 10px;       /* Ajusta o corpo do botão */
+    padding: 8px 10px;
+    /* Ajusta o corpo do botão */
     border-radius: 14px;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--cor-azul-noturno);
-    
-   transition: transform .2s ease;   
+
+    transition: transform .2s ease;
 }
-.banner-compartilhe:hover{
+
+.banner-compartilhe:hover {
     transform: translateY(-2px);
     background-color: var(--cor-azul-royal);
     color: #F1EEE6;
@@ -329,17 +373,20 @@ iframe {
     font-size: 1rem;
     color: var(--cor-azul-royal);
     max-width: 900px;
-   font-family: "Plus Jakarta Sans", sans-serif;
-  text-align: left;      /* garante que o texto fique à esquerda */
-    white-space: nowrap;   /* mantém numa linha só */
-     }
+    font-family: "Plus Jakarta Sans", sans-serif;
+    text-align: left;
+    /* garante que o texto fique à esquerda */
+    white-space: nowrap;
+    /* mantém numa linha só */
+}
 
 .banner-pessoas {
-     position: absolute;
-      right: 40px;   /* distância da direita */
+    position: absolute;
+    right: 40px;
+    /* distância da direita */
     width: 220px;
     height: auto;
-   }
+}
 
 verifica-footer {
     display: block;
@@ -363,14 +410,15 @@ verifica-footer {
 
 /* (min-width:1024px) and (max-width:1439px) */
 /* Notebook */
-    @media (min-width: 768px) {
-/* Espaçamento entre a sidebar e o conteúdo */
+@media (min-width: 768px) {
+
+    /* Espaçamento entre a sidebar e o conteúdo */
     main {
         padding: 1.8rem;
     }
 
     /* ================= HEADER ================= */
- .hero-boas-vindas {
+    .hero-boas-vindas {
         padding: 3.4rem;
         min-height: 240px;
         border-radius: 40px;
@@ -386,43 +434,39 @@ verifica-footer {
         font-size: 1.8rem;
         max-width: 820px;
         line-height: 1.5;
-}
-
-.boas-vindas-mascote {
-        width: 282px;
-        height: auto;
-        right: 10px;
-        top: 2px;
     }
 
     /* ================= GRID ================= */
     .grid-navegacao {
         grid-template-columns: repeat(4, 1fr);
-        gap: 9px; /* espaço entre cards */
+        gap: 9px;
+        /* espaço entre cards */
         padding-top: .1rem;
     }
 
     .card-nav {
         min-height: 300px;
         padding: 15px 30px 10px;
-        align-items:center;
-        width: 100%; /* Solução do tio Bigas para fixar a largura entre os cards */
+        align-items: center;
+        width: 100%;
+        /* Solução do tio Bigas para fixar a largura entre os cards */
     }
 
     .icone-card {
         max-width: 90px;
-          height: 95px;
+        height: 95px;
     }
 
     .card-nav h3 {
         margin-top: .3rem;
         font-size: 1.35rem;
-       
+
     }
 
     .card-nav p {
         font-size: .95rem;
-        line-height: 1.5; /* distancia entre parágarfos do card */
+        line-height: 1.5;
+        /* distancia entre parágarfos do card */
 
         /* deixa o texto ocupar mais espaço, ajustando a largura dos cards */
         max-width: 180px;
@@ -453,73 +497,76 @@ verifica-footer {
 
     /* Banner Compartilhe */
     .secao-compartilhe {
-      display: flex;  
+        display: flex;
     }
 
     verifica-footer {
         display: block;
     }
+}
+
+/* A barra fixa do mobile continua visível até 1070px (ver components/sidebar/sidebar.css);
+   a regra "main{padding:1.8rem}" lá em cima (min-width:768px) reseta o padding-bottom
+   maior definido antes, então essa faixa (768–1070px) precisa reafirmar a reserva de espaço. */
+@media (min-width: 768px) and (max-width: 1070px) {
+    main {
+        padding-bottom: calc(4.5rem + 1.5rem);
     }
+}
 
-
-
-    /* DESKTOOP */
+/* DESKTOOP */
 /* Desktop */
 @media (min-width: 1440px) {
 
-    main{
+    main {
         padding: 2rem;
     }
 
     /* ================= HEADER ================= */
 
-    .hero-boas-vindas{
+    .hero-boas-vindas {
         min-height: 260px;
     }
 
-    .boas-vindas-texto h1{
+    .boas-vindas-texto h1 {
         font-size: 3.3rem;
     }
 
-    .boas-vindas-texto p{
+    .boas-vindas-texto p {
         font-size: 1.9rem;
         max-width: 900px;
     }
 
-    .boas-vindas-mascote{
-        width: 340px;
-        right: 20px;
-        top: 0;
-    }
 
     /* ================= GRID ================= */
 
-    .grid-navegacao{
+    .grid-navegacao {
         gap: 10px;
     }
 
-    .card-nav{
+    .card-nav {
         min-height: 340px;
     }
 
-    .icone-card{
+    .icone-card {
         max-width: 100px;
         height: 105px;
     }
 
-    .card-nav h3{
+    .card-nav h3 {
         font-size: 1.8rem;
     }
 
-    .card-nav p{
+    .card-nav p {
         font-size: 1.2rem;
         max-width: 210px;
     }
 
-    .link-desktop{
+    .link-desktop {
         margin-top: 50px;
     }
- .icone-seta-desktop {
+
+    .icone-seta-desktop {
         width: 18px;
         height: 16px;
     }
@@ -531,25 +578,26 @@ verifica-footer {
     .cards-desktop h3 {
         font-size: 1.6rem;
     }
+
     .cards-desktop p {
         font-size: 1.4rem;
     }
 
-    .continue-aprendendo-botão{
-    font-size: 1.2rem;
-    font-weight: 500;}
+    .continue-aprendendo-botão {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
 
     /* Banner Compartilhe */
     .secao-compartilhe {
-      display: flex;  
+        display: flex;
     }
-   
-.verifica-footer {
-    display: block;
-    margin-top: 1rem;
-   
-    /* respiro entre os cards e o footer */
-    padding: 0;
+
+    .verifica-footer {
+        display: block;
+        margin-top: 1rem;
+
+        /* respiro entre os cards e o footer */
+        padding: 0;
+    }
 }
-}
- 

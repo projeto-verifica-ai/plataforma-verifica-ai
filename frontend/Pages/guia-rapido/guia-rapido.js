@@ -1,6 +1,7 @@
 
 import {
     pegarUsuarioAtual,
+    pegarPerfil,
     pegarRespostasUsuario,
     salvarRespostaDesafio,
 } from "../../services/appwrite.js";
@@ -336,6 +337,28 @@ async function carregarProgressoSalvo() {
     );
 }
 
+// Preenche o nome real do usuário logado na saudação do topo (mesmo
+// padrão usado na dashboard principal e na sidebar).
+async function carregarSaudacao() {
+    const elNome = document.getElementById("saudacao-nome");
+
+    if (!usuarioAtual) {
+        elNome.textContent = "visitante";
+        return;
+    }
+
+    elNome.textContent = usuarioAtual.name;
+
+    try {
+        const perfil = await pegarPerfil(usuarioAtual.$id);
+        if (perfil?.name) {
+            elNome.textContent = perfil.name;
+        }
+    } catch (erro) {
+        console.error("Não foi possível carregar o perfil do usuário:", erro);
+    }
+}
+
 // id da trilha exibida no momento — usado pra saber a qual trilha pertence
 // um desafio quando o evento "desafio-respondido" chega (o evento não
 // carrega o id da trilha, só o do desafio).
@@ -417,10 +440,18 @@ document.addEventListener("desafio-respondido", async (evento) => {
     }
 });
 
-// Ao carregar a página: busca o usuário logado + progresso salvo, e só
-// depois mostra a primeira trilha desbloqueada (já com respostas antigas).
+// Ao carregar a página: a tela fica só com o carregamento (sem sidebar)
+// até o progresso salvo chegar do Appwrite — só então o conteúdo (leitura
+// + desafios, já com respostas antigas marcadas) aparece de uma vez.
 (async function iniciar() {
+    const elCarregando = document.getElementById("carregando-pagina");
+    const elConteudo = document.getElementById("conteudo-guia");
+
     await carregarProgressoSalvo();
+    await carregarSaudacao();
     atualizarProgresso();
     renderizarTrilha(trilhas.find((t) => !t.bloqueada).id);
+
+    elCarregando.hidden = true;
+    elConteudo.hidden = false;
 })();

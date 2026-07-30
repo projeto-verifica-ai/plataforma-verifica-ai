@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
     <script type="module" src="../../components/footer/footer.js"></script>
     <link rel="stylesheet" href="../../components/footer/footer.css">
+    <link rel="stylesheet" href="../../components/carregando-pagina/carregando-pagina.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="tela-noticias.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,86 +23,81 @@
 
 <body class="pagina-com-sidebar">
     <verifica-sidebar></verifica-sidebar>
-    <main class="main">
+
+    <div class="carregando-pagina" id="carregando-pagina">
+        <span class="carregando-pagina-spinner" aria-hidden="true"></span>
+        <p class="carregando-pagina-texto">Carregando notícias...</p>
+    </div>
+
+    <main class="main" id="conteudo-noticias" hidden>
         <header class="cabecalho">
             <h1>Notícias e Verificação de Informação</h1>
 
             <!-- Barra de busca -->
             <div class="busca-container">
-                <i class="fa-solid fa-magnifying-glass icone-busca"></i>
-                <input type="search" placeholder="Pesquisar notícias">
+                <i class="fa-solid fa-magnifying-glass icone-busca" aria-hidden="true"></i>
+                <input type="search" id="busca-input" aria-label="Pesquisar notícias" placeholder="Pesquisar notícias">
             </div>
             <!-- Menu de filtragem de categorias -->
             <nav class="filtros">
-                <ul>
-                    <li><a href="#" class="ativo">Todas</a></li>
-                    <li><a href="#">Verdadeiras</a></li>
-                    <li><a href="#">Falsas</a></li>
-                    <li><a href="#">Em análise</a></li>
+                <ul id="filtros-lista">
+                    <li><a href="#" class="ativo" data-categoria="todas">Todas</a></li>
+                    <li><a href="#" data-categoria="verdadeira">Verdadeiras</a></li>
+                    <li><a href="#" data-categoria="falsa">Falsas</a></li>
+                    <li><a href="#" data-categoria="em-analise">Em análise</a></li>
                 </ul>
             </nav>
+
+            <!-- Só aparece pra quem tem profiles.isModerator = true -->
+            <button type="button" class="btn-nova-noticia" id="btn-nova-noticia" hidden>
+                <i class="fa-solid fa-plus" aria-hidden="true"></i> Nova notícia
+            </button>
         </header>
+
+        <!-- Formulário de nova notícia — só moderadores, escondido por padrão -->
+        <article class="card form-nova-noticia" id="form-nova-noticia" hidden>
+            <div class="card-conteudo card-conteudo--form">
+                <h2>Nova notícia</h2>
+                <form id="noticia-form">
+                    <label for="noticia-categoria" class="sr-only">Categoria</label>
+                    <select id="noticia-categoria" required>
+                        <option value="verdadeira">Verdadeira</option>
+                        <option value="falsa">Falsa</option>
+                        <option value="em-analise">Em análise</option>
+                    </select>
+
+                    <label for="noticia-texto" class="sr-only">Texto da notícia</label>
+                    <textarea id="noticia-texto" placeholder="Texto da notícia" required></textarea>
+
+                    <label for="noticia-imagem" class="sr-only">Link da imagem</label>
+                    <input type="url" id="noticia-imagem" placeholder="Link da imagem" required>
+
+                    <label for="noticia-link" class="sr-only">Link "Ler mais" (opcional)</label>
+                    <input type="url" id="noticia-link" placeholder="Link &quot;Ler mais&quot; (opcional)">
+
+                    <p class="noticia-erro" id="noticia-erro" role="alert"></p>
+
+                    <div class="form-nova-noticia-acoes">
+                        <button type="button" id="noticia-cancelar">Cancelar</button>
+                        <button type="submit" id="noticia-publicar">Publicar</button>
+                    </div>
+                </form>
+            </div>
+        </article>
+
         <!-- Área principal com a listagem de notícias -->
-        <section class="noticias">
-
-            <!-- Card 1: Notícia Verdadeira -->
-            <article class="card verdadeira">
-                <div class="card-conteudo">
-                    <h2>Verdadeira</h2>
-                    <p>Golpistas utilizam IA para clonar vozes de familiares. A tecnologia está sendo usada em golpes
-                        por telefone para solicitar dinheiro.</p>
-                    <time datetime="2026-06-22">22/06</time>
-                    <a href="#" class="btn-ler-mais">Ler mais</a>
-                </div>
-                <div class="card-imagem">
-                    <img src="../../assets/noticias-image/imagem-verdadeira.png.jpeg"
-                        alt="Pessoa utilizando o celular perto do rosto">
-                </div>
-            </article>
-
-            <!-- Card 2: Notícia Falsa -->
-            <article class="card falsa">
-                <div class="card-conteudo">
-                    <h2>Falsa</h2>
-                    <p>"ChatGPT consegue invadir contas bancárias sozinho." Essa informação circulou nas redes sociais,
-                        mas não possui fundamento.</p>
-                    <time datetime="2026-06-20">20/06</time>
-                    <a href="#" class="btn-ler-mais">Ler mais</a>
-                </div>
-                <div class="card-imagem">
-                    <img src="../../assets/noticias-image/imagem-falsa.png.jpeg"
-                        alt="Tela exibindo a interface do ChatGPT">
-                </div>
-            </article>
-
-            <!-- Card 3: Notícia Em análise (Invertida) -->
-            <article class="card analise">
-                <div class="card-conteudo">
-                    <h2>Em análise</h2>
-                    <p>Vídeo viral de político cometendo atos criminosos é confirmado como IA.</p>
-                    <time datetime="2026-06-18">18/06</time>
-                    <a href="#" class="btn-ler-mais">Ler mais</a>
-                </div>
-                <div class="card-imagem">
-                    <img src="../../assets/noticias-image/imagem-analise.png.jpeg"
-                        alt="Pessoa de costas olhando para a tela de um celular">
-                </div>
-            </article>
-        </section>
-
-
+        <section class="noticias" id="noticias-lista" aria-live="polite"></section>
 
         <!-- Rodapé com paginação -->
-        <nav class="paginacao">
-            <span>Página 1 de 3</span>
-            <a href="#" aria-label="Próxima página">&gt;</a>
+        <nav class="paginacao" id="paginacao">
+            <a href="#" id="pagina-anterior" aria-label="Página anterior">&lt;</a>
+            <span id="pagina-info">Página 1 de 1</span>
+            <a href="#" id="pagina-proxima" aria-label="Próxima página">&gt;</a>
         </nav>
 
-        <footer class="rodape">
-            <verifica-footer></verifica-footer>
-        </footer>
-
     </main>
+
+    <script type="module" src="tela-noticias.js"></script>
 </body>
 
 </html>

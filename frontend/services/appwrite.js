@@ -9,6 +9,7 @@ import {
   Client,
   Account,
   TablesDB,
+  Storage,
   ID,
   Query,
   Permission,
@@ -28,6 +29,10 @@ const DATABASE_ID = "6a67ebe8002b33a1228a";
 const TABLE_PROFILES = "profiles";
 const TABLE_CHALLENGES_SAVE = "challanges-save";
 const TABLE_COMMUNITY = "community";
+const TABLE_NOTICIAS = "noticias";
+
+// Bucket de Storage pras fotos de perfil ("Imagens de perfil" no console)
+const STORAGE_AVATARS = "6a455a850023c7385fe9";
 
 const client = new Client()
   .setEndpoint(APPWRITE_ENDPOINT)
@@ -35,6 +40,7 @@ const client = new Client()
 
 const account = new Account(client);
 const tablesDB = new TablesDB(client);
+const storage = new Storage(client);
 
 // =========================================
 // CONTA / SESSÃO
@@ -104,6 +110,53 @@ async function pegarPerfil(userId) {
   });
 
   return resultado.rows[0] ?? null;
+}
+
+// Monta a URL pra exibir o arquivo do avatar salvo no Storage.
+// Retorna null se o usuário ainda não tem foto (avatarField vazio).
+function pegarUrlAvatar(fileId) {
+  if (!fileId) return null;
+  return storage.getFileView({ bucketId: STORAGE_AVATARS, fileId }).toString();
+}
+
+// Envia a nova foto pro Storage e salva o id dela em profiles.avatarField.
+// Se o usuário já tinha uma foto antes, apaga a antiga do Storage depois
+// de confirmar que a nova já está salva no perfil (senão, se o upload da
+// nova falhar, a pessoa ficaria sem nenhuma foto).
+async function trocarAvatar(userId, arquivo) {
+  const perfilAtual = await pegarPerfil(userId);
+  const avatarAntigoId = perfilAtual?.avatarField || null;
+
+  const arquivoEnviado = await storage.createFile({
+    bucketId: STORAGE_AVATARS,
+    fileId: ID.unique(),
+    file: arquivo,
+    permissions: [
+      Permission.read(Role.any()),
+      Permission.delete(Role.user(userId)),
+    ],
+  });
+
+  // rowId de "profiles" é sempre igual ao userId (definido em criarConta),
+  // então dá pra atualizar direto sem precisar buscar a linha antes.
+  await tablesDB.updateRow({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_PROFILES,
+    rowId: userId,
+    data: { avatarField: arquivoEnviado.$id },
+  });
+
+  if (avatarAntigoId && avatarAntigoId !== arquivoEnviado.$id) {
+    try {
+      await storage.deleteFile({ bucketId: STORAGE_AVATARS, fileId: avatarAntigoId });
+    } catch (erro) {
+      // Não interrompe o fluxo — a foto nova já está salva e é o que importa.
+      // Provável causa: bucket sem permissão de "Delete" pra Users.
+      console.error("Não foi possível apagar a foto antiga do Storage:", erro);
+    }
+  }
+
+  return pegarUrlAvatar(arquivoEnviado.$id);
 }
 
 // =========================================
@@ -186,6 +239,39 @@ async function listarPublicacoes() {
   return resultado.rows;
 }
 
+// =========================================
+// NOTÍCIAS (tabela "noticias")
+// =========================================
+
+// Mais recentes primeiro. Sem filtro/paginação aqui — isso é feito no
+// cliente (tela-noticias.js), já que o volume de notícias é pequeno.
+async function listarNoticias() {
+  const resultado = await tablesDB.listRows({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_NOTICIAS,
+    queries: [Query.orderDesc("data"), Query.limit(500)],
+  });
+
+  return resultado.rows;
+}
+
+// Só deve ser chamada depois de confirmar perfil.isModerator — a permissão
+// de "create" na tabela também precisa estar liberada pra usuários logados
+// no console do Appwrite, senão isso falha mesmo vindo de um moderador.
+async function criarNoticia({ categoria, texto, imagem, link, data, autorId }) {
+  return tablesDB.createRow({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_NOTICIAS,
+    rowId: ID.unique(),
+    data: { categoria, texto, imagem, link: link || null, data, autorId },
+    permissions: [
+      Permission.read(Role.any()), // notícias são públicas, até pra visitante
+      Permission.update(Role.user(autorId)),
+      Permission.delete(Role.user(autorId)),
+    ],
+  });
+}
+
 export {
   client,
   account,
@@ -195,8 +281,12 @@ export {
   fazerLogout,
   pegarUsuarioAtual,
   pegarPerfil,
+  pegarUrlAvatar,
+  trocarAvatar,
   salvarRespostaDesafio,
   pegarRespostasUsuario,
   criarPublicacao,
   listarPublicacoes,
+  listarNoticias,
+  criarNoticia,
 };

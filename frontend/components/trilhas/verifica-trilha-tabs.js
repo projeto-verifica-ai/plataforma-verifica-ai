@@ -90,6 +90,15 @@ class VerificaTrilhaTabs extends HTMLElement {
 
         this.innerHTML = `<nav class="trilha-tabs">${itens}</nav>`;
 
+        // Rola a barra pra trazer a trilha ativa pra dentro da área visível
+        // (sem isso, ao selecionar uma trilha perto do fim da lista, o texto
+        // dela fica cortado na borda direita da barra, já que ela é mais
+        // larga que as outras — só a ativa mostra o nome completo).
+        const botaoAtivo = this.querySelector(".trilha-tab--ativa");
+        if (botaoAtivo) {
+            botaoAtivo.scrollIntoView({ inline: "nearest", block: "nearest" });
+        }
+
         // Anexa o clique só nos botões que NÃO estão bloqueados
         // (o seletor ":not(.trilha-tab--bloqueada)" já filtra isso).
         this.querySelectorAll(".trilha-tab:not(.trilha-tab--bloqueada)").forEach((botao) => {

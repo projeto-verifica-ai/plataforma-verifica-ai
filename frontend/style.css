@@ -39,6 +39,18 @@
   width: 100dvw;
 }
 
+/* A tela de carregamento (components/carregando-pagina) precisa ocupar o
+   mesmo espaço que o .main ocuparia, senão fica espremida do lado da
+   sidebar em vez de centralizada no restante da tela. */
+.pagina-com-sidebar > .carregando-pagina {
+  flex: 1;
+  min-width: 0;
+}
+
+.pagina-com-sidebar .main[hidden] {
+  display: none;
+}
+
 /* Acessibilidade: Respeita a preferência de tamanho de fonte do navegador do usuário */
 html {
   font-size: 100%;
