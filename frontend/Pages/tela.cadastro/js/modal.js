@@ -40,17 +40,44 @@ function iniciarModal() {
 
     });
 
+
+    // Abrir modal ao clicar no checkbox
+    checkbox.addEventListener("change", () => {
+
+    if (checkbox.checked) {
+
+        checkbox.checked = false;
+
+        abrirModal();
+
+    }
+
+});
+
+    aceitar.addEventListener("click", () => {
+
+        checkbox.checked = true;
+
+        fecharModal();
+
+        mostrarToast(
+            "success",
+            "Termos de Uso aceitos."
+        );
+
+    });
+
+    modalBody.addEventListener("scroll", verificarScrollModal);
+
+}
+
     // ===============================
     // Aceitar Termos
     // ===============================
 
     aceitar.addEventListener("click", () => {
 
-        checkbox.disabled = false;
-
         checkbox.checked = true;
-
-        checkbox.disabled = true;
 
         modal.classList.remove("ativo");
 
@@ -67,7 +94,7 @@ function iniciarModal() {
 
     modalBody.addEventListener("scroll", verificarScrollModal);
 
-}
+
 
 // =========================================
 // ABRIR MODAL
@@ -123,4 +150,5 @@ function verificarScrollModal() {
 
     }
 
+    
 }
