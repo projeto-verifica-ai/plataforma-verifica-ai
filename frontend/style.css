@@ -57,10 +57,6 @@ body {
   text-align: center;
 }
 
-p {
-  max-width: 60ch; /* evita linhas longas */
-}
-
 a {
   text-decoration: none;
 }
@@ -648,7 +644,6 @@ a.source-card:active {
 }
 
 @media (min-width: 768px) {
-
   /* Retorna ao padding fixo e layout de linha do CSS original */
   .header {
     flex-direction: row;
