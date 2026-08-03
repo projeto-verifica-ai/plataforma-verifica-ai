@@ -157,6 +157,7 @@ button:focus-visible,
 .hero-section,
 .stats-section,
 .features-section,
+.demo-section,
 .sources-section {
   width: min(100% - 40px, 1440px);
   margin-left: auto;
@@ -383,6 +384,216 @@ button:focus-visible,
   text-align: center;
   color: var(--color-text-medium);
   margin-top: 20px;
+}
+
+/* Seção de Demonstração */
+.demo-section {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.demo-header {
+  margin-bottom: 40px;
+}
+
+.demo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ---------- MOCKUP ---------- */
+.demo-mockup {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-white);
+  border-radius: 31px;
+  box-shadow: 0 10px 26px rgba(5, 11, 26, 0.12);
+  overflow: hidden;
+}
+
+.demo-mockup__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid rgba(5, 11, 26, 0.08);
+}
+
+.demo-mockup__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(5, 11, 26, 0.15);
+}
+
+.demo-mockup__screen {
+  position: relative;
+  min-height: 320px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.demo-card--carregando {
+  align-items: center;
+  text-align: center;
+}
+
+.demo-card--resultado {
+  outline: none; /* foco é dado via JS; o anel padrão de foco ainda aparece no botão */
+}
+
+.demo-btn-verificar,
+.demo-btn-reiniciar {
+  width: 100%;
+}
+
+/* Spinner de "analisando" */
+.demo-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(40, 76, 173, 0.15);
+  border-top-color: var(--color-blue-primary);
+  border-radius: 50%;
+  animation: demo-girar 0.9s linear infinite;
+}
+
+@keyframes demo-girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.demo-carregando-texto {
+  font-weight: 700;
+  color: var(--color-text-medium);
+}
+
+/* Indicadores do resultado */
+.demo-indicadores {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.demo-indicadores li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-medium);
+}
+
+.demo-indicador-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-red-light);
+  color: var(--color-red-dark);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.demo-aviso {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-green-primary);
+}
+
+/* ---------- FLUXO EM 3 ETAPAS ---------- */
+.demo-steps {
+  list-style: none;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.demo-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: var(--color-bg-primary);
+  border-radius: 24px;
+  padding: 20px;
+  text-align: left;
+}
+
+.demo-step__icone-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-radius: 16px;
+}
+
+.demo-step__icone {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.demo-step__numero {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: var(--color-blue-primary);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.demo-step__texto-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.demo-step__titulo {
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.demo-step__texto {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-light);
 }
 
 /* SEÇÃO DE ODS */
@@ -804,6 +1015,324 @@ a.source-card:active {
     padding: 70px 20px;
     font-size: 17px;
     border-radius: 0;
+  }
+
+  /* Verifica AI em ação — composição horizontal */
+  .demo-section {
+    text-align: center;
+    margin: 120px auto;
+    padding: 0 60px;
+  }
+
+  .demo-header {
+    margin-bottom: 32px;
+  }
+
+  .demo-chat {
+    --demo-false-bg: #fee2e2;
+    --demo-false-border: #f87171;
+    --demo-false-text: #7f1d1d;
+    --demo-false-accent: #ef4444;
+
+    --demo-true-bg: #dcfce7;
+    --demo-true-border: #4ade80;
+    --demo-true-text: #14532d;
+    --demo-true-accent: #16a34a;
+
+    --demo-unknown-bg: #fef9c3;
+    --demo-unknown-border: #fde047;
+    --demo-unknown-text: #713f12;
+    --demo-unknown-accent: #ca8a04;
+
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    border-radius: 28px;
+    box-shadow: 0 10px 26px rgba(5, 11, 26, 0.12);
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+
+    max-width: 680px;
+    padding: 32px;
+    gap: 24px;
+  }
+
+  .demo-chat__log {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 120px;
+  }
+
+  .demo-chat__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ---------- Balões de conversa ---------- */
+  .demo-bubble {
+    max-width: 78%;
+    padding: 16px 18px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-wrap: break-word;
+  }
+
+  .demo-bubble--user {
+    align-self: flex-end;
+    background-color: var(--color-blue-primary);
+    color: var(--color-white);
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 2px 8px rgba(40, 76, 173, 0.25);
+  }
+
+  .demo-bubble--user .demo-bubble__autor {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .demo-bubble--bot {
+    align-self: flex-start;
+    background-color: var(--color-white);
+    color: var(--color-text-medium);
+    border-radius: 20px;
+    border: 1.5px solid rgba(5, 11, 26, 0.07);
+    border-left: 4px solid var(--demo-unknown-accent);
+    box-shadow: 0 2px 16px rgba(5, 11, 26, 0.07);
+  }
+
+  .demo-bubble--bot-falso {
+    border-left-color: var(--demo-false-accent);
+  }
+
+  .demo-bubble--bot-enganoso {
+    border-left-color: var(--demo-unknown-accent);
+  }
+
+  .demo-bubble--bot-verdadeiro {
+    border-left-color: var(--demo-true-accent);
+  }
+
+  .demo-bubble__autor {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-light);
+  }
+
+  .demo-bubble__autor--bot {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-dark);
+  }
+
+  .demo-bubble__avatar {
+    width: 44px;
+    height: auto;
+    display: block;
+  }
+
+  .demo-bubble__texto {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* ---------- Badge de classificação ---------- */
+  .demo-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 14px;
+    border: 1.5px solid transparent;
+  }
+
+  .demo-badge__icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 13px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .demo-badge--falso {
+    background-color: var(--demo-false-bg);
+    color: var(--demo-false-text);
+    border-color: var(--demo-false-border);
+  }
+  .demo-badge--falso .demo-badge__icone {
+    background-color: var(--demo-false-accent);
+  }
+
+  .demo-badge--enganoso {
+    background-color: var(--demo-unknown-bg);
+    color: var(--demo-unknown-text);
+    border-color: var(--demo-unknown-border);
+  }
+  .demo-badge--enganoso .demo-badge__icone {
+    background-color: var(--demo-unknown-accent);
+  }
+
+  .demo-badge--verdadeiro {
+    background-color: var(--demo-true-bg);
+    color: var(--demo-true-text);
+    border-color: var(--demo-true-border);
+  }
+  .demo-badge--verdadeiro .demo-badge__icone {
+    background-color: var(--demo-true-accent);
+  }
+
+  /* ---------- Sinais para observar ---------- */
+  .demo-sinais {
+    border-top: 1px solid rgba(5, 11, 26, 0.1);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+
+  .demo-sinais__titulo {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+  }
+
+  .demo-sinais ul {
+    list-style: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .demo-sinais li {
+    font-size: 15px;
+    color: var(--color-text-medium);
+    font-weight: 500;
+  }
+
+  /* ---------- Estado "analisando" ---------- */
+  .demo-analisando {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 20px;
+    background-color: var(--color-white);
+    border: 1.5px solid rgba(5, 11, 26, 0.07);
+    color: var(--color-text-light);
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .demo-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(40, 76, 173, 0.2);
+    border-top-color: var(--color-blue-primary);
+    border-radius: 50%;
+    animation: demo-girar 0.9s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes demo-girar {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ---------- Chips de seleção (Estado 1) ---------- */
+  .demo-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .demo-chip {
+    flex: 1 1 auto;
+    min-width: 160px;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(40, 76, 173, 0.25);
+    background-color: var(--color-white);
+    color: var(--color-blue-primary);
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition:
+      transform 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  .demo-chip:hover {
+    background-color: rgba(40, 76, 173, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .demo-chip:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* ---------- Botões de ação ---------- */
+  .demo-btn-enviar,
+  .demo-btn-reset {
+    min-height: 56px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--color-blue-primary);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition:
+      transform 0.15s ease,
+      filter 0.15s ease;
+  }
+
+  .demo-btn-enviar:hover,
+  .demo-btn-reset:hover {
+    transform: scale(1.02);
+    filter: brightness(1.06);
+  }
+
+  .demo-btn-trocar {
+    min-height: 48px;
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    color: var(--color-text-light);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .demo-btn-trocar:hover {
+    color: var(--color-blue-primary);
   }
 
   /* ODS — Responsivo tablet/desktop */
