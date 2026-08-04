@@ -1,0 +1,44 @@
+/* ============================================================
+   CARREGANDO-PAGINA.CSS — Verifica AI
+   Estado de carregamento em tela cheia (menos a sidebar), usado
+   enquanto os dados da página ainda não chegaram do Appwrite.
+   O posicionamento (flex:1 / grid-area) fica no CSS de cada página,
+   já que cada uma usa um sistema de layout diferente.
+   ============================================================ */
+
+.carregando-pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 100dvh;
+    text-align: center;
+    padding: 2rem;
+}
+
+.carregando-pagina[hidden] {
+    display: none;
+}
+
+.carregando-pagina-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid rgba(10, 22, 51, 0.15);
+    border-top-color: #0A1633;
+    border-radius: 50%;
+    animation: carregando-pagina-girar 0.8s linear infinite;
+}
+
+.carregando-pagina-texto {
+    font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0A1633;
+}
+
+@keyframes carregando-pagina-girar {
+    to {
+        transform: rotate(360deg);
+    }
+}

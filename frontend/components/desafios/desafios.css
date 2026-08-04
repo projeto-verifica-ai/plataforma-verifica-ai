@@ -7,6 +7,10 @@
 
 /* Card branco que envolve o desafio inteiro */
 .desafio {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
   background-color: #ffffff;
   border-radius: 1.5rem;
   padding: 2rem;
@@ -41,6 +45,7 @@
 /* Cada opção (radio + texto) */
 .opcao {
   display: flex;
+  width: 80vw;
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem;
@@ -121,7 +126,7 @@
   border-radius: 0.875rem;
   overflow: hidden;
   cursor: pointer;
-  background: none;
+  background: rgb(0, 0, 0);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
@@ -147,11 +152,12 @@
   cursor: default;
 }
 
-/* Zoom sutil na imagem ao passar o mouse (some quando desabilitado) */
+/* Zoom sutil na imagem ao passar o mouse (some quando desabilitado).
+   Sem height/object-fit fixos: a imagem sempre mantém sua proporção
+   original, em qualquer tamanho de tela (só a largura acompanha a coluna). */
 .imagem-opcao img {
   width: 100%;
-  height: 60dvh;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -231,17 +237,42 @@
 
 /* Pequena "pulsada" de confirmação na opção correta */
 @keyframes desafio-imagem-acerto {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Tremor curto na opção errada escolhida, reforçando o feedback tátil do erro */
 @keyframes desafio-imagem-erro {
-  10%, 90% { transform: translateX(-2px); }
-  20%, 80% { transform: translateX(3px); }
-  30%, 50%, 70% { transform: translateX(-5px); }
-  40%, 60% { transform: translateX(5px); }
+
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(3px);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translateX(-5px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(5px);
+  }
 }
 
 /* Ajustes para telas menores (celular/tablet) */

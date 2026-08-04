@@ -92,7 +92,6 @@ body {
     flex-direction: column;
     gap: 0.25rem;
     margin: auto;
-
     width: 100%;
 }
 
@@ -175,6 +174,18 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
+.profile-avatar--clicavel {
+    cursor: pointer;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.profile-avatar--clicavel:hover,
+.profile-avatar--clicavel:focus-visible {
+    opacity: 0.85;
+    border-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -192,12 +203,20 @@ body {
     text-overflow: ellipsis;
 }
 
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+}
+
 .profile-link {
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.6);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.15s ease;
+    cursor: pointer;
 }
 
 .profile-link:hover {
@@ -263,8 +282,10 @@ body {
         object-fit: contain;
     }
 
-    /* Evita que o conteúdo fique atrás da barra */
+    /* Evita que o conteúdo fique atrás da barra (a barra tem 4.5rem de
+       altura — precisa de mais que isso, senão ainda sobra conteúdo
+       escondido atrás dela; o 1.5rem extra é a folga/margem visual) */
     .main {
-        padding-bottom: 3rem;
+        padding-bottom: calc(4.5rem + 1.5rem);
     }
 }

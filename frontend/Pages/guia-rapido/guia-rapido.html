@@ -16,6 +16,9 @@
     <script type="module" src="../../components/footer/footer.js"></script>
     <link rel="stylesheet" href="../../components/footer/footer.css">
 
+    <!-- Estado de carregamento em tela cheia, compartilhado entre várias páginas -->
+    <link rel="stylesheet" href="../../components/carregando-pagina/carregando-pagina.css">
+
     <!-- Componente de artigo (bloco de leitura teórica das trilhas) -->
     <link rel="stylesheet" href="../../components/artigos/artigos.css">
     <script type="module" src="../../components/artigos/artigos.js"></script>
@@ -43,7 +46,12 @@
     <!-- Sidebar de navegação lateral (desktop) / bottom nav (mobile) -->
     <verifica-sidebar></verifica-sidebar>
 
-    <main class="main">
+    <div class="carregando-pagina" id="carregando-pagina">
+        <span class="carregando-pagina-spinner" aria-hidden="true"></span>
+        <p class="carregando-pagina-texto">Carregando guia rápido...</p>
+    </div>
+
+    <main class="main" id="conteudo-guia" hidden>
 
         <!-- Card de saudação com mascote + barra de progresso geral do usuário -->
         <section class="inicio">
@@ -51,7 +59,7 @@
                 <img src="../../assets/mascot-image/BotAcenandoGuiaRapido.png"
                     alt="Nosso mascote, robôtive saudando o usuário" id="mascote-saudacao">
                 <div class="saudacao-text">
-                    <h2>Olá, Maria!</h2>
+                    <h2>Olá,&nbsp;<span id="saudacao-nome">visitante</span>!</h2>
                     <span id="saudacao-mensagem">Continue aprendendo sobre a IA.</span>
                 </div>
             </div>
@@ -81,7 +89,6 @@
              criados dinamicamente aqui dentro (a quantidade varia por trilha) -->
         <section class="desafios" id="desafios-container"></section>
 
-        <verifica-footer></verifica-footer>
     </main>
 
 </body>

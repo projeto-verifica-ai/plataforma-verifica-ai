@@ -1,3 +1,11 @@
+import {
+  pegarUsuarioAtual,
+  pegarPerfil,
+  pegarUrlAvatar,
+  trocarAvatar,
+  fazerLogout,
+} from "../../services/appwrite.js";
+
 class VerificaSidebar extends HTMLElement {
   connectedCallback() {
     // Pega a página atual para marcar o item ativo automaticamente
@@ -6,7 +14,7 @@ class VerificaSidebar extends HTMLElement {
     const navItems = [
       { href: "../dashboard-principal/dashboard-principal.html", icon: "icone-inicio.svg", label: "Início" },
       { href: "../dashboard-comunidade/comunidade.html", icon: "icone-comunidade.svg", label: "Comunidade" },
-      { href: "#", icon: "icone-noticias.svg", label: "Notícias atuais" }, // TODO: página ainda não criada
+      { href: "../noticias/tela-noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" }, // TODO: página ainda não criada
       { href: "../guia-rapido/guia-rapido.html", icon: "icone-guia-rapido.svg", label: "Guia rápido" },
     ];
 
@@ -45,11 +53,15 @@ class VerificaSidebar extends HTMLElement {
         </nav>
 
         <div class="sidebar-profile">
-        <!-- A foto de perfil aparecerá de acordo com o banco de dados do usuário, caso não tenha uma foto, será exibida a padrão. / -->
-          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" />
+        <!-- Nome real e foto vêm do Appwrite (carregarPerfil). Clicar na foto troca o avatar (só quando logado). -->
+          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" id="profile-avatar" />
+          <input type="file" accept="image/*" id="avatar-input" hidden />
           <div class="profile-info">
-            <span class="profile-name">Olá, Maria!</span>
-            <a href="#" class="profile-link">Ver meu perfil</a> <!-- TODO: página ainda não criada -->
+            <span class="profile-name">Olá!</span>
+            <div class="profile-links">
+              <a href="#" class="profile-link">Ver meu perfil</a> <!-- TODO: página ainda não criada -->
+              <a href="#" class="profile-link profile-link--sair" hidden>Sair</a>
+            </div>
           </div>
         </div>
 
@@ -74,6 +86,93 @@ class VerificaSidebar extends HTMLElement {
     </a>
   </nav>
 `;
+
+    this.carregarPerfil();
+  }
+
+  // Busca o usuário logado + a linha em "profiles" e atualiza o nome
+  // exibido na sidebar. Roda depois do render pra não travar a página
+  // esperando a resposta do Appwrite (sidebar aparece na hora, o nome
+  // só é trocado quando a resposta chega).
+  async carregarPerfil() {
+    const elNome = this.querySelector(".profile-name");
+    const elLink = this.querySelector(".profile-link");
+    const elSair = this.querySelector(".profile-link--sair");
+    const elAvatar = this.querySelector("#profile-avatar");
+    const elAvatarInput = this.querySelector("#avatar-input");
+
+    let usuario;
+    try {
+      usuario = await pegarUsuarioAtual();
+    } catch {
+      usuario = null;
+    }
+
+    if (!usuario) {
+      elNome.textContent = "Olá, visitante!";
+      elLink.textContent = "Entrar";
+      elLink.href = "../pagina-login/pagina-login.html";
+      return;
+    }
+
+    // Nome do Auth já serve de fallback imediato enquanto o perfil carrega
+    elNome.textContent = `Olá, ${usuario.name}!`;
+
+    // Usuário logado: mostra o link de sair
+    elSair.hidden = false;
+    elSair.addEventListener("click", async (evento) => {
+      evento.preventDefault();
+      try {
+        await fazerLogout();
+      } catch (erro) {
+        console.error("Não foi possível encerrar a sessão:", erro);
+      }
+      window.location.href = "../pagina-login/pagina-login.html";
+    });
+
+    // Clicar na foto abre o seletor de arquivo (só funciona logado)
+    elAvatar.classList.add("profile-avatar--clicavel");
+    elAvatar.setAttribute("role", "button");
+    elAvatar.setAttribute("tabindex", "0");
+    elAvatar.title = "Clique para trocar a foto de perfil";
+    elAvatar.addEventListener("click", () => elAvatarInput.click());
+    elAvatar.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        elAvatarInput.click();
+      }
+    });
+
+    elAvatarInput.addEventListener("change", async () => {
+      const arquivo = elAvatarInput.files[0];
+      if (!arquivo) return;
+
+      const urlAnterior = elAvatar.src;
+      elAvatar.style.opacity = "0.5";
+
+      try {
+        const novaUrl = await trocarAvatar(usuario.$id, arquivo);
+        elAvatar.src = novaUrl;
+      } catch (erro) {
+        console.error("Não foi possível trocar a foto de perfil:", erro);
+        elAvatar.src = urlAnterior;
+      } finally {
+        elAvatar.style.opacity = "";
+        elAvatarInput.value = "";
+      }
+    });
+
+    try {
+      const perfil = await pegarPerfil(usuario.$id);
+      if (perfil?.name) {
+        elNome.textContent = `Olá, ${perfil.name}!`;
+      }
+      if (perfil?.avatarField) {
+        elAvatar.src = pegarUrlAvatar(perfil.avatarField);
+      }
+    } catch (erro) {
+      console.error("Não foi possível carregar o perfil do usuário:", erro);
+    }
   }
 
 }

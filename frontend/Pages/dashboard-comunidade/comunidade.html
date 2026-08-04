@@ -22,6 +22,9 @@
   <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
   <script type="module" src="../../components/footer/footer.js"></script>
   <link rel="stylesheet" href="../../components/footer/footer.css">
+
+  <!-- Estado de carregamento em tela cheia, compartilhado entre várias páginas -->
+  <link rel="stylesheet" href="../../components/carregando-pagina/carregando-pagina.css">
 </head>
 
 <body class="pagina-com-sidebar">
@@ -39,7 +42,12 @@
 
   <!-- WRAPPER PRINCIPAL (sidebar + main + tips) -->
   <div class="layout">
-    <main class="main-content main" id="feed-comunidade">
+    <div class="carregando-pagina" id="carregando-pagina">
+      <span class="carregando-pagina-spinner" aria-hidden="true"></span>
+      <p class="carregando-pagina-texto">Carregando comunidade...</p>
+    </div>
+
+    <main class="main-content main" id="feed-comunidade" hidden>
       <!-- Cabeçalho da página (visível notebook/desktop) -->
       <div class="page-header">
         <div>
@@ -113,7 +121,7 @@
     </main>
 
     <!-- PAINEL DE DICAS — Tablet e Desktop-->
-    <aside class="tips-panel" aria-labelledby="dicas-titulo">
+    <aside class="tips-panel" aria-labelledby="dicas-titulo" hidden>
       <div class="tips-card">
         <h2 class="tips-card__title" id="dicas-titulo">
           <img src="../../assets/icons/icone-bulbo.png" alt="" aria-hidden="true" width="20" />
@@ -132,7 +140,6 @@
   </div>
   <!-- fim .layout -->
 
-  <verifica-footer></verifica-footer>
 
   <!--BOTTOM NAV — mobile e tablet-->
   <nav class="bottom-nav" aria-label="Navegação rápida">

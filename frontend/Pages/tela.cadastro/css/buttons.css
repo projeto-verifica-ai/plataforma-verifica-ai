@@ -1,8 +1,3 @@
-/* =========================================
-   VERIFICA AI
-   buttons.css
-   Botões do projeto
-========================================= */
 
 /* =========================================
    BOTÕES SOCIAIS
@@ -13,7 +8,7 @@
     position: relative;
 
     width: 100%;
-    height: 52px;
+    height: 44px;
 
     display: flex;
     justify-content: center;
@@ -28,7 +23,7 @@
 
     color: #DDD;
 
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
 
     cursor: pointer;
@@ -68,6 +63,8 @@
 .facebook {
 
     background: #1877F2;
+    color: #FFF;
+    border: 1px solid
 
 }
 
@@ -94,8 +91,8 @@
 
     left: 18px;
 
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
 
 }
 
@@ -106,7 +103,7 @@
 .create-account {
 
     width: 100%;
-    height: 56px;
+    height: 46px;
 
     display: flex;
     justify-content: center;
@@ -121,7 +118,7 @@
 
     color: #FFF;
 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
 
     cursor: pointer;

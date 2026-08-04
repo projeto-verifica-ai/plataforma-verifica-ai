@@ -56,9 +56,9 @@
 
 .desktop-title{
 
-    font-size:3.2rem;
+    font-size:2.8rem;
 
-    line-height:1.15;
+    line-height:1.2;
 
     font-weight:700;
 
@@ -90,6 +90,12 @@
 
     text-align:center;
     max-width: 250px;
+
+}
+
+.login-link--mobile{
+
+    display:none;
 
 }
 
@@ -139,15 +145,13 @@
 .form-box{
 
     width:100%;
-    max-width:600px;
+    max-width:560px;
     background:#FFF;
-    border-radius:28px;
-    padding:22px;
+    border-radius:24px;
+    padding:18px;
     margin:auto;
     box-shadow:0 20px 50px rgba(0,0,0,.08);
     transition: .30s ease;
-    transform: scale(0.95);
-    transform-origin: center;
 
 
 }
@@ -158,9 +162,9 @@
 
     display:block;
     color:#000;
-    font-size:2.8rem;
+    font-size:1.9rem;
     font-weight:700;
-    margin-bottom:5px;
+    margin-bottom:3px;
 
 }
 
@@ -168,9 +172,9 @@
 
     color:#2C7444;
 
-    font-size:3rem;
+    font-size:2.3rem;
 
-    margin-bottom:35px;
+    margin-bottom:18px;
 
 }
 
@@ -184,7 +188,7 @@
 
     flex-direction:column;
 
-    gap:10px;
+    gap:8px;
 
 }
 
@@ -200,7 +204,7 @@
 
     gap:14px;
 
-    margin:14px 0;
+    margin:8px 0;
 
     color:#999;
 
@@ -214,6 +218,6 @@
 
     height:1px;
 
-    background:#DDD;
+    background:#c4bbbb;
 
 }
