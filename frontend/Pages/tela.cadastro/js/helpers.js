@@ -100,6 +100,6 @@ function resetarFormulario() {
 
     strengthText.textContent = "";
 
-    checkbox.disabled = true;
+    checkbox.checked = false;
 
 }

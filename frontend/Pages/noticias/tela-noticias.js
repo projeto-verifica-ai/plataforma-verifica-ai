@@ -238,9 +238,8 @@ async function carregarNoticias() {
     }
 }
 
-// A tela fica só com o carregamento (sem sidebar) até as duas buscas acima
-// terminarem — elas não dependem uma da outra, então rodam em paralelo
-// em vez de uma esperar a outra terminar.
+// A tela fica só com o carregamento até as duas buscas acima
+// terminarem
 (async function iniciar() {
     const elCarregando = document.getElementById("carregando-pagina");
     const elConteudo = document.getElementById("conteudo-noticias");

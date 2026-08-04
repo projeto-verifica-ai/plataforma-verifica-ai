@@ -1,14 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-
+  <head>
     <!-- ===================================== -->
     <!-- META -->
     <!-- ===================================== -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Verifica AI - Cadastro</title>
 
@@ -16,43 +14,44 @@
     <!-- GOOGLE FONTS -->
     <!-- ===================================== -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- ===================================== -->
     <!-- FONT AWESOME -->
     <!-- ===================================== -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <!-- ===================================== -->
     <!-- CSS -->
     <!-- ===================================== -->
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/toast.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/toast.css" />
+    <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <header class="mobile-header">
+      <h1>Bem-vindo!</h1>
 
-        <h1>Bem-vindo!</h1>
-
-        <img src="img/Logo-Robotive.png" class="mobile-robot" alt="Robô">
-
+      <img src="img/Logo-Robotive.png" class="mobile-robot" alt="Robô" />
     </header>
 
     <!-- ===================================== -->
@@ -60,230 +59,193 @@
     <!-- ===================================== -->
 
     <main class="container">
+      <!-- ===================================== -->
+      <!-- LADO ESQUERDO -->
+      <!-- ===================================== -->
 
-        <!-- ===================================== -->
-        <!-- LADO ESQUERDO -->
-        <!-- ===================================== -->
+      <section class="left">
+        <div class="logo">
+          <h1 class="desktop-title">Crie sua conta gratuita</h1>
 
-        <section class="left">
+          <h1 class="mobile-title">Bem-vindo!</h1>
+        </div>
 
-            <div class="logo">
+        <img src="img/Logo-Robotive.png" class="robot" alt="Robô Verifica AI" />
 
-                <h1 class="desktop-title">
-                    Crie sua conta gratuita
-                </h1>
+        <div class="login-link">
+          <p>Já tem uma conta?</p>
 
-                <h1 class="mobile-title">
-                    Bem-vindo!
-                </h1>
+          <a href="../pagina-login/pagina-login.html"> Iniciar sessão </a>
+        </div>
+      </section>
 
+      <!-- ===================================== -->
+      <!-- LADO DIREITO -->
+      <!-- ===================================== -->
+
+      <section class="right">
+        <div class="form-box">
+          <!-- ============================== -->
+          <!-- TÍTULO -->
+          <!-- ============================== -->
+
+          <span class="subtitle"> Comece a usar o </span>
+
+          <h2>Verifica AI</h2>
+
+          <!-- ============================== -->
+          <!-- LOGIN SOCIAL -->
+          <!-- ============================== -->
+
+          <div class="social-buttons">
+            <button class="social-btn facebook" type="button">
+              <img src="img/facebook-svg.svg" alt="Facebook" />
+
+              <span> Entrar com Facebook </span>
+            </button>
+
+            <button class="social-btn google" type="button">
+              <img src="img/google-svg.svg" alt="Google" />
+
+              <span> Entrar com Google </span>
+            </button>
+          </div>
+
+          <!-- ============================== -->
+          <!-- DIVISOR -->
+          <!-- ============================== -->
+
+          <div class="divider">
+            <hr />
+
+            <span>ou</span>
+
+            <hr />
+          </div>
+
+          <!-- ============================== -->
+          <!-- FORMULÁRIO -->
+          <!-- ============================== -->
+
+          <form id="cadastro" novalidate>
+            <!-- ============================== -->
+            <!-- NOME -->
+            <!-- ============================== -->
+
+            <div class="campo">
+              <label for="nome"> Nome </label>
+
+              <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                required
+              />
+
+              <small id="erroNome"></small>
             </div>
 
-            <img src="img/Logo-Robotive.png" class="robot" alt="Robô Verifica AI">
+            <!-- ============================== -->
+            <!-- EMAIL -->
+            <!-- ============================== -->
 
-            <div class="login-link">
+            <div class="campo">
+              <label for="email"> Email </label>
 
-                <p>Já tem uma conta?</p>
+              <input
+                type="email"
+                id="email"
+                placeholder="Digite seu email"
+                required
+              />
 
-                <a href="../pagina-login/pagina-login.html">
-                    Iniciar sessão
-                </a>
-
+              <small id="erroEmail"></small>
             </div>
 
-        </section>
+            <!-- ============================== -->
+            <!-- SENHA -->
+            <!-- ============================== -->
 
-        <!-- ===================================== -->
-        <!-- LADO DIREITO -->
-        <!-- ===================================== -->
+            <div class="campo">
+              <label for="senha"> Senha </label>
 
-        <section class="right">
+              <div class="password">
+                <input
+                  type="password"
+                  id="senha"
+                  placeholder="Digite sua senha"
+                  required
+                />
 
-            <div class="form-box">
+                <i class="fa-regular fa-eye" aria-hidden="true"></i>
+              </div>
 
-                <!-- ============================== -->
-                <!-- TÍTULO -->
-                <!-- ============================== -->
+              <small id="erroSenha"></small>
 
-                <span class="subtitle">
-                    Comece a usar o
-                </span>
+              <!-- Barra de força -->
 
-                <h2>
-                    Verifica AI
-                </h2>
+              <div class="strength">
+                <div id="strengthBar"></div>
+              </div>
 
-                <!-- ============================== -->
-                <!-- LOGIN SOCIAL -->
-                <!-- ============================== -->
-
-                <div class="social-buttons">
-
-                    <button class="social-btn facebook" type="button">
-
-                        <img src="img/facebook-svg.svg" alt="Facebook">
-
-                        <span>
-                            Entrar com Facebook
-                        </span>
-
-                    </button>
-
-                    <button class="social-btn google" type="button">
-
-                        <img src="img/google-svg.svg" alt="Google">
-
-                        <span>
-                            Entrar com Google
-                        </span>
-
-                    </button>
-
-                </div>
-
-                <!-- ============================== -->
-                <!-- DIVISOR -->
-                <!-- ============================== -->
-
-                <div class="divider">
-
-                    <hr>
-
-                    <span>ou</span>
-
-                    <hr>
-
-                </div>
-
-                <!-- ============================== -->
-                <!-- FORMULÁRIO -->
-                <!-- ============================== -->
-
-                <form id="cadastro" novalidate>
-
-                    <!-- ============================== -->
-                    <!-- NOME -->
-                    <!-- ============================== -->
-
-                    <div class="campo">
-
-                        <label for="nome">
-                            Nome
-                        </label>
-
-                        <input type="text" id="nome" placeholder="Digite seu nome" required>
-
-                        <small id="erroNome"></small>
-
-                    </div>
-
-                    <!-- ============================== -->
-                    <!-- EMAIL -->
-                    <!-- ============================== -->
-
-                    <div class="campo">
-
-                        <label for="email">
-                            Email
-                        </label>
-
-                        <input type="email" id="email" placeholder="Digite seu email" required>
-
-                        <small id="erroEmail"></small>
-
-                    </div>
-
-                    <!-- ============================== -->
-                    <!-- SENHA -->
-                    <!-- ============================== -->
-
-                    <div class="campo">
-
-                        <label for="senha">
-                            Senha
-                        </label>
-
-                        <div class="password">
-
-                            <input type="password" id="senha" placeholder="Digite sua senha" required>
-
-                            <i class="fa-regular fa-eye" aria-hidden="true" ></i>
-
-                        </div>
-
-                        <small id="erroSenha"></small>
-
-                        <!-- Barra de força -->
-
-                        <div class="strength">
-
-                            <div id="strengthBar"></div>
-
-                        </div>
-
-                        <p id="strengthText"></p>
-
-                    </div>
-
-                    <!-- ============================== -->
-                    <!-- CONFIRMAR SENHA -->
-                    <!-- ============================== -->
-
-                    <div class="campo">
-
-                        <label for="confirmarSenha">
-                            Confirmar senha
-                        </label>
-
-                        <div class="password">
-
-                            <input type="password" id="confirmarSenha" placeholder="Digite novamente sua senha" required>
-
-                            <i class="fa-regular fa-eye" id="olhoConfirmar">
-                            </i>
-
-                        </div>
-
-                        <small id="erroConfirmar"></small>
-
-                    </div>
-
-                    <!-- ============================== -->
-                    <!-- TERMOS -->
-                    <!-- ============================== -->
-
-                    <div class="termos">
-
-                        <input type="checkbox" id="aceito" disabled>
-
-                        <label for="aceito">
-                            Li e aceito os
-                        </label>
-
-                        <span id="abrirTermos">
-                            Termos de Uso
-                        </span>
-
-                    </div>
-
-                    <!-- ============================== -->
-                    <!-- BOTÃO -->
-                    <!-- ============================== -->
-
-                    <button class="create-account" type="submit">
-
-                        Criar conta
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </button>
-
-                </form>
-
+              <p id="strengthText"></p>
             </div>
 
-        </section>
+            <!-- ============================== -->
+            <!-- CONFIRMAR SENHA -->
+            <!-- ============================== -->
 
+            <div class="campo">
+              <label for="confirmarSenha"> Confirmar senha </label>
+
+              <div class="password">
+                <input
+                  type="password"
+                  id="confirmarSenha"
+                  placeholder="Digite novamente sua senha"
+                  required
+                />
+
+                <i class="fa-regular fa-eye" id="olhoConfirmar"> </i>
+              </div>
+
+              <small id="erroConfirmar"></small>
+            </div>
+
+            <!-- ============================== -->
+            <!-- TERMOS -->
+            <!-- ============================== -->
+
+            <div class="termos">
+              <input type="checkbox" id="aceito" />
+
+              <label for="aceito"> Li e aceito os </label>
+
+              <span id="abrirTermos"> Termos de Uso </span>
+            </div>
+
+            <!-- ============================== -->
+            <!-- BOTÃO -->
+            <!-- ============================== -->
+
+            <button class="create-account" type="submit">
+              Criar conta
+
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <!-- ============================== -->
+          <!-- LOGIN (só aparece no mobile, no desktop fica em .left) -->
+          <!-- ============================== -->
+
+          <div class="login-link login-link--mobile">
+            <p>Já tem uma conta?</p>
+
+            <a href="../pagina-login/pagina-login.html"> Iniciar sessão </a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ===================================== -->
@@ -291,160 +253,187 @@
     <!-- ===================================== -->
 
     <div class="modal" id="modal">
+      <div class="modal-content">
+        <!-- ============================= -->
+        <!-- HEADER -->
+        <!-- ============================= -->
 
-        <div class="modal-content">
+        <div class="modal-header">
+          <h2>Termos de Uso – Verifica AI</h2>
 
-            <!-- ============================= -->
-            <!-- HEADER -->
-            <!-- ============================= -->
+          <button id="fechar" type="button" aria-label="Fechar modal">
+            &times;
+          </button>
+        </div>
 
-            <div class="modal-header">
+        <!-- ============================= -->
+        <!-- CONTEÚDO -->
+        <!-- ============================= -->
 
-                <h2>
-                    Termos de Uso
-                </h2>
+        <div class="modal-body" id="modalBody">
+          <h3>1. Aceitação dos Termos</h3>
 
-                <button id="fechar" type="button" aria-label="Fechar modal">
+          <p>
+            Ao criar uma conta e utilizar a plataforma Verifica AI, você declara
+            que leu, compreendeu e concorda integralmente com estes Termos de
+            Uso. Caso não concorde com qualquer disposição aqui apresentada, não
+            utilize os serviços oferecidos pela plataforma.
+          </p>
 
-                    &times;
+          <h3>2. Objetivo da Plataforma</h3>
 
-                </button>
+          <p>
+            O Verifica AI é uma plataforma desenvolvida para auxiliar usuários
+            na identificação e análise da veracidade de informações, notícias e
+            conteúdos digitais por meio de tecnologias de Inteligência
+            Artificial e outras ferramentas de apoio. As análises
+            disponibilizadas possuem caráter informativo e não substituem a
+            consulta a fontes oficiais ou especializadas.
+          </p>
 
-            </div>
+          <h3>3. Cadastro de Usuário</h3>
 
-            <!-- ============================= -->
-            <!-- CONTEÚDO -->
-            <!-- ============================= -->
+          <p>
+            Para utilizar determinados recursos da plataforma, poderá ser
+            necessário criar uma conta. O usuário compromete-se a: fornecer
+            informações verdadeiras e atualizadas; manter seus dados corretos;
+            proteger suas credenciais de acesso; não compartilhar sua senha com
+            terceiros. Toda atividade realizada na conta é de responsabilidade
+            do titular.
+          </p>
 
-            <div class="modal-body" id="modalBody">
+          <h3>4. Privacidade e Proteção de Dados</h3>
 
-                <h3>1. Aceitação</h3>
+          <p>
+            Os dados pessoais fornecidos serão tratados de acordo com a
+            legislação vigente, especialmente a Lei Geral de Proteção de Dados
+            (LGPD – Lei nº 13.709/2018). As informações coletadas serão
+            utilizadas exclusivamente para: autenticação do usuário;
+            funcionamento da plataforma; melhoria dos serviços; comunicação
+            relacionada à conta. O Verifica AI não comercializa dados pessoais
+            de seus usuários.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão. O Lorem Ipsum tem vindo a ser o texto padrão
-                    usado por estas indústrias desde o ano de 1500...
-                </p>
+          <h3>5. Uso Permitido</h3>
 
-                <h3>2. Cadastro</h3>
+          <p>
+            Ao utilizar a plataforma, o usuário concorda em não: divulgar
+            informações falsas intencionalmente; utilizar o sistema para
+            atividades ilegais; tentar acessar áreas restritas da plataforma;
+            comprometer a segurança do sistema; utilizar robôs ou mecanismos
+            automatizados sem autorização.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>6. Conteúdo Gerado pela Inteligência Artificial</h3>
 
-                <h3>3. Privacidade</h3>
+          <p>
+            As análises produzidas pela Inteligência Artificial são baseadas em
+            modelos computacionais e podem conter limitações ou imprecisões.
+            Embora o Verifica AI busque fornecer informações confiáveis, não
+            garante precisão absoluta em todos os resultados apresentados.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>7. Direitos Autorais</h3>
 
-                <h3>4. Uso permitido</h3>
+          <p>
+            Todo o conteúdo da plataforma, incluindo textos, logotipos,
+            ilustrações, identidade visual, códigos, imagens e demais elementos,
+            é protegido pela legislação de direitos autorais. É proibida sua
+            reprodução sem autorização expressa.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>8. Suspensão ou Encerramento da Conta</h3>
 
-                <h3>5. Conteúdo</h3>
+          <p>
+            O Verifica AI poderá suspender ou encerrar contas que violem estes
+            Termos de Uso, pratiquem atividades ilícitas ou utilizem a
+            plataforma de maneira que comprometa sua segurança ou funcionamento.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>9. Atualizações dos Termos</h3>
 
-                <h3>6. Responsabilidades</h3>
+          <p>
+            Os presentes Termos poderão ser alterados sempre que necessário para
+            adequação legal ou melhoria dos serviços. Quando houver alterações
+            relevantes, os usuários serão informados por meio da própria
+            plataforma.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>10. Limitação de Responsabilidade</h3>
 
-                <h3>7. Direitos Autorais</h3>
+          <p>
+            O Verifica AI não se responsabiliza por decisões tomadas
+            exclusivamente com base nas análises disponibilizadas pela
+            plataforma. Cabe ao usuário validar informações importantes em
+            fontes oficiais antes de utilizá-las para qualquer finalidade.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>11. Disponibilidade do Serviço</h3>
 
-                <h3>8. Suspensão da Conta</h3>
+          <p>
+            Embora sejam adotadas medidas para garantir estabilidade e
+            segurança, a plataforma poderá sofrer interrupções temporárias para
+            manutenção, atualização ou por fatores externos.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>12. Disposições Finais</h3>
 
-                <h3>9. Atualizações</h3>
+          <p>
+            Ao prosseguir com o cadastro, o usuário confirma que leu
+            integralmente estes Termos de Uso, compreendeu seus direitos e
+            responsabilidades e concorda em utilizar a plataforma de forma
+            ética, segura e em conformidade com a legislação aplicável.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+          <h3>13. Contato</h3>
 
-                <h3>10. Encerramento</h3>
+          <p>
+            Caso tenha dúvidas sobre estes Termos de Uso, sugestões ou queira
+            relatar problemas relacionados à plataforma, entre em contato com a
+            equipe do Verifica AI pelos canais oficiais disponibilizados na
+            própria aplicação.
+          </p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
 
-                <h3>11. Política de Privacidade</h3>
+          <div class="termos-footer">
+            <p><strong>Versão:</strong> 1.0</p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
+            <p><strong>Última atualização:</strong> Julho de 2026</p>
 
-                <h3>12. LGPD</h3>
+            <p>© 2026 Verifica AI. Todos os direitos reservados.</p>
 
-                <p>
-                    O Lorem Ipsum é um texto modelo da indústria tipográfica e
-                    de impressão...
-                </p>
-
-            </div>
-
-            <!-- ============================= -->
-            <!-- INFORMAÇÃO -->
-            <!-- ============================= -->
-
-            <div class="scroll-info" id="scrollInfo">
-
-                <i class="fa-solid fa-circle-info"></i>
-
-                <span>
-
-                    Role até o final dos Termos de Uso para habilitar o botão
-
-                    <strong>"Aceito"</strong>
-
-                </span>
-
-            </div>
-
-            <!-- ============================= -->
-            <!-- FOOTER -->
-            <!-- ============================= -->
-
-            <div class="modal-footer">
-
-                <button id="cancelar" type="button">
-
-                    Cancelar
-
-                </button>
-
-                <button id="aceitar" type="button" disabled>
-
-                    Aceito
-
-                </button>
-
-            </div>
+            <p>
+              Desenvolvido para fins educacionais e demonstração de projeto
+              acadêmico.
+            </p>
+          </div>
 
         </div>
 
+        <!-- ============================= -->
+        <!-- INFORMAÇÃO -->
+        <!-- ============================= -->
+
+        <div class="scroll-info" id="scrollInfo">
+          <i class="fa-solid fa-circle-info"></i>
+
+          <span>
+            Role até o final dos Termos de Uso para habilitar o botão
+
+            <strong>"Aceito"</strong>
+          </span>
+        </div>
+
+        <!-- ============================= -->
+        <!-- FOOTER -->
+        <!-- ============================= -->
+
+        <div class="modal-footer">
+          <button id="cancelar" type="button">Cancelar</button>
+
+          <button id="aceitar" type="button" disabled>Aceito</button>
+        </div>
+      </div>
     </div>
 
     <!-- ===================================== -->
@@ -452,12 +441,9 @@
     <!-- ===================================== -->
 
     <div id="toast" class="toast">
+      <i id="toastIcon" class="fa-solid fa-circle-check"> </i>
 
-        <i id="toastIcon" class="fa-solid fa-circle-check">
-        </i>
-
-        <span id="toastMessage"></span>
-
+      <span id="toastMessage"></span>
     </div>
 
     <!-- ===================================== -->
@@ -490,7 +476,5 @@
 
     <!-- Inicialização -->
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>

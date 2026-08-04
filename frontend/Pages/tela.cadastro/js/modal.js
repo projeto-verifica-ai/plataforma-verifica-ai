@@ -41,18 +41,31 @@ function iniciarModal() {
     });
 
     // ===============================
+    // Abrir modal ao marcar o checkbox
+    // (o checkbox só fica marcado de verdade ao clicar em "Aceito" no modal)
+    // ===============================
+
+    checkbox.addEventListener("change", () => {
+
+        if (checkbox.checked) {
+
+            checkbox.checked = false;
+
+            abrirModal();
+
+        }
+
+    });
+
+    // ===============================
     // Aceitar Termos
     // ===============================
 
     aceitar.addEventListener("click", () => {
 
-        checkbox.disabled = false;
-
         checkbox.checked = true;
 
-        checkbox.disabled = true;
-
-        modal.classList.remove("ativo");
+        fecharModal();
 
         mostrarToast(
             "success",
