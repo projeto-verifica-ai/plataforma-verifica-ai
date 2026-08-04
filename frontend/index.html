@@ -1,288 +1,457 @@
 <!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verifica AÍ - Proteja-se de Fake News</title>
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <!-- Melhores práticas de SEO: Inclusão de meta tags básicas -->
+    <meta
+      name="description"
+      content="Plataforma Informativa para desenvolver pensamento crítico e segurança digital. Aprenda a identificar golpes e fake news."
+    />
+    <!-- Fontes do Google (Outfit e Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verifica AÍ - Proteja-se de Fake News</title>
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <!-- Melhores práticas de SEO: Inclusão de meta tags básicas -->
-  <meta name="description"
-    content="Plataforma Informativa para desenvolver pensamento crítico e segurança digital. Aprenda a identificar golpes e fake news." />
-  <!-- Fontes do Google (Outfit e Plus Jakarta Sans) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <!-- Cabeçalho (Header) -->
+    <header class="header">
+      <a href="#inicio" class="logo" aria-label="Voltar ao início da página">
+        <img
+          src="assets/verificaai-robot-nobackground.png"
+          alt="Ícone do Verifica AÍ"
+          class="logo-icon"
+        />
+        <span class="logo-text">Verifica AÍ</span>
+        <img
+          src="assets/icons/icone-verificado.png"
+          alt="Verificado"
+          class="icon-verified"
+        />
+      </a>
+      <!-- Colocar uma condicional para verificar se o usuario ja está cadastrado no site, se estiver, carrega direto para a dashboard -->
+      <a
+        href="Pages/tela.cadastro/tela-cadastro.html"
+        class="btn btn-primary btn-large"
+        aria-label="Comece Grátis"
+      >
+        Comece Grátis
+      </a>
+    </header>
 
-<body>
-  <!-- Cabeçalho (Header) -->
-  <header class="header">
-    <a href="#inicio" class="logo" aria-label="Voltar ao início da página">
-      <img src="assets/verificaai-robot-icon.png" alt="Ícone do Verifica AÍ" class="logo-icon" />
-      <span class="logo-text">Verifica AÍ</span>
-      <img src="assets/icons/icone-verificado.png" alt="Verificado" class="icon-verified" />
-    </a>
-    <!-- Colocar uma condicional para verificar se o usuario ja está cadastrado no site, se estiver, carrega direto para a dashboard -->
-    <a href="Pages/tela.cadastro/tela-cadastro.html" class="btn btn-primary btn-large" role="button"
-      aria-label="Começar na plataforma de forma gratuita">
-      Comece Grátis
-    </a>
-  </header>
-
-  <!-- Conteúdo Principal -->
-  <main id="inicio">
-    <!-- Seção Hero (Apresentação Inicial) -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1>
-          Antes de confiar, <br /><span class="text-green">Verifique.</span>
-        </h1>
-        <p>
-          Aprenda a identificar golpes, fake news e conteúdos gerados por IA
-          através de uma plataforma simples, acessível e pensada para todos.
-        </p>
-        <a href="Pages/tela.cadastro/tela-cadastro.html" class="btn btn-primary btn-large">Conheça a plataforma</a>
-      </div>
-
-      <div class="hero-card">
-        <div class="card-fake-news">
-          <span class="tag-fake">Conteúdo Falso!</span>
-          <h3 class="news-title">Notícia recebida:</h3>
-          <p class="news-quote">
-            “Doutor Dráuzio Varella aparece vendendo suplementos milagrosos”
+    <!-- Conteúdo Principal -->
+    <main id="inicio">
+      <!-- Seção Hero (Apresentação Inicial) -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>
+            Antes de confiar, <br /><span class="text-green">Verifique.</span>
+          </h1>
+          <p>
+            Aprenda a identificar golpes, fake news e conteúdos gerados por IA
+            através de uma plataforma simples, acessível e pensada para todos.
           </p>
-          <p class="news-source">
-            BBC e G1 confirmam: O vídeo é falso e realizado através de IA
+          <a
+            href="Pages/tela.cadastro/tela-cadastro.html"
+            class="btn btn-primary btn-large"
+            >Conheça a plataforma</a
+          >
+        </div>
+
+        <div class="hero-card">
+          <div class="card-fake-news">
+            <span class="tag-fake">Conteúdo Falso!</span>
+            <h3 class="news-title">Notícia recebida:</h3>
+            <p class="news-quote">
+              “Doutor Dráuzio Varella aparece vendendo suplementos milagrosos”
+            </p>
+            <p class="news-source">
+              BBC e G1 confirmam: O vídeo é falso e realizado através de IA
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Dados / Estatísticas -->
+      <section class="stats-section" aria-label="Dados sobre golpes digitais">
+        <div class="stat-box">
+          <h2>308%</h2>
+          <p>
+            <strong>Aumento de conteúdos falsos gerados por IA</strong
+            ><br />(Fonte:
+            <a
+              href="https://agenciabrasil.ebc.com.br/geral/noticia/2026-02/conteudos-falsos-criados-com-ia-mais-que-triplicam-entre-2024-e-2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agência Brasil</a
+            >)
           </p>
         </div>
-      </div>
-    </section>
+        <div class="stat-box">
+          <h2>US$ 442 bilhões</h2>
+          <p>
+            <strong
+              >Prejuízo Global através de Fraudes digitais desde 2025</strong
+            ><br />(Fonte:
+            <a
+              href="https://www.cnnbrasil.com.br/nacional/brasil/golpe-do-amor-cresce-com-ia-e-causa-bilhoes-em-prejuizo-no-mundo-entenda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >CNN</a
+            >)
+          </p>
+        </div>
+        <div class="stat-box">
+          <h2>82%</h2>
+          <p>
+            <strong
+              >Dos idosos brasileiros já sofreram tentativas de golpes
+              virtuais.</strong
+            ><br />(Fonte:
+            <a
+              href="https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-03/idosos-sentem-maior-vulnerabilidade-golpes-online-em-sp"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Agência Brasil</a
+            >)
+          </p>
+        </div>
+      </section>
 
-    <!-- Seção de Dados / Estatísticas -->
-    <section class="stats-section" aria-label="Dados sobre golpes digitais">
-      <div class="stat-box">
-        <h2>308%</h2>
-        <p>
-          <strong>Aumento de conteúdos falsos gerados por IA</strong><br />(Fonte:
-          <a href="https://agenciabrasil.ebc.com.br/geral/noticia/2026-02/conteudos-falsos-criados-com-ia-mais-que-triplicam-entre-2024-e-2025"
-            target="_blank" rel="noopener noreferrer">Agência Brasil</a>)
-        </p>
-      </div>
-      <div class="stat-box">
-        <h2>US$ 442 bilhões</h2>
-        <p>
-          <strong>Prejuízo Global através de Fraudes digitais desde 2025</strong><br />(Fonte:
-          <a href="https://www.cnnbrasil.com.br/nacional/brasil/golpe-do-amor-cresce-com-ia-e-causa-bilhoes-em-prejuizo-no-mundo-entenda/"
-            target="_blank" rel="noopener noreferrer">CNN</a>)
-        </p>
-      </div>
-      <div class="stat-box">
-        <h2>82%</h2>
-        <p>
-          <strong>Dos idosos brasileiros já sofreram tentativas de golpes
-            virtuais.</strong><br />(Fonte:
-          <a href="https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-03/idosos-sentem-maior-vulnerabilidade-golpes-online-em-sp"
-            target="_blank" rel="noopener noreferrer">Agência Brasil</a>)
-        </p>
-      </div>
-    </section>
-
-    <!-- Seção: Como ajuda / Ferramentas -->
-    <section class="features-section">
-      <h2 class="section-title">
-        Como o
-        <span style="white-space: nowrap" class="text-green">‘Verifica AÍ’</span>
-        ajuda?
-      </h2>
-      <p class="section-subtitle">
-        Plataforma Informativa para desenvolver pensamento crítico e segurança
-        digital, com ferramentas simples.
-      </p>
-
-      <div class="features-grid">
-        <article class="feature-card">
-          <div class="feature-card-header">
-            <img src="assets/icons/icone-lupa.png" alt="" class="feature-icon" />
-            <h3>Conteúdos informativos</h3>
-          </div>
-          <ul class="card-list">
-            <li>
-              Descubra maneiras de se prevenir e identificar Notícias falsas e
-              golpes digitais.
-            </li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card-header">
-            <img src="assets/icons/icone-cerebro.png" alt="" class="feature-icon" />
-            <h3>Detector de IA</h3>
-          </div>
-          <ul class="card-list">
-            <li>
-              Identifique imagens, vídeos e áudios potencialmente gerados por
-              Inteligência Artificial.
-            </li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card-header">
-            <img src="assets/icons/icone-joystick.png" alt="" class="feature-icon" />
-            <h3>Aprendizado Gamificado</h3>
-          </div>
-          <ul class="card-list">
-            <li>
-              Aprenda através de desafios rápidos e conteúdo acessível para
-              todos os públicos.
-            </li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card-header">
-            <img src="assets/icons/icone-comunidade.png" alt="" class="feature-icon" />
-            <h3>Comunidade</h3>
-          </div>
-          <ul class="card-list">
-            <li>
-              Interaja com outros usuários e se mantenham informados dos novos
-              perigos digitais.
-            </li>
-          </ul>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-card-header">
-            <img src="assets/icons/icone-noticias.png" alt="" class="feature-icon" />
-            <h3>Noticiário</h3>
-          </div>
-          <ul class="card-list">
-            <li>
-              Receba notícias relacionadas a ações fraudulentas no âmbito
-              digital.
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Seção: Objetivos de Desenvolvimento Sustentável -->
-    <section class="ods-section" aria-labelledby="ods-titulo">
-      <div class="ods-header">
-        <h2 class="section-title" id="ods-titulo">
-          <span style="white-space: nowrap">Trabalhando por um</span>
-          <br />mundo melhor
+      <!-- Seção: Como ajuda / Ferramentas -->
+      <section class="features-section">
+        <h2 class="section-title">
+          Como o
+          <span style="white-space: nowrap" class="text-green"
+            >‘Verifica AÍ’</span
+          >
+          ajuda?
         </h2>
         <p class="section-subtitle">
-          Nosso projeto vai além. Juntos, lutamos por um mundo mais crítico.
+          Plataforma Informativa para desenvolver pensamento crítico e segurança
+          digital, com ferramentas simples.
         </p>
-      </div>
 
-      <div class="ods-pills" role="list" aria-label="Objetivos de Desenvolvimento Sustentável que apoiamos">
-        <a href="https://brasil.un.org/pt-br/sdgs/4" target="_blank" rel="noopener noreferrer"
-          class="ods-pill ods-pill--blue" role="listitem"
-          aria-label="ODS 4 — Educação de Qualidade. Saiba mais no site da ONU (abre em nova aba)">
-          <span class="ods-pill__text">ODS 4 — Educação de Qualidade</span>
-        </a>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <img
+                src="assets/icons/icone-lupa.png"
+                alt=""
+                class="feature-icon"
+              />
+              <h3>Conteúdos informativos</h3>
+            </div>
+            <ul class="card-list">
+              <li>
+                Descubra maneiras de se prevenir e identificar Notícias falsas e
+                golpes digitais.
+              </li>
+            </ul>
+          </article>
 
-        <a href="https://brasil.un.org/pt-br/sdgs/16" target="_blank" rel="noopener noreferrer"
-          class="ods-pill ods-pill--blue" role="listitem"
-          aria-label="ODS 16 — Paz, Justiça e Instituições Eficazes. Saiba mais no site da ONU (abre em nova aba)">
-          <span class="ods-pill__text">ODS 16 — Paz, Justiça e Instituições Eficazes</span>
-        </a>
-      </div>
-    </section>
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <img
+                src="assets/icons/icone-cerebro.png"
+                alt=""
+                class="feature-icon"
+              />
+              <h3>Detector de IA</h3>
+            </div>
+            <ul class="card-list">
+              <li>
+                Identifique imagens, vídeos e áudios potencialmente gerados por
+                Inteligência Artificial.
+              </li>
+            </ul>
+          </article>
 
-    <!-- Seção: Fontes Jornalísticas -->
-    <section class="sources-section">
-      <h2 class="section-title">Responsabilidade Jornalística</h2>
-      <p class="section-subtitle">
-        O Verifica AÍ possui responsabilidade jornalística, usando apenas
-        fontes confiáveis, como:
-      </p>
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <img
+                src="assets/icons/icone-joystick.png"
+                alt=""
+                class="feature-icon"
+              />
+              <h3>Aprendizado Gamificado</h3>
+            </div>
+            <ul class="card-list">
+              <li>
+                Aprenda através de desafios rápidos e conteúdo acessível para
+                todos os públicos.
+              </li>
+            </ul>
+          </article>
 
-      <div class="sources-grid">
-        <a href="https://g1.globo.com" target="_blank" rel="noopener noreferrer" class="source-card"
-          aria-label="Visitar o G1 — Portal de notícias da Globo (abre em nova aba)">
-          <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
-        </a>
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <img
+                src="assets/icons/icone-comunidade.png"
+                alt=""
+                class="feature-icon"
+              />
+              <h3>Comunidade</h3>
+            </div>
+            <ul class="card-list">
+              <li>
+                Interaja com outros usuários e se mantenham informados dos novos
+                perigos digitais.
+              </li>
+            </ul>
+          </article>
 
-        <a href="https://agenciabrasil.ebc.com.br" target="_blank" rel="noopener noreferrer" class="source-card"
-          aria-label="Visitar a Agência Brasil — Empresa Brasil de Comunicação (abre em nova aba)">
-          <img src="assets/fontes-jornalisticas/agencia_brasil.png" alt="Agência Brasil" />
-        </a>
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <img
+                src="assets/icons/icone-noticias.png"
+                alt=""
+                class="feature-icon"
+              />
+              <h3>Noticiário</h3>
+            </div>
+            <ul class="card-list">
+              <li>
+                Receba notícias relacionadas a ações fraudulentas no âmbito
+                digital.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-        <a href="https://www.folha.uol.com.br" target="_blank" rel="noopener noreferrer" class="source-card"
-          aria-label="Visitar a Folha de S.Paulo (abre em nova aba)">
-          <img src="assets/fontes-jornalisticas/folha_sao_paulo.png" alt="Folha de São Paulo" />
-        </a>
+      <!-- Seção: Verifica AI em Ação -->
+      <section class="demo-section" aria-labelledby="demo-titulo">
+        <div class="demo-header">
+          <h2 class="section-title" id="demo-titulo">
+            Veja o Verifica AI em ação
+          </h2>
+          <p class="section-subtitle">
+            Da dúvida à informação confiável em poucos passos.
+          </p>
+        </div>
 
-        <a href="https://uol.com.br" target="_blank" rel="noopener noreferrer" class="source-card"
-          aria-label="Visitar o UOL (abre em nova aba)">
-          <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
-        </a>
+        <div class="demo-chat" id="demoChat">
+          <div
+            class="demo-chat__log"
+            id="demoChatLog"
+            role="log"
+            aria-live="polite"
+            aria-label="Conversa de demonstração com o Robôtive"
+          ></div>
 
-        <a href="https://www.cnnbrasil.com.br" target="_blank" rel="noopener noreferrer" class="source-card"
-          aria-label="Visitar a CNN Brasil (abre em nova aba)">
-          <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
-        </a>
-      </div>
+          <div class="demo-chat__controls" id="demoChatControls"></div>
+        </div>
+      </section>
 
-      <a href="#" class="sources-footer-link" aria-label="Ver outras fontes confiáveis">
-        E várias outras...
-      </a>
-    </section>
+      <!-- Seção: Objetivos de Desenvolvimento Sustentável -->
+      <section class="ods-section" aria-labelledby="ods-titulo">
+        <div class="ods-header">
+          <h2 class="section-title" id="ods-titulo">
+            <span style="white-space: nowrap">Trabalhando por um</span>
+            <br />mundo melhor
+          </h2>
+          <p class="section-subtitle">
+            Nosso projeto vai além. Juntos, lutamos por um mundo mais crítico.
+          </p>
+        </div>
 
-    <!-- Seção: Parceiros -->
-    <section class="partners-section" aria-labelledby="parceiros-titulo">
-      <div class="partners-header">
-        <h2 class="section-title" id="parceiros-titulo">Nossos Parceiros</h2>
+        <div
+          class="ods-pills"
+          role="list"
+          aria-label="Objetivos de Desenvolvimento Sustentável que apoiamos"
+        >
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/4"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ods-pill ods-pill--blue"
+            aria-label="ODS 4 — Educação de Qualidade. Saiba mais no site da ONU (abre em nova aba)"
+          >
+            <span class="ods-pill__text">ODS 4 — Educação de Qualidade</span>
+          </a>
+
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/16"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ods-pill ods-pill--blue"
+            aria-label="ODS 16 — Paz, Justiça e Instituições Eficazes. Saiba mais no site da ONU (abre em nova aba)"
+          >
+            <span class="ods-pill__text"
+              >ODS 16 — Paz, Justiça e Instituições Eficazes</span
+            >
+          </a>
+        </div>
+      </section>
+
+      <!-- Seção: Fontes Jornalísticas -->
+      <section class="sources-section">
+        <h2 class="section-title">Responsabilidade Jornalística</h2>
         <p class="section-subtitle">
-          Sozinho, as coisas podem acontecer de forma rápida. Mas apenas
-          cooperando é que chegamos longe!
+          O Verifica AÍ possui responsabilidade jornalística, usando apenas
+          fontes confiáveis, como:
         </p>
-      </div>
 
-      <!-- Grid de logos dos parceiros -->
-      <div class="partners-grid" role="list" aria-label="Logos dos parceiros do Verifica AÍ">
-        <a href="https://proa.org.br" target="_blank" rel="noopener noreferrer" class="partner-card" role="listitem"
-          aria-label="Parceiro PROA — visitar site oficial (abre em nova aba)">
-          <img src="assets/parceiros/proa.png" alt="PROA" class="partner-logo" />
+        <div class="sources-grid">
+          <a
+            href="https://g1.globo.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar o G1 — Portal de notícias da Globo (abre em nova aba)"
+          >
+            <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
+          </a>
+
+          <a
+            href="https://agenciabrasil.ebc.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a Agência Brasil — Empresa Brasil de Comunicação (abre em nova aba)"
+          >
+            <img
+              src="assets/fontes-jornalisticas/agencia_brasil.png"
+              alt="Agência Brasil"
+            />
+          </a>
+
+          <a
+            href="https://www.folha.uol.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a Folha de S.Paulo (abre em nova aba)"
+          >
+            <img
+              src="assets/fontes-jornalisticas/folha_sao_paulo.png"
+              alt="Folha de São Paulo"
+            />
+          </a>
+
+          <a
+            href="https://uol.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar o UOL (abre em nova aba)"
+          >
+            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
+          </a>
+
+          <a
+            href="https://www.cnnbrasil.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a CNN Brasil (abre em nova aba)"
+          >
+            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
+          </a>
+        </div>
+
+        <a
+          href="#"
+          class="sources-footer-link"
+          aria-label="Ver outras fontes confiáveis"
+        >
+          E várias outras...
         </a>
+      </section>
 
-        <!-- TODO: adicionar link da conecta -->
-        <a href="https://conecta-geracoes-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="partner-card" role="listitem"
-          aria-label="Parceiro Conecta Gerações — visitar site oficial (abre em nova aba)">
-          <img src="assets/parceiros/conecta_geracoes.png" alt="Conecta Gerações" class="partner-logo" />
-        </a>
+      <!-- Seção: Parceiros -->
+      <section class="partners-section" aria-labelledby="parceiros-titulo">
+        <div class="partners-header">
+          <h2 class="section-title" id="parceiros-titulo">Nossos Parceiros</h2>
+          <p class="section-subtitle">
+            Sozinho, as coisas podem acontecer de forma rápida. Mas apenas
+            cooperando é que chegamos longe!
+          </p>
+        </div>
 
-        <a href="https://www.serasaexperian.com.br/" target="_blank" rel="noopener noreferrer" class="partner-card"
-          role="listitem" aria-label="Parceiro Serasa Experian — visitar site oficial (abre em nova aba)">
-          <img src="assets/parceiros/serasa_experian.png" alt="Serasa Experian" class="partner-logo" />
-        </a>
-      </div>
-    </section>
+        <!-- Grid de logos dos parceiros -->
+        <div
+          class="partners-grid"
+          role="list"
+          aria-label="Logos dos parceiros do Verifica AÍ"
+        >
+          <a
+            href="https://proa.org.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro PROA — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/proa.png"
+              alt="PROA"
+              class="partner-logo"
+            />
+          </a>
 
-    <!-- Banner de Ação (CTA) -->
-    <section class="cta-banner">
-      <h2>Proteja-se de notícias falsas e golpes virtuais.</h2>
-      <p>Comece gratuitamente e desenvolva sua segurança digital.</p>
-      <a href="Pages/tela.cadastro/tela-cadastro.html" class="btn btn-secondary">Crie sua conta!</a>
-    </section>
-  </main>
+          <a
+            href="https://conecta-geracoes-black.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro Conecta Gerações — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/conecta_geracoes.png"
+              alt="Conecta Gerações"
+              class="partner-logo"
+            />
+          </a>
 
-  <!-- Rodapé (Footer) -->
-  <footer class="footer">
-    <p>
-      Verifica AÍ © 2026 — Projeto de Educação Digital e Combate à
-      Desinformação
-    </p>
-  </footer>
-</body>
+          <a
+            href="https://www.serasaexperian.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro Serasa Experian — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/serasa_experian.png"
+              alt="Serasa Experian"
+              class="partner-logo"
+            />
+          </a>
+        </div>
+      </section>
 
+      <!-- Banner de Ação (CTA) -->
+      <section class="cta-banner">
+        <h2>Proteja-se de notícias falsas e golpes virtuais.</h2>
+        <p>Comece gratuitamente e desenvolva sua segurança digital.</p>
+        <a
+          href="Pages/tela.cadastro/tela-cadastro.html"
+          class="btn btn-secondary"
+          >Crie sua conta!</a
+        >
+      </section>
+    </main>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="footer">
+      <p>
+        Verifica AÍ © 2026 — Projeto de Educação Digital e Combate à
+        Desinformação
+      </p>
+    </footer>
+    <script src="assets/js/demo-interativa.js" defer></script>
+  </body>
 </html>
