@@ -14,13 +14,13 @@ class VerificaSidebar extends HTMLElement {
     const navItems = [
       { href: "../dashboard-principal/dashboard-principal.html", icon: "icone-inicio.svg", label: "Início" },
       { href: "../dashboard-comunidade/comunidade.html", icon: "icone-comunidade.svg", label: "Comunidade" },
-      { href: "../noticias/tela-noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" }, // TODO: página ainda não criada
+      { href: "../noticias/tela-noticias.html", icon: "icone-noticias.svg", label: "Notícias atuais" },
       { href: "../guia-rapido/guia-rapido.html", icon: "icone-guia-rapido.svg", label: "Guia rápido" },
     ];
 
     const navSecundario = [
-      { href: "#", icon: "icone-configuracao.svg", label: "Configurações" }, // TODO: página ainda não criada
-      { href: "#", icon: "icone-ajuda.svg", label: "Ajuda" }, // TODO: página ainda não criada
+      { href: "#", icon: "icone-configuracao.svg", label: "Configurações" },
+      { href: "#", icon: "icone-ajuda.svg", label: "Ajuda" },
     ];
 
     const renderNav = (items) =>
@@ -59,7 +59,7 @@ class VerificaSidebar extends HTMLElement {
           <div class="profile-info">
             <span class="profile-name">Olá!</span>
             <div class="profile-links">
-              <a href="#" class="profile-link">Ver meu perfil</a> <!-- TODO: página ainda não criada -->
+              <a href="../perfil/perfil.html" class="profile-link">Ver meu perfil</a>
               <a href="#" class="profile-link profile-link--sair" hidden>Sair</a>
             </div>
           </div>
@@ -72,7 +72,7 @@ class VerificaSidebar extends HTMLElement {
       <img src="../../assets/icons/icone-inicio.svg" alt="" class="bottom-nav-icon" />
       <span>Início</span>
     </a>
-    <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
+    <a href="../perfil/perfil.html" class="bottom-nav-item ${paginaAtual === 'perfil.html' ? 'bottom-nav-item--active' : ''}">
       <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
       <span>Meu perfil</span>
     </a>
@@ -124,8 +124,8 @@ class VerificaSidebar extends HTMLElement {
       evento.preventDefault();
       try {
         await fazerLogout();
-      } catch (erro) {
-        console.error("Não foi possível encerrar a sessão:", erro);
+      } catch (error_) {
+        console.error("Não foi possível encerrar a sessão:", error_);
       }
       window.location.href = "../pagina-login/pagina-login.html";
     });
@@ -153,8 +153,8 @@ class VerificaSidebar extends HTMLElement {
       try {
         const novaUrl = await trocarAvatar(usuario.$id, arquivo);
         elAvatar.src = novaUrl;
-      } catch (erro) {
-        console.error("Não foi possível trocar a foto de perfil:", erro);
+      } catch (error_) {
+        console.error("Não foi possível trocar a foto de perfil:", error_);
         elAvatar.src = urlAnterior;
       } finally {
         elAvatar.style.opacity = "";
@@ -170,8 +170,8 @@ class VerificaSidebar extends HTMLElement {
       if (perfil?.avatarField) {
         elAvatar.src = pegarUrlAvatar(perfil.avatarField);
       }
-    } catch (erro) {
-      console.error("Não foi possível carregar o perfil do usuário:", erro);
+    } catch (error_) {
+      console.error("Não foi possível carregar o perfil do usuário:", error_);
     }
   }
 

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Perfil do usuário no Verifica AÍ com resumo de progresso, dados da conta e acesso rápido à ajuda."
+    />
+    <title>Meu perfil — Verifica AÍ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css" />
+    <link rel="stylesheet" href="perfil.css" />
+
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <script type="module" src="perfil.js"></script>
+  </head>
+
+  <body class="pagina-com-sidebar pagina-perfil">
+    <a href="#conteudo-perfil" class="skip-link"
+      >Ir para o conteúdo principal</a
+    >
+
+    <verifica-sidebar></verifica-sidebar>
+
+    <main class="main perfil-main" id="conteudo-perfil">
+      <!-- Título da Página -->
+      <div class="perfil-header">
+        <h1 id="perfil-titulo">Meu perfil</h1>
+        <p id="perfil-subtitulo">Gerencie suas informações</p>
+      </div>
+
+      <!-- Linha Superior: Card do Usuário + Card de Progresso -->
+      <div class="perfil-grid-top">
+        <!-- Card do Usuário -->
+        <section
+          class="perfil-card perfil-card--usuario"
+          aria-label="Resumo do usuário"
+        >
+          <div class="perfil-avatar" id="perfil-avatar" aria-hidden="true">
+            <!-- A imagem será injetada via JS, mas deixamos um fallback -->
+            <img
+              src="../../assets/foto-usuario.png"
+              alt="Foto de perfil"
+              id="avatar-img"
+            />
+          </div>
+
+          <div class="perfil-usuario-info">
+            <h2 class="perfil-nome" id="perfil-nome">Maria Aparecida Santos</h2>
+            <p class="perfil-email" id="perfil-email">
+              maria.aparecida@email.com
+            </p>
+
+            <div class="perfil-membro">
+              <img
+                src="../../assets/icons/icone-calendario.svg"
+                alt=""
+                aria-hidden="true"
+                width="16"
+              />
+              <div class="perfil-membro-text">
+                <span>Membro desde</span>
+                <strong id="perfil-membro-desde">Agosto de 2026</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card de Progresso -->
+        <section
+          class="perfil-card perfil-card--progresso"
+          aria-labelledby="progresso-titulo"
+        >
+          <h2 id="progresso-titulo" class="card-title">Meu progresso</h2>
+
+          <div class="perfil-estatisticas">
+            <div class="perfil-stat">
+              <img
+                src="../../assets/icons/icone-chapeu.svg"
+                alt=""
+                aria-hidden="true"
+                width="40"
+              />
+              <strong id="perfil-concluidos">4</strong>
+              <span>conteúdos<br />concluídos</span>
+            </div>
+
+            <div class="perfil-stat-divisor" aria-hidden="true"></div>
+
+            <div class="perfil-stat">
+              <img
+                src="../../assets/icons/icone-prancheta.svg"
+                alt=""
+                aria-hidden="true"
+                width="40"
+              />
+              <strong id="perfil-quizzes">12</strong>
+              <span>Quizzes<br />realizados</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Linha Inferior: Conta + Ajuda -->
+      <h2 class="section-title-conta">Conta</h2>
+      <div class="perfil-grid-bottom">
+        <!-- Card de Conta -->
+        <section
+          class="perfil-card perfil-card--conta"
+          aria-label="Gerenciar conta"
+        >
+          <ul class="perfil-acoes">
+            <li>
+              <button type="button" class="perfil-acao" data-acao="editar">
+                <span class="perfil-acao__conteudo">
+                  <strong>Editar informações</strong>
+                  <span>Atualize seus dados pessoais e de contato.</span>
+                </span>
+                <span class="perfil-acao__chevron" aria-hidden="true"
+                  >&gt;</span
+                >
+              </button>
+            </li>
+            <li>
+              <button type="button" class="perfil-acao" data-acao="senha">
+                <span class="perfil-acao__conteudo">
+                  <strong>Alterar senha</strong>
+                  <span>Crie uma nova senha de acesso.</span>
+                </span>
+                <span class="perfil-acao__chevron" aria-hidden="true"
+                  >&gt;</span
+                >
+              </button>
+            </li>
+            <li>
+              <button type="button" class="perfil-acao" id="btn-sair-conta">
+                <span class="perfil-acao__conteudo">
+                  <strong>Sair da conta</strong>
+                  <span>Encerre sua navegação com segurança.</span>
+                </span>
+                <span class="perfil-acao__chevron" aria-hidden="true"
+                  >&gt;</span
+                >
+              </button>
+            </li>
+          </ul>
+          <output
+            class="perfil-status"
+            id="perfil-status"
+            aria-live="polite"
+          ></output>
+        </section>
+
+        <!-- Card de Ajuda -->
+        <aside
+          class="perfil-card perfil-card--ajuda"
+          aria-labelledby="ajuda-titulo"
+        >
+          <h2 id="ajuda-titulo" class="card-title">Precisa de ajuda?</h2>
+
+          <div class="perfil-ajuda-content">
+            <img
+              src="../../assets/mascot-image/robotive-duvida.svg"
+              alt="Mascote Robôtive com ponto de interrogação"
+              class="perfil-ajuda-img"
+            />
+            <p>Avalie conteúdos<br />com Robôtive</p>
+            <a class="btn btn--primary" href="../chatBot/chatBot.html"
+              >Falar agora</a
+            >
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
