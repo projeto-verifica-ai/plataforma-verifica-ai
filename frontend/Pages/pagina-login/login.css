@@ -1,229 +1,238 @@
-/* =========================================
-   VERIFICA AI
-   layout.css
-   Layout principal
-========================================= */
-
-
-/* ==============================
-   LADO ESQUERDO
-============================== */
+:root {
+     --color-primary: #2C7444;
+    --color-secondary: #0080FF;
+    --color-background: #F1EEE6;
+    --color-text: #000000;
+    --color-placeholder: rgb(0 0 0 / 34%);
+    --color-white: #FFFFFF;
+    
+    --color-autenticacao: rgb(0 0 0 / 70%);
+    --color-link: rgb(0 0 0 / 70%);
+    --background-welcome: radial-gradient(circle,#C8D98C,#58A74B);
+    --background-welcome-notebook:radial-gradient(circle,#C8D98C,#58A74B);
+}
 
 .container {
-    display: flex;
     min-height: 100vh;
-    width: 100%;
-    align-items: stretch;
 }
 
 .welcome {
-    width: 38%;
-
-    background: radial-gradient(circle, #C8D98C, #58A74B);
+    height: 14.375rem;
+    background: var(--background-welcome);
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
 
-    padding: 60px 25px;
+    position: relative;
 
-    color: #FFF;
+    border-radius: 0 0 2.45rem 2.45rem;
 }
 
-
-/* ==============================
-   TÍTULO
-============================== */
-
-.welcome h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
+.welcome h1{
+    
+    color: var(--color-white);
+    margin-top: 3rem;
+    font-size: 2.7rem;
     font-weight: 700;
-    margin-bottom: 90px;
 }
 
+.welcome::after{
+    content: "";
+    position: absolute;
 
-/* ==============================
-   ROBÔ
-============================== */
+    margin-top: 8.2rem;
 
-.robot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 9.3rem;
+    height: 9rem;
+
+    background: var(--color-background);
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-radius: 5rem 5rem;
+
+    z-index: 1;
 }
 
-.robot img {
-    width: min(320px, 80%);
-    object-fit: contain;
-    display: block;
-    user-select: none;
-    pointer-events: none;
+.robot{
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
 
+.robot img{
+    width: 7.8rem;
+}
 
-/* ==============================
-   CADASTRO
-============================== */
+.register{
+    display: none;
+}
 
-.register {
+.login{
+    
+    background-color: var(--color-white);
+
+    width: calc(100% - 8rem);
+    margin: 3rem auto;
+
+    border-radius: 2rem;
+}
+
+.login{
+    padding: 4.375rem 1.5rem 2.5rem;
+}
+
+.login h2{
     text-align: center;
-    max-width: 250px;
+    line-height: 1;
+    transform: translateY(-3rem);
+    font-size: 3rem;
+    color: var(--color-text);
 }
 
-.register p {
-    font-size: 18px;
-    margin-bottom: 8px;
+.login span{
+    color: var(--color-primary);
 }
 
-.register a {
-    color: #FFF;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 800;
-    transition: .30s ease;
+.social-login{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-.register a:hover {
-    opacity: .9;
-    text-decoration: underline;
-}
+.social-login button{
 
+    background-color: var(--color-secondary);
 
-/* ==============================
-   LADO DIREITO
-============================== */
+    width: 4rem;
+    height: 4rem;
 
-.login {
-    width: 62%;
+    border: none;
+    border-radius: 1rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
-
-    background: #F8F5EF;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
-
-/* ==============================
-   CARD
-============================== */
-
-.login > header,
-.login > .social-login,
-.login > .separator,
-.login > form {
-    width: 100%;
-    max-width: 560px;
+.social-login button:nth-child(2){
+    background-color: var(--color-white);
 }
 
-.login {
-    flex-direction: column;
+.social-login button{
+    font-size: 0;
 }
 
-
-/* ==============================
-   TEXTO
-============================== */
-
-.login header h2 {
-    color: #2C7444;
-    font-size: 2.3rem;
-    margin-bottom: 18px;
-}
-
-.login header h2 span {
-    color: #2C7444;
-}
-
-
-/* ==============================
-   BOTÕES SOCIAIS
-============================== */
-
-.social-login {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-
-/* ==============================
-   DIVISOR
-============================== */
-
-.separator {
+.separator{
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin: 8px 0;
-    color: #999;
+    gap: .75rem;
+
+    margin: 0;
 }
 
-.separator hr {
+.separator hr{
     flex: 1;
     border: none;
     height: 1px;
-    background: #c4bbbb;
+    background-color: rgba(0, 0, 0, 0.35);
 }
 
-
-/* ==============================
-   FORMULÁRIO
-============================== */
+.separator span{
+    color: rgba(0, 0, 0, 0.35);
+    font-size: .975rem;
+    font-weight: 500;
+}
 
 .input-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1.3rem;
 }
 
-.input-group label {
-    margin-bottom: 5px;
+.input-group input{
+
+    height: 2.5rem;
+    padding: 0 .9rem;
+
+    
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0.8rem;
+    
 }
 
-.input-group input {
-    width: 100%;
-    box-sizing: border-box;
+.input-group input::placeholder{
+    font-size: 0.9rem;
 }
 
-
-/* ==============================
-   OPÇÕES
-============================== */
-
-.options {
+.options{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin: 0.5rem 0 1.5rem;
 }
 
-.remember {
+.remember{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: .10rem;
 }
 
+.remember label{
+    font-size: .95rem;
+    color: var(--color-autenticacao)
+}
+.options a{
+    font-size: 1rem;
+    color: var(--color-link);
 
-/* ==============================
-   BOTÃO LOGIN
-============================== */
+    text-decoration: none;
+}
 
 .login-button {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+
     width: 100%;
+    height: 2.5rem;
+
+    border-radius: 15px;
+    border: none;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
 }
-
-
-/* ==============================
-   CRIAR CONTA
-============================== */
 
 .create-account {
     text-align: center;
+    margin-top: 1.5rem;
 }
 
 .create-account a {
-    text-decoration: none;
+    font-size: 0.75rem;
+    color: var(--color-link);
+    font-weight: 700;
 }
+
+.create-account a{
+
+    border-bottom: 1px solid var(--color-link);
+}
+
+/* notebook */
+@media (min-width: 1024px){}
