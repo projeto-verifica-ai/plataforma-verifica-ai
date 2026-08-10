@@ -1,0 +1,217 @@
+/* =========================================
+   VERIFICA AI
+   layout.css
+   Layout principal
+========================================= */
+
+/* ==============================
+   LADO ESQUERDO
+============================== */
+
+.container{
+
+    display:flex;
+    min-height:100vh;
+    width: 100%;
+    align-items: stretch;
+
+
+}
+
+.left{
+
+    width:38%;
+
+    background:radial-gradient(circle,#C8D98C,#58A74B);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:60px 25px;
+
+    color:#FFF;
+
+
+}
+
+.mobile-header{ 
+    display: none;
+}
+
+
+/* Logo */
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.desktop-title{
+
+    font-size:2.8rem;
+
+    line-height:1.2;
+
+    font-weight:700;
+
+    margin-bottom: 90px;
+
+}
+
+.mobile-title{
+
+    display:none;
+
+}
+
+/* Robô */
+
+.robot{
+
+    width:min(320px,80%);
+    object-fit:contain;
+    display:block;
+    user-select:none;
+    pointer-events:none;
+
+}
+
+/* Login */
+
+.login-link{
+
+    text-align:center;
+    max-width: 250px;
+
+}
+
+.login-link p{
+
+    font-size:18px;
+
+    margin-bottom:8px;
+
+}
+
+.login-link a{
+
+    color:#FFF;
+
+    text-decoration:none;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    transition:.30s ease;
+
+}
+
+.login-link a:hover{
+    opacity:.9;
+    text-decoration:underline;
+
+}
+
+/* ==============================
+   LADO DIREITO
+============================== */
+
+.right{
+    width:62%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:#F8F5EF;
+}
+
+/* Card */
+
+.form-box{
+
+    width:100%;
+    max-width:560px;
+    background:#FFF;
+    border-radius:24px;
+    padding:18px;
+    margin:auto;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    transition: .30s ease;
+
+
+}
+
+/* Texto */
+
+.subtitle{
+
+    display:block;
+    color:#000;
+    font-size:1.9rem;
+    font-weight:700;
+    margin-bottom:3px;
+
+}
+
+.form-box h2{
+
+    color:#2C7444;
+
+    font-size:2.3rem;
+
+    margin-bottom:18px;
+
+}
+
+/* ==============================
+   BOTÕES SOCIAIS
+============================== */
+
+.social-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+/* ==============================
+   DIVISOR
+============================== */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin:8px 0;
+
+    color:#999;
+
+}
+
+.divider hr{
+
+    flex:1;
+
+    border:none;
+
+    height:1px;
+
+    background:#c4bbbb;
+
+}
