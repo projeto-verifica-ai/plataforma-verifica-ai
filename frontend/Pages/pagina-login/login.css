@@ -234,5 +234,193 @@
     border-bottom: 1px solid var(--color-link);
 }
 
-/* notebook */
-@media (min-width: 1024px){}
+/* =====================================================
+   NOTEBOOK:)
+   1024px até 1366px
+===================================================== */
+
+@media (min-width: 1024px){
+
+    .container {
+        min-height: 100vh;
+        display: flex;
+    }
+
+    /* lado esquerdo */
+
+    .welcome{
+        width: 38%;
+        height: 100vh;
+
+        background: var(--background-welcome-notebook);
+
+        border-radius: 0;
+
+        position: relative;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        flex-shrink: 0;
+    }
+
+    .welcome h1{
+        position: absolute;
+
+        top: 2rem;
+        left: 8rem;
+
+        margin: 0;
+
+        color: var(--color-white);
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+
+    /* remover circulo do mobile - robo */
+
+    .welcome::after{
+        display: none;
+    }
+
+    /* robo */
+    .robot{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 2;
+    }
+
+    .robot img{
+        width: 9rem;
+    }
+
+
+/* =========================
+       TEXTO DO CADASTRO
+    ========================= */
+
+    .register {
+        display: block;
+
+        position: absolute;
+
+        bottom: 2.5rem;
+        left: 2rem;
+
+        width: auto;
+
+        text-align: left;
+
+        color: var(--color-white);
+    }
+
+    .register p {
+        margin: 0 0 .4rem;
+
+        color: var(--color-white);
+
+        font-size: 1rem;
+    }
+
+    .register a {
+        color: var(--color-white);
+
+        font-size: 1.8rem;
+        font-weight: 700;
+
+        text-decoration: none;
+    }
+
+
+    /* =========================
+       LADO DIREITO
+    ========================= */
+
+    .login {
+        width: 31rem;
+
+        margin: auto;
+
+        padding: 2.5rem 2.5rem 2rem;
+
+        background-color: var(--color-white);
+
+        border-radius: 1.5rem;
+
+        box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
+    }
+
+    .login h2 {
+        text-align: left;
+
+        transform: none;
+
+        margin: 0 0 1.5rem;
+
+        font-size: 2.2rem;
+    }
+
+    /* =========================
+       BOTÕES SOCIAIS
+    ========================= */
+
+    .social-login {
+        flex-direction: column;
+
+        gap: .7rem;
+    }
+
+    .social-login button {
+        width: 100%;
+        height: 3.2rem;
+
+        border-radius: .7rem;
+
+        font-size: 1rem;
+    }
+
+    /* =========================
+       SEPARADOR
+    ========================= */
+
+    .separator {
+        margin: 1.2rem 0;
+    }
+
+    /* =========================
+       INPUTS
+    ========================= */
+
+    .input-group {
+        margin-bottom: 1rem;
+    }
+
+    .input-group input {
+        height: 3rem;
+    }
+
+    /* =========================
+       BOTÃO LOGIN/CADASTRO
+    ========================= */
+
+    .login-button {
+        height: 3.2rem;
+    }
+
+    /* =========================
+       CRIAR CONTA
+    ========================= */
+
+    .create-account {
+        margin-top: 1.5rem;
+    }
+
+    .create-account a {
+        font-size: .9rem;
+    }
+}
