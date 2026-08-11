@@ -5,10 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tela de ajuda</title>
+
+    <link rel="stylesheet" href="tela-ajuda.css">
   </head>
 
   <body>
     <main class="pagina-ajuda">
+
       <!-- Sessão 01 Cabeçalho -->
       <section class="cabecalho-ajuda">
         <div class="texto-ajuda">
@@ -20,9 +23,8 @@
           </p>
         </div>
 
-        <div class="imagem-ajuda">
-          <img src="../assets/icons/img-itens-ajuda/img-ajuda-header.svg" alt="Robôtive" />
-        </div>
+          <img src="../assets/icons/img-itens-ajuda/img-ajuda-header.svg" alt="Robôtive" class="imagem-ajuda" />
+        
       </section>
 
       <!-- Sessão 02 Primeiros passos -->
@@ -41,25 +43,29 @@
               class="icone-card"
             />
 
-            <h3 class="titulo-card">Aprenda no Guia Rápido</h3>
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Aprenda no Guia Rápido</h2>
 
             <p class="texto-card">
-              Descubra como identificar golpes e checar conteúdos.
+              Descubra como identificar    conteúdos criados po IA.
             </p>
+            </div>
           </div>
 
           <div class="card-ajuda">
             <img
               src="../assets/icons/mascot-image/img-robo-card.svg"
               alt="Robôtive"
-              class="icone-card"
+              class="icone-card" id="img-robo"
             />
 
-            <h3 class="titulo-card">Tire suas dúvidas com o Robôtive</h3>
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Tire suas dúvidas com o Robôtive</h2>
 
             <p class="texto-card">
-              Faça perguntas e receba orientação de forma rápida.
+              Faça perguntas e receba orientações de forma rápida.
             </p>
+            </div>
           </div>
 
           <div class="card-ajuda">
@@ -69,9 +75,11 @@
               class="icone-card"
             />
 
-            <h3 class="titulo-card">Consulte Notícias Atuais</h3>
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Consulte Notícias Atuais</h2>
 
-            <p class="texto-card">Veja exemplos verdadeiros e atualizados.</p>
+            <p class="texto-card">Veja exemplos reais de notícias falsas e verdadeiras.</p>
+            </div>
           </div>
 
           <div class="card-ajuda">
@@ -80,8 +88,8 @@
               alt="Comunidade"
               class="icone-card"
             />
-
-            <h3 class="titulo-card">Participe da Comunidade</h3>
+<div class="conteudo-card">
+            <h2 class="titulo-card">Participe da Comunidade</h2>
 
             <p class="texto-card">
               Compartilhe experiências e aprenda com outros usuários.

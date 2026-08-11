@@ -1,0 +1,118 @@
+:root {
+  --cor-fundo: #2c74442b;
+  --cor-verde: #c8d98c;
+  --cor-azul: #284bad14;
+  --cor-clara: #f1eee6;
+
+  --fonte-titulos: Outfit, sans-serif;
+  --fonte-paragrafos: Plus Jakarta Sans, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  padding: 28px;
+}
+
+h1,
+h2 {
+  font-family: var(--fonte-titulos);
+}
+
+p {
+  font-family: var(--fonte-paragrafos);
+}
+
+/* Sessão 01 Cabeçalho */
+.cabecalho-ajuda {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo-ajuda {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.descricao-ajuda {
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 800px;
+}
+
+.imagem-ajuda {
+  width: 147px;
+}
+
+/* =========================
+   SESSÃO - PRIMEIROS PASSOS
+========================= */
+
+.primeiros-passos {
+  background-color: var(--cor-clara);
+  padding: 12px;
+  border-radius: 22px;
+}
+
+.titulo-primeiros-passos {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.descricao-primeiros-passos {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+/* Cards */
+
+.cards-primeiros-passos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.card-ajuda {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--cor-azul);
+  padding: 8px;
+  border-radius: 8px;
+
+  height: 70px;
+}
+
+.icone-card {
+  width: 28px;
+  height: 30px;
+  object-fit: contain;
+
+  margin-right: 10px;
+}
+
+#img-robo {
+    width: 1.9rem;
+}
+
+.conteudo-card {
+  flex: 1;
+}
+
+.titulo-card {
+  font-size: 12px;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.texto-card {
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 200px; /* ajustando a quebra de texto dos paragrafos */
+}
