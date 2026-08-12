@@ -58,7 +58,7 @@ MOBILE
 .welcome h1 {
     color: var(--color-white);
     margin-top: 3rem;
-    font-size: 2.7rem;
+    font-size: 2.7.5rem;
     font-weight: 700;
 
     position: relative;
@@ -74,17 +74,17 @@ CÍRCULO DO ROBÔ
     content: "";
     position: absolute;
 
-    width: 10.5rem;
-    height: 10.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
 
     background: var(--color-background);
 
     left: 50%;
-    top: 8rem;
+    top: 9.5rem;
 
     transform: translateX(-50%);
 
-    border-radius: 50%;
+    border-radius: 100%;
 
     z-index: 1;
 }
@@ -113,7 +113,7 @@ ROBÔ DENTRO DO CÍRCULO
 }
 
 .robot img {
-    width: 8.2rem;
+    width: 6rem;
     height: auto;
     object-fit: contain;
 }
@@ -129,9 +129,11 @@ MOBILE
 ===================================================== */
 
 .login {
+    margin-top: 9.375rem !important;
+
     background-color: var(--color-white);
 
-    width: calc(100% - 8rem);
+    width: 19.375rem;
     margin: 3rem auto;
 
     border-radius: 2rem;
@@ -160,6 +162,13 @@ LOGIN SOCIAL
     display: flex;
     justify-content: center;
     gap: 15px;
+
+    margin-bottom: 2rem;
+}
+
+.social-login button img{
+    position: absolute;
+    width: 2.5rem;
 }
 
 .social-login button {
@@ -191,8 +200,8 @@ LOGIN SOCIAL
 }
 
 .social-login button {
-    gap: 7rem;
-    font-size: 0.9rem;
+    gap: 7.5rem;
+    font-size: 0rem;
     font-weight: bold;
 }
 
@@ -284,15 +293,17 @@ OPÇÕES
 .remember {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: 0.7.5rem;
 }
 
 #remember{
     cursor: pointer;
+    
 }
 
 .remember label {
-    font-size: .7rem;
+    padding-left: .5rem;
+    font-size: .75rem;
     color: var(--color-autenticacao);
 }
 
@@ -301,7 +312,7 @@ OPÇÕES
     text-decoration: underline;
 }
 .options a {
-    font-size: .7rem;
+    font-size: .75rem;
     color: var(--color-link);
    
 }
@@ -421,7 +432,7 @@ A partir de 900px
 
 
     .welcome h1 {
-        font-size: 2.7rem;
+        font-size: 2.7.5rem;
         margin-top: .5rem !important;
     }
 
