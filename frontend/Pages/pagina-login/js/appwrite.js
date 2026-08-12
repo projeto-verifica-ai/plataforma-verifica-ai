@@ -5,6 +5,16 @@
 // em ../../../services/appwrite.js (ES module).
 // =========================================
 
-import { fazerLogin } from "../../../services/appwrite.js";
+import { fazerLogin, pegarUsuarioAtual } from "../../../services/appwrite.js";
 
 window.VerificaAI = { fazerLogin };
+
+// Se o usuário já estiver logado, não faz sentido ficar na tela de
+// login — manda direto pro dashboard.
+(async () => {
+    const usuario = await pegarUsuarioAtual();
+
+    if (usuario) {
+        window.location.href = "../dashboard-principal/dashboard-principal.html";
+    }
+})();
