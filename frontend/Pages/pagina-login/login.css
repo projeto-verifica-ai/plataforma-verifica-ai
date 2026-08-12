@@ -366,15 +366,15 @@ CRIAR CONTA
 }
 
 .create-account a {
-    
-    font-size: 0.75rem;
-    color: var(--color-link);
-    font-weight: 700;
-   
+
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: 800;
+
 }
 
 .create-account a:hover{
-    color: #1F4DE0;
+    opacity: .9;
     text-decoration: underline;
 }
 
@@ -441,10 +441,10 @@ A partir de 900px
     }
 
      .robot {
-        top: 16rem !important;
+        top: 50% !important;
 
-         left: 50% !important; 
-         transform: translateX(-50%) !important; 
+         left: 50% !important;
+         transform: translate(-50%, -50%) !important;
           margin: 0 !important;
     }
 
@@ -452,6 +452,43 @@ A partir de 900px
 
         width: 11.75rem !important;
         height: 11.75rem !important;
+    }
+
+    /* Só faz sentido mostrar "Não tem uma conta?" no lado verde
+       quando esse lado tem espaço de sobra (a partir do notebook) */
+    .register {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 2.5rem;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 3;
+    }
+
+    .register p {
+        color: var(--color-white);
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    .register a {
+        color: var(--color-white);
+        font-size: 1.6rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: .3s ease;
+    }
+
+    .register a:hover {
+        opacity: .9;
+        text-decoration: underline;
+    }
+
+    /* Evita duplicar o link "Criar uma conta" — no desktop ele já
+       aparece no lado verde (.register) */
+    .create-account {
+        display: none;
     }
 
 
@@ -559,9 +596,9 @@ Garante o alinhamento correto do robô e do título
 
     /* Empurra o robô para baixo de forma proporcional para essa media */
     .robot {
-        top: 30.5rem !important; /* Ajuste se quiser o robô mais para cima ou para baixo */
+        top: 50% !important; /* centralizado verticalmente no painel verde */
         left: 50% !important;
-        transform: translateX(-50%) !important;
+        transform: translate(-50%, -50%) !important;
     }
 
     .robot img{
