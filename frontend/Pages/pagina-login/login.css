@@ -464,7 +464,7 @@ A partir de 900px
            margin-bottom: 1rem !important;
            /* Define o tamanho da caixa de login */
         width: 32.2rem; 
-        height:  42rem; /* Altere este valor para controlar a altura da caixa branca */
+        height:  45rem; /* Altere este valor para controlar a altura da caixa branca */
         flex: 0 0 auto;
 
         /* MARGENS: Centraliza verticalmente e joga para o lado direito com espaço */
@@ -504,7 +504,7 @@ A partir de 900px
         gap: 1rem;
     }
     .social-login button{
-        
+        font-size: 1rem;
         
         width: 29rem !important;
         height: 2.5rem !important;
@@ -513,11 +513,15 @@ A partir de 900px
         justify-content: flex-start;
         align-items: center;
 
-        padding-left: 1rem;
-        gap: 8rem;
+        padding-left: 1rem !important;
+        gap: 8rem !important;
     }
 
     .social-login button img{
+
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
 
     width: 1.5rem !important;    /* Controla a largura do ícone */
     height: 1.5rem !important;   /* Controla a altura do ícone */
@@ -566,19 +570,19 @@ Garante o alinhamento correto do robô e do título
     }
 
       .login {
+
         border-radius: 2rem;
        
         height: 46rem !important; 
         width: 35rem !important;
         
         margin-top: auto !important;
-        margin-bottom: 11rem !important;
+        margin-bottom: 9rem !important;
         margin-left: 23rem !important;
         
         padding: 2.5rem 3.5rem !important; /* Dá o respiro interno para o botão azul respirar */
     }
 
-    .social-login button{
-       width: 28rem !important;
-    }
+
+    
 }
