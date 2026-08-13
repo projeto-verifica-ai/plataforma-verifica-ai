@@ -499,6 +499,7 @@ verifica-footer {
 
     .card-nav{
         min-height: 340px;
+         width: 100%;
     }
 
     .icone-card{
