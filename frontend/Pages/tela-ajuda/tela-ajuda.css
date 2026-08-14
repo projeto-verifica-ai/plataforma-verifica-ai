@@ -182,15 +182,21 @@ border-radius: 22px;
     width: 23px;
     height: 18px;
     object-fit: contain;
+
+    /* Transição/movimentação do icone quando o usuário interage com ele */
+      transition: transform 0.4s ease;
 }
 
 
 .resposta-faq {
+  display: none;
   font-size: 0.9rem;
 
    margin-top: 1rem;
     line-height: 1.5;
 }
+
+
 
 .resposta-faq span {
  background-color: var(--cor-verde);
