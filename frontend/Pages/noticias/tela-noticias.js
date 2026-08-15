@@ -4,6 +4,8 @@ import {
     pegarPerfil,
     listarNoticias,
     criarNoticia,
+    atualizarNoticia,
+    excluirNoticia,
 } from "../../services/appwrite.js";
 
 const PAGINA_TAMANHO = 5;
@@ -25,10 +27,17 @@ const elPaginaInfo = document.getElementById("pagina-info");
 const elBtnNovaNoticia = document.getElementById("btn-nova-noticia");
 const elFormWrapper = document.getElementById("form-nova-noticia");
 const elForm = document.getElementById("noticia-form");
+const elFormTitulo = document.getElementById("noticia-form-titulo");
+const elFormPublicar = document.getElementById("noticia-publicar");
 const elNoticiaErro = document.getElementById("noticia-erro");
 
 let todasAsNoticias = [];
 let usuarioAtual = null;
+let souModerador = false;
+
+// Guarda o id da notícia em edição — null quando o formulário está
+// sendo usado pra criar uma notícia nova.
+let editandoId = null;
 
 let categoriaAtiva = "todas";
 let termoBusca = "";
@@ -48,20 +57,39 @@ function criarCard(noticia) {
     const artigo = document.createElement("article");
     artigo.className = `card ${info.classe}`;
 
+    // Imagem no topo, com o selo da categoria sobreposto no canto
+    const imagemWrap = document.createElement("div");
+    imagemWrap.className = "card-imagem";
+
+    const img = document.createElement("img");
+    img.src = noticia.imagem;
+    img.alt = "";
+    img.loading = "lazy";
+
+    const selo = document.createElement("span");
+    selo.className = `card-selo card-selo--${info.classe}`;
+    selo.textContent = info.label;
+
+    imagemWrap.append(img, selo);
+
+    // Texto da notícia como conteúdo principal do card
     const conteudo = document.createElement("div");
     conteudo.className = "card-conteudo";
 
-    const titulo = document.createElement("h2");
-    titulo.textContent = info.label;
-
     const texto = document.createElement("p");
+    texto.className = "card-texto";
     texto.textContent = noticia.texto;
+
+    conteudo.appendChild(texto);
+
+    // Rodapé fixo embaixo: data à esquerda, "Ler mais" à direita
+    const rodape = document.createElement("div");
+    rodape.className = "card-rodape";
 
     const tempo = document.createElement("time");
     tempo.dateTime = noticia.data;
     tempo.textContent = formatarData(noticia.data);
-
-    conteudo.append(titulo, texto, tempo);
+    rodape.appendChild(tempo);
 
     if (noticia.link) {
         const link = document.createElement("a");
@@ -70,18 +98,34 @@ function criarCard(noticia) {
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         link.textContent = "Ler mais";
-        conteudo.appendChild(link);
+        rodape.appendChild(link);
     }
 
-    const imagemWrap = document.createElement("div");
-    imagemWrap.className = "card-imagem";
-    const img = document.createElement("img");
-    img.src = noticia.imagem;
-    img.alt = "";
-    img.loading = "lazy";
-    imagemWrap.appendChild(img);
+    conteudo.appendChild(rodape);
 
-    artigo.append(conteudo, imagemWrap);
+    // Editar/excluir só aparece pra quem criou a notícia — é a mesma
+    // regra das permissões da tabela (só o autor tem update/delete).
+    if (souModerador && usuarioAtual && noticia.autorId === usuarioAtual.$id) {
+        const acoes = document.createElement("div");
+        acoes.className = "card-acoes-moderador";
+
+        const btnEditar = document.createElement("button");
+        btnEditar.type = "button";
+        btnEditar.className = "card-btn-editar";
+        btnEditar.textContent = "Editar";
+        btnEditar.addEventListener("click", () => abrirEdicao(noticia));
+
+        const btnExcluir = document.createElement("button");
+        btnExcluir.type = "button";
+        btnExcluir.className = "card-btn-excluir";
+        btnExcluir.textContent = "Excluir";
+        btnExcluir.addEventListener("click", () => excluirComConfirmacao(noticia));
+
+        acoes.append(btnEditar, btnExcluir);
+        conteudo.appendChild(acoes);
+    }
+
+    artigo.append(imagemWrap, conteudo);
     return artigo;
 }
 
@@ -162,18 +206,65 @@ elPaginaProxima.addEventListener("click", (evento) => {
     renderizar();
 });
 
-// NOVA NOTÍCIA (só moderadores)
+// NOVA NOTÍCIA / EDITAR NOTÍCIA (só moderadores)
 
-elBtnNovaNoticia.addEventListener("click", () => {
-    const abrindo = elFormWrapper.hidden;
-    elFormWrapper.hidden = !abrindo;
-    if (abrindo) elForm.querySelector("select, textarea, input").focus();
-});
-
-document.getElementById("noticia-cancelar").addEventListener("click", () => {
+function fecharFormulario() {
     elForm.reset();
     elNoticiaErro.textContent = "";
     elFormWrapper.hidden = true;
+    editandoId = null;
+    elFormTitulo.textContent = "Nova notícia";
+    elFormPublicar.textContent = "Publicar";
+}
+
+elBtnNovaNoticia.addEventListener("click", () => {
+    const abrindo = elFormWrapper.hidden;
+
+    // Se estava editando uma notícia e o usuário clica em "Nova notícia",
+    // volta o formulário pro modo de criação em vez de continuar editando.
+    if (abrindo) editandoId = null;
+
+    elFormTitulo.textContent = "Nova notícia";
+    elFormPublicar.textContent = "Publicar";
+    elFormWrapper.hidden = !abrindo;
+    if (abrindo) {
+        elForm.reset();
+        elForm.querySelector("select, textarea, input").focus();
+    }
+});
+
+// Preenche o formulário com os dados da notícia clicada e troca pro
+// modo de edição (reaproveita o mesmo formulário de "Nova notícia").
+function abrirEdicao(noticia) {
+    editandoId = noticia.$id;
+
+    document.getElementById("noticia-categoria").value = noticia.categoria;
+    document.getElementById("noticia-texto").value = noticia.texto;
+    document.getElementById("noticia-imagem").value = noticia.imagem;
+    document.getElementById("noticia-link").value = noticia.link || "";
+
+    elNoticiaErro.textContent = "";
+    elFormTitulo.textContent = "Editar notícia";
+    elFormPublicar.textContent = "Salvar alterações";
+    elFormWrapper.hidden = false;
+    elFormWrapper.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+async function excluirComConfirmacao(noticia) {
+    const confirmou = window.confirm("Excluir esta notícia? Essa ação não pode ser desfeita.");
+    if (!confirmou) return;
+
+    try {
+        await excluirNoticia(noticia.$id);
+        todasAsNoticias = todasAsNoticias.filter((n) => n.$id !== noticia.$id);
+        renderizar();
+    } catch (erro) {
+        window.alert(erro?.message || "Não foi possível excluir a notícia.");
+    }
+}
+
+document.getElementById("noticia-cancelar").addEventListener("click", () => {
+    fecharFormulario();
 });
 
 elForm.addEventListener("submit", async (evento) => {
@@ -185,30 +276,36 @@ elForm.addEventListener("submit", async (evento) => {
         return;
     }
 
-    const botao = document.getElementById("noticia-publicar");
-    botao.disabled = true;
+    elFormPublicar.disabled = true;
+
+    const dados = {
+        categoria: document.getElementById("noticia-categoria").value,
+        texto: document.getElementById("noticia-texto").value.trim(),
+        imagem: document.getElementById("noticia-imagem").value.trim(),
+        link: document.getElementById("noticia-link").value.trim(),
+    };
 
     try {
-        await criarNoticia({
-            categoria: document.getElementById("noticia-categoria").value,
-            texto: document.getElementById("noticia-texto").value.trim(),
-            imagem: document.getElementById("noticia-imagem").value.trim(),
-            link: document.getElementById("noticia-link").value.trim(),
-            data: new Date().toISOString(),
-            autorId: usuarioAtual.$id,
-        });
+        if (editandoId) {
+            await atualizarNoticia(editandoId, dados);
+        } else {
+            await criarNoticia({
+                ...dados,
+                data: new Date().toISOString(),
+                autorId: usuarioAtual.$id,
+            });
+        }
 
-        elForm.reset();
-        elFormWrapper.hidden = true;
+        fecharFormulario();
 
         todasAsNoticias = await listarNoticias();
         paginaAtual = 1;
         renderizar();
 
     } catch (erro) {
-        elNoticiaErro.textContent = erro?.message || "Não foi possível publicar a notícia.";
+        elNoticiaErro.textContent = erro?.message || "Não foi possível salvar a notícia.";
     } finally {
-        botao.disabled = false;
+        elFormPublicar.disabled = false;
     }
 });
 
@@ -222,6 +319,7 @@ async function verificarModerador() {
     try {
         const perfil = await pegarPerfil(usuarioAtual.$id);
         if (perfil?.isModerator) {
+            souModerador = true;
             elBtnNovaNoticia.hidden = false;
         }
     } catch (erro) {

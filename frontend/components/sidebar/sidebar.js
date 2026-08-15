@@ -20,7 +20,7 @@ class VerificaSidebar extends HTMLElement {
 
     const navSecundario = [
       { href: "#", icon: "icone-configuracao.svg", label: "Configurações" },
-      { href: "#", icon: "icone-ajuda.svg", label: "Ajuda" },
+      { href: "../tela-ajuda/tela-ajuda.html", icon: "icone-ajuda.svg", label: "Ajuda" },
     ];
 
     const renderNav = (items) =>
@@ -35,7 +35,7 @@ class VerificaSidebar extends HTMLElement {
       <aside class="sidebar">
 
         <div class="sidebar-logo">
-          <img src="../../assets/mascot-image/verificaai-robot-nobackground.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
+          <img src="../../assets/verificaai-robot-nobackground.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
           <span class="sidebar-logo-text">Verifica AÍ</span>
           <div class="verify-icon-div">
           <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />
@@ -76,7 +76,7 @@ class VerificaSidebar extends HTMLElement {
       <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
       <span>Meu perfil</span>
     </a>
-    <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
+    <a href="../tela-ajuda/tela-ajuda.html" class="bottom-nav-item ${paginaAtual === 'tela-ajuda.html' ? 'bottom-nav-item--active' : ''}">
       <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
       <span>Ajuda</span>
     </a>

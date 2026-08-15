@@ -272,6 +272,25 @@ async function criarNoticia({ categoria, texto, imagem, link, data, autorId }) {
   });
 }
 
+// Só quem criou a notícia tem permissão de editar/apagar (mesma regra
+// de "autorId" definida em criarNoticia acima).
+async function atualizarNoticia(id, { categoria, texto, imagem, link }) {
+  return tablesDB.updateRow({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_NOTICIAS,
+    rowId: id,
+    data: { categoria, texto, imagem, link: link || null },
+  });
+}
+
+async function excluirNoticia(id) {
+  return tablesDB.deleteRow({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_NOTICIAS,
+    rowId: id,
+  });
+}
+
 export {
   client,
   account,
@@ -289,4 +308,6 @@ export {
   listarPublicacoes,
   listarNoticias,
   criarNoticia,
+  atualizarNoticia,
+  excluirNoticia,
 };
