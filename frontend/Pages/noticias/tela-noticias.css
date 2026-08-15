@@ -113,7 +113,8 @@
 .card-imagem {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 200px;
+    flex-shrink: 0;
 }
 
 .card-imagem img {
