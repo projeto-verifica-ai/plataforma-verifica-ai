@@ -8,7 +8,7 @@ import {
     excluirNoticia,
 } from "../../services/appwrite.js";
 
-const PAGINA_TAMANHO = 5;
+const PAGINA_TAMANHO = 6;
 
 // Rótulo visível + classe CSS de cada categoria (a classe "analise", sem
 // hífen, já existe no CSS original — mantida assim por compatibilidade).
@@ -88,7 +88,7 @@ function criarCard(noticia) {
 
     const tempo = document.createElement("time");
     tempo.dateTime = noticia.data;
-    tempo.textContent = formatarData(noticia.data);
+    tempo.textContent = `Publicado em: ${formatarData(noticia.data)}`;
     rodape.appendChild(tempo);
 
     if (noticia.link) {
