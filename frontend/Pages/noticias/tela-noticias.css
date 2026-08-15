@@ -2,7 +2,7 @@
 
 .main {
     width: 100%;
-    max-width: 950px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 25px 30px 50px;
 }
@@ -95,69 +95,125 @@
 /* ===== Cards ===== */
 
 .noticias {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 28px;
 }
 
 .card {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     background: #fff;
     border-radius: 18px;
-    padding: 18px 30px;
-    min-height: 180px;
+    overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
 }
 
-.card-conteudo {
-    width: 62%;
-}
-
-.card h2 {
-    font-size: 30px;
-    margin-bottom: 18px;
-    color: #2C7A3C;
-}
-
-.card p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 18px;
-}
-
-.card time {
-    display: block;
-    margin-bottom: 15px;
-    color: #444;
-    font-size: 15px;
-}
-
-.btn-ler-mais {
-    color: #111;
-    font-weight: 600;
-}
-
+/* Imagem no topo, com o selo da categoria sobreposto no canto */
 .card-imagem {
-    width: 240px;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
 }
 
 .card-imagem img {
-    width: 200px;
-    height: 125px;
-    border-radius: 20px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-/* Alterna a imagem de lado a cada card, pra não ficar tudo enfileirado
-   igual (funciona pra qualquer quantidade/ordem de notícias, diferente
-   de antes que só a categoria "falsa" invertia). */
-.noticias .card:nth-child(even) {
-    flex-direction: row-reverse;
+.card-selo {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+}
+
+.card-selo--verdadeira {
+    background: #2C7A3C;
+}
+
+.card-selo--falsa {
+    background: #9A0F0F;
+}
+
+.card-selo--analise {
+    background: #B8860B;
+}
+
+/* Conteúdo: texto cresce, rodapé sempre fica colado embaixo,
+   independente do tamanho do texto de cada notícia */
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px 24px;
+}
+
+.card-texto {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+
+    /* Trunca em 4 linhas, mantendo os cards com altura parecida */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.card-rodape time {
+    color: #777;
+    font-size: 14px;
+}
+
+.btn-ler-mais {
+    color: #08196F;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Editar/excluir — só aparece pra quem criou a notícia */
+.card-acoes-moderador {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.card-acoes-moderador button {
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 999px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-btn-editar {
+    background: #e8ecff;
+    color: #08196F;
+}
+
+.card-btn-excluir {
+    background: #fdecec;
+    color: #9A0F0F;
 }
 
 .sr-only {
@@ -312,19 +368,8 @@
         font-size: 30px;
     }
 
-    .card,
-    .falsa {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-    }
-
-    .card-conteudo {
-        width: 100%;
-    }
-
-    .card-imagem {
-        width: 100%;
+    .noticias {
+        grid-template-columns: 1fr;
     }
 
     .filtros ul {
