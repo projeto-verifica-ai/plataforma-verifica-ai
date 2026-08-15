@@ -17,12 +17,27 @@
   margin: 0 2rem 1.5rem;
 }
 
-/* Texto da pergunta, no topo do card */
+/* Reset do <fieldset> nativo (borda/padding do navegador) — usado só
+   pra associar a pergunta (<legend>) ao grupo de opções pra quem usa
+   leitor de tela, sem mudar a aparência visual. */
+.desafio-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Texto da pergunta, no topo do card (também usado como <legend>) */
 .desafio-pergunta {
+  display: block;
+  width: 100%;
   font-family: var(--font-primary, "Outfit", sans-serif);
   font-weight: 700;
   color: var(--color-green-primary);
   margin: 0 0 1.25rem;
+  padding: 0;
+  text-align: inherit;
 }
 
 /* Texto complementar, abaixo da pergunta */
@@ -45,7 +60,7 @@
 /* Cada opção (radio + texto) */
 .opcao {
   display: flex;
-  width: 80vw;
+  width: 100%;
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem;
