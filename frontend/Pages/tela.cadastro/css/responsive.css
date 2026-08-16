@@ -5,35 +5,134 @@
 @media (max-height:900px){
 
     .left{
-        padding:16px 18px;
+        padding:24px 18px;
     }
 
     .desktop-title{
-        font-size:1.6rem;
-        margin-bottom:14px;
+        font-size:2.2rem;
+        margin-bottom:22px;
     }
 
     .robot{
-        width:150px;
+        width:220px;
     }
 
     .login-link p{
-        font-size:13px;
+        font-size:16px;
     }
 
     .login-link a{
-        font-size:1.25rem;
+        font-size:1.6rem;
     }
 
     .right{
-        padding:10px;
+        padding:16px;
     }
 
     .form-box{
         width:92%;
-        max-width:520px;
+        max-width:540px;
+        padding:16px;
+        border-radius:22px;
+    }
+
+    .subtitle{
+        font-size:1.6rem;
+    }
+
+    .form-box h2{
+        font-size:2rem;
+        margin-bottom:10px;
+    }
+
+    .social-btn{
+        height:40px;
+        font-size:13px;
+    }
+
+    .social-buttons{
+        gap:8px;
+
+    }
+
+    .divider{
+        margin:5px 0;
+    }
+
+    .campo{
+        margin-bottom:5px;
+    }
+
+    .campo label{
+        margin-bottom:2px;
+        font-size:12px;
+    }
+
+    .campo input{
+        height:38px;
+        font-size:13px;
+    }
+
+    .strength{
+        height:4px;
+        margin-top:4px;
+    }
+
+    #strengthText{
+        margin:2px 0 4px;
+        font-size:10px;
+
+    }
+
+    .termos{
+        margin:4px 0 6px;
+        font-size:12px;
+    }
+
+    .create-account{
+        margin-top: 1.25rem;
+        height:40px;
+        font-size:14px;
+    }
+
+    small{
+        margin:0;
+        font-size:10px;
+        min-height:10px;
+    }
+}
+
+@media (max-height:768px){
+
+    .left{
+        padding:16px 18px;
+    }
+
+    .desktop-title{
+        font-size:1.8rem;
+        margin-bottom:16px;
+    }
+
+    .robot{
+        width:180px;
+    }
+
+    .login-link p{
+        font-size:14px;
+    }
+
+    .login-link a{
+        font-size:1.3rem;
+    }
+
+    .right{
         padding:12px;
-        border-radius:20px;
+    }
+
+    .form-box{
+        max-width:500px;
+        padding:12px;
+        border-radius:18px;
     }
 
     .subtitle{
@@ -46,13 +145,13 @@
     }
 
     .social-btn{
-        height:34px;
+        height: 36px;
         font-size:12px;
     }
 
+
     .social-buttons{
-        gap:5px;
-        
+        gap:6px;
     }
 
     .divider{
@@ -60,7 +159,7 @@
     }
 
     .campo{
-        margin-bottom:2px;
+        margin-bottom:3px;
     }
 
     .campo label{
@@ -69,7 +168,7 @@
     }
 
     .campo input{
-        height:30px;
+        height:34px;
         font-size:12px;
     }
 
@@ -79,117 +178,18 @@
     }
 
     #strengthText{
-        margin:1px 0 2px;
+        margin:1px 0 3px;
         font-size:9px;
-        
     }
 
     .termos{
-        margin:2px 0 4px;
+        margin:3px 0 4px;
         font-size:11px;
     }
 
     .create-account{
-        margin-top: 1rem;
         height:34px;
         font-size:13px;
-    }
-
-    small{
-        margin:0;
-        font-size:9px;
-        min-height:9px;
-    }
-}
-
-@media (max-height:768px){
-
-    .left{
-        padding:12px 18px;
-    }
-
-    .desktop-title{
-        font-size:2rem;
-        margin-bottom:10px;
-    }
-
-    .robot{
-        width:220px;
-    }
-
-    .login-link p{
-        font-size:1rem;
-    }
-
-    .login-link a{
-        font-size:1.6rem;
-    }
-
-    .right{
-        padding:8px;
-    }
-
-    .form-box{
-        max-width:480px;
-        padding:10px;
-        border-radius:16px;
-    }
-
-    .subtitle{
-        font-size:1.35rem;
-    }
-
-    .form-box h2{
-        font-size:1.5rem;
-        margin-bottom:4px;
-    }
-
-    .social-btn{
-        height: 35px;
-        font-size:11px;
-    }
-    
-
-    .social-buttons{
-        gap:4px;
-    }
-
-    .divider{
-        margin:2px 0;
-    }
-
-    .campo{
-        margin-bottom:2px;
-    }
-
-    .campo label{
-        margin-bottom:0;
-        font-size:10px;
-    }
-
-    .campo input{
-        height:28px;
-        font-size:11px;
-    }
-
-    .strength{
-        height:3px;
-        margin-top:2px;
-    }
-
-    #strengthText{
-        margin:1px 0 2px;
-        font-size:9px;
-    }
-
-    .termos{
-        margin:2px 0 3px;
-        font-size:10px;
-    }
-
-    .create-account{
-        height:30px;
-        font-size:12px;
     }
 
     small{

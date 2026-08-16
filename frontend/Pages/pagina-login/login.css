@@ -394,41 +394,127 @@ body {
 }
 
 /* =====================================================
-   NOTEBOOK — telas até 960px de altura
+   NOTEBOOK — telas até 900px de altura
+   (mesmos valores do cadastro: ../tela.cadastro/css/responsive.css)
 ===================================================== */
 
-@media (max-height: 960px) {
+@media (max-height: 900px) {
+
+    .welcome {
+        padding: 24px 18px;
+    }
+
+    .welcome h1 {
+        font-size: 2.2rem;
+        margin-bottom: 22px;
+    }
+
+    .robot {
+        width: 220px;
+    }
+
+    .register p {
+        font-size: 16px;
+    }
+
+    .register a {
+        font-size: 1.6rem;
+    }
+
+    .right {
+        padding: 16px;
+    }
+
+    .login {
+        width: 92%;
+        max-width: 540px;
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .login header h2 {
+        font-size: 1.6rem;
+    }
+
+    .login header h2 span {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .social-login button {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .social-login {
+        gap: 8px;
+    }
+
+    .separator {
+        margin: 10px 0;
+    }
+
+    .input-group {
+        margin-bottom: 5px;
+    }
+
+    .input-group label {
+        margin-bottom: 2px;
+        font-size: 12px;
+    }
+
+    .input-group input {
+        height: 38px;
+        font-size: 13px;
+    }
+
+    .options {
+        margin: 6px 0 10px;
+    }
+
+    .login-button {
+        margin-top: 1.25rem;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .login-erro {
+        font-size: 10px;
+        min-height: 10px;
+    }
+}
+
+@media (max-height: 768px) {
 
     .welcome {
         padding: 16px 18px;
     }
 
     .welcome h1 {
-        font-size: 1.6rem;
-        margin-bottom: 14px;
+        font-size: 1.8rem;
+        margin-bottom: 16px;
     }
 
     .robot {
-        width: 150px;
+        width: 180px;
     }
 
     .register p {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .register a {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 
     .right {
-        padding: 10px;
+        padding: 12px;
     }
 
     .login {
-        width: 92%;
-        max-width: 520px;
+        max-width: 500px;
         padding: 12px;
-        border-radius: 20px;
+        border-radius: 18px;
     }
 
     .login header h2 {
@@ -441,7 +527,7 @@ body {
     }
 
     .social-login button {
-        height: 34px;
+        height: 36px;
         font-size: 12px;
     }
 
@@ -454,7 +540,7 @@ body {
     }
 
     .input-group {
-        margin-bottom: 2px;
+        margin-bottom: 3px;
     }
 
     .input-group label {
@@ -467,94 +553,9 @@ body {
         font-size: 12px;
     }
 
-    .options {
-        margin: 3px 0 6px;
-    }
-
     .login-button {
-        margin-top: .5rem;
         height: 34px;
         font-size: 13px;
-    }
-
-    .login-erro {
-        font-size: 9px;
-        min-height: 9px;
-    }
-}
-
-@media (max-height: 768px) {
-
-    .welcome {
-        padding: 12px 18px;
-    }
-
-    .welcome h1 {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-    }
-
-    .robot {
-        width: 120px;
-    }
-
-    .register p {
-        font-size: 12px;
-    }
-
-    .register a {
-        font-size: 1.1rem;
-    }
-
-    .right {
-        padding: 8px;
-    }
-
-    .login {
-        max-width: 480px;
-        padding: 10px;
-        border-radius: 16px;
-    }
-
-    .login header h2 {
-        font-size: 1.1rem;
-    }
-
-    .login header h2 span {
-        font-size: 1.4rem;
-        margin-bottom: 4px;
-    }
-
-    .social-login button {
-        height: 30px;
-        font-size: 11px;
-    }
-
-    .social-login {
-        gap: 4px;
-    }
-
-    .separator {
-        margin: 4px 0;
-    }
-
-    .input-group {
-        margin-bottom: 2px;
-    }
-
-    .input-group label {
-        margin-bottom: 0;
-        font-size: 10px;
-    }
-
-    .input-group input {
-        height: 30px;
-        font-size: 11px;
-    }
-
-    .login-button {
-        height: 30px;
-        font-size: 12px;
     }
 
     .login-erro {
