@@ -56,6 +56,8 @@
 
 .desktop-title{
 
+    font-family:"Outfit",sans-serif;
+
     font-size:2.8rem;
 
     line-height:1.2;
@@ -67,6 +69,8 @@
 }
 
 .mobile-title{
+
+    font-family:"Outfit",sans-serif;
 
     display:none;
 
@@ -108,6 +112,8 @@
 }
 
 .login-link a{
+
+    font-family:"Outfit",sans-serif;
 
     color:#FFF;
 
@@ -161,6 +167,7 @@
 .subtitle{
 
     display:block;
+    font-family:"Outfit",sans-serif;
     color:#000;
     font-size:1.9rem;
     font-weight:700;
@@ -169,6 +176,8 @@
 }
 
 .form-box h2{
+
+    font-family:"Outfit",sans-serif;
 
     color:#2C7444;
 

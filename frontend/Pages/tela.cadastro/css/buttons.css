@@ -23,6 +23,7 @@
 
     color: #DDD;
 
+    font-family: "Outfit", sans-serif;
     font-size: 14px;
     font-weight: 600;
 
@@ -38,6 +39,15 @@
 .create-account:active {
 
     transform: scale(.98);
+
+}
+
+/* O texto fica num <span> dentro do botão — o reset universal
+   (* { font-family: Plus Jakarta Sans }) bate direto nele e vence a
+   herança do botão, então precisa repetir a fonte aqui. */
+.social-btn span {
+
+    font-family: "Outfit", sans-serif;
 
 }
 
@@ -118,6 +128,7 @@
 
     color: #FFF;
 
+    font-family: "Outfit", sans-serif;
     font-size: 15px;
     font-weight: 600;
 

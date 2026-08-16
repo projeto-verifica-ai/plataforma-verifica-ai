@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const senha = document.getElementById("senha");
     const erro = document.getElementById("loginErro");
     const btnLogin = document.getElementById("btnLogin");
+    const olhoSenha = document.getElementById("olhoSenha");
+
+    // Mostrar/ocultar senha — mesmo comportamento do ícone no cadastro
+    olhoSenha.addEventListener("click", () => {
+        if (senha.type === "password") {
+            senha.type = "text";
+            olhoSenha.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            senha.type = "password";
+            olhoSenha.classList.replace("fa-eye-slash", "fa-eye");
+        }
+    });
 
     form.addEventListener("submit", async (e) => {
 
