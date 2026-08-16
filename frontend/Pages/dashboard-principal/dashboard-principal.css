@@ -167,7 +167,7 @@ main {
      margin-top: 40px;
     width: fit-content;
 
-    padding: 6px 8px;
+    padding: 6px 30px;
 
     background: var(--cor-azul-royal);
     color: var(--cor-branco-creme);
@@ -250,8 +250,8 @@ height: 100%;
     justify-content: center;
 
     margin: 10px auto 0;
-   
-    width: 55%;
+
+    width: 100%;
 
     padding: 10px; /* Ajustando temanho e largura do botão pelas margens */
 
@@ -291,7 +291,7 @@ iframe {
     gap: 12px;
     }
 .banner-compartilhe {
-    background-color: #284bad47;
+    background-color: var(--cor-azul-royal);
     display: flex;
      align-items: center;      /* centraliza ícone e texto verticalmente */
     gap: 2px;
@@ -305,14 +305,14 @@ iframe {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--cor-azul-noturno);
+    color: var(--cor-branco-creme);
     
    transition: transform .2s ease;   
 }
 .banner-compartilhe:hover{
     transform: translateY(-2px);
-    background-color: var(--cor-azul-royal);
-    color: #F1EEE6;
+    background-color: #284bad47;
+    color: var(--cor-azul-noturno);
 }
 
 .banner-compartilhe img {
@@ -369,8 +369,8 @@ verifica-footer {
         padding: 1.8rem;
     }
 
-    /* ================= HEADER ================= */
- .hero-boas-vindas {
+           /* HEADER */
+    .hero-boas-vindas {
         padding: 3.4rem;
         min-height: 240px;
         border-radius: 40px;
@@ -395,7 +395,7 @@ verifica-footer {
         top: 2px;
     }
 
-    /* ================= GRID ================= */
+            /* GRID */
     .grid-navegacao {
         grid-template-columns: repeat(4, 1fr);
         gap: 9px; /* espaço entre cards */
@@ -427,6 +427,7 @@ verifica-footer {
         /* deixa o texto ocupar mais espaço, ajustando a largura dos cards */
         max-width: 180px;
         -webkit-line-clamp: 3;
+        /* line-clamp: 3; */
         flex: none;
     }
 
@@ -470,7 +471,7 @@ verifica-footer {
         padding: 2rem;
     }
 
-    /* ================= HEADER ================= */
+    /*  HEADER  */
 
     .hero-boas-vindas{
         min-height: 260px;
@@ -486,12 +487,13 @@ verifica-footer {
     }
 
     .boas-vindas-mascote{
-        width: 340px;
-        right: 20px;
-        top: 0;
+       height: 240px;
+    width: auto;
+    right: 20px;
+    top: 20px;
     }
 
-    /* ================= GRID ================= */
+              /* GRID */
 
     .grid-navegacao{
         gap: 10px;
@@ -500,6 +502,7 @@ verifica-footer {
     .card-nav{
         min-height: 340px;
          width: 100%;
+         padding: 20px 30px 20px;
     }
 
     .icone-card{
@@ -518,6 +521,7 @@ verifica-footer {
 
     .link-desktop{
         margin-top: 50px;
+        padding: 8px 40px;
     }
  .icone-seta-desktop {
         width: 18px;
@@ -532,12 +536,19 @@ verifica-footer {
         font-size: 1.6rem;
     }
     .cards-desktop p {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
-    .continue-aprendendo-botão{
-    font-size: 1.2rem;
-    font-weight: 500;}
+    .cards-desktop iframe{
+width: 100%;
+
+    }
+
+    .continue-aprendendo-botão {
+        font-size: 1.2rem;
+        font-weight: 500;
+        width: 100%;
+    }
 
     /* Banner Compartilhe */
     .secao-compartilhe {
