@@ -4,7 +4,7 @@
 // Preenche o nome real do usuário logado na saudação do topo.
 // =========================================
 
-import { pegarUsuarioAtual, pegarPerfil } from "../../services/appwrite.js";
+import { pegarUsuarioAtual, garantirPerfil } from "../../services/appwrite.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     elNome.textContent = usuario.name;
 
     try {
-        const perfil = await pegarPerfil( usuario.$id);
+        // Login via Facebook/Google não passa pelo criarConta, então
+        // pode ser a primeira vez que esse usuário aparece por aqui —
+        // garantirPerfil cria a linha em "profiles" se ainda não existir.
+        const perfil = await garantirPerfil(usuario);
         if (perfil?.name) {
             elNome.textContent = perfil.name;
         }

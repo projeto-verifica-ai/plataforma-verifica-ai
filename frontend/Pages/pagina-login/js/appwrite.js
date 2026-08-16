@@ -5,9 +5,9 @@
 // em ../../../services/appwrite.js (ES module).
 // =========================================
 
-import { fazerLogin, pegarUsuarioAtual } from "../../../services/appwrite.js";
+import { fazerLogin, loginComOAuth, pegarUsuarioAtual } from "../../../services/appwrite.js";
 
-window.VerificaAI = { fazerLogin };
+window.VerificaAI = { fazerLogin, loginComOAuth };
 
 // Se o usuário já estiver logado, não faz sentido ficar na tela de
 // login — manda direto pro dashboard.

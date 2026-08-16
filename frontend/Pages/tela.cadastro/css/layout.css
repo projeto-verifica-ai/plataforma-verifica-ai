@@ -168,6 +168,7 @@
 
     display:block;
     font-family:"Outfit",sans-serif;
+    text-align:center;
     color:#000;
     font-size:1.9rem;
     font-weight:700;
@@ -178,6 +179,8 @@
 .form-box h2{
 
     font-family:"Outfit",sans-serif;
+
+    text-align:center;
 
     color:#2C7444;
 
