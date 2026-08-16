@@ -101,12 +101,21 @@ async function fazerLogin({ email, senha }) {
 // provedor escolhido — não dá pra usar await normal aqui, porque a
 // página inteira navega pra fora e volta em "sucesso"/"falha".
 // provider: "facebook" ou "google".
-function loginComOAuth(provider, { sucesso, falha } = {}) {
+function loginComOAuth(provider, { sucesso, falha, scopes } = {}) {
   const origem = window.location.origin;
+
+  // O Facebook, por padrão, rejeita o escopo "email" com o erro
+  // "Invalid Scopes: email" a não ser que o app esteja configurado
+  // como "Facebook Login" clássico (não "for Business") — pra não
+  // depender dessa configuração, pede só o perfil público por padrão.
+  // O Appwrite cria a conta normalmente mesmo sem o e-mail do Facebook.
+  const escopos = scopes || (provider === "facebook" ? ["public_profile"] : undefined);
+
   account.createOAuth2Session({
     provider,
     success: sucesso || `${origem}/Pages/dashboard-principal/dashboard-principal.html`,
     failure: falha || window.location.href,
+    ...(escopos ? { scopes: escopos } : {}),
   });
 }
 
