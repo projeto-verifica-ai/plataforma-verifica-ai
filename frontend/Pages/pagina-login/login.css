@@ -116,6 +116,10 @@ body {
     background: var(--color-background);
 }
 
+/* text-align:left sobrescreve o "text-align:center" global do
+   style.css do site (o cadastro nem carrega esse arquivo, por isso
+   não sofre com isso) — sem isso o título e os textos do card
+   ficam centralizados em vez de alinhados como no cadastro. */
 .login {
     width: 100%;
     max-width: 560px;
@@ -125,6 +129,7 @@ body {
     margin: auto;
     box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
     transition: .3s ease;
+    text-align: left;
 }
 
 .login header h2 {
