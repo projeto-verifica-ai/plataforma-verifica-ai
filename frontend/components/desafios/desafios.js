@@ -60,13 +60,13 @@ class VerificaDesafio extends HTMLElement {
     // Ramo do desafio de IMAGEM
     if (tipo === "imagem") {
       this.innerHTML = `
-        <div class="desafio">
-          <p class="desafio-pergunta">${pergunta}</p>
-          <p class="desafio-texto-complementar">${textoComplementar}</p>
-          <div class="desafio-imagens">
+        <div class="desafio" role="group" aria-labelledby="${this.id}-pergunta">
+          <p class="desafio-pergunta" id="${this.id}-pergunta">${pergunta}</p>
+          <p class="desafio-texto-complementar" id="${this.id}-complemento">${textoComplementar}</p>
+          <div class="desafio-imagens" aria-describedby="${this.id}-complemento">
             ${this.opcoes.map((opcao) => this.templateImagem(opcao)).join("")}
           </div>
-          ${this.templateResultado()}
+          <div aria-live="polite">${this.templateResultado()}</div>
         </div>
       `;
       // Precisa re-anexar os eventos de clique toda vez que o innerHTML é recriado,
@@ -76,16 +76,20 @@ class VerificaDesafio extends HTMLElement {
     }
 
     // Ramo do desafio de ALTERNATIVA (comportamento padrão)
+    // fieldset/legend associa a pergunta ao grupo de opções pra quem usa
+    // leitor de tela, em vez de deixar a pergunta como um <p> solto.
     this.innerHTML = `
       <div class="desafio">
-        <p class="desafio-pergunta">${pergunta}</p>
-        <div class="desafio-opcoes">
-          ${this.opcoes.map((opcao) => this.templateOpcao(opcao)).join("")}
-        </div>
+        <fieldset class="desafio-fieldset">
+          <legend class="desafio-pergunta">${pergunta}</legend>
+          <div class="desafio-opcoes">
+            ${this.opcoes.map((opcao) => this.templateOpcao(opcao)).join("")}
+          </div>
+        </fieldset>
         <button class="desafio-botao-enviar" ${this._respondido ? "hidden" : ""} ${!this._selecionada ? "disabled" : ""}>
           Enviar resposta
         </button>
-        ${this.templateResultado()}
+        <div aria-live="polite">${this.templateResultado()}</div>
       </div>
     `;
     this.attachEventosAlternativa();

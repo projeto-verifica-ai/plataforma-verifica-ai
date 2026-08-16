@@ -46,6 +46,32 @@ const storage = new Storage(client);
 // CONTA / SESSÃO
 // =========================================
 
+// Cria a linha em "profiles" pro usuário, caso ainda não exista.
+// Usado tanto no cadastro normal (email/senha) quanto no primeiro
+// login via Facebook/Google — o Appwrite cria a conta no Auth
+// automaticamente no OAuth, mas ninguém cria a linha de perfil pra
+// gente, então isso precisa ser feito manualmente na primeira vez.
+async function garantirPerfil(usuario) {
+  const existente = await pegarPerfil(usuario.$id);
+  if (existente) return existente;
+
+  return tablesDB.createRow({
+    databaseId: DATABASE_ID,
+    tableId: TABLE_PROFILES,
+    rowId: usuario.$id,
+    data: {
+      userId: usuario.$id,
+      name: usuario.name || usuario.email,
+      avatarField: "",
+    },
+    permissions: [
+      Permission.read(Role.any()), // nome/avatar aparecem nas publicações, até pra visitantes
+      Permission.update(Role.user(usuario.$id)),
+      Permission.delete(Role.user(usuario.$id)),
+    ],
+  });
+}
+
 // Cria a conta no Auth do Appwrite, já loga e cria a linha em "profiles"
 async function criarConta({ nome, email, senha }) {
   await account.create({
@@ -59,21 +85,7 @@ async function criarConta({ nome, email, senha }) {
 
   const usuario = await account.get();
 
-  await tablesDB.createRow({
-    databaseId: DATABASE_ID,
-    tableId: TABLE_PROFILES,
-    rowId: usuario.$id,
-    data: {
-      userId: usuario.$id,
-      name: nome,
-      avatarField: "",
-    },
-    permissions: [
-      Permission.read(Role.any()), // nome/avatar aparecem nas publicações, até pra visitantes
-      Permission.update(Role.user(usuario.$id)),
-      Permission.delete(Role.user(usuario.$id)),
-    ],
-  });
+  await garantirPerfil(usuario);
 
   return usuario;
 }
@@ -82,6 +94,19 @@ async function fazerLogin({ email, senha }) {
   return account.createEmailPasswordSession({
     email,
     password: senha,
+  });
+}
+
+// Login/cadastro via Facebook ou Google. Redireciona o navegador pro
+// provedor escolhido — não dá pra usar await normal aqui, porque a
+// página inteira navega pra fora e volta em "sucesso"/"falha".
+// provider: "facebook" ou "google".
+function loginComOAuth(provider, { sucesso, falha } = {}) {
+  const origem = window.location.origin;
+  account.createOAuth2Session({
+    provider,
+    success: sucesso || `${origem}/Pages/dashboard-principal/dashboard-principal.html`,
+    failure: falha || window.location.href,
   });
 }
 
@@ -297,6 +322,8 @@ export {
   tablesDB,
   criarConta,
   fazerLogin,
+  loginComOAuth,
+  garantirPerfil,
   fazerLogout,
   pegarUsuarioAtual,
   pegarPerfil,

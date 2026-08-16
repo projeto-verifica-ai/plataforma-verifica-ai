@@ -201,3 +201,48 @@
         gap: 4rem;
     }
 }
+
+/* --------------------------------------------------------------
+   GRID DE DESAFIOS — no desktop, 2 perguntas lado a lado em vez de
+   uma pilha só (empilhado só fazia sentido em telas estreitas).
+   Abaixo de 900px continua empilhado, que já funcionava bem.
+   -------------------------------------------------------------- */
+@media (min-width: 900px) {
+    #desafios-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 0 2rem 1.5rem;
+    }
+
+    /* A margem lateral de cada card já é dada pelo grid acima —
+       sem isso, cada card teria a própria margem de 2rem por dentro
+       da coluna, dobrando o espaçamento. */
+    #desafios-container .desafio {
+        margin: 0;
+    }
+
+    /* Cards sem imagem (tipo "alternativa") com o mesmo tamanho entre
+       si, independente de ter 3 ou 4 opções de resposta. */
+    #desafios-container verifica-desafio:not([tipo="imagem"]) .desafio {
+        min-height: 420px;
+    }
+
+    /* Desafio de imagem (comparar duas imagens lado a lado) fica
+       espremido demais dividindo a linha com outra pergunta — continua
+       exclusivo, ocupando a linha toda mesmo no grid de 2 colunas. */
+    #desafios-container verifica-desafio[tipo="imagem"] {
+        grid-column: 1 / -1;
+    }
+
+    /* Se sobrar um desafio sem imagem sozinho na última linha (quantidade
+       ímpar), centraliza ele em vez de esticar pra ocupar a linha toda
+       ou deixar preso na coluna esquerda. Classe aplicada via JS
+       (guia-rapido.js) — os desafios de imagem, que ficam em linha
+       própria, quebram a contagem par/ímpar só com CSS. */
+    #desafios-container verifica-desafio.desafio-orfao {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 0.75rem);
+    }
+}

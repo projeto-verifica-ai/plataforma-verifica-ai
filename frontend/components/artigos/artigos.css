@@ -5,12 +5,16 @@
    (--font-primary, --font-secondary, --color-blue-primary).
    ============================================================ */
 
-/* Card branco que envolve todo o artigo */
+/* Card branco que envolve todo o artigo.
+   text-align: left sobrescreve o "text-align: center" global do body —
+   texto corrido centralizado numa coluna larga obriga o olho a
+   percorrer de ponta a ponta a cada linha, prejudica a leitura. */
 .artigo {
   background-color: #ffffff;
   border-radius: 1.5rem;
   padding: 1.3rem;
   margin: 0 2rem 1.5rem;
+  text-align: left;
 }
 
 /* Título principal do artigo */
@@ -34,14 +38,20 @@
 }
 
 
-/* Cada parágrafo do artigo */
+/* Cada parágrafo do artigo. max-width em "ch" limita a largura da
+   linha a uma medida confortável de leitura (~70 caracteres), em vez
+   de esticar por toda a largura do card em telas grandes. */
 .artigo-paragrafo {
-  margin: auto;
+  max-width: 68ch;
+  margin: 0 0 1rem;
   font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
-  font-size: 0.9375rem;
-  min-width: 80%;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #333333;
+}
+
+.artigo-paragrafo:last-child {
+  margin-bottom: 0;
 }
 
 /* Data de atualização, no rodapé do card */

@@ -401,10 +401,29 @@ function renderizarTrilha(trilhaId) {
         }
     });
 
+    marcarDesafioOrfao();
+
     // Atualiza a barra de tabs pra destacar a trilha que acabou de ser exibida
     elTabs.ativa = trilha.id;
 
     trilhaAtualId = trilha.id;
+}
+
+// No grid de 2 colunas, se sobrar um desafio sem imagem sozinho na
+// última linha (quantidade ímpar), marca ele pra ficar centralizado
+// em vez de grudado na coluna esquerda. Feito em JS (não dá pra
+// resolver só com :nth-child no CSS) porque os desafios de imagem,
+// que ficam sempre em linha própria, quebram a contagem par/ímpar.
+function marcarDesafioOrfao() {
+    const semImagem = Array.from(elDesafiosContainer.children).filter(
+        (el) => el.getAttribute("tipo") !== "imagem"
+    );
+
+    semImagem.forEach((el) => el.classList.remove("desafio-orfao"));
+
+    if (semImagem.length % 2 !== 0) {
+        semImagem[semImagem.length - 1].classList.add("desafio-orfao");
+    }
 }
 
 // Envia pro componente de tabs só o que ele precisa saber (id, titulo, bloqueada) —
