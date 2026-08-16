@@ -151,8 +151,7 @@ body {
 .social-login {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 8px;
 }
 
 .social-login button {
@@ -197,8 +196,10 @@ body {
 }
 
 .social-login button img {
-    width: 20px;
-    height: 20px;
+    position: absolute;
+    left: 18px;
+    width: 32px;
+    height: 32px;
 }
 
 /* =====================================================
@@ -208,15 +209,15 @@ body {
 .separator {
     display: flex;
     align-items: center;
-    gap: .75rem;
-    margin: 14px 0;
+    gap: 14px;
+    margin: 8px 0;
 }
 
 .separator hr {
     flex: 1;
     border: none;
     height: 1px;
-    background-color: #DDD;
+    background-color: #c4bbbb;
 }
 
 .separator span {
@@ -289,7 +290,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 8px 0 16px;
+    margin: 8px 0 12px;
 }
 
 .remember {
@@ -327,9 +328,9 @@ body {
 .login-erro {
     display: block;
     min-height: 14px;
-    margin: 0 0 8px;
+    margin: 4px 0 8px;
     color: #E53935;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 14px;
 }
 
@@ -652,6 +653,7 @@ body {
     }
 
     .social-login button img {
+        position: static;
         width: 26px;
         height: 26px;
     }
