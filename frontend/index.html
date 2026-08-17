@@ -22,12 +22,13 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <!-- Cabeçalho (Header) -->
     <header class="header">
       <a href="#inicio" class="logo" aria-label="Voltar ao início da página">
         <img
-          src="assets/verificaai-robot-icon.png"
+          src="assets/verificaai-robot-nobackground.png"
           alt="Ícone do Verifica AÍ"
           class="logo-icon"
         />
@@ -38,13 +39,13 @@
           class="icon-verified"
         />
       </a>
+      <!-- Colocar uma condicional para verificar se o usuario ja está cadastrado no site, se estiver, carrega direto para a dashboard -->
       <a
-        href="Pages/chatBot/chatBot.html"
+        href="Pages/tela.cadastro/tela-cadastro.html"
         class="btn btn-primary btn-large"
-        role="button"
-        aria-label="Abrir o chat para verificar uma notícia"
+        aria-label="Comece Grátis"
       >
-        Verificar uma notícia agora
+        Comece Grátis
       </a>
     </header>
 
@@ -54,13 +55,17 @@
       <section class="hero-section">
         <div class="hero-content">
           <h1>
-            Antes de confiar, <br /><span class="text-green">Verifique.</span>
+            Antes de confiar, <br /><span class="text-green">Verifica AÍ.</span>
           </h1>
           <p>
             Aprenda a identificar golpes, fake news e conteúdos gerados por IA
             através de uma plataforma simples, acessível e pensada para todos.
           </p>
-          <a href="#" class="btn btn-primary btn-large">Conheça a plataforma</a>
+          <a
+            href="Pages/tela.cadastro/tela-cadastro.html"
+            class="btn btn-primary btn-large"
+            >Conheça a plataforma</a
+          >
         </div>
 
         <div class="hero-card">
@@ -128,7 +133,7 @@
         <h2 class="section-title">
           Como o
           <span style="white-space: nowrap" class="text-green"
-            >‘Verifica AÍ’</span
+            >Verifica AÍ</span
           >
           ajuda?
         </h2>
@@ -225,6 +230,71 @@
         </div>
       </section>
 
+      <!-- Seção: Verifica AI em Ação -->
+      <section class="demo-section" aria-labelledby="demo-titulo">
+        <div class="demo-header">
+          <h2 class="section-title" id="demo-titulo">
+            Veja o <span style="white-space: nowrap" class="text-green">Verifica AÍ</span> em ação
+          </h2>
+          <p class="section-subtitle">
+            Da dúvida à informação confiável em poucos passos.
+          </p>
+        </div>
+
+        <div class="demo-chat" id="demoChat">
+          <div
+            class="demo-chat__log"
+            id="demoChatLog"
+            role="log"
+            aria-live="polite"
+            aria-label="Conversa de demonstração com o Robôtive"
+          ></div>
+
+          <div class="demo-chat__controls" id="demoChatControls"></div>
+        </div>
+      </section>
+
+      <!-- Seção: Objetivos de Desenvolvimento Sustentável -->
+      <section class="ods-section" aria-labelledby="ods-titulo">
+        <div class="ods-header">
+          <h2 class="section-title" id="ods-titulo">
+            <span style="white-space: nowrap">Trabalhando por um</span>
+            <br />mundo melhor
+          </h2>
+          <p class="section-subtitle">
+            Nosso projeto vai além. Juntos, lutamos por um mundo mais crítico.
+          </p>
+        </div>
+
+        <div
+          class="ods-pills"
+          role="list"
+          aria-label="Objetivos de Desenvolvimento Sustentável que apoiamos"
+        >
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/4"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ods-pill ods-pill--blue"
+            aria-label="ODS 4 — Educação de Qualidade. Saiba mais no site da ONU (abre em nova aba)"
+          >
+            <span class="ods-pill__text">ODS 4 — Educação de Qualidade</span>
+          </a>
+
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/16"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="ods-pill ods-pill--blue"
+            aria-label="ODS 16 — Paz, Justiça e Instituições Eficazes. Saiba mais no site da ONU (abre em nova aba)"
+          >
+            <span class="ods-pill__text"
+              >ODS 16 — Paz, Justiça e Instituições Eficazes</span
+            >
+          </a>
+        </div>
+      </section>
+
       <!-- Seção: Fontes Jornalísticas -->
       <section class="sources-section">
         <h2 class="section-title">Responsabilidade Jornalística</h2>
@@ -234,27 +304,61 @@
         </p>
 
         <div class="sources-grid">
-          <article class="source-card">
+          <a
+            href="https://g1.globo.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar o G1 — Portal de notícias da Globo (abre em nova aba)"
+          >
             <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
-          </article>
-          <article class="source-card">
-            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
-          </article>
-          <article class="source-card">
+          </a>
+
+          <a
+            href="https://agenciabrasil.ebc.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a Agência Brasil — Empresa Brasil de Comunicação (abre em nova aba)"
+          >
             <img
               src="assets/fontes-jornalisticas/agencia_brasil.png"
               alt="Agência Brasil"
             />
-          </article>
-          <article class="source-card">
-            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
-          </article>
-          <article class="source-card">
+          </a>
+
+          <a
+            href="https://www.folha.uol.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a Folha de S.Paulo (abre em nova aba)"
+          >
             <img
               src="assets/fontes-jornalisticas/folha_sao_paulo.png"
               alt="Folha de São Paulo"
             />
-          </article>
+          </a>
+
+          <a
+            href="https://uol.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar o UOL (abre em nova aba)"
+          >
+            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
+          </a>
+
+          <a
+            href="https://www.cnnbrasil.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="source-card"
+            aria-label="Visitar a CNN Brasil (abre em nova aba)"
+          >
+            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
+          </a>
         </div>
 
         <a
@@ -266,11 +370,78 @@
         </a>
       </section>
 
+      <!-- Seção: Parceiros -->
+      <section class="partners-section" aria-labelledby="parceiros-titulo">
+        <div class="partners-header">
+          <h2 class="section-title" id="parceiros-titulo">Nossos Parceiros</h2>
+          <p class="section-subtitle">
+            Sozinho, as coisas podem acontecer de forma rápida. Mas apenas
+            cooperando é que chegamos longe!
+          </p>
+        </div>
+
+        <!-- Grid de logos dos parceiros -->
+        <div
+          class="partners-grid"
+          role="list"
+          aria-label="Logos dos parceiros do Verifica AÍ"
+        >
+          <a
+            href="https://proa.org.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro PROA — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/proa.png"
+              alt="PROA"
+              class="partner-logo"
+            />
+          </a>
+
+          <a
+            href="https://conecta-geracoes-black.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro Conecta Gerações — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/conecta_geracoes.png"
+              alt="Conecta Gerações"
+              class="partner-logo"
+            />
+          </a>
+
+          <a
+            href="https://www.serasaexperian.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="partner-card"
+            role="listitem"
+            aria-label="Parceiro Serasa Experian — visitar site oficial (abre em nova aba)"
+          >
+            <img
+              src="assets/parceiros/serasa_experian.png"
+              alt="Serasa Experian"
+              class="partner-logo"
+            />
+          </a>
+        </div>
+      </section>
+
       <!-- Banner de Ação (CTA) -->
       <section class="cta-banner">
         <h2>Proteja-se de notícias falsas e golpes virtuais.</h2>
         <p>Comece gratuitamente e desenvolva sua segurança digital.</p>
-        <a href="#" class="btn btn-secondary">Crie sua conta!</a>
+        <a
+          href="Pages/tela.cadastro/tela-cadastro.html"
+          class="btn btn-secondary"
+          >Crie sua conta!</a
+        >
       </section>
     </main>
 
@@ -281,5 +452,6 @@
         Desinformação
       </p>
     </footer>
+    <script src="assets/js/demo-interativa.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,196 @@
+<!doctype html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tela de ajuda</title>
+
+     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+     <!-- Componente de sidebar, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+
+    <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/footer/footer.js"></script>
+    <link rel="stylesheet" href="../../components/footer/footer.css">
+
+    <link rel="stylesheet" href="tela-ajuda.css">
+  </head>
+
+  <body>
+     <verifica-sidebar></verifica-sidebar>
+
+     <div class="conteudo-pagina">
+    <main class="pagina-ajuda">
+
+      <!-- Sessão 01 Cabeçalho -->
+      <section class="cabecalho-ajuda">
+        <div class="texto-ajuda">
+          <h1 class="titulo-ajuda">Ajuda</h1>
+
+          <p class="descricao-ajuda">
+            Precisa de ajuda? Veja abaixo como usar o Verifica AÍ e tire suas
+            dúvidas.
+          </p>
+        </div>
+
+          <img src="../assets/icons/img-itens-ajuda/img-ajuda-header.svg" alt="Robôtive" class="imagem-ajuda" />
+        
+      </section>
+
+      <!-- Sessão 02 Primeiros passos -->
+      <section class="primeiros-passos">
+        <h2 class="titulo-primeiros-passos">Primeiros passos</h2>
+
+        <p class="descricao-primeiros-passos">
+          Conheça as principais formas de usar a plataforma.
+        </p>
+
+        <div class="cards-primeiros-passos">
+          <div class="card-ajuda">
+            <img
+              src="../assets/icons/icone-guia-rapido-escuro.svg"
+              alt="Guia"
+              class="icone-card" id="img-aprenda-rapido"
+            />
+
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Aprenda no Guia Rápido</h2>
+
+            <p class="texto-card">
+              Descubra como identificar    conteúdos criados po IA.
+            </p>
+            </div>
+          </div>
+<img src="../assets/icons/icone-faq.svg" alt="" class="seta-primeiros-passos">
+
+          <div class="card-ajuda">
+            <img
+              src="../assets/icons/mascot-image/img-robo-card.svg"
+              alt="Robôtive"
+              class="icone-card" id="img-robo"
+            />
+
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Fale com o Robôtive</h2>
+
+            <p class="texto-card">
+              Pergunte e receba orientações rápidas.
+            </p>
+            </div>
+          </div>
+<img src="../assets/icons/icone-faq.svg" alt="" class="seta-primeiros-passos">
+
+          <div class="card-ajuda">
+            <img
+              src="../assets/icons/icone-noticia-escuro.svg"
+              alt="Notícias"
+              class="icone-card"
+            />
+
+            <div class="conteudo-card">
+            <h2 class="titulo-card">Consulte Notícias Atuais</h2>
+
+            <p class="texto-card">Veja exemplos reais de notícias falsas e verdadeiras.</p>
+            </div>
+          </div>
+<img src="../assets/icons/icone-faq.svg" alt="" class="seta-primeiros-passos">
+
+          <div class="card-ajuda">
+            <img
+              src="../assets/icons/icone-comunidade-escuro.svg"
+              alt="Comunidade"
+              class="icone-card" id="img-comunidade"
+            />
+<div class="conteudo-card">
+            <h2 class="titulo-card">Participe da Comunidade</h2>
+
+            <p class="texto-card">
+              Compartilhe experiências e aprenda com outros usuários.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Sessão 03 Perguntas frequentes -->
+      <section class="faq">
+        <h2 class="titulo-faq">Perguntas Frequentes</h2>
+
+        <div class="lista-faq">
+          <div class="pergunta-faq">
+            <button class="botao-faq"> <strong>O que é o Guia Rápido?</strong> <img src="../assets/icons/icone-faq.svg" alt=""  class="icone-faq"/></button>
+
+            <p class="resposta-faq">
+              O Guia Rápido é um espaço com conteúdos simples que ensinam como
+              identificar golpes, notícias falsas e imagens criadas por
+              inteligência artificial.
+            </p>
+          </div>
+
+          <div class="pergunta-faq">
+            <button class="botao-faq"> <strong>O que é o Robôtive?</strong>  <img src="../assets/icons/icone-faq.svg" alt=""  class="icone-faq"/></button>
+
+            <p class="resposta-faq">
+              O Robôtive é a inteligência artificial da plataforma. Ele responde
+              dúvidas sobre conteúdos suspeitos na internet e ajuda você a
+              identificar conteúdos manipulados.
+            </p>
+          </div>
+
+          <div class="pergunta-faq">
+            <button class="botao-faq"> <strong>Como funciona o Robôtive?</strong>  <img src="../assets/icons/icone-faq.svg" alt=""  class="icone-faq"/></button>
+
+            <p class="resposta-faq">
+              Basta enviar sua pergunta ou duvida sobre conteúdos e noticias da
+              internet e o ele fornecerá uma resposta de forma simples e
+              objetiva.
+            </p>
+          </div>
+
+          <div class="pergunta-faq">
+            <button class="botao-faq">
+              <strong>Como funcionam os planos de assinatura?</strong>
+              <img src="../assets/icons/icone-faq.svg" alt=""  class="icone-faq"/>
+            </button>
+
+            <p class="resposta-faq">
+              A plataforma possui planos gratuitos e pagos, oferecendo
+              diferentes níveis de acesso aos recursos disponíveis.
+              
+              <span><b>Gratuido</b> - Acesso completo à plataforma, sem utilização do
+              Robôtive.</span>
+            
+             <span> <b>Básico</b> - Acesso à plataforma com uso limitado do Robôtive (IA) -
+              R$ 15,90.</span>
+           
+              <span><b>Premium</b> - Acesso ilimitado à plataforma do Robôtive (IA) -
+              R$ 27,95.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botão -->
+<section class="contato-ajuda">
+  <a href="mailto:verificaai2026@proton.me"
+    class="botao-contato"
+    id="btn-fale-conosco">
+    Ainda com dúvidas? Fale conosco
+  </a>
+</section>
+    </main>
+
+      <verifica-footer></verifica-footer>
+      </div>
+
+     <script src="tela-ajuda.js"></script>
+  </body>
+</html>

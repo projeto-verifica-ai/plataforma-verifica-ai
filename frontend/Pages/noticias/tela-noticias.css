@@ -1,0 +1,395 @@
+/* ===== Página ===== */
+
+.main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 30px 50px;
+}
+
+
+.cabecalho h1 {
+    font-family: var(--font-primary, "Outfit", sans-serif);
+    font-size: 42px;
+    font-weight: 700;
+    color: #171717;
+    margin-bottom: 30px;
+}
+
+/* ===== Barra de pesquisa ===== */
+
+.busca-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.busca-container input {
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 0 25px 0 60px;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+.busca-container input:focus {
+    outline: none;
+}
+
+.icone-busca {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #222;
+}
+
+/* ===== Menu ===== */
+
+.filtros {
+    margin-bottom: 35px;
+}
+
+.filtros ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #08196F;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.filtros li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.filtros li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 30%;
+    width: 1px;
+    height: 40%;
+    background: #fff;
+}
+
+.filtros a {
+    display: block;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.filtros a.ativo {
+    font-weight: 700;
+}
+
+/* ===== Cards ===== */
+
+.noticias {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+}
+
+/* Imagem no topo, com o selo da categoria sobreposto no canto */
+.card-imagem {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-selo {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+}
+
+.card-selo--verdadeira {
+    background: #2C7A3C;
+}
+
+.card-selo--falsa {
+    background: #9A0F0F;
+}
+
+.card-selo--analise {
+    background: #B8860B;
+}
+
+/* Conteúdo: texto cresce, rodapé sempre fica colado embaixo,
+   independente do tamanho do texto de cada notícia */
+.card-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px 24px;
+}
+
+.card-texto {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+
+    /* Trunca em 4 linhas, mantendo os cards com altura parecida */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.card-rodape time {
+    color: #777;
+    font-size: 14px;
+}
+
+.btn-ler-mais {
+    color: #08196F;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Editar/excluir — só aparece pra quem criou a notícia */
+.card-acoes-moderador {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.card-acoes-moderador button {
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 999px;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-btn-editar {
+    background: #e8ecff;
+    color: #08196F;
+}
+
+.card-btn-excluir {
+    background: #fdecec;
+    color: #9A0F0F;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===== Botão + formulário "Nova notícia" (só moderadores) ===== */
+
+.btn-nova-noticia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 25px;
+    padding: 12px 24px;
+    background: #08196F;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-nova-noticia[hidden] {
+    display: none;
+}
+
+.form-nova-noticia {
+    margin-bottom: 28px;
+}
+
+.form-nova-noticia[hidden] {
+    display: none;
+}
+
+.card-conteudo--form {
+    width: 100%;
+}
+
+.card-conteudo--form h2 {
+    font-family: var(--font-primary, "Outfit", sans-serif);
+    font-size: 22px;
+}
+
+#noticia-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#noticia-form select,
+#noticia-form textarea,
+#noticia-form input {
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #fff;
+}
+
+#noticia-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.noticia-erro {
+    color: #9a0f0f;
+    font-size: 14px;
+    min-height: 1.2em;
+}
+
+.form-nova-noticia-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.form-nova-noticia-acoes button {
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#noticia-cancelar {
+    background: #ececec;
+    color: #333;
+}
+
+#noticia-publicar {
+    background: #08196F;
+    color: #fff;
+}
+
+.noticias-vazio {
+    text-align: center;
+    color: #666;
+    padding: 40px 0;
+}
+
+/* ===== Paginação ===== */
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 45px 0;
+}
+
+.paginacao span {
+    font-weight: 600;
+}
+
+.paginacao a {
+    text-decoration: none;
+    color: #000;
+    font-size: 28px;
+}
+
+.paginacao a[aria-disabled="true"] {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ===== Rodapé ===== */
+
+.rodape {
+    margin-top: 30px;
+}
+
+/* ===== Responsivo ===== */
+
+@media(max-width:900px) {
+
+    .main {
+        padding: 20px;
+    }
+
+    .cabecalho h1 {
+        font-size: 30px;
+    }
+
+    .noticias {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros ul {
+        flex-wrap: wrap;
+    }
+
+    .filtros li {
+        flex: 50%;
+    }
+
+}
+
+/* A barra fixa do mobile (components/sidebar/sidebar.css) fica visível até 1070px
+   de largura; as regras ".main" acima (base e max-width:900px) resetam o padding
+   inteiro sem sobrar espaço pra ela, então essa reserva precisa vir depois delas. */
+@media (max-width: 1070px) {
+    .main {
+        padding-bottom: calc(4.5rem + 1.5rem);
+    }
+}

@@ -45,7 +45,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 0.225rem;
-    padding: 0 0.2rem 2.75rem;
+    padding: 0 0.2rem 1.35rem;
 }
 
 .sidebar-logo-icon {
@@ -65,12 +65,21 @@ body {
 }
 
 .sidebar-verify-icon {
-    position: relative;
-    top: -15px;
-    width: 1.2rem;
-    height: 1.2rem;
+    display: flex;
     object-fit: contain;
     flex-shrink: 0;
+    scale: 1.4;
+    filter: brightness(130%);
+}
+
+.verify-icon-div {
+    background-color: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    right: -4px;
+    top: -15px;
+    width: 1.05rem;
+    height: 1.05rem;
 }
 
 /* --------------------------------
@@ -82,6 +91,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    margin: auto;
     width: 100%;
 }
 
@@ -89,7 +99,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.875rem 0.875rem;
+    padding: 0.475rem 0.875rem;
     border-radius: 0.75rem;
     font-family: var(--font-secondary, "Plus Jakarta Sans", sans-serif);
     font-size: 1rem;
@@ -164,6 +174,18 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
+.profile-avatar--clicavel {
+    cursor: pointer;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.profile-avatar--clicavel:hover,
+.profile-avatar--clicavel:focus-visible {
+    opacity: 0.85;
+    border-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
 .profile-info {
     display: flex;
     flex-direction: column;
@@ -181,12 +203,20 @@ body {
     text-overflow: ellipsis;
 }
 
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+}
+
 .profile-link {
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.6);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.15s ease;
+    cursor: pointer;
 }
 
 .profile-link:hover {
@@ -201,7 +231,7 @@ body {
     /* escondido por padrão */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1070px) {
 
     /* Esconde a sidebar lateral */
     .sidebar {
@@ -252,8 +282,10 @@ body {
         object-fit: contain;
     }
 
-    /* Evita que o conteúdo fique atrás da barra */
+    /* Evita que o conteúdo fique atrás da barra (a barra tem 4.5rem de
+       altura — precisa de mais que isso, senão ainda sobra conteúdo
+       escondido atrás dela; o 1.5rem extra é a folga/margem visual) */
     .main {
-        padding-bottom: 5.5rem;
+        padding-bottom: calc(4.5rem + 1.5rem);
     }
 }

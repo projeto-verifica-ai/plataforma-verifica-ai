@@ -1,0 +1,378 @@
+/* ============================================================
+   VERIFICA AÍ — perfil.css (Fiel ao Protótipo)
+   ============================================================ */
+
+:root {
+  --perfil-bg: #f1eee6;
+  --perfil-card-bg: #e6e9ed; /* Cor de fundo dos cards do protótipo */
+  --perfil-text-dark: #050b1a;
+  --perfil-text-medium: #1b182e;
+  --perfil-text-muted: #6b6880;
+  --perfil-blue: #284cad;
+  --perfil-border: rgba(10, 22, 51, 0.1);
+  --perfil-shadow: 0 4px 12px rgba(10, 22, 51, 0.05);
+}
+
+.pagina-perfil {
+  background-color: var(--perfil-bg);
+}
+
+.perfil-main {
+  padding: 32px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- Títulos Principais --- */
+.perfil-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perfil-header h1,
+.section-title-conta {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--perfil-text-dark);
+}
+
+.perfil-header p {
+  font-size: 1rem;
+  color: var(--perfil-text-muted);
+}
+
+.section-title-conta {
+  margin-top: 16px;
+  margin-bottom: -8px;
+  font-size: 1.5rem;
+}
+
+.card-title {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--perfil-text-dark);
+  margin-bottom: 20px;
+}
+
+/* --- Estilo Base dos Cards --- */
+.perfil-card {
+  background-color: var(--perfil-card-bg);
+  border: 1px solid var(--perfil-border);
+  border-radius: 16px;
+  box-shadow: var(--perfil-shadow);
+  padding: 24px;
+}
+
+/* --- Grids de Layout --- */
+.perfil-grid-top,
+.perfil-grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* --- Card Usuário --- */
+.perfil-card--usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #dde3ea 0%, #d2d9e2 100%);
+  color: var(--perfil-text-dark);
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: #d9dee4;
+}
+
+.perfil-avatar img[hidden] {
+  display: none;
+}
+
+.perfil-avatar__iniciais {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.perfil-usuario-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.perfil-nome {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--perfil-text-dark);
+}
+
+.perfil-email {
+  font-size: 0.95rem;
+  color: var(--perfil-text-muted);
+  margin-bottom: 12px;
+}
+
+.perfil-membro {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--perfil-text-muted);
+  border-top: 1px solid rgba(10, 22, 51, 0.1);
+  padding-top: 12px;
+}
+
+.perfil-membro-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.perfil-membro-text strong {
+  color: var(--perfil-text-dark);
+}
+
+/* --- Card Progresso --- */
+.perfil-estatisticas {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.perfil-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.perfil-stat strong {
+  font-family: var(--font-primary, "Outfit", sans-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--perfil-text-dark);
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.perfil-stat span {
+  font-size: 0.85rem;
+  color: var(--perfil-text-muted);
+  line-height: 1.2;
+}
+
+.perfil-stat-divisor {
+  width: 1px;
+  height: 60px;
+  background-color: var(--perfil-border);
+}
+
+/* --- Card Conta (Ações) --- */
+.perfil-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.perfil-acao {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--perfil-border);
+  border-radius: 12px;
+  padding: 0 4px 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  outline: none;
+}
+
+.perfil-acao:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.perfil-acao:focus-visible {
+  background-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 0 0 3px rgba(40, 76, 173, 0.18);
+  opacity: 1;
+  outline: 3px solid rgba(40, 76, 173, 0.45);
+  outline-offset: 3px;
+}
+
+.perfil-acoes li:last-child .perfil-acao {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.perfil-acao__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perfil-acao__conteudo strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--perfil-text-dark);
+}
+
+.perfil-acao__conteudo span {
+  font-size: 0.9rem;
+  color: var(--perfil-text-muted);
+}
+
+.perfil-acao__chevron {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.perfil-membro img,
+.perfil-stat img,
+.perfil-ajuda-img,
+.perfil-acao__chevron {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+}
+
+.perfil-membro img,
+.perfil-stat img {
+  display: block;
+}
+
+.perfil-ajuda-img {
+  display: block;
+  object-fit: contain;
+  width: 14rem;
+  height: auto;
+}
+
+.perfil-status {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--perfil-blue);
+  font-weight: 600;
+}
+
+/* --- Card Ajuda --- */
+.perfil-card--ajuda {
+  background-color: #d1dae8; /* Fundo azul claro do protótipo */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perfil-ajuda-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.perfil-ajuda-content p {
+  font-size: 0.95rem;
+  color: var(--perfil-text-dark);
+  font-weight: 500;
+}
+
+.perfil-ajuda-content .btn {
+  background-color: var(--perfil-blue);
+  color: #fff;
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0 24px;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   RESPONSIVIDADE (TABLET E DESKTOP)
+   ============================================================ */
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .perfil-main {
+    padding: 40px 32px;
+  }
+
+  .perfil-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .perfil-grid-top {
+    grid-template-columns: 1.5fr 1fr; /* Usuário maior, progresso menor */
+  }
+
+  .perfil-grid-bottom {
+    grid-template-columns: 2fr 1fr; /* Conta maior, ajuda menor */
+  }
+
+  .perfil-card--usuario {
+    padding: 32px;
+    gap: 32px;
+  }
+
+  .perfil-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .perfil-nome {
+    font-size: 1.6rem;
+  }
+
+  .perfil-card--ajuda {
+    justify-content: center;
+  }
+}

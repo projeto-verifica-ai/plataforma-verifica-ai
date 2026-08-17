@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifica AI - Login</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome (ícone de mostrar/ocultar senha, igual ao cadastro) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body class="pagina-login">
+
+    <main class="container">
+
+        <!-- Lado esquerdo -->
+        <section class="welcome">
+
+            <h1>Bem-vindo!</h1>
+
+            <div class="robot">
+                <img src="../../assets/verificaai-robot-nobackground.png" alt="Robô do Verifica AI">
+            </div>
+
+            <div class="register">
+                <p>Não tem uma conta?</p>
+                <a href="../tela.cadastro/tela-cadastro.html">Cadastre-se →</a>
+            </div>
+
+        </section>
+
+        <!-- Lado direito -->
+        <section class="right">
+            <div class="login">
+
+                <header>
+                    <h2>
+                        Acesse sua <span>conta.</span>
+                    </h2>
+                </header>
+
+                <!-- Login Social -->
+                <div class="social-login">
+
+                    <button type="button" class="facebook">
+                        <img src="../../assets/icons/facebook-svg.svg" alt="facebook-logo">
+                        <span>Entrar com Facebook</span>
+                    </button>
+
+                    <button type="button" class="google">
+                        <img src="../../assets/icons/google-svg.svg" alt="google-logo">
+                        <span>Entrar com Google</span>
+                    </button>
+
+                </div>
+
+                <!-- Separador -->
+                <div class="separator">
+                    <hr>
+                    <span>ou</span>
+                    <hr>
+                </div>
+
+                <!-- Formulário -->
+                <form id="loginForm">
+
+                    <div class="input-group">
+
+                        <label for="email">E-mail</label>
+
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="senha">Senha</label>
+
+                        <div class="password">
+                            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                            <i class="fa-regular fa-eye" id="olhoSenha" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
+
+                    <!-- Opções -->
+                    <div class="options">
+
+                        <div class="remember">
+
+                            <input type="checkbox" id="remember" name="remember">
+
+                            <label for="remember">
+                                Lembrar de senha
+                            </label>
+
+                        </div>
+
+                        <a href="#">
+                            Esqueceu sua senha?
+                        </a>
+
+                    </div>
+
+                    <p class="login-erro" id="loginErro" role="alert"></p>
+
+                    <button type="submit" class="login-button" id="btnLogin">
+                        Login
+                    </button>
+
+                    <div class="create-account">
+
+                        <a href="../tela.cadastro/tela-cadastro.html">Criar uma conta</a>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Integração Appwrite -->
+    <script type="module" src="js/appwrite.js"></script>
+
+    <!-- Envio do formulário de login -->
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

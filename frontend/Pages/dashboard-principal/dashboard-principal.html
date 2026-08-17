@@ -9,9 +9,25 @@
      sem cair em golpes gerados por Inteligência Artificial.">
     <title>Verifica AÍ</title>
 
-    <link rel="stylesheet" href="dashboard-principal.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Componente de sidebar, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/sidebar/sidebar.js"></script>
     <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+
+    <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
+    <script type="module" src="../../components/footer/footer.js"></script>
     <link rel="stylesheet" href="../../components/footer/footer.css">
+
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="dashboard-principal.css">
+
+    <script type="module" src="dashboard-principal.js"></script>
 </head>
 
 <body>
@@ -22,7 +38,7 @@
     <header class="hero-boas-vindas">
 
         <div class="boas-vindas-texto">
-            <h1>Olá, Maria bem-vinda!</h1>
+            <h1>Olá,&nbsp;<span id="boas-vindas-nome">visitante</span>!</h1>
             <p>Que bom ter você aqui! O que deseja fazer hoje?</p>
         </div>
 
@@ -40,9 +56,9 @@
                     <h3>Comunidade</h3>
                     <p>Se informe e aprenda com outras pessoas</p>
                     <!-- Adicionar a pág da comunidade na ancora -->
-                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+                    <a href="../dashboard-comunidade/comunidade.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
 
-                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
+                    <a href="../dashboard-comunidade/comunidade.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
                 </article>
             </li>
 
@@ -55,7 +71,7 @@
                     <a href="../chatBot/chatBot.html" class="link-mobile" target="_self"><img class="icone-seta-mobile"
                             src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
 
-                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
+                    <a href="../chatBot/chatBot.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
 
                 </article>
             </li>
@@ -66,9 +82,9 @@
                     <h3>Notícias atuais</h3>
                     <p>Fique por dentro dos golpes e proteja-se</p>
                     <!-- Adicionar a pág de notícias atuais na ancora -->
-                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+                    <a href="../noticias/tela-noticias.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
 
-                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
+                    <a href="../noticias/tela-noticias.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
                     
                 </article>
             </li>
@@ -79,9 +95,9 @@
                     <h3>Guia rápido</h3>
                     <p>Aprenda a identificar fraudes na internet</p>
                     <!-- Adicionar a pág do guia rapido atuais na ancora -->
-                    <a href="" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+                    <a href="../guia-rapido/guia-rapido.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
 
-                    <a href="" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
+                    <a href="../guia-rapido/guia-rapido.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
                 </article>
             </li>
         </ul>
@@ -106,7 +122,7 @@
                     
                     <div>
                     <!-- Adicionar link do guia rápido-->
-                    <a class="continue-aprendendo-botão" href="">Continue aprendendo</a>
+                    <a class="continue-aprendendo-botão" href="../guia-rapido/guia-rapido.html">Continue aprendendo</a>
                    
                     </div>
                 </article>
@@ -129,22 +145,12 @@
           
              <a href="https://wa.me/?text=Aqui%2C%20informa%C3%A7%C3%A3o%20segura%20%C3%A9%20poder!%20Confira%20o%20Verifica%20A%C3%AD%3A%20https%3A%2F%2Fplataforma-verifica-ai.vercel.app"
                 target="_blank" rel="noopener noreferrer"  class="banner-compartilhe">Compartilhe <img src="../assets/icons/icone-clique-mão.svg" alt="ícone com mão clicando"></a>
-            <!-- <P class="banner-texto">Compartilhe</P> -->
-             <!-- Na ancora antes estava banner-comopartilhe -->
-               
 
-            <!-- O rel="noopener noreferrer" é uma proteção de segurança que você adiciona sempre que usa target="_blank". 
-             "noopener"  impede que a página nova (WhatsApp, em nosso caso) tenha acesso, via JavaScript, à aba original de onde o clique saiu. 
-             noreferrer impede que o site de destino (WhatsApp) saiba de qual página o clique veio.-->
+          
         </div>
     </main>
 
-    <!-- SEÇÃO 5: RODAPÉ -->
-<verifica-footer></verifica-footer>
 </div>
-
- <script src="../../components/sidebar/sidebar.js"></script>
-<script src="../../components/footer/footer.js"></script>
 
 </body>
 

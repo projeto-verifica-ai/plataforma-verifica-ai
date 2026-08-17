@@ -1,0 +1,191 @@
+/* =========================================
+   VERIFICA AI
+   utilities.css
+   Classes utilitárias
+========================================= */
+
+/* =========================================
+   ESTADOS DOS INPUTS
+========================================= */
+
+.erro{
+
+    border:3px solid #E53935 !important;
+
+}
+
+.sucesso{
+
+    border:3px solid #36B37E !important;
+
+}
+
+/* =========================================
+   VISIBILIDADE
+========================================= */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.visible{
+
+    display:block !important;
+
+}
+
+/* =========================================
+   DESABILITADO
+========================================= */
+
+.disabled{
+
+    opacity:.6;
+
+    pointer-events:none;
+
+    cursor:not-allowed;
+
+}
+
+/* =========================================
+   TEXTO
+========================================= */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-left{
+
+    text-align:left;
+
+}
+
+.text-right{
+
+    text-align:right;
+
+}
+
+/* =========================================
+   ESPAÇAMENTOS
+========================================= */
+
+.mt-10{
+
+    margin-top:10px;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-30{
+
+    margin-top:30px;
+
+}
+
+.mb-10{
+
+    margin-bottom:10px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.mb-30{
+
+    margin-bottom:30px;
+
+}
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+.fade-in{
+
+    animation:fadeIn .35s ease;
+
+}
+
+.fade-out{
+
+    animation:fadeOut .35s ease;
+
+}
+
+.scale-in{
+
+    animation:scaleIn .25s ease;
+
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes scaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
