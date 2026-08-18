@@ -1,11 +1,11 @@
-// Criando interação do faq
+// Criando interação do FAQ
 
 // Seleciona todos os botões das perguntas
 const botoesFaq = document.querySelectorAll(".botao-faq");
 
 botoesFaq.forEach(function (botao) {
 
-    // Espera o usuário clicar no botão
+  // Espera o usuário clicar no botão
   botao.addEventListener("click", function () {
 
     const resposta = botao.nextElementSibling;
@@ -16,26 +16,35 @@ botoesFaq.forEach(function (botao) {
 
       if (outroBotao !== botao) {
 
-        outroBotao.nextElementSibling.style.display = "none";
-
-        // Faz a seta voltar para a posição inicial
+        const outraResposta = outroBotao.nextElementSibling;
         const outroIcone = outroBotao.querySelector(".icone-faq");
+
+        outraResposta.style.maxHeight = "0";
+        outraResposta.style.opacity = "0";
+
         outroIcone.style.transform = "rotate(0deg)";
       }
 
     });
 
-    // Abre ou fecha a resposta selecionada
-    if (resposta.style.display === "none") {
+    // Verifica se a resposta está fechada
+    if (resposta.style.maxHeight === "0px" || resposta.style.maxHeight === "") {
 
-      resposta.style.display = "block";
+      // Abre a resposta
+      resposta.style.maxHeight = resposta.scrollHeight + "px";
+      resposta.style.opacity = "1";
+
+      // Gira a seta
       icone.style.transform = "rotate(180deg)";
 
     } else {
 
-      resposta.style.display = "none";
-      icone.style.transform = "rotate(0deg)";
+      // Fecha a resposta
+      resposta.style.maxHeight = "0";
+      resposta.style.opacity = "0";
 
+      // Volta a seta
+      icone.style.transform = "rotate(0deg)";
     }
 
   });
