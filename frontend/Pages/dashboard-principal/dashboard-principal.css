@@ -56,7 +56,6 @@ p {
     var(--cor-Verde-floresta),
     var(--cor-Verde-oliva-claro)
   );
-  width: auto;
   color: var(--cor-branco-creme);
   padding: 1.6rem 1rem 2rem;
   border-radius: 0 0 32px 32px;
@@ -242,7 +241,7 @@ main {
   background-color: var(--cor-Verde-oliva-claro-transparente);
   border-radius: 12px;
   border: 0.5px solid var(--cor-Verde-oliva-claro);
-  padding: 28px 30px 25px;
+  padding: 28px 30px 16px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -277,7 +276,7 @@ main {
 
 .mascote-paragrafo p {
   font-size: 16px;
-  line-height: 38px;
+  line-height: 30px;
   margin: 0;
 }
 
@@ -312,7 +311,7 @@ main {
   background-color: var(--cor-azul-noturno);
 }
 
-iframe {
+.cards-desktop iframe {
   border-radius: 12px;
 }
 
@@ -387,7 +386,6 @@ iframe {
 }
 
 verifica-footer {
-  display: block;
   margin-top: 1rem;
   /* respiro entre os cards e o footer */
   padding: 0;
@@ -403,17 +401,74 @@ verifica-footer {
   display: none;
 }
 
-/* (min-width:1024px) and (max-width:1439px) */
-/* Notebook */
-@media (min-width: 768px) {
+
+/* A barra fixa do mobile continua visível até 1070px (ver components/sidebar/sidebar.css);
+   a regra "main{padding:1.8rem}" lá em cima (min-width:768px) reseta o padding-bottom
+   maior definido antes, então essa faixa (768–1070px) precisa reafirmar a reserva de espaço. */
+
+   /* ====== Tablet ======= */
+@media (min-width: 630px) and (max-width: 1070px) {
+  main {
+    padding-bottom: calc(4.5rem + 1.5rem);
+  }
+
+  .grid-navegacao li {
+    display: flex;
+    height: 100%;
+  }
+
+  .card-nav {
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+    padding: 18px;
+    flex: 1;
+  }
+  .hero-boas-vindas {
+    padding: 2rem;
+    min-height: 220px;
+  }
+
+  .boas-vindas-texto h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .boas-vindas-texto p {
+    font-size: 1.5rem;
+    max-width: 50%;
+    line-height: 1.4;
+  }
+
+  .boas-vindas-mascote {
+    width: 248px;
+    height: auto;
+    right: 2px;
+    top: 10px;
+  }
+
+  .card-nav h3 {
+    font-size: 1.6rem;
+  }
+
+  .card-nav p {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/* ====== Notebook/Desktop ===== */
+@media (min-width: 1071px) {
   /* Espaçamento entre a sidebar e o conteúdo */
   main {
-    padding: 1.8rem;
+    padding: 1.5rem;
   }
 
   /* HEADER */
   .hero-boas-vindas {
-    padding: 3.4rem;
+  
+    padding: 3rem;
     min-height: 240px;
     border-radius: 40px;
     margin: 1rem;
@@ -431,10 +486,10 @@ verifica-footer {
   }
 
   .boas-vindas-mascote {
-    width: 282px;
+    width: 270px;
     height: auto;
     right: 10px;
-    top: 2px;
+    top: 12px;
   }
 
   /* GRID */
@@ -446,7 +501,7 @@ verifica-footer {
   }
 
   .card-nav {
-    min-height: 300px;
+    min-height: 250px;
     padding: 15px 30px 10px;
     align-items: center;
     width: 100%;
@@ -472,7 +527,6 @@ verifica-footer {
     max-width: 180px;
     line-clamp: 3;
     -webkit-line-clamp: 3;
-    /* line-clamp: 3; */
     flex: none;
   }
 
@@ -506,24 +560,15 @@ verifica-footer {
   }
 }
 
-/* A barra fixa do mobile continua visível até 1070px (ver components/sidebar/sidebar.css);
-   a regra "main{padding:1.8rem}" lá em cima (min-width:768px) reseta o padding-bottom
-   maior definido antes, então essa faixa (768–1070px) precisa reafirmar a reserva de espaço. */
-@media (min-width: 768px) and (max-width: 1070px) {
-  main {
-    padding-bottom: calc(4.5rem + 1.5rem);
-  }
-}
 
-/* DESKTOOP */
-/* Desktop */
+
+/* DESKTOOP grande */
 @media (min-width: 1440px) {
   main {
     padding: 2rem;
   }
 
   /*  HEADER  */
-
   .hero-boas-vindas {
     min-height: 260px;
   }
@@ -585,11 +630,11 @@ verifica-footer {
   }
 
   .cards-desktop h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .cards-desktop p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .cards-desktop iframe {
@@ -597,7 +642,7 @@ verifica-footer {
   }
 
   .continue-aprendendo-botão {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     width: 100%;
   }
@@ -607,7 +652,12 @@ verifica-footer {
     display: flex;
   }
 
-  .verifica-footer {
+  .secao-compartilhe p {
+    font-size: 1rem;
+  }
+
+
+  verifica-footer {
     display: block;
     margin-top: 1rem;
 
