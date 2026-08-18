@@ -3,6 +3,12 @@
 // Seleciona todos os botões das perguntas
 const botoesFaq = document.querySelectorAll(".botao-faq");
 
+// Define as setas para baixo ao carregar a página
+botoesFaq.forEach(function (botao) {
+  const icone = botao.querySelector(".icone-faq");
+  icone.style.transform = "rotate(180deg)";
+});
+
 botoesFaq.forEach(function (botao) {
 
   // Espera o usuário clicar no botão
@@ -22,7 +28,7 @@ botoesFaq.forEach(function (botao) {
         outraResposta.style.maxHeight = "0";
         outraResposta.style.opacity = "0";
 
-        outroIcone.style.transform = "rotate(0deg)";
+        outroIcone.style.transform = "rotate(180deg)";
       }
 
     });
@@ -35,7 +41,7 @@ botoesFaq.forEach(function (botao) {
       resposta.style.opacity = "1";
 
       // Gira a seta
-      icone.style.transform = "rotate(180deg)";
+      icone.style.transform = "rotate(0deg)";
 
     } else {
 
@@ -44,7 +50,7 @@ botoesFaq.forEach(function (botao) {
       resposta.style.opacity = "0";
 
       // Volta a seta
-      icone.style.transform = "rotate(0deg)";
+      icone.style.transform = "rotate(180deg)";
     }
 
   });
