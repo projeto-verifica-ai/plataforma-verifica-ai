@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const erro = document.getElementById("loginErro");
     const btnLogin = document.getElementById("btnLogin");
     const olhoSenha = document.getElementById("olhoSenha");
+    const olhoSenhaImg = olhoSenha?.querySelector("img");
     const btnFacebook = document.querySelector(".social-login .facebook");
     const btnGoogle = document.querySelector(".social-login .google");
 
@@ -23,16 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
         window.VerificaAI.loginComOAuth("google");
     });
 
-    // Mostrar/ocultar senha — mesmo comportamento do ícone no cadastro
+    function atualizarEstadoSenha() {
+        const senhaVisivel = senha.type === "text";
+
+        olhoSenha.setAttribute("aria-pressed", String(senhaVisivel));
+        olhoSenha.setAttribute("aria-label", senhaVisivel ? "Ocultar senha" : "Mostrar senha");
+        olhoSenhaImg.src = senhaVisivel
+            ? "../../assets/icons/icone-olho-fechado.svg"
+            : "../../assets/icons/icone-olho.svg";
+    }
+
+    // Mostrar/ocultar senha — mesmo comportamento do cadastro
     olhoSenha.addEventListener("click", () => {
-        if (senha.type === "password") {
-            senha.type = "text";
-            olhoSenha.classList.replace("fa-eye", "fa-eye-slash");
-        } else {
-            senha.type = "password";
-            olhoSenha.classList.replace("fa-eye-slash", "fa-eye");
-        }
+        senha.type = senha.type === "password" ? "text" : "password";
+        atualizarEstadoSenha();
     });
+
+    atualizarEstadoSenha();
 
     form.addEventListener("submit", async (e) => {
 

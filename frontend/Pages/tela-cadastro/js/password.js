@@ -6,31 +6,37 @@
 
 function iniciarPassword() {
 
+    const olhoSenhaImg = olhoSenha.querySelector("img");
+    const olhoConfirmarImg = olhoConfirmar.querySelector("img");
+
+    function atualizarEstadoSenha(botao, icone, input, labelMostrar, labelOcultar) {
+
+        const senhaVisivel = input.type === "text";
+
+        botao.setAttribute("aria-pressed", String(senhaVisivel));
+        botao.setAttribute("aria-label", senhaVisivel ? labelOcultar : labelMostrar);
+
+        icone.src = senhaVisivel
+            ? "../../assets/icons/icone-olho-fechado.svg"
+            : "../../assets/icons/icone-olho.svg";
+
+    }
+
     // ===============================
     // Mostrar/Ocultar Senha
     // ===============================
 
     olhoSenha.addEventListener("click", () => {
 
-        if (senha.type === "password") {
+        senha.type = senha.type === "password" ? "text" : "password";
 
-            senha.type = "text";
-
-            olhoSenha.classList.replace(
-                "fa-eye",
-                "fa-eye-slash"
-            );
-
-        } else {
-
-            senha.type = "password";
-
-            olhoSenha.classList.replace(
-                "fa-eye-slash",
-                "fa-eye"
-            );
-
-        }
+        atualizarEstadoSenha(
+            olhoSenha,
+            olhoSenhaImg,
+            senha,
+            "Mostrar senha",
+            "Ocultar senha"
+        );
 
     });
 
@@ -40,27 +46,33 @@ function iniciarPassword() {
 
     olhoConfirmar.addEventListener("click", () => {
 
-        if (confirmarSenha.type === "password") {
+        confirmarSenha.type = confirmarSenha.type === "password" ? "text" : "password";
 
-            confirmarSenha.type = "text";
-
-            olhoConfirmar.classList.replace(
-                "fa-eye",
-                "fa-eye-slash"
-            );
-
-        } else {
-
-            confirmarSenha.type = "password";
-
-            olhoConfirmar.classList.replace(
-                "fa-eye-slash",
-                "fa-eye"
-            );
-
-        }
+        atualizarEstadoSenha(
+            olhoConfirmar,
+            olhoConfirmarImg,
+            confirmarSenha,
+            "Mostrar confirmação de senha",
+            "Ocultar confirmação de senha"
+        );
 
     });
+
+    atualizarEstadoSenha(
+        olhoSenha,
+        olhoSenhaImg,
+        senha,
+        "Mostrar senha",
+        "Ocultar senha"
+    );
+
+    atualizarEstadoSenha(
+        olhoConfirmar,
+        olhoConfirmarImg,
+        confirmarSenha,
+        "Mostrar confirmação de senha",
+        "Ocultar confirmação de senha"
+    );
 
     // ===============================
     // Barra de força

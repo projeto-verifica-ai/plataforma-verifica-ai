@@ -1,0 +1,220 @@
+/* =========================================
+   BOTÕES SOCIAIS
+========================================= */
+
+.social-btn {
+  position: relative;
+
+  width: 100%;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #284cad;
+
+  color: #ddd;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  transition: 0.25s;
+}
+
+.social-btn:active,
+.create-account:active {
+  transform: scale(0.98);
+}
+
+/* O texto fica num <span> dentro do botão — o reset universal
+   (* { font-family: Plus Jakarta Sans }) bate direto nele e vence a
+   herança do botão, então precisa repetir a fonte aqui. */
+.social-btn span {
+  font-family: "Outfit", sans-serif;
+}
+
+.social-btn:focus-visible,
+.create-account:focus-visible {
+  outline: none;
+
+  box-shadow: 0 0 0 4px rgba(41, 98, 255, 0.18);
+}
+
+.create-account:hover {
+  background: #1f4de0;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 28px rgba(41, 98, 255, 0.28);
+}
+
+.facebook {
+  background: #1877f2;
+  color: #fff;
+  border: 1px solid;
+}
+
+.google {
+  background: #fff;
+  color: #444;
+  border: 1px solid #e2e2e2;
+}
+
+.facebook:hover,
+.google:hover {
+  transform: translateY(-3px) scale(1.01);
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.facebook img,
+.google img {
+  position: absolute;
+
+  left: 18px;
+
+  width: 32px;
+  height: 32px;
+}
+
+/* =========================================
+   BOTÃO CRIAR CONTA
+========================================= */
+
+.create-account {
+  width: 100%;
+  height: 46px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #2962ff;
+
+  color: #fff;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.create-account img {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  flex: 0 0 20px;
+
+  transition: 0.3s ease;
+}
+
+.create-account:hover img {
+  transform: translateX(4px);
+}
+
+.create-account:disabled {
+  background: #cfcfcf;
+
+  color: #777;
+
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =========================================
+   BOTÕES DO MODAL
+========================================= */
+
+.modal-footer button {
+  min-width: 120px;
+
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+/* Cancelar */
+
+#cancelar {
+  background: #ececec;
+}
+
+#cancelar:hover {
+  background: #dddddd;
+}
+
+/* Aceitar */
+
+#aceitar {
+  background: #2962ff;
+
+  color: #fff;
+}
+
+#aceitar:hover {
+  background: #1f4de0;
+}
+
+#aceitar:disabled {
+  background: #cfcfcf;
+
+  color: #777;
+
+  cursor: not-allowed;
+
+  opacity: 0.8;
+}
+
+/* =========================================
+   FECHAR MODAL
+========================================= */
+
+#fechar {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f4f4f4;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+#fechar:hover {
+  background: #e5e5e5;
+  transform: rotate(90deg);
+}

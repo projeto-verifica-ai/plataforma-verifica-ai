@@ -47,7 +47,7 @@ const btnCriarConta = document.querySelector(".create-account");
 // Ícones dos olhos
 // ==============================
 
-const olhoSenha = document.querySelector(".password i");
+const olhoSenha = document.getElementById("olhoSenha");
 const olhoConfirmar = document.getElementById("olhoConfirmar");
 
 // ==============================

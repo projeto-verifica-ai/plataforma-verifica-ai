@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="comunidade.css" />
@@ -41,7 +41,7 @@
     <verifica-sidebar></verifica-sidebar>
     <!-- HEADER MOBILE — oculto em desktop -->
     <header class="mobile-header" aria-label="Cabeçalho da seção Comunidade">
-      <h1 class="mobile-header__title">
+      <p class="mobile-header__title" role="heading" aria-level="1">
         <img
           src="../../assets/icons/icone-comunidade.svg"
           alt=""
@@ -49,7 +49,7 @@
           aria-hidden="true"
         />
         Comunidade
-      </h1>
+      </p>
     </header>
 
     <!-- WRAPPER PRINCIPAL (sidebar + main + tips) -->
@@ -170,7 +170,7 @@
 
             <div class="feed-empty__actions">
               <a
-                href="../tela.cadastro/tela-cadastro.html"
+                href="../tela-cadastro/tela-cadastro.html"
                 class="btn btn--primary"
                 >Criar conta grátis</a
               >
@@ -205,7 +205,7 @@
           </ul>
           <div class="tips-card__mascot" aria-hidden="true">
             <img
-              src="../../assets/mascot-image/robotiveAcenando.png"
+              src="../../assets/mascot/robotiveAcenando.png"
               alt=""
               width="70"
             />
@@ -243,7 +243,11 @@
         />
         <span>Meu perfil</span>
       </a>
-      <a href="#" class="bottom-nav__item" aria-label="Ajuda">
+      <a
+        href="../tela-ajuda/tela-ajuda.html"
+        class="bottom-nav__item"
+        aria-label="Ajuda"
+      >
         <img
           src="../../assets/icons/icone-ajuda.svg"
           alt=""

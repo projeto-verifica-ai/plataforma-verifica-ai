@@ -35,7 +35,7 @@ class VerificaSidebar extends HTMLElement {
       <aside class="sidebar">
 
         <div class="sidebar-logo">
-          <img src="../../assets/verificaai-robot-nobackground.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
+          <img src="../../assets/mascot/verificaai-robot-nobackground.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
           <span class="sidebar-logo-text">Verifica AÍ</span>
           <div class="verify-icon-div">
           <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />

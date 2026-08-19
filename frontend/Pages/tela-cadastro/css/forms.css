@@ -1,0 +1,233 @@
+/* =========================================
+   VERIFICA AI
+   forms.css
+   Formulários
+========================================= */
+
+/* =========================================
+   CAMPOS
+========================================= */
+
+.campo {
+  margin-bottom: 8px;
+}
+
+.campo label {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.campo input {
+  width: 100%;
+
+  height: 44px;
+
+  padding: 0 16px;
+
+  border: 1px solid #e2e2e2;
+
+  border-radius: 14px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition: 0.25s;
+}
+
+.campo input:focus {
+  border-color: #2962ff;
+
+  box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.08);
+}
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password {
+  position: relative;
+}
+
+.password input {
+  padding-right: 55px;
+}
+
+.password .password-toggle {
+  position: absolute;
+
+  top: 50%;
+
+  right: 10px;
+
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.password .password-toggle:focus-visible {
+  outline: 2px solid #2962ff;
+  outline-offset: 2px;
+}
+
+.password .password-toggle img {
+  display: block;
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  object-fit: contain;
+  flex: 0 0 24px;
+}
+
+.password .password-toggle:hover img,
+.password .password-toggle:focus-visible img {
+  opacity: 0.85;
+}
+
+/* =========================================
+   FORÇA DA SENHA
+========================================= */
+
+.strength {
+  width: 100%;
+
+  height: 5px;
+
+  margin-top: 5px;
+
+  overflow: hidden;
+
+  background: #e9e9e9;
+
+  border-radius: 999px;
+}
+
+#strengthBar {
+  width: 0;
+
+  height: 100%;
+
+  border-radius: 999px;
+
+  transition: 0.35s ease;
+}
+
+#strengthText {
+  height: 14px;
+  margin-top: 5px;
+  font-size: 11px;
+
+  margin-bottom: 12px;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   TERMOS DE USO
+========================================= */
+
+.termos {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 8px 0;
+
+  font-size: 13px;
+}
+
+.termos input[type="checkbox"] {
+  width: 18px;
+
+  height: 18px;
+
+  accent-color: #2962ff;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.termos label {
+  margin: 0;
+
+  color: #555;
+
+  cursor: pointer;
+}
+
+.termos span {
+  color: #2962ff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.termos span:hover {
+  text-decoration: underline;
+  opacity: 8;
+}
+
+/* =========================================
+   MENSAGENS
+========================================= */
+
+small {
+  display: block;
+  height: 14px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  color: #e53935;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+/* =========================================
+   ESTADOS
+========================================= */
+
+.erro {
+  animation: shake 0.35s;
+  border: 3px solid #e53935 !important;
+  box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.12);
+}
+
+.sucesso {
+  border: 3px solid #36b37e !important;
+  box-shadow: 0 0 0 4px rgba(54, 179, 126, 0.12);
+}

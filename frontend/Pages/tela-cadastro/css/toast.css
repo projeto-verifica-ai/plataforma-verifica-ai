@@ -50,9 +50,14 @@
    ÍCONE
 ========================================= */
 
-.toast i{
+.toast > img,
+.toast > i{
 
-    font-size:24px;
+    width:24px;
+    height:24px;
+    max-width:24px;
+    max-height:24px;
+    object-fit:contain;
     flex-shrink:0;
 
 }
@@ -81,7 +86,8 @@
 
 }
 
-.toast.success i{
+.toast.success > img,
+.toast.success > i{
 
     color:#36B37E;
 
@@ -97,7 +103,8 @@
 
 }
 
-.toast.error i{
+.toast.error > img,
+.toast.error > i{
 
     color:#E53935;
 
@@ -113,7 +120,8 @@
 
 }
 
-.toast.info i{
+.toast.info > img,
+.toast.info > i{
 
     color:#2962FF;
 
@@ -129,7 +137,8 @@
 
 }
 
-.toast.warning i{
+.toast.warning > img,
+.toast.warning > i{
 
     color:#FFC107;
 

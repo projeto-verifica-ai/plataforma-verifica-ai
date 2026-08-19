@@ -44,7 +44,7 @@ class VerificaArtigo extends HTMLElement {
       <article class="artigo">
         <h1 class="artigo-titulo">${titulo}</h1>
          <div class="tempo-leitura">
-        <img class="imagem-tempo" src="../../assets/icons/relogio-guia-rapido.png" alt="Imagem de relógio" />
+        <img class="imagem-tempo" src="../../assets/icons/relogio-guia-rapido.png" alt="Imagem de relógio" loading="lazy" />
         <span class="artigo-meta">${tempoLeitura} min de leitura</span>
         </div>
         <div class="artigo-conteudo">

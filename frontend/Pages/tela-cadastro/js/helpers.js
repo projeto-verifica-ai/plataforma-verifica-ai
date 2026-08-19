@@ -84,15 +84,13 @@ function resetarFormulario() {
 
     confirmarSenha.type = "password";
 
-    olhoSenha.classList.replace(
-        "fa-eye-slash",
-        "fa-eye"
-    );
+    olhoSenha.querySelector("img").src = "../../assets/icons/icone-olho.svg";
+    olhoSenha.setAttribute("aria-pressed", "false");
+    olhoSenha.setAttribute("aria-label", "Mostrar senha");
 
-    olhoConfirmar.classList.replace(
-        "fa-eye-slash",
-        "fa-eye"
-    );
+    olhoConfirmar.querySelector("img").src = "../../assets/icons/icone-olho.svg";
+    olhoConfirmar.setAttribute("aria-pressed", "false");
+    olhoConfirmar.setAttribute("aria-label", "Mostrar confirmação de senha");
 
     strengthBar.style.width = "0%";
 

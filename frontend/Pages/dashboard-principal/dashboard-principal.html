@@ -1,154 +1,281 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conheça o site Verifica AÍ, descubra como navegar na internet
-     sem cair em golpes gerados por Inteligência Artificial.">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça o site Verifica AÍ, descubra como navegar na internet
+     sem cair em golpes gerados por Inteligência Artificial."
+    />
     <title>Verifica AÍ</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Componente de sidebar, compartilhado entre várias páginas do dashboard -->
     <script type="module" src="../../components/sidebar/sidebar.js"></script>
-    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css" />
 
     <!-- Componente de footer, compartilhado entre várias páginas do dashboard -->
     <script type="module" src="../../components/footer/footer.js"></script>
-    <link rel="stylesheet" href="../../components/footer/footer.css">
+    <link rel="stylesheet" href="../../components/footer/footer.css" />
 
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="dashboard-principal.css">
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="dashboard-principal.css" />
 
     <script type="module" src="dashboard-principal.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <verifica-sidebar></verifica-sidebar>
 
     <!-- SEÇÃO 1: CARD DE BOAS-VINDAS (HERO) -->
-     <div class="conteudo-pagina">
-    <header class="hero-boas-vindas">
-
+    <div class="conteudo-pagina">
+      <header class="hero-boas-vindas">
         <div class="boas-vindas-texto">
-            <h1>Olá,&nbsp;<span id="boas-vindas-nome">visitante</span>!</h1>
-            <p>Que bom ter você aqui! O que deseja fazer hoje?</p>
+          <h1>Olá,&nbsp;<span id="boas-vindas-nome">visitante</span>!</h1>
+          <p>Que bom ter você aqui! O que deseja fazer hoje?</p>
         </div>
 
-        <img src="../assets/icons/bot-acenando-header.svg"
-            alt="Imagem de um robô branco com roupa e boina verde escuro acenando" class="boas-vindas-mascote">
-    </header>
+        <img
+          src="../../assets/icons/bot-acenando-header.svg"
+          alt="Robô branco com roupa e boina verde escuro acenando"
+          class="boas-vindas-mascote"
+        />
+      </header>
 
-    <main>
+      <main>
         <!-- SEÇÃO 2: GRID DE NAVEGAÇÃO (4 CARDS)  -->
 
         <ul class="grid-navegacao">
-            <li>
-                <article class="card-nav">
-                    <img class="icone-card" src="../assets/icons/icone-comunidade-escuro.svg" alt="Imagem de três pessoas juntas">
-                    <h3>Comunidade</h3>
-                    <p>Se informe e aprenda com outras pessoas</p>
-                    <!-- Adicionar a pág da comunidade na ancora -->
-                    <a href="../dashboard-comunidade/comunidade.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+          <li>
+            <article class="card-nav">
+              <img
+                class="icone-card"
+                src="../../assets/icons/icone-comunidade-escuro.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <h3>Comunidade</h3>
+              <p>Se informe e aprenda com outras pessoas</p>
+              <!-- Adicionar a pág da comunidade na ancora -->
+              <a
+                href="../dashboard-comunidade/comunidade.html"
+                class="link-mobile"
+                target="_self"
+                ><img
+                  class="icone-seta-mobile"
+                  src="../../assets/icons/seta-mobile.svg"
+                  alt="Ícone de uma seta preta apontando para a direita"
+              /></a>
 
-                    <a href="../dashboard-comunidade/comunidade.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
-                </article>
-            </li>
+              <a
+                href="../dashboard-comunidade/comunidade.html"
+                class="link-desktop"
+                target="_self"
+                >Saiba mais
+                <img
+                  class="icone-seta-desktop"
+                  src="../../assets/icons/icone-seta.svg"
+                  alt="Ícone de uma seta branca apontando para a direita"
+              /></a>
+            </article>
+          </li>
 
-            <li>
-                <article class="card-nav card-robotive">
-                    <img class="icone-card" src="../assets/icons/mascot-image/img-robo-card.svg" alt="Imagem de um robô">
-                    <h3>Robôtive</h3>
-                    <p>Verifique conteúdos com a nossa IA</p>
-                    <!-- Adicionar a pág do robôtive na ancora -->
-                    <a href="../chatBot/chatBot.html" class="link-mobile" target="_self"><img class="icone-seta-mobile"
-                            src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+          <li>
+            <article class="card-nav card-robotive">
+              <img
+                class="icone-card"
+                src="../../assets/mascot/img-robo-card.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <h3>Robôtive</h3>
+              <p>Verifique conteúdos com a nossa IA</p>
+              <!-- Adicionar a pág do robôtive na ancora -->
+              <a
+                href="../chatBot/chatBot.html"
+                class="link-mobile"
+                target="_self"
+                ><img
+                  class="icone-seta-mobile"
+                  src="../../assets/icons/seta-mobile.svg"
+                  alt="Ícone de uma seta preta apontando para a direita"
+              /></a>
 
-                    <a href="../chatBot/chatBot.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
+              <a
+                href="../chatBot/chatBot.html"
+                class="link-desktop"
+                target="_self"
+                >Saiba mais
+                <img
+                  class="icone-seta-desktop"
+                  src="../../assets/icons/icone-seta.svg"
+                  alt="Ícone de uma seta branca apontando para a direita"
+              /></a>
+            </article>
+          </li>
 
-                </article>
-            </li>
+          <li>
+            <article class="card-nav">
+              <img
+                class="icone-card"
+                src="../../assets/icons/icone-noticia-escuro.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <h3>Notícias atuais</h3>
+              <p>Fique por dentro dos golpes e proteja-se</p>
+              <!-- Adicionar a pág de notícias atuais na ancora -->
+              <a
+                href="../noticias/tela-noticias.html"
+                class="link-mobile"
+                target="_self"
+                ><img
+                  class="icone-seta-mobile"
+                  src="../../assets/icons/seta-mobile.svg"
+                  alt="Ícone de uma seta preta apontando para a direita"
+              /></a>
 
-            <li>
-                <article class="card-nav">
-                    <img class="icone-card" src="../assets/icons/icone-noticia-escuro.svg" alt="Ícone de um jornal verde escuro">
-                    <h3>Notícias atuais</h3>
-                    <p>Fique por dentro dos golpes e proteja-se</p>
-                    <!-- Adicionar a pág de notícias atuais na ancora -->
-                    <a href="../noticias/tela-noticias.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
+              <a
+                href="../noticias/tela-noticias.html"
+                class="link-desktop"
+                target="_self"
+                >Saiba mais
+                <img
+                  class="icone-seta-desktop"
+                  src="../../assets/icons/icone-seta.svg"
+                  alt="Ícone de uma seta branca apontando para a direita"
+              /></a>
+            </article>
+          </li>
 
-                    <a href="../noticias/tela-noticias.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
-                    
-                </article>
-            </li>
+          <li>
+            <article class="card-nav">
+              <img
+                class="icone-card"
+                src="../../assets/icons/icone-guia-rapido-escuro.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <h3>Guia rápido</h3>
+              <p>Aprenda a identificar fraudes na internet</p>
+              <!-- Adicionar a pág do guia rapido atuais na ancora -->
+              <a
+                href="../guia-rapido/guia-rapido.html"
+                class="link-mobile"
+                target="_self"
+                ><img
+                  class="icone-seta-mobile"
+                  src="../../assets/icons/seta-mobile.svg"
+                  alt="Ícone de uma seta preta apontando para a direita"
+              /></a>
 
-            <li>
-                <article class="card-nav">
-                    <img class="icone-card" src="../assets/icons/icone-guia-rapido-escuro.svg" alt="Ícone de um chápeu de formatura">
-                    <h3>Guia rápido</h3>
-                    <p>Aprenda a identificar fraudes na internet</p>
-                    <!-- Adicionar a pág do guia rapido atuais na ancora -->
-                    <a href="../guia-rapido/guia-rapido.html" class="link-mobile"  target="_self"><img class="icone-seta-mobile" src="../assets/icons/seta-mobile.svg" alt="Ícone de uma seta preta apontando para a direita"></a>
-
-                    <a href="../guia-rapido/guia-rapido.html" class="link-desktop"  target="_self">Saiba mais <img class="icone-seta-desktop" src="../assets/icons/icone-seta.svg" alt="Ícone de uma seta branca apontando para a direita"></a>
-                </article>
-            </li>
+              <a
+                href="../guia-rapido/guia-rapido.html"
+                class="link-desktop"
+                target="_self"
+                >Saiba mais
+                <img
+                  class="icone-seta-desktop"
+                  src="../../assets/icons/icone-seta.svg"
+                  alt="Ícone de uma seta branca apontando para a direita"
+              /></a>
+            </article>
+          </li>
         </ul>
 
         <!-- SEÇÃO 3: DICA DO DETETIVE + CONTINUE APRENDENDO  -->
         <ul class="cards-desktop">
-            <li>
-                <article class="card-dica">
-                    <div class="card-dica-header">
-                        <img src="../assets/icons/icone-lampada.svg" alt="Ícone de uma lâmpada pequena">
-                        <h3>Dica do nosso detetive</h3>
+          <li>
+            <article class="card-dica">
+              <div class="card-dica-header">
+                <img
+                  src="../../assets/icons/icone-lampada.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <h3>Dica do nosso detetive</h3>
+              </div>
 
-                    </div>
+              <div class="mascote-paragrafo">
+                <img
+                  src="../../assets/mascot/img-robo-dica.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <p>
+                  Desconfie de títulos chamativos e promessas incríveis.
+                  <br />
+                  Sempre verifique fontes
+                </p>
+              </div>
 
-                    <div class="mascote-paragrafo">
-                        <img src="../assets/icons/mascot-image/img-robo-dica.svg" alt="Imagem de um robô com roupa verde escuro">
-                        <p>Desconfie de títulos chamativos e promessas incríveis.
-                            <br> 
-                            Sempre verifique fontes</p>
-                    </div>
+              <div>
+                <!-- Adicionar link do guia rápido-->
+                <a
+                  class="continue-aprendendo-botão"
+                  href="../guia-rapido/guia-rapido.html"
+                  >Continue aprendendo</a
+                >
+              </div>
+            </article>
+          </li>
 
-                    <div>
-                    <!-- Adicionar link do guia rápido-->
-                    <a class="continue-aprendendo-botão" href="../guia-rapido/guia-rapido.html">Continue aprendendo</a>
-                   
-                    </div>
-                </article>
-            </li>
-
-<li>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZPbhHhE22uY?si=qzQh4cdDNNLMofff" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</li>
-</ul>
+          <li>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ZPbhHhE22uY?si=qzQh4cdDNNLMofff"
+              title="YouTube video player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </li>
+        </ul>
 
         <!-- SEÇÃO 4: BANNER DE COMPARTILHAR  -->
         <div class="secao-compartilhe">
+          <img
+            src="../../assets/icons/icone-compartilhe.svg"
+            alt=""
+            aria-hidden="true"
+            class="banner-icone"
+          />
+          <p class="banner-texto">
+            <strong>Aqui, informação segura é poder!</strong> Espalhe
+            conhecimento e faça a diferença.
+          </p>
 
-           
-                <img src="../assets/icons/icone-compartilhe.svg" alt="ícone de compartilhar" class="banner-icone">
-                <p class="banner-texto"><strong>Aqui, informação segura é poder!</strong>
-                    Espalhe conhecimento e faça a diferença.</p>
-          
-             <a href="https://wa.me/?text=Aqui%2C%20informa%C3%A7%C3%A3o%20segura%20%C3%A9%20poder!%20Confira%20o%20Verifica%20A%C3%AD%3A%20https%3A%2F%2Fplataforma-verifica-ai.vercel.app"
-                target="_blank" rel="noopener noreferrer"  class="banner-compartilhe">Compartilhe <img src="../assets/icons/icone-clique-mão.svg" alt="ícone com mão clicando"></a>
-
-          
+          <a
+            href="https://wa.me/?text=Aqui%2C%20informa%C3%A7%C3%A3o%20segura%20%C3%A9%20poder!%20Confira%20o%20Verifica%20A%C3%AD%3A%20https%3A%2F%2Fplataforma-verifica-ai.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="banner-compartilhe"
+            >Compartilhe
+            <img
+              src="../../assets/icons/icone-clique-mão.svg"
+              alt="ícone com mão clicando"
+          /></a>
         </div>
-    </main>
-
-</div>
-
-</body>
-
+      </main>
+    </div>
+  </body>
 </html>

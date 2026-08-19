@@ -1,103 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifica AÍ</title>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Acompanhe notícias verificadas, filtre conteúdos suspeitos e aprenda a reconhecer desinformação com o Verifica AÍ."
+    />
+    <title>Notícias — Verifica AÍ</title>
     <script type="module" src="../../components/sidebar/sidebar.js"></script>
-    <link rel="stylesheet" href="../../components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="../../components/sidebar/sidebar.css" />
     <script type="module" src="../../components/footer/footer.js"></script>
-    <link rel="stylesheet" href="../../components/footer/footer.css">
-    <link rel="stylesheet" href="../../components/carregando-pagina/carregando-pagina.css">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="tela-noticias.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../components/footer/footer.css" />
+    <link
+      rel="stylesheet"
+      href="../../components/carregando-pagina/carregando-pagina.css"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="tela-noticias.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="pagina-com-sidebar">
+  <body class="pagina-com-sidebar">
     <verifica-sidebar></verifica-sidebar>
 
     <div class="carregando-pagina" id="carregando-pagina">
-        <span class="carregando-pagina-spinner" aria-hidden="true"></span>
-        <p class="carregando-pagina-texto">Carregando notícias...</p>
+      <span class="carregando-pagina-spinner" aria-hidden="true"></span>
+      <p class="carregando-pagina-texto">Carregando notícias...</p>
     </div>
 
     <main class="main" id="conteudo-noticias" hidden>
-        <header class="cabecalho">
-            <h1>Notícias e Verificação de Informação</h1>
+      <header class="cabecalho">
+        <h1>Notícias e Verificação de Informação</h1>
 
-            <!-- Barra de busca -->
-            <div class="busca-container">
-                <i class="fa-solid fa-magnifying-glass icone-busca" aria-hidden="true"></i>
-                <input type="search" id="busca-input" aria-label="Pesquisar notícias" placeholder="Pesquisar notícias">
-            </div>
-            <!-- Menu de filtragem de categorias -->
-            <nav class="filtros">
-                <ul id="filtros-lista">
-                    <li><a href="#" class="ativo" data-categoria="todas">Todas</a></li>
-                    <li><a href="#" data-categoria="verdadeira">Verdadeiras</a></li>
-                    <li><a href="#" data-categoria="falsa">Falsas</a></li>
-                    <li><a href="#" data-categoria="em-analise">Em análise</a></li>
-                </ul>
-            </nav>
-
-            <!-- Só aparece pra quem tem profiles.isModerator = true -->
-            <button type="button" class="btn-nova-noticia" id="btn-nova-noticia" hidden>
-                <i class="fa-solid fa-plus" aria-hidden="true"></i> Nova notícia
-            </button>
-        </header>
-
-        <!-- Formulário de nova notícia — só moderadores, escondido por padrão -->
-        <article class="card form-nova-noticia" id="form-nova-noticia" hidden>
-            <div class="card-conteudo card-conteudo--form">
-                <h2 id="noticia-form-titulo">Nova notícia</h2>
-                <form id="noticia-form">
-                    <label for="noticia-categoria" class="sr-only">Categoria</label>
-                    <select id="noticia-categoria" required>
-                        <option value="verdadeira">Verdadeira</option>
-                        <option value="falsa">Falsa</option>
-                        <option value="em-analise">Em análise</option>
-                    </select>
-
-                    <label for="noticia-texto" class="sr-only">Texto da notícia</label>
-                    <textarea id="noticia-texto" placeholder="Texto da notícia" required></textarea>
-
-                    <label for="noticia-imagem" class="sr-only">Link da imagem</label>
-                    <input type="url" id="noticia-imagem" placeholder="Link da imagem" required>
-
-                    <label for="noticia-link" class="sr-only">Link "Ler mais" (opcional)</label>
-                    <input type="url" id="noticia-link" placeholder="Link &quot;Ler mais&quot; (opcional)">
-
-                    <p class="noticia-erro" id="noticia-erro" role="alert"></p>
-
-                    <div class="form-nova-noticia-acoes">
-                        <button type="button" id="noticia-cancelar">Cancelar</button>
-                        <button type="submit" id="noticia-publicar">Publicar</button>
-                    </div>
-                </form>
-            </div>
-        </article>
-
-        <!-- Área principal com a listagem de notícias -->
-        <section class="noticias" id="noticias-lista" aria-live="polite"></section>
-
-        <!-- Rodapé com paginação -->
-        <nav class="paginacao" id="paginacao">
-            <a href="#" id="pagina-anterior" aria-label="Página anterior">&lt;</a>
-            <span id="pagina-info">Página 1 de 1</span>
-            <a href="#" id="pagina-proxima" aria-label="Próxima página">&gt;</a>
+        <!-- Barra de busca -->
+        <div class="busca-container">
+          <img
+            class="icone-busca"
+            src="../../assets/icons/icone-busca.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            id="busca-input"
+            aria-label="Pesquisar notícias"
+            placeholder="Pesquisar notícias"
+          />
+        </div>
+        <!-- Menu de filtragem de categorias -->
+        <nav class="filtros">
+          <ul id="filtros-lista">
+            <li><a href="#" class="ativo" data-categoria="todas">Todas</a></li>
+            <li><a href="#" data-categoria="verdadeira">Verdadeiras</a></li>
+            <li><a href="#" data-categoria="falsa">Falsas</a></li>
+            <li><a href="#" data-categoria="em-analise">Em análise</a></li>
+          </ul>
         </nav>
 
+        <!-- Só aparece pra quem tem profiles.isModerator = true -->
+        <button
+          type="button"
+          class="btn-nova-noticia"
+          id="btn-nova-noticia"
+          hidden
+        >
+          <img
+            src="../../assets/icons/icone-mais.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          Nova notícia
+        </button>
+      </header>
+
+      <!-- Formulário de nova notícia — só moderadores, escondido por padrão -->
+      <article class="card form-nova-noticia" id="form-nova-noticia" hidden>
+        <div class="card-conteudo card-conteudo--form">
+          <h2 id="noticia-form-titulo">Nova notícia</h2>
+          <form id="noticia-form">
+            <label for="noticia-categoria" class="sr-only">Categoria</label>
+            <select id="noticia-categoria" required>
+              <option value="verdadeira">Verdadeira</option>
+              <option value="falsa">Falsa</option>
+              <option value="em-analise">Em análise</option>
+            </select>
+
+            <label for="noticia-texto" class="sr-only">Texto da notícia</label>
+            <textarea
+              id="noticia-texto"
+              placeholder="Texto da notícia"
+              required
+            ></textarea>
+
+            <label for="noticia-imagem" class="sr-only">Link da imagem</label>
+            <input
+              type="url"
+              id="noticia-imagem"
+              placeholder="Link da imagem"
+              required
+            />
+
+            <label for="noticia-link" class="sr-only"
+              >Link "Ler mais" (opcional)</label
+            >
+            <input
+              type="url"
+              id="noticia-link"
+              placeholder='Link "Ler mais" (opcional)'
+            />
+
+            <p class="noticia-erro" id="noticia-erro" role="alert"></p>
+
+            <div class="form-nova-noticia-acoes">
+              <button type="button" id="noticia-cancelar">Cancelar</button>
+              <button type="submit" id="noticia-publicar">Publicar</button>
+            </div>
+          </form>
+        </div>
+      </article>
+
+      <!-- Área principal com a listagem de notícias -->
+      <section
+        class="noticias"
+        id="noticias-lista"
+        aria-live="polite"
+      ></section>
+
+      <!-- Rodapé com paginação -->
+      <nav class="paginacao" id="paginacao">
+        <a href="#" id="pagina-anterior" aria-label="Página anterior">&lt;</a>
+        <span id="pagina-info">Página 1 de 1</span>
+        <a href="#" id="pagina-proxima" aria-label="Próxima página">&gt;</a>
+      </nav>
     </main>
 
     <script type="module" src="tela-noticias.js"></script>
-</body>
-
+  </body>
 </html>

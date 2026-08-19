@@ -2,7 +2,7 @@
 // VERIFICA AI
 // services/appwrite.js
 // Serviço compartilhado de acesso ao Appwrite.
-// Usado por: tela.cadastro, pagina-login, guia-rapido, dashboard-comunidade.
+// Usado por: tela-cadastro, pagina-login, guia-rapido, dashboard-comunidade.
 // =========================================
 
 import {

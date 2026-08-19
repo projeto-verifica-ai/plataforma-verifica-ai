@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 
 /* Propriedades customizadas */
 :root {
@@ -153,6 +152,8 @@ main {
     width: 38%;
     /* tamanho das imagens dos cards */
     max-width: 68px;
+    height: 68px;
+    max-height: 68px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -455,6 +456,7 @@ verifica-footer {
     .icone-card {
         max-width: 90px;
         height: 95px;
+        max-height: 95px;
     }
 
     .card-nav h3 {
@@ -552,6 +554,7 @@ verifica-footer {
     .icone-card {
         max-width: 100px;
         height: 105px;
+        max-height: 105px;
     }
 
     .card-nav h3 {
