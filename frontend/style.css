@@ -1525,3 +1525,10 @@ a.source-card:active {
     animation: none !important;
   }
 }
+
+
+/* REGRA GLOBAL PARA IMAGENS RESPONSIVAS E PREVENCAO DE CLS */
+img {
+  max-width: 100%;
+  height: auto;
+}
