@@ -432,7 +432,7 @@ A partir de 900px
 
 
     .welcome h1 {
-        font-size: 2.7.5rem;
+        font-size: 2.75rem;
         margin-top: .5rem !important;
     }
 
@@ -548,41 +548,75 @@ Garante o alinhamento correto do robô e do título
 
     /* lado esquerdo */
     .welcome{
-          flex: 0 0 34.5% ;
+          flex: 0 0 38% ;
           height: 100vh; 
     }
 
     /* Empurra o título  para baixo na tela grande */
     .welcome h1 {
-        margin-top: 3rem !important; 
+        margin-top: 3rem !important;
+        font-size: 3.5rem !important; 
     }
 
     /* Empurra o robô para baixo de forma proporcional para essa media */
     .robot {
-        top: 30.5rem !important; /* Ajuste se quiser o robô mais para cima ou para baixo */
+        top: 28rem !important; /* Ajuste se quiser o robô mais para cima ou para baixo */
         left: 50% !important;
         transform: translateX(-50%) !important;
     }
 
     .robot img{
-        width: 17rem !important;
-        height: 17rem !important;
+        width: 19rem !important;
+        height: 19rem !important;
     }
 
       .login {
 
-        border-radius: 2rem;
+        border-radius: 1.250rem;
        
-        height: 46rem !important; 
-        width: 35rem !important;
+        height: 48rem !important; 
+        width: 34.5rem !important;
         
         margin-top: auto !important;
-        margin-bottom: 9rem !important;
-        margin-left: 23rem !important;
+        margin-bottom: 7rem !important;
+        margin-left: 19.5rem !important;
         
         padding: 2.5rem 3.5rem !important; /* Dá o respiro interno para o botão azul respirar */
     }
 
+   .login h2{
+    font-size: 3rem;
 
-    
+    margin-left: -10rem;
+    padding-top: 2rem;
+   }
+
+    .social-login{
+        padding-bottom: 2rem !important;
+    }
+
+    .social-login button{
+       
+        font-size: 1rem !important;
+
+        gap: 9.25rem !important;
+
+        border-radius: .75rem !important;
+      margin-left: -2.5rem !important;
+       width: 32.5rem !important;
+       height: 2.75rem !important;
+    }
+
+    .input-group {
+        width: 32.5rem;
+        font-size: .9rem;
+        margin-left: -2.5rem;
+    }
+
+    .separator {
+        transform: translateY(-2.75rem);
+        margin-left: -2.25rem;
+        width: 32rem !important;
+    }
+  
 }
