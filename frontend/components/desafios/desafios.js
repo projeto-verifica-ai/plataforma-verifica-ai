@@ -136,7 +136,7 @@ class VerificaDesafio extends HTMLElement {
 
     return `
       <button class="imagem-opcao ${classeEstado}" data-opcao-id="${opcao.id}" ${this._respondido ? "disabled" : ""}>
-        <img src="${opcao.src}" alt="${opcao.label}" loading="lazy" width="1200" height="800" />
+        <img src="${opcao.src}" alt="${opcao.label}" loading="lazy" width="1200" height="800" decoding="async" />
         <span class="imagem-opcao-label">${opcao.label}</span>
       </button>
     `;

@@ -60,7 +60,7 @@ class VerificaTrilhaTabs extends HTMLElement {
                     return `
             ${divisor}
             <button class="trilha-tab trilha-tab--ativa" data-trilha-id="${trilha.id}">
-            <img class="trilha-tab-icone" src="../../assets/icons/pagina-atual-icon.png" alt="Ícone de cadeado trancado" />
+            <img class="trilha-tab-icone" src="../../assets/icons/pagina-atual-icon.png" alt="Ícone de cadeado trancado" width="18" height="18" decoding="async" />
               <span>${trilha.titulo}</span>
             </button>
           `;
@@ -71,7 +71,7 @@ class VerificaTrilhaTabs extends HTMLElement {
                     return `
             ${divisor}
             <button class="trilha-tab trilha-tab--bloqueada" disabled data-trilha-id="${trilha.id}">
-              <img class="trilha-tab-icone" src="../../assets/icons/bloqueado-icon.png" alt="Ícone de cadeado trancado" />
+              <img class="trilha-tab-icone" src="../../assets/icons/bloqueado-icon.png" alt="Ícone de cadeado trancado" width="18" height="18" decoding="async" />
               <span>${trilha.titulo}</span>
             </button>
           `;
@@ -81,7 +81,7 @@ class VerificaTrilhaTabs extends HTMLElement {
                 return `
           ${divisor}
           <button class="trilha-tab" data-trilha-id="${trilha.id}">
-             <img class="trilha-tab-icone" src="../../assets/icons/desbloqueado-icon.png" alt="Ícone de cadeado aberto" />
+             <img class="trilha-tab-icone" src="../../assets/icons/desbloqueado-icon.png" alt="Ícone de cadeado aberto" width="18" height="18" decoding="async" />
             <span>${trilha.titulo}</span>
           </button>
         `;

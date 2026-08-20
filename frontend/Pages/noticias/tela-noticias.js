@@ -64,7 +64,10 @@ function criarCard(noticia) {
     const img = document.createElement("img");
     img.src = noticia.imagem;
     img.alt = "";
+    img.width = 800;
+    img.height = 450;
     img.loading = "lazy";
+    img.decoding = "async";
 
     const selo = document.createElement("span");
     selo.className = `card-selo card-selo--${info.classe}`;

@@ -26,7 +26,7 @@ class VerificaSidebar extends HTMLElement {
     const renderNav = (items) =>
       items.map(({ href, icon, label }) => `
         <a href="${href}" class="nav-item ${paginaAtual === href ? "nav-item--active" : ""}">
-          <img src="../../assets/icons/${icon}" alt="" class="nav-icon" />
+          <img src="../../assets/icons/${icon}" alt="" class="nav-icon" width="22" height="22" decoding="async" />
           <span>${label}</span>
         </a>
       `).join("");
@@ -35,10 +35,10 @@ class VerificaSidebar extends HTMLElement {
       <aside class="sidebar">
 
         <div class="sidebar-logo">
-          <img src="../../assets/mascot/verificaai-robot-nobackground.png" alt="Logo Verifica AI" class="sidebar-logo-icon" />
+          <img src="../../assets/mascot/verificaai-robot-nobackground.webp" alt="Logo Verifica AI" class="sidebar-logo-icon" width="53" height="53" decoding="async" />
           <span class="sidebar-logo-text">Verifica AÍ</span>
           <div class="verify-icon-div">
-          <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" />
+          <img src="../../assets/icons/icone-verificado.png" alt="Ícone de verificado" class="sidebar-verify-icon" width="90" height="90" decoding="async" />
           </div>
           </div>
 
@@ -54,7 +54,7 @@ class VerificaSidebar extends HTMLElement {
 
         <div class="sidebar-profile">
         <!-- Nome real e foto vêm do Appwrite (carregarPerfil). Clicar na foto troca o avatar (só quando logado). -->
-          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" id="profile-avatar" />
+          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" id="profile-avatar" width="44" height="44" decoding="async" />
           <input type="file" accept="image/*" id="avatar-input" hidden />
           <div class="profile-info">
             <span class="profile-name">Olá!</span>
@@ -69,19 +69,19 @@ class VerificaSidebar extends HTMLElement {
       
    <nav class="bottom-nav" aria-label="Navegação principal">
     <a href="../dashboard-principal/dashboard-principal.html" class="bottom-nav-item ${paginaAtual === 'dashboard-principal.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="../../assets/icons/icone-inicio.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-inicio.svg" alt="" class="bottom-nav-icon" width="24" height="24" decoding="async" />
       <span>Início</span>
     </a>
     <a href="../perfil/perfil.html" class="bottom-nav-item ${paginaAtual === 'perfil.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-perfil.svg" alt="" class="bottom-nav-icon" width="24" height="24" decoding="async" />
       <span>Meu perfil</span>
     </a>
     <a href="../tela-ajuda/tela-ajuda.html" class="bottom-nav-item ${paginaAtual === 'tela-ajuda.html' ? 'bottom-nav-item--active' : ''}">
-      <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" width="24" height="24" decoding="async" />
       <span>Ajuda</span>
     </a>
     <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
-      <img src="../../assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" />
+      <img src="../../assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" width="24" height="24" decoding="async" />
       <span>Configurações</span>
     </a>
   </nav>

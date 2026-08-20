@@ -62,8 +62,8 @@ const trilhas = [
                 pergunta: "Qual imagem foi criada por IA?",
                 textoComplementar: "Dica: observe os detalhes das mãos e do texto na imagem.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/oqi-maos-ia.jpg", label: "Imagem B", correta: true },
-                    { id: "a", src: "../../assets/imagens/oqi-maos-real.jpg", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/oqi-maos-ia.webp", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/oqi-maos-real.webp", label: "Imagem A" },
 
                 ],
             },
@@ -73,8 +73,8 @@ const trilhas = [
                 pergunta: "E entre essas duas, qual foi criada por IA?",
                 textoComplementar: "Dica: repare na simetria dos olhos e dos dentes.",
                 opcoes: [
-                    { id: "a", src: "../../assets/imagens/oqi-rosto-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/oqi-rosto-ia.jpg", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/oqi-rosto-real.webp", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/oqi-rosto-ia.webp", label: "Imagem B", correta: true },
                 ],
             },
         ],
@@ -135,9 +135,9 @@ const trilhas = [
                 pergunta: "Qual dessas duas imagens foi criada por IA?",
                 textoComplementar: "Dica: repare nas mãos e nos dedos das pessoas.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cid-maos-ia.jpg", label: "Imagem B", correta: true },
+                    { id: "b", src: "../../assets/imagens/cid-maos-ia.webp", label: "Imagem B", correta: true },
 
-                    { id: "a", src: "../../assets/imagens/cid-maos-real.jpg", label: "Imagem A" },
+                    { id: "a", src: "../../assets/imagens/cid-maos-real.webp", label: "Imagem A" },
                 ],
             },
             {
@@ -146,8 +146,8 @@ const trilhas = [
                 pergunta: "E entre essas duas, qual foi criada por IA?",
                 textoComplementar: "Dica: observe o fundo da imagem e qualquer texto ou placa que apareça.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cid-rua-ia.jpg", label: "Imagem B", correta: true },
-                    { id: "a", src: "../../assets/imagens/cid-rua-real.jpg", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cid-rua-ia.webp", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/cid-rua-real.webp", label: "Imagem A" },
 
                 ],
             },
@@ -208,8 +208,8 @@ const trilhas = [
                 pergunta: "A IA também consegue criar imagens a partir de um pedido. Qual dessas foi gerada por IA?",
                 textoComplementar: "Dica: repare em elementos repetidos ou fora do lugar no fundo.",
                 opcoes: [
-                    { id: "a", src: "../../assets/imagens/cu-paisagem-real.avif", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cu-paisagem-ia.jpg", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/cu-paisagem-real.webp", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cu-paisagem-ia.webp", label: "Imagem B", correta: true },
                 ],
             },
             {
@@ -218,8 +218,8 @@ const trilhas = [
                 pergunta: "E entre essas duas, qual foi gerada por IA?",
                 textoComplementar: "Dica: observe as mãos e os dedos da pessoa na imagem.",
                 opcoes: [
-                    { id: "a", src: "../../assets/imagens/cu-retrato-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cu-retrato-ia.jpg", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/cu-retrato-real.webp", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cu-retrato-ia.webp", label: "Imagem B", correta: true },
 
                 ],
             },
@@ -280,8 +280,8 @@ const trilhas = [
                 pergunta: "Golpistas podem criar imagens falsas de situações que nunca aconteceram. Qual dessas é real?",
                 textoComplementar: "Dica: observe se a cena faz sentido como um todo, incluindo o fundo.",
                 opcoes: [
-                    { id: "b", src: "../../assets/imagens/cui-situacao-ia.jpg", label: "Imagem B" },
-                    { id: "a", src: "../../assets/imagens/cui-situacao-real.avif", label: "Imagem A", correta: true },
+                    { id: "b", src: "../../assets/imagens/cui-situacao-ia.webp", label: "Imagem B" },
+                    { id: "a", src: "../../assets/imagens/cui-situacao-real.webp", label: "Imagem A", correta: true },
                 ],
             },
             {
@@ -290,8 +290,8 @@ const trilhas = [
                 pergunta: "Qual desses dois documentos parece ter sido manipulado por IA?",
                 textoComplementar: "Dica: repare em letras borradas, símbolos estranhos ou textos sem sentido.",
                 opcoes: [
-                    { id: "a", src: "../../assets/imagens/cui-documento-real.jpg", label: "Imagem A" },
-                    { id: "b", src: "../../assets/imagens/cui-documento-ia.jpg", label: "Imagem B", correta: true },
+                    { id: "a", src: "../../assets/imagens/cui-documento-real.webp", label: "Imagem A" },
+                    { id: "b", src: "../../assets/imagens/cui-documento-ia.webp", label: "Imagem B", correta: true },
                 ],
             },
         ],

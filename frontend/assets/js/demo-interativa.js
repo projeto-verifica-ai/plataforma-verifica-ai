@@ -73,7 +73,7 @@
         verdadeiro: { rotulo: "Verdadeiro", icone: "✓" },
     };
 
-    const ROBOTIVE_AVATAR_SRC = "assets/mascot/BotImageChatAI.png";
+    const ROBOTIVE_AVATAR_SRC = "assets/mascot/BotImageChatAI.webp";
 
     const elChat = document.getElementById("demoChat");
     const elLog = document.getElementById("demoChatLog");
@@ -96,7 +96,7 @@
     function autorRobotive() {
         return `
       <p class="demo-bubble__autor demo-bubble__autor--bot">
-        <img class="demo-bubble__avatar" src="${ROBOTIVE_AVATAR_SRC}" alt="" aria-hidden="true" />
+        <img class="demo-bubble__avatar" src="${ROBOTIVE_AVATAR_SRC}" alt="" aria-hidden="true" width="44" height="44" loading="lazy" decoding="async" />
         Robôtive
       </p>
     `;
