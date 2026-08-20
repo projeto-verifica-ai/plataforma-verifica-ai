@@ -61,6 +61,9 @@ async function criarItemFeed(publicacao) {
         const imgAvatar = document.createElement("img");
         imgAvatar.src = urlAvatar;
         imgAvatar.alt = "";
+        imgAvatar.width = 44;
+        imgAvatar.height = 44;
+        imgAvatar.loading = "lazy";
         avatar.appendChild(imgAvatar);
     } else {
         avatar.textContent = nomeAutor.charAt(0).toUpperCase();

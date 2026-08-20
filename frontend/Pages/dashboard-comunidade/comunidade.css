@@ -283,6 +283,7 @@ button {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
+  background-color: var(--color-blue);
 }
 .pub-avatar img {
   width: 100%;

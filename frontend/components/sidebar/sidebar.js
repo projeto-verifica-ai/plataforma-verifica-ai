@@ -19,7 +19,7 @@ class VerificaSidebar extends HTMLElement {
     ];
 
     const navSecundario = [
-      { href: "#", icon: "icone-configuracao.svg", label: "Configurações" },
+      { href: "../tela-configuracao/tela-configuracao.html", icon: "icone-configuracao.svg", label: "Configurações" },
       { href: "../tela-ajuda/tela-ajuda.html", icon: "icone-ajuda.svg", label: "Ajuda" },
     ];
 
@@ -54,7 +54,7 @@ class VerificaSidebar extends HTMLElement {
 
         <div class="sidebar-profile">
         <!-- Nome real e foto vêm do Appwrite (carregarPerfil). Clicar na foto troca o avatar (só quando logado). -->
-          <img src="../../assets/foto-usuario.png" alt="Foto de perfil" class="profile-avatar" id="profile-avatar" />
+          <img src="../../assets/icons/icone-perfil.svg" alt="Foto de perfil" class="profile-avatar" id="profile-avatar" width="44" height="44" loading="lazy" />
           <input type="file" accept="image/*" id="avatar-input" hidden />
           <div class="profile-info">
             <span class="profile-name">Olá!</span>
@@ -80,7 +80,7 @@ class VerificaSidebar extends HTMLElement {
       <img src="../../assets/icons/icone-ajuda.svg" alt="" class="bottom-nav-icon" />
       <span>Ajuda</span>
     </a>
-    <a href="#" class="bottom-nav-item"> <!-- TODO: página ainda não criada -->
+    <a href="../tela-configuracao/tela-configuracao.html" class="bottom-nav-item ${paginaAtual === 'tela-configuracao.html' ? 'bottom-nav-item--active' : ''}">
       <img src="../../assets/icons/icone-configuracao.svg" alt="" class="bottom-nav-icon" />
       <span>Configurações</span>
     </a>

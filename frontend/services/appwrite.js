@@ -147,10 +147,42 @@ async function pegarPerfil(userId) {
 }
 
 // Monta a URL pra exibir o arquivo do avatar salvo no Storage.
+// Usa getFileView (não getFilePreview/miniatura) porque transformação de
+// imagem é um recurso pago do Appwrite Cloud — no plano gratuito ele
+// responde 403 "storage_image_transformations_blocked". Por isso o
+// próprio arquivo já é comprimido pro tamanho certo ANTES do upload,
+// em trocarAvatar() — ver comprimirImagem() logo abaixo.
 // Retorna null se o usuário ainda não tem foto (avatarField vazio).
 function pegarUrlAvatar(fileId) {
   if (!fileId) return null;
   return storage.getFileView({ bucketId: STORAGE_AVATARS, fileId }).toString();
+}
+
+// Redimensiona/comprime a imagem no navegador antes do upload, pra não
+// depender de transformação de imagem no servidor (recurso pago do
+// Appwrite Cloud). Evita fotos de câmera de vários MB virarem o arquivo
+// "original" que todo mundo baixa pra ver um círculo de 44px.
+async function comprimirImagem(arquivo, tamanhoMax = 256, qualidade = 0.82) {
+  const bitmap = await createImageBitmap(arquivo);
+
+  const escala = Math.min(1, tamanhoMax / Math.max(bitmap.width, bitmap.height));
+  const largura = Math.round(bitmap.width * escala);
+  const altura = Math.round(bitmap.height * escala);
+
+  const canvas = document.createElement("canvas");
+  canvas.width = largura;
+  canvas.height = altura;
+  canvas.getContext("2d").drawImage(bitmap, 0, 0, largura, altura);
+
+  const blob = await new Promise((resolve) =>
+    canvas.toBlob(resolve, "image/jpeg", qualidade)
+  );
+
+  // Se por algum motivo a compressão falhar, envia o arquivo original
+  // em vez de travar o fluxo de troca de avatar.
+  if (!blob) return arquivo;
+
+  return new File([blob], "avatar.jpg", { type: "image/jpeg" });
 }
 
 // Envia a nova foto pro Storage e salva o id dela em profiles.avatarField.
@@ -161,10 +193,19 @@ async function trocarAvatar(userId, arquivo) {
   const perfilAtual = await pegarPerfil(userId);
   const avatarAntigoId = perfilAtual?.avatarField || null;
 
+  let arquivoComprimido = arquivo;
+  try {
+    arquivoComprimido = await comprimirImagem(arquivo);
+  } catch (erro) {
+    // Segue com o arquivo original — melhor um avatar pesado do que
+    // travar a troca de foto por completo.
+    console.error("Não foi possível comprimir a imagem, enviando original:", erro);
+  }
+
   const arquivoEnviado = await storage.createFile({
     bucketId: STORAGE_AVATARS,
     fileId: ID.unique(),
-    file: arquivo,
+    file: arquivoComprimido,
     permissions: [
       Permission.read(Role.any()),
       Permission.delete(Role.user(userId)),
