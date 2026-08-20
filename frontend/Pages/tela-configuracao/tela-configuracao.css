@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    background-color: #f1eee6;
+    font-family: 'Outfit', sans-serif;
+
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Não deixar a sidebar ser espremida */
+verifica-sidebar {
+    flex-shrink: 0;
+}
+
+.conteudo {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.manutencao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-manutencao {
+    width: 280px;
+}
+
+.manutencao h1 {
+    color: #284cad;
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+.linha {
+    width: 90px;
+    height: 5px;
+    background-color: #c8d98c;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.manutencao p {
+    color: #4b5159;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.mensagem {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 18px 30px;
+
+    background-color: #c8d98c;
+    border-radius: 15px;
+
+    color: #284cad;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 18px;
+}
