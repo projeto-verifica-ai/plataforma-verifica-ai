@@ -13,8 +13,7 @@ function mostrarToast(tipo, mensagem) {
 
         toast.classList.add("success");
 
-        toastIcon.className =
-            "fa-solid fa-circle-check";
+        toastIcon.src = "../../assets/icons/icone-sucesso.svg";
 
     }
 
@@ -22,8 +21,7 @@ function mostrarToast(tipo, mensagem) {
 
         toast.classList.add("error");
 
-        toastIcon.className =
-            "fa-solid fa-circle-xmark";
+        toastIcon.src = "../../assets/icons/icone-erro.svg";
 
     }
 

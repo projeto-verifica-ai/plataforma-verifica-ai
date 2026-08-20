@@ -73,7 +73,7 @@
         verdadeiro: { rotulo: "Verdadeiro", icone: "✓" },
     };
 
-    const ROBOTIVE_AVATAR_SRC = "assets/mascot-image/BotImageChatAI.png";
+    const ROBOTIVE_AVATAR_SRC = "assets/mascot/BotImageChatAI.png";
 
     const elChat = document.getElementById("demoChat");
     const elLog = document.getElementById("demoChatLog");

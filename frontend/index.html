@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -28,20 +28,25 @@
     <header class="header">
       <a href="#inicio" class="logo" aria-label="Voltar ao início da página">
         <img
-          src="assets/verificaai-robot-nobackground.png"
+          src="assets/mascot/verificaai-robot-nobackground.png"
           alt="Ícone do Verifica AÍ"
           class="logo-icon"
+          width="327"
+          height="322"
+          fetchpriority="high"
         />
         <span class="logo-text">Verifica AÍ</span>
         <img
           src="assets/icons/icone-verificado.png"
           alt="Verificado"
           class="icon-verified"
+          width="90"
+          height="90"
         />
       </a>
       <!-- Colocar uma condicional para verificar se o usuario ja está cadastrado no site, se estiver, carrega direto para a dashboard -->
       <a
-        href="Pages/tela.cadastro/tela-cadastro.html"
+        href="Pages/tela-cadastro/tela-cadastro.html"
         class="btn btn-primary btn-large"
         aria-label="Comece Grátis"
       >
@@ -62,7 +67,7 @@
             através de uma plataforma simples, acessível e pensada para todos.
           </p>
           <a
-            href="Pages/tela.cadastro/tela-cadastro.html"
+            href="Pages/tela-cadastro/tela-cadastro.html"
             class="btn btn-primary btn-large"
             >Conheça a plataforma</a
           >
@@ -149,6 +154,9 @@
                 src="assets/icons/icone-lupa.png"
                 alt=""
                 class="feature-icon"
+                width="90"
+                height="90"
+                loading="lazy"
               />
               <h3>Conteúdos informativos</h3>
             </div>
@@ -311,7 +319,7 @@
             class="source-card"
             aria-label="Visitar o G1 — Portal de notícias da Globo (abre em nova aba)"
           >
-            <img src="assets/fontes-jornalisticas/g1.png" alt="G1" />
+            <img src="assets/fontes-jornalisticas/g1.png" alt="G1" width="448" height="500" loading="lazy" />
           </a>
 
           <a
@@ -323,6 +331,9 @@
           >
             <img
               src="assets/fontes-jornalisticas/agencia_brasil.png"
+              width="3840"
+              height="1240"
+              loading="lazy"
               alt="Agência Brasil"
             />
           </a>
@@ -336,6 +347,9 @@
           >
             <img
               src="assets/fontes-jornalisticas/folha_sao_paulo.png"
+              width="3840"
+              height="425"
+              loading="lazy"
               alt="Folha de São Paulo"
             />
           </a>
@@ -347,7 +361,7 @@
             class="source-card"
             aria-label="Visitar o UOL (abre em nova aba)"
           >
-            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" />
+            <img src="assets/fontes-jornalisticas/uol.png" alt="UOL" width="2500" height="894" loading="lazy" />
           </a>
 
           <a
@@ -357,7 +371,7 @@
             class="source-card"
             aria-label="Visitar a CNN Brasil (abre em nova aba)"
           >
-            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" />
+            <img src="assets/fontes-jornalisticas/cnn.png" alt="CNN" width="1000" height="465" loading="lazy" />
           </a>
         </div>
 
@@ -395,7 +409,10 @@
             aria-label="Parceiro PROA — visitar site oficial (abre em nova aba)"
           >
             <img
-              src="assets/parceiros/proa.png"
+              src="assets/logos-parceiros/proa.png"
+              width="238"
+              height="237"
+              loading="lazy"
               alt="PROA"
               class="partner-logo"
             />
@@ -410,7 +427,10 @@
             aria-label="Parceiro Conecta Gerações — visitar site oficial (abre em nova aba)"
           >
             <img
-              src="assets/parceiros/conecta_geracoes.png"
+              src="assets/logos-parceiros/conecta_geracoes.png"
+              width="242"
+              height="246"
+              loading="lazy"
               alt="Conecta Gerações"
               class="partner-logo"
             />
@@ -425,7 +445,10 @@
             aria-label="Parceiro Serasa Experian — visitar site oficial (abre em nova aba)"
           >
             <img
-              src="assets/parceiros/serasa_experian.png"
+              src="assets/logos-parceiros/serasa_experian.png"
+              width="224"
+              height="227"
+              loading="lazy"
               alt="Serasa Experian"
               class="partner-logo"
             />
@@ -438,7 +461,7 @@
         <h2>Proteja-se de notícias falsas e golpes virtuais.</h2>
         <p>Comece gratuitamente e desenvolva sua segurança digital.</p>
         <a
-          href="Pages/tela.cadastro/tela-cadastro.html"
+          href="Pages/tela-cadastro/tela-cadastro.html"
           class="btn btn-secondary"
           >Crie sua conta!</a
         >

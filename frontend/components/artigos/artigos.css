@@ -37,7 +37,6 @@
   margin-top: 1.5rem;
 }
 
-
 /* Cada parágrafo do artigo. max-width em "ch" limita a largura da
    linha a uma medida confortável de leitura (~70 caracteres), em vez
    de esticar por toda a largura do card em telas grandes. */
@@ -67,6 +66,7 @@
 
 .imagem-tempo {
   height: 1rem;
+  width: 1rem;
 }
 
 .tempo-leitura {

@@ -155,7 +155,7 @@ function appendUserMessage(text, file) {
         ${text ? `<div class="bubble">${escapeHtml(text)}</div>` : ""}
         ${file ? `
             <div class="attachment-chip">
-                <img src="../../assets/icons/attach-white.png" alt="" />
+                <img src="../../assets/icons/attach-white.png" alt="" width="35" height="34" />
                 <span>${escapeHtml(file.name)}</span>
             </div>
         ` : ""}
@@ -228,7 +228,7 @@ function appendAssistantMessage(resposta) {
     // Monta o HTML completo da mensagem
     row.innerHTML = `
         <div class="assistant-avatar">
-            <img src="../../assets/mascot-image/BotImageChatAI.png" alt="Mascote Verifica AI analisando o conteúdo" />
+            <img src="../../assets/mascot/BotImageChatAI.png" alt="Mascote Verifica AI analisando o conteúdo" width="500" height="500" loading="lazy" />
         </div>
         <div class="assistant-content">
             ${seloHtml}

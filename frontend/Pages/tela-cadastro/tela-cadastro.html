@@ -7,6 +7,10 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Crie sua conta gratuita no Verifica AI para aprender a identificar golpes, fake news e conteúdos gerados por IA com mais segurança."
+    />
 
     <title>Verifica AI - Cadastro</title>
 
@@ -19,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -27,31 +31,30 @@
     <!-- FONT AWESOME -->
     <!-- ===================================== -->
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-
     <!-- ===================================== -->
     <!-- CSS -->
     <!-- ===================================== -->
 
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/forms.css" />
     <link rel="stylesheet" href="css/buttons.css" />
+    <link rel="stylesheet" href="css/forms.css" />
     <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/toast.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/animation.css" />
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
 
   <body>
     <header class="mobile-header">
-      <h1>Bem-vindo!</h1>
+      <p class="mobile-header-title">Bem-vindo!</p>
 
-      <img src="img/Logo-Robotive.png" class="mobile-robot" alt="Robô" />
+      <img
+        src="../../assets/mascot/Logo-Robotive.png"
+        class="mobile-robot"
+        alt="Robô"
+      />
     </header>
 
     <!-- ===================================== -->
@@ -67,10 +70,14 @@
         <div class="logo">
           <h1 class="desktop-title">Crie sua conta gratuita</h1>
 
-          <h1 class="mobile-title">Bem-vindo!</h1>
+          <p class="mobile-title">Bem-vindo!</p>
         </div>
 
-        <img src="img/Logo-Robotive.png" class="robot" alt="Robô Verifica AI" />
+        <img
+          src="../../assets/mascot/Logo-Robotive.png"
+          class="robot"
+          alt="Robô Verifica AI"
+        />
 
         <div class="login-link">
           <p>Já tem uma conta?</p>
@@ -99,13 +106,13 @@
 
           <div class="social-buttons">
             <button class="social-btn facebook" type="button">
-              <img src="img/facebook-svg.svg" alt="Facebook" />
+              <img src="../../assets/icons/facebook-svg.svg" alt="Facebook" />
 
               <span> Entrar com Facebook </span>
             </button>
 
             <button class="social-btn google" type="button">
-              <img src="img/google-svg.svg" alt="Google" />
+              <img src="../../assets/icons/google-svg.svg" alt="Google" />
 
               <span> Entrar com Google </span>
             </button>
@@ -177,10 +184,26 @@
                   required
                 />
 
-                <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="olhoSenha"
+                  aria-label="Mostrar senha"
+                  aria-pressed="false"
+                  aria-controls="senha"
+                >
+                  <img
+                    class="icone-olho"
+                    src="../../assets/icons/icone-olho.svg"
+                    alt=""
+                    aria-hidden="true"
+                    width="24"
+                    height="24"
+                  />
+                </button>
               </div>
 
-              <small id="erroSenha"></small>
+              <small id="erroSenha" aria-live="polite"></small>
 
               <!-- Barra de força -->
 
@@ -206,10 +229,26 @@
                   required
                 />
 
-                <i class="fa-regular fa-eye" id="olhoConfirmar"> </i>
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="olhoConfirmar"
+                  aria-label="Mostrar confirmação de senha"
+                  aria-pressed="false"
+                  aria-controls="confirmarSenha"
+                >
+                  <img
+                    class="icone-olho"
+                    src="../../assets/icons/icone-olho.svg"
+                    alt=""
+                    aria-hidden="true"
+                    width="24"
+                    height="24"
+                  />
+                </button>
               </div>
 
-              <small id="erroConfirmar"></small>
+              <small id="erroConfirmar" aria-live="polite"></small>
             </div>
 
             <!-- ============================== -->
@@ -231,7 +270,11 @@
             <button class="create-account" type="submit">
               Criar conta
 
-              <i class="fa-solid fa-arrow-right"></i>
+              <img
+                src="../../assets/icons/icone-seta-direita.svg"
+                alt=""
+                aria-hidden="true"
+              />
             </button>
           </form>
 
@@ -394,7 +437,6 @@
             própria aplicação.
           </p>
 
-
           <div class="termos-footer">
             <p><strong>Versão:</strong> 1.0</p>
 
@@ -407,7 +449,6 @@
               acadêmico.
             </p>
           </div>
-
         </div>
 
         <!-- ============================= -->
@@ -415,7 +456,11 @@
         <!-- ============================= -->
 
         <div class="scroll-info" id="scrollInfo">
-          <i class="fa-solid fa-circle-info"></i>
+          <img
+            src="../../assets/icons/icone-informacao.svg"
+            alt=""
+            aria-hidden="true"
+          />
 
           <span>
             Role até o final dos Termos de Uso para habilitar o botão
@@ -441,7 +486,12 @@
     <!-- ===================================== -->
 
     <div id="toast" class="toast">
-      <i id="toastIcon" class="fa-solid fa-circle-check"> </i>
+      <img
+        id="toastIcon"
+        src="../../assets/icons/icone-sucesso.svg"
+        alt=""
+        aria-hidden="true"
+      />
 
       <span id="toastMessage"></span>
     </div>
